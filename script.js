@@ -1,65 +1,31 @@
-/* script.js */
+let images = [
+    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg",
+];
 
-window.onload = function() {
-    var images = [
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-    ];
-    var currentIndex = 0;
+let imageIndex1 = [0, 1, 2];
+let imageIndex2 = [0, 2, 1];
 
-    function updateImages() {
-        document.getElementById('img1').src = images[currentIndex % images.length];
-        document.getElementById('img2').src = images[(currentIndex + 1) % images.length];
-        document.getElementById('img3').src = images[(currentIndex + 2) % images.length];
-    }
+let currentImageIndex = 0;
 
-    document.getElementById('shift-left').addEventListener('click', function() {
-        currentIndex--;
-        updateImages();
-    });
+let image1 = document.getElementById('image1');
+let button1 = document.getElementById('button1');
+let button2 = document.getElementById('button2');
 
-    document.getElementById('shift-right').addEventListener('click', function() {
-        currentIndex++;
-        updateImages();
-    });
+button1.addEventListener('click', function() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    image1.src = images[imageIndex1[currentImageIndex]];
+});
 
-    var modal = document.createElement('div');
-    modal.style.display = 'none';
-    modal.style.position = 'fixed';
-    modal.style.top = '50%';
-    modal.style.left = '50%';
-    modal.style.transform = 'translate(-50%, -50%)';
-    modal.style.maxWidth = '90%';
-    modal.style.maxHeight = '90%';
-    document.body.appendChild(modal);
+button2.addEventListener('click', function() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    image1.src = images[imageIndex2[currentImageIndex]];
+});
 
-    function showModal(imgSrc) {
-        var img = document.createElement('img');
-        img.src = imgSrc;
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '100%';
-        modal.appendChild(img);
-        modal.style.display = 'block';
-    }
+image1.addEventListener('click', function() {
+    image1.classList.toggle('enlarged');
+});
 
-    function hideModal() {
-        modal.innerHTML = '';
-        modal.style.display = 'none';
-    }
 
-    modal.addEventListener('click', hideModal);
-
-    document.getElementById('img1').addEventListener('click', function() {
-        showModal(this.src);
-    });
-
-    document.getElementById('img2').addEventListener('click', function() {
-        showModal(this.src);
-    });
-
-    document.getElementById('img3').addEventListener('click', function() {
-        showModal(this.src);
-    });
-}
 
