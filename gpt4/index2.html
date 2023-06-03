@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>デボン紀の物語 - ChatGPTによるWebページ作成</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .header, .footer, .main-content, .sidebar {
+            border: 1px solid lightgray;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .header h1, .header h2 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            flex: 1;
+        }
+
+        .main-content {
+            flex: 3;
+            text-align: center;
+        }
+
+        .main-content .article {
+            font-size: 20px;
+        }
+
+        .main-content .image-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .main-content .image-section button {
+            margin: 10px;
+        }
+
+        .footer {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>デボン紀の物語</h1>
+        <h2>ChatGPTによるサンプルWebページ</h2>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>サイドバー</h3>
+            <p>ここにはリンクや情報が含まれます。</p>
+        </div>
+
+        <div class="main-content">
+            <div class="article">
+                <p>
+                    約4億から3億年前のデボン紀、地球はまた新しい生命の章を開いていました。海洋には新たな存在が現れ、それは魚類でした。その中でも注目すべきは、恐ろしい肉食性魚、ダンクルオステウスです。体長は最大で10メートルに達し、その頑丈なアーマーに覆われた体は他の生物にとって絶対の脅威でした。今から考えるとその存在は恐ろしいかもしれませんが、ダンクルオステウスが生きていたデボン紀は、地球生命の進化において重要な時期でした。
+                </p>
+            </div>
+
+            <div class="image-section">
+                <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="G1" onclick="expandImage()" style="cursor: pointer;">
+                <button onclick="prevImage()">＜</button>
+                <button onclick="nextImage()">＞</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用します。</p>
+    </div>
+
+    <script>
+        let currentImage = 0;
+        const images = [
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+        ];
+
+        function prevImage() {
+            currentImage = (currentImage + 1) % images.length;
+            document.getElementById('image').src = images[currentImage];
+        }
+
+        function nextImage() {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            document.getElementById('image').src = images[currentImage];
+        }
+
+        function expandImage() {
+            let image = document.getElementById('image');
+            if (image.style.maxWidth === "100%") {
+                image.style.maxWidth = "none";
+                image.style.maxHeight = "100vh";
+            } else {
+                image.style.maxWidth = "100%";
+                image.style.maxHeight = "none";
+            }
+        }
+    </script>
+</body>
+</html>
