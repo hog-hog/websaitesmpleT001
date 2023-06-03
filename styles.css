@@ -1,0 +1,53 @@
+/* styles.css */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    width: 100%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+#layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+}
+
+#sidebar {
+    flex: 1;
+}
+
+#main-content {
+    flex: 4;
+}
+
+#article {
+    margin-bottom: 20px;
+}
+
+#gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    #layout {
+        flex-direction: column;
+    }
+}
