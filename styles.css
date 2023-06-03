@@ -1,51 +1,57 @@
-/* styles.css */
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-header, footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-.container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    /* styles for the header */
+}
+
+#content {
+    display: flex;
+    flex-grow: 1;
 }
 
 aside {
-    flex: 1;
-    padding: 20px;
+    /* styles for the sidebar */
+    width: 20%;
 }
 
 main {
-    flex: 3;
-    padding: 20px;
+    /* styles for the main content */
+    width: 80%;
 }
 
-.image-container {
+article {
+    /* styles for the article */
+}
+
+#image-section {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    aside, main {
-        flex: 1;
-    }
-
-    .image-container {
-        flex-direction: column;
-    }
+#button1, #button2 {
+    /* styles for the buttons */
 }
+
+#image1 {
+    /* styles for the image */
+    transition: transform 0.25s ease;
+}
+
+#image1.enlarged {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+}
+
+footer {
+    /* styles for the footer */
+}
+
 
