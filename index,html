@@ -1,120 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>My Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-    }
-
-    nav {
-      background-color: #f4f4f4;
-      width: 200px;
-      padding: 10px;
-      float: left;
-    }
-
-    main {
-      padding: 10px;
-      margin-left: 220px;
-      margin-right: 220px;
-    }
-
-    aside {
-      background-color: #f4f4f4;
-      width: 200px;
-      padding: 10px;
-      float: right;
-    }
-
-    article {
-      margin-top: 20px;
-    }
-
-    button {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      clear: both;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デボン紀の記事</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Header</h1>
-  </header>
-  <nav>
-    <p>SID</p>
-  </nav>
-  <main>
-    <p>M</p>
-    <section>
-      <p>K</p>
-      <button id="button1">B1</button>
-      <button id="button2">B2</button>
-      <div id="imageContainer">
-        <img src="image1.jpg" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-      </div>
-    </section>
-  </main>
-  <aside>
-    <img src="imageG1.jpg" alt="Image G1">
-    <img src="imageG2.jpg" alt="Image G2">
-    <img src="imageG3.jpg" alt="Image G3">
-  </aside>
-  <footer>
-    <p>Footer</p>
-  </footer>
-  <script>
-    var button1 = document.getElementById('button1');
-    var button2 = document.getElementById('button2');
-    var imageContainer = document.getElementById('imageContainer');
-    var images = Array.from(imageContainer.getElementsByTagName('img'));
-
-    button1.addEventListener('click', function() {
-      var lastImage = images.pop();
-      images.unshift(lastImage);
-      updateImageOrder();
-    });
-
-    button2.addEventListener('click', function() {
-      var firstImage = images.shift();
-      images.push(firstImage);
-      updateImageOrder();
-    });
-
-    function updateImageOrder() {
-      imageContainer.innerHTML = '';
-      images.forEach(function(image) {
-        imageContainer.appendChild(image);
-      });
-    }
-  </script>
+    <header>H</header>
+    <div id="layout">
+        <aside id="sidebar">SID</aside>
+        <main id="main-content">
+            <article id="article">
+                デボン紀（約4億 ~ 3億年前）は、生物進化の観点から非常に興味深い時期でした。この時期はしばしば「魚の時代」とも呼ばれ、大量の海洋生物、特に硬骨魚と軟骨魚が進化しました。また、この時期には最初の陸上植物や昆虫が登場しました。デボン紀の終わりには大量絶滅があり、海洋生物の多くが失われました。これらの変化は地球の生態系に大きな影響を与え、生物進化の方向を大きく変えました。
+            </article>
+            <div id="gallery">
+                <button id="button1">B1</button>
+                <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像1" class="gallery-image">
+                <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg" alt="画像2" class="gallery-image">
+                <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg" alt="画像3" class="gallery-image">
+                <button id="button2">B2</button>
+            </div>
+        </main>
+    </div>
+    <footer>F</footer>
 </body>
 </html>
-
