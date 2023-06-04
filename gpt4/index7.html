@@ -5,93 +5,82 @@
         * {
             box-sizing: border-box;
         }
-
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             margin: 0;
-            padding: 0;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        #header, #footer {
-            width: 100%;
-            height: 10%;
-            border: 1px solid lightgrey;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #sidebar {
-            height: 80%;
-            width: 20%;
-            border: 1px solid lightgrey;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #main {
-            height: 80%;
-            width: 80%;
-            border: 1px solid lightgrey;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+        }
+        .header, .footer {
+            background: #eee;
+            text-align: center;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+        .main {
+            display: flex;
+            flex-grow: 1;
+        }
+        .sidebar {
+            background: #ddd;
+            width: 20%;
+            padding: 20px;
+        }
+        .content {
+            background: #ccc;
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .article, .image, .buttons {
+            background: #bbb;
+            margin: 10px 0;
+            display: flex;
             justify-content: center;
             align-items: center;
         }
-
-        #article {
-            width: 100%;
+        .article {
             height: 30%;
-            border: 1px solid lightgrey;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-
-        #image {
-            width: 100%;
+        .image {
             height: 60%;
-            border: 1px solid lightgrey;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-
-        #buttons {
-            width: 100%;
+        .buttons {
             height: 10%;
-            border: 1px solid lightgrey;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
         }
-
         .button {
-            width: 40%;
-            height: 80%;
-            border: 1px solid lightgrey;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #aaa;
+            margin: 0 10px;
+            padding: 20px;
+            flex-grow: 1;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div id="header">H</div>
-    <div id="sidebar">SID</div>
-    <div id="main">
-        <div id="article">K</div>
-        <div id="image">G</div>
-        <div id="buttons">
-            <div class="button">B1</div>
-            <div class="button">B2</div>
+    <div class="header">
+        H (Header)
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            SID (Sidebar)
+        </div>
+        <div class="content">
+            <div class="article">
+                K (Article)
+            </div>
+            <div class="image">
+                G (Image)
+            </div>
+            <div class="buttons">
+                <div class="button">B1 (Button)</div>
+                <div class="button">B2 (Button)</div>
+            </div>
         </div>
     </div>
-    <div id="footer">F</div>
+    <div class="footer">
+        F (Footer)
+    </div>
 </body>
 </html>
