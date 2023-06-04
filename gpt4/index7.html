@@ -1,146 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webページ</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      box-sizing: border-box;
     }
 
-    .container {
-      display: grid;
-      grid-template-areas:
-        "header"
-        "sidebar"
-        "main"
-        "footer";
-      grid-template-rows: auto 1fr auto;
-      grid-template-columns: 1fr;
-      min-height: 100vh;
-    }
-
-    header {
-      grid-area: header;
-      background-color: #f2f2f2;
-      border-bottom: 1px solid #ccc;
-      text-align: center;
+    .header, .sidebar, .main-content, .footer {
+      border: 1px solid lightgray;
+      box-sizing: border-box;
       padding: 10px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .header, .footer {
+      height: 50px;
     }
 
     .sidebar {
-      grid-area: sidebar;
-      background-color: #f8f8f8;
-      border-right: 1px solid #ccc;
-      text-align: center;
-      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: calc(100% - 100px);
     }
 
-    main {
-      grid-area: main;
-      text-align: center;
-      padding: 10px;
-    }
-
-    footer {
-      grid-area: footer;
-      background-color: #f2f2f2;
-      border-top: 1px solid #ccc;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-areas:
-        "d1 d2 d3"
-        "c1 k c2"
-        "d4 d5 d6"
-        "b1 g b2";
-      grid-template-rows: auto 30% auto auto;
-      grid-template-columns: 10% 80% 10%;
-      gap: 10px;
-      margin-bottom: 20px;
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: calc(100% - 100px);
     }
 
     .element {
-      border: 1px solid #ccc;
-      padding: 10px;
+      border: 1px solid lightgray;
+      box-sizing: border-box;
+      width: 10%;
+      text-align: center;
+    }
+
+    .article {
+      border: 1px solid lightgray;
+      box-sizing: border-box;
+      width: 80%;
+      height: 30%;
       text-align: center;
     }
 
     .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #f2f2f2;
-      border: 1px solid #ccc;
+      border: 1px solid lightgray;
+      box-sizing: border-box;
+      width: 10%;
       text-align: center;
-      text-decoration: none;
-      color: #333;
-      margin: 5px;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
+    .image {
+      border: 1px solid lightgray;
+      box-sizing: border-box;
+      width: 80%;
+      height: 70%;
+      text-align: center;
     }
 
-    @media only screen and (max-width: 600px) {
-      .content-grid {
-        grid-template-areas:
-          "c1"
-          "k"
-          "c2"
-          "g"
-          "d1"
-          "d2"
-          "d3"
-          "d4"
-          "d5"
-          "d6"
-          "b1"
-          "b2";
-        grid-template-rows: auto;
-        grid-template-columns: 100%;
+    @media (max-width: 767px) {
+      .sidebar, .main-content {
+        flex-direction: row;
+        align-items: flex-start;
       }
 
-      .element {
+      .element, .article, .button, .image {
+        width: 100%;
         margin-bottom: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Header</h1>
-    </header>
-    <div class="sidebar">
-      <h2>Sidebar</h2>
-    </div>
-    <main>
-      <div class="content-grid">
-        <div class="element" style="grid-area: c1">C1</div>
-        <div class="element" style="grid-area: k">K (Article)</div>
-        <div class="element" style="grid-area: c2">C2</div>
-        <div class="element" style="grid-area: g"><img src="path/to/image.jpg" alt="Image"></div>
-        <div class="element" style="grid-area: d1">D1</div>
-        <div class="element" style="grid-area: d2">D2</div>
-        <div class="element" style="grid-area: d3">D3</div>
-        <div class="element" style="grid-area: d4">D4</div>
-        <div class="element" style="grid-area: d5">D5</div>
-        <div class="element" style="grid-area: d6">D6</div>
-        <div class="element" style="grid-area: b1"><a href="#" class="button">Button 1</a></div>
-        <div class="element" style="grid-area: b2"><a href="#" class="button">Button 2</a></div>
-      </div>
-    </main>
-    <footer>
-      <h2>Footer</h2>
-    </footer>
+  <div class="header">H</div>
+  <div class="sidebar">
+    <div class="element">SID</div>
   </div>
+  <div class="main-content">
+    <div class="element">D1<br>C1</div>
+    <div class="article">D2<br>K</div>
+    <div class="element">D3<br>C2</div>
+    <div class="element">D4<br>B1</div>
+    <div class="image">D5<br>G</div>
+    <div class="element">D6<br>B2</div>
+  </div>
+  <div class="footer">F</div>
 </body>
 </html>
