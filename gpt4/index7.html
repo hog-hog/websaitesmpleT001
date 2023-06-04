@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      box-sizing: border-box;
-    }
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            box-sizing: border-box;
+        }
 
-    #header, #footer {
-      width: 100%;
-      height: 10%;
-      border: 1px solid lightgrey;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .header, .footer {
+            width: 100%;
+            height: 10%;
+            border: 1px solid lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    #sidebar {
-      width: 20%;
-      height: 80%;
-      border: 1px solid lightgrey;
-    }
+        .main {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            border: 1px solid lightgrey;
+        }
 
-    #main {
-      width: 80%;
-      height: 80%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      border: 1px solid lightgrey;
-    }
+        .sidebar {
+            width: 20%;
+            height: 100%;
+            border: 1px solid lightgrey;
+        }
 
-    #article, #image {
-      width: 80%;
-      border: 1px solid lightgrey;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 100%;
+            border: 1px solid lightgrey;
+        }
 
-    #article {
-      height: 30%;
-    }
+        .article, .image {
+            width: 80%;
+            border: 1px solid lightgrey;
+        }
 
-    #image {
-      height: 60%;
-    }
+        .article {
+            height: 30%;
+        }
 
-    #buttons {
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
-      border: 1px solid lightgrey;
-    }
+        .image {
+            height: 60%;
+        }
 
-    .button {
-      width: 48%;
-      border: 1px solid lightgrey;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 10%;
+        }
+
+        .button {
+            width: 40%;
+            height: 100%;
+            border: 1px solid lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-  <div id="header">H</div>
-  <div id="body">
-    <div id="sidebar">SID</div>
-    <div id="main">
-      <div id="article">K</div>
-      <div id="image">G</div>
-      <div id="buttons">
-        <div class="button">B1</div>
-        <div class="button">B2</div>
-      </div>
+    <div class="header">H</div>
+    <div class="main">
+        <div class="sidebar">SID</div>
+        <div class="content">
+            <div class="article">K</div>
+            <div class="image">G</div>
+            <div class="buttons">
+                <div class="button">B1</div>
+                <div class="button">B2</div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div id="footer">F</div>
+    <div class="footer">F</div>
 </body>
 </html>
