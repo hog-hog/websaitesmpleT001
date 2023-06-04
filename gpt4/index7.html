@@ -61,42 +61,79 @@
       justify-content: center;
       align-items: center;
     }
+    .image {
+      width: 80%;
+      height: auto;
+      cursor: pointer;
+    }
+    .article {
+      font-size: 24px;
+    }
+    .button {
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
   </style>
-  <title>Responsive Web Page</title>
+  <script>
+    // Image Slideshow
+    var currentImage = 0;
+    var images = [
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+    ];
+    function changeImage(direction) {
+      if (direction === "prev") {
+        currentImage = (currentImage === 0) ? images.length - 1 : currentImage - 1;
+      } else {
+        currentImage = (currentImage === images.length - 1) ? 0 : currentImage + 1;
+      }
+      document.getElementById("slideshow").src = images[currentImage];
+    }
+    // Image Modal
+    function openModal() {
+      document.getElementById("modal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+  <title>Sample Web Page</title>
 </head>
 
 <body>
   <div class="container header">
-    <h1>Header</h1>
+    <h1>ページのタイトル</h1>
+    <h2>chatGPTが作成したサンプルWebページ</h2>
   </div>
 
   <div class="container">
     <div class="sidebar">
       <div class="inner-content">
-        <h2>SID</h2>
-        <div class="content-item">
-          <h3>B1</h3>
-        </div>
-        <div class="content-item">
-          <h3>B2</h3>
-        </div>
+        <h2>サイドバー</h2>
+        <p>リンクや情報</p>
       </div>
     </div>
 
     <div class="main">
       <div class="inner-content">
         <div class="content-item">
-          <h2>K</h2>
+          <h2>K（記事）</h2>
+          <p class="article">デボン紀（約4億 ~ 3億年前）に、話題になっていた記事の内容をここに書く（400文字程度）</p>
         </div>
         <div class="content-item">
-          <h2>G</h2>
-        </div>
-        <div class="content-row">
-          <div class="content-item">
-            <h3>B1</h3>
+          <h2>G（画像セクション）</h2>
+          <div class="content-column">
+            <img id="slideshow" class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="openModal()">
           </div>
-          <div class="content-item">
-            <h3>B2</h3>
+          <div class="content-row">
+            <div class="content-item">
+              <button class="button" onclick="changeImage('prev')">＜</button>
+            </div>
+            <div class="content-item">
+              <button class="button" onclick="changeImage('next')">＞</button>
+            </div>
           </div>
         </div>
       </div>
@@ -104,7 +141,14 @@
   </div>
 
   <div class="container footer">
-    <h1>Footer</h1>
+    <h3>MITライセンスで公開</h3>
+    <p>ユーザーは自己責任で利用してください。</p>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="modal" style="display: none;">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-image" onclick="closeModal()">
   </div>
 </body>
 
