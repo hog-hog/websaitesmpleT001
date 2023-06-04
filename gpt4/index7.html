@@ -2,104 +2,96 @@
 <html>
 <head>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             display: flex;
             flex-direction: column;
-            align-items: stretch;
+            align-items: center;
             margin: 0;
             padding: 0;
             height: 100vh;
-            box-sizing: border-box;
+            width: 100vw;
         }
-        .header, .footer {
+
+        #header, #footer {
             width: 100%;
             height: 10%;
-            border: 1px solid lightgray;
+            border: 1px solid lightgrey;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .content {
-            display: flex;
-            width: 100%;
+
+        #sidebar {
             height: 80%;
-        }
-        .sidebar {
             width: 20%;
-            height: 100%;
-            border: 1px solid lightgray;
+            border: 1px solid lightgrey;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .main {
+
+        #main {
+            height: 80%;
             width: 80%;
-            height: 100%;
-            border: 1px solid lightgray;
+            border: 1px solid lightgrey;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        .article, .image {
-            width: 80%;
-            border: 1px solid lightgray;
+
+        #article {
+            width: 100%;
+            height: 30%;
+            border: 1px solid lightgrey;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .article {
-            height: 30%;
-        }
-        .image {
+
+        #image {
+            width: 100%;
             height: 60%;
-        }
-        .buttons {
-            width: 80%;
-            height: 10%;
+            border: 1px solid lightgrey;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             align-items: center;
         }
+
+        #buttons {
+            width: 100%;
+            height: 10%;
+            border: 1px solid lightgrey;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
         .button {
             width: 40%;
-            height: 100%;
-            border: 1px solid lightgray;
+            height: 80%;
+            border: 1px solid lightgrey;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        @media (max-width: 600px) {
-            .content {
-                flex-direction: column;
-            }
-            .sidebar, .main {
-                width: 100%;
-                height: 50%;
-            }
-            .buttons {
-                flex-direction: column;
-            }
-            .button {
-                width: 80%;
-                height: 50%;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="header">H</div>
-    <div class="content">
-        <div class="sidebar">SID</div>
-        <div class="main">
-            <div class="article">K</div>
-            <div class="image">G</div>
-            <div class="buttons">
-                <div class="button">B1</div>
-                <div class="button">B2</div>
-            </div>
+    <div id="header">H</div>
+    <div id="sidebar">SID</div>
+    <div id="main">
+        <div id="article">K</div>
+        <div id="image">G</div>
+        <div id="buttons">
+            <div class="button">B1</div>
+            <div class="button">B2</div>
         </div>
     </div>
-    <div class="footer">F</div>
+    <div id="footer">F</div>
 </body>
 </html>
