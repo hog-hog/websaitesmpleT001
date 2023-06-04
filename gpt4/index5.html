@@ -1,149 +1,138 @@
 <!DOCTYPE html>
-<html lang="ja">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>デボン紀の物語</title>
     <style>
         * {
             box-sizing: border-box;
         }
-
         body {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            height: 100vh;
             margin: 0;
-            align-items: center;
-            justify-content: center;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
-
         #header, #footer {
-            width: 100%;
+            background-color: #ccc;
             padding: 20px;
             text-align: center;
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #dee2e6;
         }
-
+        #main {
+            flex: 1;
+            display: flex;
+        }
         #sidebar {
-            width: 20%;
+            width: 200px;
+            background-color: #ddd;
             padding: 20px;
-            border-right: 1px solid #dee2e6;
         }
-
-        #main-content {
+        #content {
             flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
-
-        .article, .image-section {
-            width: 60%;
+        #content-top, #content-bottom {
+            display: flex;
+            justify-content: space-between;
             padding: 20px;
+        }
+        #article, #image {
+            flex: 1;
+            margin: 0 20px;
             text-align: justify;
+            font-size: 18px;
         }
-
-        .article p {
-            font-size: 1.2em;
-        }
-
-        .empty {
-            width: 20%;
-            padding: 20px;
-        }
-
-        #displayed-image {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .image-button {
-            padding: 10px 20px;
+        #button-1, #button-2 {
+            background-color: #bbb;
+            padding: 10px;
+            text-align: center;
             cursor: pointer;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
         }
-
-        @media (max-width: 768px) {
-            #sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid #dee2e6;
-            }
-
-            .article, .image-section, .empty {
-                width: 100%;
-            }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
         }
     </style>
 </head>
-
 <body>
-    <div id="header">
+    <header id="header">
         <h1>デボン紀の物語</h1>
         <p>chatGPTが作成したサンプルWebページ</p>
-    </div>
-
-    <div id="sidebar">
-        <p>必要なリンクや情報をここに追加します。</p>
-    </div>
-
-    <div id="main-content">
-        <div class="empty"></div>
-        <div class="article">
-            <p>デボン紀、地球がまだ若く、生命が進化の旅を始めた時代。その中でも注目すべき存在が「ダンクルオステウス」でありました。この時代を象徴する生物は、その巨大な体と、恐怖を感じさせる鋭い歯で知られています。</p>
+    </header>
+    <div id="main">
+        <aside id="sidebar">
+            <h2>リンク</h2>
+            <!-- ここにリンクを追加 -->
+        </aside>
+        <div id="content">
+            <div id="content-top">
+                <div id="blank-1"></div>
+                <div id="article">
+                    <h2>デボン紀 - 古代の海の巨大生物</h2>
+                    <p>
+                        デボン紀、約4億年前から3億年前の地球。この時代は「魚の時代」とも呼ばれ、古代の海は多種多様な生物で溢れていました。中でも最も恐ろしかったのが、巨大な海洋捕食者、ダンクルオステウスでした。この生物は全長10メートルにも及び、その巨大な顎は強力な噛みつき力を持っていました。ダンクルオステウスは、その強靭な体と鋭い歯で海洋の頂点に君臨していました。しかし、デボン紀の終わりに近づくと、彼らの支配は終わりを迎えました。なぜなら、新たな生物が海洋の頂点を奪ったからです。それが、初めての肺を持つ魚類であり、これが後の四足動物の祖先となったのです。
+                    </p>
+                </div>
+                <div id="blank-2"></div>
+            </div>
+            <div id="content-bottom">
+                <div id="button-1">＜</div>
+                <div id="image">
+                    <img id="current-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
+                </div>
+                <div id="button-2">＞</div>
+            </div>
         </div>
-        <div class="empty"></div>
-        <button class="image-button" onclick="prevImage()">＜</button>
-        <img id="displayed-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="expandImage()" alt="Dunkleosteus">
-        <button class="image-button" onclick="nextImage()">＞</button>
     </div>
-
-    <div id="footer">
-        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用することになります。</p>
+    <footer id="footer">
+        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
+    </footer>
+    <div id="lightbox" onclick="hideLightbox()">
+        <img id="lightbox-image">
     </div>
-
     <script>
-        let images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg",
+        var images = [
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
         ];
-        let currentImageIndex = 0;
+        var currentIndex = 0;
 
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 2) % images.length;
-            document.getElementById("displayed-image").src = images[currentImageIndex];
-        }
+        document.getElementById('button-1').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById('current-image').src = images[currentIndex];
+        });
 
-        function prevImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            document.getElementById("displayed-image").src = images[currentImageIndex];
-        }
+        document.getElementById('button-2').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById('current-image').src = images[currentIndex];
+        });
 
-        function expandImage() {
-            let img = document.getElementById("displayed-image");
-            if (img.style.position === "fixed") {
-                img.style.position = "static";
-                img.style.zIndex = "auto";
-                img.style.width = "100%";
-            } else {
-                img.style.position = "fixed";
-                img.style.zIndex = "999";
-                img.style.width = "50%";
-                img.style.top = "50%";
-                img.style.left = "50%";
-                img.style.transform = "translate(-50%, -50%)";
-            }
+        document.getElementById('current-image').addEventListener('click', function() {
+            document.getElementById('lightbox-image').src = images[currentIndex];
+            document.getElementById('lightbox').style.display = 'flex';
+        });
+
+        function hideLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
         }
     </script>
 </body>
-
 </html>
