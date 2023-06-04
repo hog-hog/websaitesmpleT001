@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Web Page</title>
+  <style>
+    /* Reset default margin and padding */
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Set overall page layout */
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Header styles */
+    header {
+      background-color: lightgray;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Sidebar styles */
+    aside {
+      background-color: lightgray;
+      width: 10%;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Main content styles */
+    main {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    /* Content layout within main section */
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 10% 80% 10%;
+      grid-template-rows: 30% 70%;
+      gap: 10px;
+    }
+
+    /* Individual content elements */
+    .box {
+      background-color: lightgray;
+      border: 1px solid gray;
+      text-align: center;
+    }
+
+    .article {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    .button1 {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .image {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .button2 {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: lightgray;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Header</h1>
+  </header>
+  <aside>
+    <p>SID</p>
+  </aside>
+  <main>
+    <div class="content-wrapper">
+      <div class="box"></div>
+      <div class="article">
+        <h2>Article</h2>
+      </div>
+      <div class="box button1"></div>
+      <div class="box image"></div>
+      <div class="box button2"></div>
+    </div>
+  </main>
+  <footer>
+    <h3>Footer</h3>
+  </footer>
+</body>
+</html>
