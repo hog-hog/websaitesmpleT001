@@ -38,11 +38,13 @@
       margin-top: 10px;
       margin-bottom: 10px;
       display: inline-block;
+      text-align: left;
     }
 
     #footer {
       background-color: #ccc;
       padding: 10px;
+      font-size: 12px;
     }
 
     #grid-container {
@@ -62,6 +64,8 @@
       height: 30%;
       margin: 0 auto;
       background-color: #fff;
+      font-size: 16px;
+      overflow: auto;
     }
 
     .image {
@@ -69,6 +73,16 @@
       height: 70%;
       margin: 0 auto;
       background-color: #fff;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .buttons {
+      margin-top: 10px;
     }
 
     @media (max-width: 600px) {
@@ -81,21 +95,73 @@
       }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var images = ['https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
+                    'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
+                    'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'];
+      var currentIndex = 0;
+      var imageElement = document.getElementById('image');
+      var prevButton = document.getElementById('prev-button');
+      var nextButton = document.getElementById('next-button');
+
+      function updateImage() {
+        imageElement.src = images[currentIndex];
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+      }
+
+      prevButton.addEventListener('click', prevImage);
+      nextButton.addEventListener('click', nextImage);
+    });
+  </script>
 </head>
 <body>
-  <div id="header">H</div>
+  <div id="header">
+    <h1>ページのタイトル</h1>
+    <h2>chatGPTが作成したサンプルWebページ</h2>
+  </div>
   <div id="grid-container">
-    <div id="sidebar" class="grid-item">SID</div>
+    <div id="sidebar" class="grid-item">
+      <ul>
+        <li><a href="#">リンク1</a></li>
+        <li><a href="#">リンク2</a></li>
+        <li><a href="#">リンク3</a></li>
+      </ul>
+    </div>
     <div id="main-content" class="grid-item">
-      <div class="grid-item" id="d1">C1</div>
-      <div class="grid-item article" id="d2">K</div>
-      <div class="grid-item" id="d3">C2</div>
-      <div class="grid-item" id="d4">B1</div>
-      <div class="grid-item image" id="d5">G</div>
-      <div class="grid-item" id="d6">B2</div>
+      <div class="grid-item" id="d1"></div>
+      <div class="grid-item article" id="d2">
+        <h3>デボン紀の記事</h3>
+        <p>デボン紀（約4億 ~ 3億年前）は、地球史上重要な時代でした。この時代には、多くの生物が進化し、海洋と陸地の生態系が栄えました。例えば、<strong>ドンクルオステウス</strong>という古代の魚類は、その巨大な頭部の装甲と強力な顎で知られています。</p>
+        <p>デボン紀の海洋では、シロナガスクジラやアンモナイトなど、さまざまな生物が繁栄しました。陸地でも、初期の陸生植物が現れ、昆虫や陸棲の爬虫類が進化し始めました。</p>
+        <p>デボン紀は地球史上の転換期とも言える時代であり、地球の生態系にとって重要な出来事が起こった時代です。</p>
+      </div>
+      <div class="grid-item" id="d3"></div>
+      <div class="grid-item" id="d4">
+        <div class="buttons">
+          <button id="prev-button">＜</button>
+          <button id="next-button">＞</button>
+        </div>
+      </div>
+      <div class="grid-item image" id="d5">
+        <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image">
+      </div>
+      <div class="grid-item" id="d6"></div>
     </div>
     <div id="sidebar" class="grid-item"></div>
   </div>
-  <div id="footer">F</div>
+  <div id="footer">
+    <p>このページはMITライセンスで公開されています。</p>
+    <p>ユーザーの責任において利用してください。</p>
+  </div>
 </body>
 </html>
