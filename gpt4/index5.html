@@ -37,14 +37,12 @@
         #main-content {
             flex: 1;
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
         }
 
         .article, .image-section {
-            width: 30%;
+            width: 60%;
             padding: 20px;
             text-align: justify;
         }
@@ -54,7 +52,7 @@
         }
 
         .empty {
-            width: 30%;
+            width: 20%;
             padding: 20px;
         }
 
@@ -103,15 +101,10 @@
             <p>デボン紀、地球がまだ若く、生命が進化の旅を始めた時代。その中でも注目すべき存在が「ダンクルオステウス」でありました。この時代を象徴する生物は、その巨大な体と、恐怖を感じさせる鋭い歯で知られています。</p>
         </div>
         <div class="empty"></div>
-        <button class="image-button" onclick="prevImage()">＜</button>
-        <div class="image-section">
-            <img id="displayed-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="expandImage()" alt="Dunkleosteus">
-        </div>
-        <button class="image-button" onclick="nextImage()">＞</button>
         <div class="empty"></div>
-        <div class="article">
-            <p>ダンクルオステウスは、海の支配者として君臨していました。その存在は、デボン紀の海を彩る華やかな生物種のバランスを保つ役割を果たしていたのです。我々が今日、彼らの化石を発見すると、その一部始終を垣間見ることができます。</p>
-        </div>
+        <button class="image-button" onclick="prevImage()">＜</button>
+        <img id="displayed-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="expandImage()" alt="Dunkleosteus">
+        <button class="image-button" onclick="nextImage()">＞</button>
         <div class="empty"></div>
     </div>
 
