@@ -1,1 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>サンプルWebページ - chatGPTが作成したサンプルWebページ</title>
+  <style>
+    /* スタイルの定義 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    #header {
+      background-color: #e0e0e0;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #sidebar {
+      float: left;
+      width: 100px;
+      background-color: #f0f0f0;
+      height: 100%;
+      padding: 10px;
+    }
+    
+    #main {
+      margin-left: 120px;
+      margin-right: 120px;
+    }
+    
+    #content {
+      background-color: #ffffff;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    #button {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    #image {
+      text-align: center;
+    }
+    
+    #footer {
+      background-color: #e0e0e0;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    /* スタイルの追加定義 */
+    .empty-element {
+      height: 20px;
+    }
+    
+    .column {
+      float: left;
+      width: 50%;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* レスポンシブデザイン */
+    @media (max-width: 768px) {
+      #sidebar {
+        float: none;
+        width: auto;
+        height: auto;
+      }
+
+      #main {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .column {
+        width: 100%;
+      }
+    }
+    
+    /* 画像の拡大表示 */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 20px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    #modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 600px;
+      height: auto;
+    }
+    
+    #modal-content img {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      max-height: 80vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>サンプルWebページ</h1>
+    <h2>chatGPTが作成したサンプルWebページ</h2>
+  </div>
+  <div id="sidebar">
+    <h2>サイドバー</h2>
+    <ul>
+      <li><a href="#">リンク1</a></li>
+      <li><a href="#">リンク2</a></li>
+      <li><a href="#">リンク3</a></li>
+    </ul>
+  </div>
+  <div id="main">
+    <div id="content">
+      <div class="row">
+        <div class="column">
+          <div id="button">
+            <button onclick="previousImage()">&lt;</button>
+          </div>
+          <div id="image">
+            <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="G1" onclick="openModal()" />
+          </div>
+        </div>
+        <div class="column">
+          <div id="button">
+            <button onclick="nextImage()">&gt;</button>
+          </div>
+          <div id="image">
+            <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg" alt="G2" onclick="openModal()" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div id="content">
+            <h2>記事</h2>
+            <p>
+              デボン紀（約4億 ~ 3億年前）は、地球史の中でも重要な時代でした。この時期には、生命の多様性が飛躍的に増加し、初期の陸上生物や海洋生物が繁栄しました。デボン紀は、地球上で初めて本格的な陸上植物が出現した時期でもあります。
+              <br><br>
+              デボン紀の海洋は、多くの海洋生物の進化や絶滅の舞台となりました。例えば、海洋の頂点捕食者である巨大な肉食魚の一種であるディモルフォドンや、前腕に特化した巨大な顎を持つ異様な姿の首長竜であるリストリコテカのような生物が登場しました。
+              <br><br>
+              デボン紀の陸上には、初期の昆虫や陸棲爬虫類の祖先が出現しました。これらの生物は、陸地の環境に適応するための進化を遂げ、陸上での生活に適応しました。デボン紀は、地球上の生態系が大きく変化した重要な時代であり、地球史の中でも注目される時期です。
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div id="content">
+            <h2>画像セクション</h2>
+            <p>クリックして画像を拡大表示できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <p>This page is licensed under the MIT License. Use it at your own risk.</p>
+  </div>
+
+  <!-- 画像モーダル -->
+  <div id="modal">
+    <span onclick="closeModal()" style="position: absolute; top: 10px; right: 20px; color: #fff; cursor: pointer; font-size: 30px;">&times;</span>
+    <div id="modal-content">
+      <img id="modal-image" src="" alt="拡大画像" />
+    </div>
+  </div>
+  
+<script>
+    // 画像切り替えの処理
+    var images = [
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg"
+    ];
+    var currentImageIndex = 0;
+    
+    function previousImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      updateImage();
+    }
+    
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      updateImage();
+    }
+    
+    function updateImage() {
+      var imageElement = document.getElementById("modal-image");
+      imageElement.src = images[currentImageIndex];
+    }
+    
+    // 画像モーダルの表示/非表示の処理
+    function openModal() {
+      var modal = document.getElementById("modal");
+      modal.style.display = "block";
+    }
+    
+    function closeModal() {
+      var modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+ 
+    // 初期表示の画像を設定
+    updateImage();
+  </script>
+</body>
+</html>
 
