@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             display: flex;
@@ -10,126 +8,92 @@
             height: 100vh;
             margin: 0;
             align-items: center;
+            justify-content: center;
+            background-color: #F5F5F5;
         }
+
         .header, .footer {
             width: 100%;
-            border: 1px solid #ddd;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .main-content {
+            height: 10%;
+            border: 1px solid #000;
             display: flex;
-            flex: 1;
-            width: 100%;
+            align-items: center;
+            justify-content: center;
         }
+
+        .main {
+            display: flex;
+            flex-grow: 1;
+            width: 100%;
+            border: 1px solid #000;
+        }
+
         .sidebar {
             width: 20%;
-            border: 1px solid #ddd;
-            padding: 20px;
+            border-right: 1px solid #000;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         .content {
-            flex: 1;
+            width: 80%;
             display: flex;
             flex-direction: column;
-            border: 1px solid #ddd;
-            padding: 20px;
+            align-items: center;
         }
-        .box {
+
+        .elements {
             display: flex;
             width: 100%;
-            border: 1px solid #ddd;
-            justify-content: space-around;
+            border-bottom: 1px solid #000;
             align-items: center;
-            margin-bottom: 10px;
+            justify-content: space-between;
         }
-        .box:last-child {
-            margin-bottom: 0;
-        }
-        .c1, .c2 {
+
+        .empty {
             width: 10%;
+            height: 100%;
+            border-right: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .k, .g {
+
+        .article, .image {
             width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .k {
+
+        .article {
             height: 30%;
-            font-size: 20px;
         }
-        .g {
+
+        .image {
             height: 70%;
         }
-        .imageBox {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-            }
-        }
     </style>
-    <script>
-        let images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-        ];
-        let currentIndex = 0;
-
-        function nextImage() {
-            currentIndex++;
-            if (currentIndex >= images.length) currentIndex = 0;
-            document.getElementById("mainImage").src = images[currentIndex];
-        }
-
-        function prevImage() {
-            currentIndex--;
-            if (currentIndex < 0) currentIndex = images.length - 1;
-            document.getElementById("mainImage").src = images[currentIndex];
-        }
-    </script>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀の世界</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
-    </div>
-    <div class="main-content">
-        <div class="sidebar">
-            <p>ここにリンクや情報を含めることができます。</p>
-        </div>
+    <div class="header">H</div>
+    <div class="main">
+        <div class="sidebar">SID</div>
         <div class="content">
-            <div class="box">
-                <div class="c1">＜</div>
-                <div class="k">
-                    <h2>デボン紀：生命の繁栄の時代</h2>
-                    <p>
-                        デボン紀、それは約4億から3億年前の地球の時代です。この時代、海洋は生命であふれており、種々様々な生物が進化の歩みを進めていました。当時最大の捕食者であったダンクルオステウスのような魚類が海を支配していました。これらの生物は、その巨大な体と強力な顎で他の海洋生物を恐怖に陥れ、自身の生存を確保していました。彼らの繁栄は、生命の進化と地球の歴史における重要な一章を形成しています。
-                    </p>
-                </div>
-                <div class="c2">＞</div>
+            <div class="elements">
+                <div class="empty">C1</div>
+                <div class="article">K</div>
+                <div class="empty">C2</div>
             </div>
-            <div class="box">
-                <div class="c1" onclick="prevImage()">＜</div>
-                <div class="g">
-                    <div class="imageBox">
-                        <img id="mainImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
-                    </div>
-                </div>
-                <div class="c2" onclick="nextImage()">＞</div>
+            <div class="elements">
+                <div class="empty">B1</div>
+                <div class="image">G</div>
+                <div class="empty">B2</div>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用すること。</p>
-    </div>
+    <div class="footer">F</div>
 </body>
 </html>
