@@ -1,155 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* Global styles */
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-    .container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Layout styles */
-    .header, .sidebar, .main, .footer {
-      border: 1px solid lightgray;
-      text-align: center;
-    }
-    .header, .footer {
-      flex-basis: 10%;
-    }
-    .sidebar {
-      flex-basis: 30%;
-    }
-    .main {
-      flex-basis: 60%;
-    }
-    .inner-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
-    .content-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .content-column {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .content-item {
-      border: 1px solid lightgray;
-      width: 80%;
-      height: 80%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .image {
-      width: 80%;
-      height: auto;
-      cursor: pointer;
-    }
-    .article {
-      font-size: 24px;
-    }
-    .button {
-      padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  </style>
-  <script>
-    // Image Slideshow
-    var currentImage = 0;
-    var images = [
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-    ];
-    function changeImage(direction) {
-      if (direction === "prev") {
-        currentImage = (currentImage === 0) ? images.length - 1 : currentImage - 1;
-      } else {
-        currentImage = (currentImage === images.length - 1) ? 0 : currentImage + 1;
-      }
-      document.getElementById("slideshow").src = images[currentImage];
-    }
-    // Image Modal
-    function openModal() {
-      document.getElementById("modal").style.display = "block";
-    }
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-  </script>
-  <title>Sample Web Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .header, .footer {
+            background: #ddd;
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+        }
+        .sidebar {
+            background: #eee;
+            width: 20%;
+            text-align: center;
+        }
+        .main {
+            background: #ccc;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .article, .image {
+            background: #bbb;
+            width: 80%;
+            margin: 10px;
+            text-align: center;
+        }
+        .article {
+            height: 30%;
+        }
+        .image {
+            height: 60%;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+        }
+        .button {
+            background: #aaa;
+            flex: 1;
+            margin: 5px;
+            text-align: center;
+        }
+        @media screen and (max-width: 600px) {
+            .content {
+                flex-direction: column;
+            }
+            .sidebar, .main {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container header">
-    <h1>ページのタイトル</h1>
-    <h2>chatGPTが作成したサンプルWebページ</h2>
-  </div>
-
-  <div class="container">
-    <div class="sidebar">
-      <div class="inner-content">
-        <h2>サイドバー</h2>
-        <p>リンクや情報</p>
-      </div>
+    <div class="header">
+        H
     </div>
-
-    <div class="main">
-      <div class="inner-content">
-        <div class="content-item">
-          <h2>K（記事）</h2>
-          <p class="article">デボン紀（約4億 ~ 3億年前）に、話題になっていた記事の内容をここに書く（400文字程度）</p>
+    <div class="content">
+        <div class="sidebar">
+            SID
         </div>
-        <div class="content-item">
-          <h2>G（画像セクション）</h2>
-          <div class="content-column">
-            <img id="slideshow" class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="openModal()">
-          </div>
-          <div class="content-row">
-            <div class="content-item">
-              <button class="button" onclick="changeImage('prev')">＜</button>
+        <div class="main">
+            <div class="article">
+                K
             </div>
-            <div class="content-item">
-              <button class="button" onclick="changeImage('next')">＞</button>
+            <div class="image">
+                G
             </div>
-          </div>
+            <div class="buttons">
+                <div class="button">
+                    B1
+                </div>
+                <div class="button">
+                    B2
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
-  <div class="container footer">
-    <h3>MITライセンスで公開</h3>
-    <p>ユーザーは自己責任で利用してください。</p>
-  </div>
-
-  <!-- Image Modal -->
-  <div id="modal" style="display: none;">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modal-image" onclick="closeModal()">
-  </div>
+    <div class="footer">
+        F
+    </div>
 </body>
-
 </html>
