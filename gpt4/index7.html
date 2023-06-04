@@ -1,130 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Responsive Web Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
+    /* スタイル */
+    body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
     
-    body {
+    .container {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: space-between;
       min-height: 100vh;
-      background-color: #f2f2f2;
+      border: 1px solid lightgray;
     }
     
-    .header {
-      width: 100%;
-      height: 50px;
-      background-color: #dddddd;
-      border: 1px solid #bbbbbb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .sidebar {
-      width: 100%;
-      height: 200px;
-      background-color: #f9f9f9;
-      border: 1px solid #cccccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .header,
+    .sidebar,
+    .main-content,
+    .footer {
+      padding: 20px;
+      border: 1px solid lightgray;
     }
     
     .main-content {
-      width: 100%;
+      flex-grow: 1;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+    }
+    
+    .inner-content {
+      display: flex;
+      flex-direction: column;
       align-items: center;
     }
     
-    .article {
-      width: 80%;
-      height: 30%;
-      background-color: #ffffff;
-      border: 1px solid #cccccc;
+    .row {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    
-    .image {
-      width: 80%;
-      height: 60%;
-      background-color: #ffffff;
-      border: 1px solid #cccccc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .buttons {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
+      margin-bottom: 10px;
     }
     
     .button {
-      width: 50%;
-      height: 50px;
-      background-color: #dddddd;
-      border: 1px solid #bbbbbb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0 5px;
+      padding: 10px 20px;
+      background-color: lightgray;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
     
-    .footer {
-      width: 100%;
-      height: 50px;
-      background-color: #dddddd;
-      border: 1px solid #bbbbbb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    /* スクリプト */
+    // ここに必要なJavaScriptコードを追加します
+    
   </style>
 </head>
 <body>
-  <div class="header">
-    Header
-  </div>
-  
-  <div class="sidebar">
-    Sidebar
-  </div>
-  
-  <div class="main-content">
-    <div class="article">
-      Article
+  <div class="container">
+    <div class="header">
+      <!-- ヘッダーコンテンツ -->
+      Header
     </div>
     
-    <div class="image">
-      Image
+    <div class="sidebar">
+      <!-- サイドバーコンテンツ -->
+      Sidebar
     </div>
     
-    <div class="buttons">
-      <div class="button">
-        Button 1
-      </div>
-      
-      <div class="button">
-        Button 2
+    <div class="main-content">
+      <!-- メインコンテンツ -->
+      <div class="inner-content">
+        <div class="row">
+          <div class="article" style="width: 80%; height: 30%; border: 1px solid lightgray;">
+            <!-- 記事コンテンツ -->
+            Article (K)
+          </div>
+        </div>
+        <div class="row">
+          <div class="image" style="width: 80%; height: 60%; border: 1px solid lightgray;">
+            <!-- 画像コンテンツ -->
+            Image (G)
+          </div>
+        </div>
+        <div class="row">
+          <div class="button" style="width: 40%;">
+            <!-- ボタン1 -->
+            Button 1 (B1)
+          </div>
+          <div class="button" style="width: 40%;">
+            <!-- ボタン2 -->
+            Button 2 (B2)
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="footer">
-    Footer
+    
+    <div class="footer">
+      <!-- フッターコンテンツ -->
+      Footer
+    </div>
   </div>
 </body>
 </html>
