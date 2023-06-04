@@ -1,108 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Responsive Web Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Reset default margin and padding */
-    body, html {
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
     }
 
-    /* Set overall page layout */
-    body {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-
-    /* Header styles */
-    header {
-      background-color: lightgray;
-      padding: 10px;
-      text-align: center;
-    }
-
-    /* Sidebar styles */
-    aside {
-      background-color: lightgray;
-      width: 10%;
-      padding: 10px;
-      text-align: center;
-    }
-
-    /* Main content styles */
-    main {
-      display: flex;
-      flex-grow: 1;
-      justify-content: center;
-      align-items: center;
-      background-color: white;
-    }
-
-    /* Content layout within main section */
-    .content-wrapper {
+    .container {
       display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+      border: 1px solid #ccc;
+    }
+
+    .header,
+    .sidebar,
+    .main-content,
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
+    }
+
+    .header {
+      grid-row: 1;
+    }
+
+    .sidebar {
+      grid-row: 2;
+    }
+
+    .main-content {
+      grid-row: 2;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
       grid-template-columns: 10% 80% 10%;
-      grid-template-rows: 30% 70%;
-      gap: 10px;
     }
 
-    /* Individual content elements */
-    .box {
-      background-color: lightgray;
-      border: 1px solid gray;
-      text-align: center;
+    .footer {
+      grid-row: 3;
     }
 
-    .article {
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
+    .element {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
     }
 
-    .button1 {
-      grid-column: 1 / 2;
-      grid-row: 2 / 3;
+    .element-d1,
+    .element-d2,
+    .element-d3,
+    .element-d4,
+    .element-d5,
+    .element-d6 {
+      grid-row: 1;
     }
 
-    .image {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
+    .element-b1,
+    .element-b2 {
+      grid-row: 2;
     }
 
-    .button2 {
-      grid-column: 3 / 4;
-      grid-row: 2 / 3;
+    .element-c1,
+    .element-c2 {
+      grid-row: 1 / span 2;
     }
 
-    /* Footer styles */
-    footer {
-      background-color: lightgray;
-      padding: 10px;
-      text-align: center;
+    .element-k {
+      grid-row: 1 / span 3;
+    }
+
+    .element-g {
+      grid-row: 1 / span 2;
+      grid-column: 2;
+    }
+
+    @media (max-width: 767px) {
+      .container {
+        grid-template-rows: auto 1fr auto;
+        height: auto;
+      }
+
+      .main-content {
+        grid-template-rows: repeat(4, 1fr);
+      }
     }
   </style>
+  <title>Responsive Web Page</title>
 </head>
 <body>
-  <header>
-    <h1>Header</h1>
-  </header>
-  <aside>
-    <p>SID</p>
-  </aside>
-  <main>
-    <div class="content-wrapper">
-      <div class="box"></div>
-      <div class="article">
-        <h2>Article</h2>
-      </div>
-      <div class="box button1"></div>
-      <div class="box image"></div>
-      <div class="box button2"></div>
+  <div class="container">
+    <div class="header">
+      <h1>Header</h1>
     </div>
-  </main>
-  <footer>
-    <h3>Footer</h3>
-  </footer>
+    <div class="sidebar">
+      <h2>Sidebar</h2>
+    </div>
+    <div class="main-content">
+      <div class="element element-d1">
+        <p>D1</p>
+      </div>
+      <div class="element element-d2">
+        <p>D2</p>
+      </div>
+      <div class="element element-d3">
+        <p>D3</p>
+      </div>
+      <div class="element element-d4">
+        <p>D4</p>
+      </div>
+      <div class="element element-d5">
+        <p>D5</p>
+      </div>
+      <div class="element element-d6">
+        <p>D6</p>
+      </div>
+      <div class="element element-c1">
+        <p>C1</p>
+      </div>
+      <div class="element element-k">
+        <p>K</p>
+      </div>
+      <div class="element element-c2">
+        <p>C2</p>
+      </div>
+      <div class="element element-g">
+        <p>G</p>
+      </div>
+      <div class="element element-b1">
+        <p>B1</p>
+      </div>
+      <div class="element element-b2">
+        <p>B2</p>
+      </div>
+    </div>
+    <div class="footer">
+      <h2>Footer</h2>
+    </div>
+  </div>
 </body>
 </html>
