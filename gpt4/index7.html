@@ -1,102 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Webページ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      height: 100vh;
-      box-sizing: border-box;
-    }
-
-    .header, .sidebar, .main-content, .footer {
-      border: 1px solid lightgray;
-      box-sizing: border-box;
-      padding: 10px;
-      width: 100%;
+      font-family: Arial, sans-serif;
       text-align: center;
     }
-
-    .header, .footer {
-      height: 50px;
+    
+    .container {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      border: 1px solid lightgray;
     }
-
+    
+    header, footer {
+      background-color: lightgray;
+      padding: 10px;
+    }
+    
     .sidebar {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      height: calc(100% - 100px);
+      border-right: 1px solid lightgray;
+      padding: 10px;
     }
-
-    .main-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: calc(100% - 100px);
+    
+    .main {
+      display: grid;
+      grid-template-columns: 10% 80% 10%;
+      grid-template-rows: auto 1fr;
+      border-bottom: 1px solid lightgray;
+      border-top: 1px solid lightgray;
     }
-
+    
     .element {
       border: 1px solid lightgray;
-      box-sizing: border-box;
-      width: 10%;
-      text-align: center;
+      padding: 10px;
     }
-
+    
     .article {
-      border: 1px solid lightgray;
-      box-sizing: border-box;
-      width: 80%;
-      height: 30%;
-      text-align: center;
+      grid-column: 2/3;
+      grid-row: 1/2;
     }
-
+    
     .button {
-      border: 1px solid lightgray;
-      box-sizing: border-box;
-      width: 10%;
-      text-align: center;
+      grid-column: 2/3;
+      grid-row: 2/3;
     }
-
+    
     .image {
-      border: 1px solid lightgray;
-      box-sizing: border-box;
-      width: 80%;
-      height: 70%;
-      text-align: center;
-    }
-
-    @media (max-width: 767px) {
-      .sidebar, .main-content {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-
-      .element, .article, .button, .image {
-        width: 100%;
-        margin-bottom: 10px;
-      }
+      grid-column: 2/3;
+      grid-row: 1/3;
     }
   </style>
 </head>
 <body>
-  <div class="header">H</div>
-  <div class="sidebar">
-    <div class="element">SID</div>
+  <div class="container">
+    <header>
+      <h1>Header</h1>
+    </header>
+    <div class="sidebar">
+      <p>SID</p>
+    </div>
+    <div class="main">
+      <div class="element">
+        <p>D1</p>
+        <p>C1</p>
+      </div>
+      <div class="element article">
+        <p>D2</p>
+        <p>K</p>
+        <p>D5</p>
+        <p>G</p>
+      </div>
+      <div class="element">
+        <p>D3</p>
+        <p>C2</p>
+      </div>
+      <div class="element">
+        <p>D4</p>
+        <p>B1</p>
+      </div>
+      <div class="element button">
+        <p>D6</p>
+        <p>B2</p>
+      </div>
+    </div>
+    <footer>
+      <h3>Footer</h3>
+    </footer>
   </div>
-  <div class="main-content">
-    <div class="element">D1<br>C1</div>
-    <div class="article">D2<br>K</div>
-    <div class="element">D3<br>C2</div>
-    <div class="element">D4<br>B1</div>
-    <div class="image">D5<br>G</div>
-    <div class="element">D6<br>B2</div>
-  </div>
-  <div class="footer">F</div>
 </body>
 </html>
