@@ -1,167 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <title>Web Page</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-    body {
-      background-color: #f1f1f1;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+        #header, #footer {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            padding: 20px;
+        }
 
-    #header {
-      background-color: #ccc;
-      padding: 10px;
-    }
+        #main-content {
+            flex: 1;
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
 
-    #sidebar {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 10px;
-      width: 10%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
+        #sidebar {
+            width: 20%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
 
-    #main-content {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 10px;
-      width: 80%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      display: inline-block;
-      text-align: left;
-    }
+        #content {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
 
-    #footer {
-      background-color: #ccc;
-      padding: 10px;
-      font-size: 12px;
-    }
+        #article, #image {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
 
-    #grid-container {
-      display: grid;
-      grid-template-columns: 10% 80% 10%;
-      grid-gap: 10px;
-    }
+        #article {
+            height: 30%;
+        }
 
-    .grid-item {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
+        #image {
+            height: 60%;
+        }
 
-    .article {
-      width: 80%;
-      height: 30%;
-      margin: 0 auto;
-      background-color: #fff;
-      font-size: 16px;
-      overflow: auto;
-    }
+        #buttons {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .image {
-      width: 80%;
-      height: 70%;
-      margin: 0 auto;
-      background-color: #fff;
-    }
-
-    .image img {
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-    }
-
-    .buttons {
-      margin-top: 10px;
-    }
-
-    @media (max-width: 600px) {
-      #grid-container {
-        grid-template-columns: 100%;
-      }
-
-      #sidebar, #main-content {
-        width: 100%;
-      }
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var images = ['https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-                    'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-                    'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'];
-      var currentIndex = 0;
-      var imageElement = document.getElementById('image');
-      var prevButton = document.getElementById('prev-button');
-      var nextButton = document.getElementById('next-button');
-
-      function updateImage() {
-        imageElement.src = images[currentIndex];
-      }
-
-      function prevImage() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateImage();
-      }
-
-      function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateImage();
-      }
-
-      prevButton.addEventListener('click', prevImage);
-      nextButton.addEventListener('click', nextImage);
-    });
-  </script>
+        #button1, #button2 {
+            border: 1px solid #ddd;
+            padding: 10px;
+            flex: 1;
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
-  <div id="header">
-    <h1>ページのタイトル</h1>
-    <h2>chatGPTが作成したサンプルWebページ</h2>
-  </div>
-  <div id="grid-container">
-    <div id="sidebar" class="grid-item">
-      <ul>
-        <li><a href="#">リンク1</a></li>
-        <li><a href="#">リンク2</a></li>
-        <li><a href="#">リンク3</a></li>
-      </ul>
-    </div>
-    <div id="main-content" class="grid-item">
-      <div class="grid-item" id="d1"></div>
-      <div class="grid-item article" id="d2">
-        <h3>デボン紀の記事</h3>
-        <p>デボン紀（約4億 ~ 3億年前）は、地球史上重要な時代でした。この時代には、多くの生物が進化し、海洋と陸地の生態系が栄えました。例えば、<strong>ドンクルオステウス</strong>という古代の魚類は、その巨大な頭部の装甲と強力な顎で知られています。</p>
-        <p>デボン紀の海洋では、シロナガスクジラやアンモナイトなど、さまざまな生物が繁栄しました。陸地でも、初期の陸生植物が現れ、昆虫や陸棲の爬虫類が進化し始めました。</p>
-        <p>デボン紀は地球史上の転換期とも言える時代であり、地球の生態系にとって重要な出来事が起こった時代です。</p>
-      </div>
-      <div class="grid-item" id="d3"></div>
-      <div class="grid-item" id="d4">
-        <div class="buttons">
-          <button id="prev-button">＜</button>
-          <button id="next-button">＞</button>
+    <div id="header">H</div>
+    <div id="main-content">
+        <div id="sidebar">SID</div>
+        <div id="content">
+            <div id="article">K</div>
+            <div id="image">G</div>
+            <div id="buttons">
+                <div id="button1">B1</div>
+                <div id="button2">B2</div>
+            </div>
         </div>
-      </div>
-      <div class="grid-item image" id="d5">
-        <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image">
-      </div>
-      <div class="grid-item" id="d6"></div>
     </div>
-    <div id="sidebar" class="grid-item"></div>
-  </div>
-  <div id="footer">
-    <p>このページはMITライセンスで公開されています。</p>
-    <p>ユーザーの責任において利用してください。</p>
-  </div>
+    <div id="footer">F</div>
 </body>
 </html>
