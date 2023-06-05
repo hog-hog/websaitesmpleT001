@@ -20,6 +20,9 @@
             padding: 20px;
             border: 1px solid #dee2e6;
         }
+        .header h1, .header h2 {
+            margin: 0;
+        }
         .main-content {
             flex: 1;
             display: flex;
@@ -48,6 +51,13 @@
         }
         .image {
             height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image img {
+            max-width: 100%;
+            max-height: 100%;
         }
         .buttons {
             display: flex;
@@ -58,6 +68,7 @@
             text-align: center;
             border: 1px solid #dee2e6;
             padding: 10px;
+            cursor: pointer;
         }
         @media (max-width: 600px) {
             .main-content {
@@ -68,20 +79,44 @@
             }
         }
     </style>
+    <script>
+        var images = [
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
+        ];
+        var currentImage = 0;
+
+        function changeImage(direction) {
+            currentImage = (currentImage + direction + images.length) % images.length;
+            document.getElementById('main-image').src = images[currentImage];
+        }
+    </script>
 </head>
 <body>
-    <div class="header">H: Header</div>
+    <div class="header">
+        <h1>Page Title</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
+    </div>
     <div class="main-content">
-        <div class="sidebar">SID: Sidebar</div>
+        <div class="sidebar">
+            <p>Link 1</p>
+            <p>Link 2</p>
+            <p>Link 3</p>
+        </div>
         <div class="content">
             <div class="article">K: Article</div>
-            <div class="image">G: Image</div>
+            <div class="image">
+                <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
+            </div>
             <div class="buttons">
-                <div class="button1">B1: Button</div>
-                <div class="button2">B2: Button</div>
+                <div class="button1" onclick="changeImage(-1)">＜</div>
+                <div class="button2" onclick="changeImage(1)">＞</div>
             </div>
         </div>
     </div>
-    <div class="footer">F: Footer</div>
+    <div class="footer">
+        <p>This page is published under the MIT license. Use at your own risk.</p>
+    </div>
 </body>
 </html>
