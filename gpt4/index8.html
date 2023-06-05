@@ -63,32 +63,8 @@
             margin-right: 0;
         }
     </style>
-    <title>デボン紀の物語</title>
-</head>
-<body onload="changeImage(0);">
-    <div class="header">
-        <h1>デボン紀の物語</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
-    </div>
-    <div class="main-content">
-        <div class="sidebar">
-            <p>リンクや情報をここに含めてください</p>
-        </div>
-        <div class="content">
-            <div class="article">
-                デボン紀、地球がまだ青年期を過ごしていた頃、生命は進化の旅を続けていました。海は、まるで自然の大規模な実験室のようで、その中から数々の新種が生まれていました。この時代の海洋生物の中でも特に注目されていたのが、恐怖の海の王、ダンクルオステウスでした。この巨大な魚類は、強力な顎と鋭い歯を持ち、海の生態系の頂点に君臨していました。今日、その化石が発見されると、我々はその進化の歴史と生物多様性の奇跡を再認識させられます。
-            </div>
-            <div class="image" onclick="changeImage(0);"></div>
-            <div class="buttons">
-                <div class="button" onclick="changeImage(-1);">＜</div>
-                <div class="button" onclick="changeImage(1);">＞</div>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。
-    </div>
-        <script>
+    <title>Sample Page</title>
+    <script>
         var images = [
             'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
             'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
@@ -101,5 +77,27 @@
             document.querySelector('.image').style.backgroundImage = 'url(' + images[index] + ')';
         }
     </script>
+</head>
+<body onload="changeImage(0);">
+    <div class="header">
+        <h1>Page Title</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
+    </div>
+    <div class="main-content">
+        <div class="sidebar">
+            <p>リンクや情報をここに含めてください</p>
+        </div>
+        <div class="content">
+            <div class="article">Article Content</div>
+            <div class="image" onclick="changeImage(0);"></div>
+            <div class="buttons">
+                <div class="button" onclick="changeImage(-1);">＜</div>
+                <div class="button" onclick="changeImage(1);">＞</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。
+    </div>
 </body>
 </html>
