@@ -1,108 +1,96 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>デボン紀の探求</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header, .footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #f8f8f8;
+            border-right: 1px solid #ddd;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .content {
+            width: 80%;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
-        header, footer {
+        .article, .image {
             width: 100%;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        #sidebar {
-            align-self: flex-start;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        #main-content {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
+            align-items: center;
         }
-        #article, #image-section {
+        .article {
+            height: 30vh;
+        }
+        .image {
+            height: 60vh;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-evenly;
             width: 100%;
+        }
+        .button {
+            border: 1px solid #ddd;
+            padding: 10px 20px;
             text-align: center;
-        }
-        #image-section {
-            position: relative;
-        }
-        #image-section img {
-            width: 100%;
-            height: auto;
-            max-height: 60vh;
-        }
-        #image-section #prev, #image-section #next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2em;
-            color: white;
-            background-color: rgba(0,0,0,0.5);
-            padding: 5px;
-        }
-        #image-section #prev {
-            left: 10px;
-        }
-        #image-section #next {
-            right: 10px;
+            flex: 1;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>デボン紀の探求</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
-    </header>
-    <div id="sidebar">
-        <p>サイドバー情報</p>
+    <div class="header">
+        <h1>H</h1>
     </div>
-    <div id="main-content">
-        <div id="article">
-            <h3>デボン紀の驚異</h3>
-            <p>デボン紀は、約4億から3億年前の地質時代で、生命の進化と多様化が急速に進行した時期です。特に海洋生物は非常に多様で、中でも巨大な甲冑魚、ダンクルオステウスが存在していました。これらの生物はその強力な顎と鋭い歯で頂点捕食者として海を支配していました。デボン紀の海は、現代の海洋生態系とは大きく異なる、ユニークで興味深い世界でした。</p>
+    <div class="main">
+        <div class="sidebar">
+            <h2>SID</h2>
         </div>
-        <div id="image-section">
-            <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Dunkleosteus Image">
-            <button id="prev">＜</button```html
-            <button id="next">＞</button>
+        <div class="content">
+            <div class="article">
+                <h2>K</h2>
+            </div>
+            <div class="image">
+                <h2>G</h2>
+            </div>
+            <div class="buttons">
+                <div class="button">
+                    <h2>B1</h2>
+                </div>
+                <div class="button">
+                    <h2>B2</h2>
+                </div>
+            </div>
         </div>
     </div>
-    <footer>
-        <p>このページはMITライセンスで公開されています。ユーザー自身の責任においてご利用ください。</p>
-    </footer>
-    <script>
-        const images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-        ];
-        let currentIndex = 0;
-        const mainImage = document.getElementById("main-image");
-
-        function setImage(index) {
-            mainImage.src = images[index];
-        }
-
-        document.getElementById("prev").addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            setImage(currentIndex);
-        });
-
-        document.getElementById("next").addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            setImage(currentIndex);
-        });
-    </script>
+    <div class="footer">
+        <h1>F</h1>
+    </div>
 </body>
 </html>
