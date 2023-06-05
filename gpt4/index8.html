@@ -1,101 +1,102 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Web Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webページ</title>
+    <style>
+        /* 全体のスタイル */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+        /* レイアウトのスタイル */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            border: 1px solid #ccc;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+        header {
+            grid-row: 1;
+            background-color: #f2f2f2;
+        }
 
-    .container {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
-    }
+        #sidebar {
+            grid-row: 2;
+            background-color: #eaeaea;
+        }
 
-    .header,
-    .footer {
-      background-color: lightgray;
-      padding: 20px;
-    }
+        #main-content {
+            grid-row: 2;
+            background-color: #fff;
+            display: grid;
+            grid-template-rows: 30% 60% auto;
+        }
 
-    .sidebar,
-    .main-content {
-      border: 1px solid lightgray;
-      padding: 20px;
-    }
+        footer {
+            grid-row: 3;
+            background-color: #f2f2f2;
+        }
 
-    .main-content {
-      display: grid;
-      grid-template-rows: 30% 60% auto;
-      gap: 10px;
-    }
+        /* メインコンテンツ内のレイアウトのスタイル */
+        #article {
+            grid-row: 1;
+            background-color: #f9f9f9;
+        }
 
-    .article {
-      background-color: lightblue;
-    }
+        #gallery {
+            grid-row: 2;
+            background-color: #fff;
+        }
 
-    .image {
-      background-color: lightgreen;
-    }
+        #buttons {
+            grid-row: 3;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-      background-color: lightyellow;
-    }
+        .button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background-color: #f2f2f2;
+        }
 
-    .button {
-      flex: 1;
-      border: 1px solid gray;
-      padding: 10px;
-      margin: 5px;
-    }
-  </style>
+        /* その他のスタイル */
+        .empty-element {
+            background-color: transparent;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="header">
-      Header
-    </div>
-
-    <div class="sidebar">
-      Sidebar
-    </div>
-
-    <div class="main-content">
-      <div class="article">
-        <div class="content">
-          Article
+    <div class="container">
+        <header>
+            <h1>フッター</h1>
+        </header>
+        <div id="sidebar">
+            <h2>左・サイドバー</h2>
         </div>
-      </div>
-
-      <div class="image">
-        Image
-      </div>
-
-      <div class="buttons">
-        <div class="button">Button 1</div>
-        <div class="button">Button 2</div>
-      </div>
+        <div id="main-content">
+            <div id="article">
+                <h2>記事</h2>
+            </div>
+            <div id="gallery">
+                <h2>画像</h2>
+            </div>
+            <div id="buttons">
+                <div class="button">ボタン1</div>
+                <div class="button">ボタン2</div>
+            </div>
+        </div>
+        <footer>
+            <h1>フッター</h1>
+        </footer>
     </div>
-
-    <div class="footer">
-      Footer
-    </div>
-  </div>
 </body>
-
 </html>
