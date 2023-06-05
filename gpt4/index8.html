@@ -5,142 +5,146 @@
         * {
             box-sizing: border-box;
         }
+
         body {
             margin: 0;
-            height: 100vh;
+            padding: 0;
+            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
-            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .header, .footer {
+            background: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            border: 1px solid #dee2e6;
+        }
+
+        .sidebar {
+            flex: 0 0 20%;
+            border-right: 1px solid #dee2e6;
+            padding: 20px;
             text-align: center;
         }
-        .header, .footer {
-            background-color: #f8f8f8;
-            width: 100%;
-            height: 10vh;
-            border-bottom: 1px solid #ccc;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .main-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: row;
-        }
-        .sidebar {
-            background-color: #f8f8f8;
-            width: 20%;
-            border-right: 1px solid #ccc;
-            height: 80vh;
-            padding: 20px;
-        }
+
         .main {
-            width: 80%;
+            flex: 1;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
+            justify-content: space-between;
         }
-        .main .item {
-            border-bottom: 1px solid #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .article, .image {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            text-align: center;
         }
+
         .article {
-            height: 30%;
-            padding: 20px;
+            flex: 0 0 30%;
         }
+
         .image {
-            height: 40%;
-            position: relative;
-        }
-        .image img {
-            max-height: 100%;
-            max-width: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .buttons {
-            height: 30%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-        }
-        .button {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #ccc;
+            flex: 1;
             cursor: pointer;
+            max-height: 60vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
+
+        .image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>デボン紀の不思議: 深海の王、ダンクルオステウス</h1>
-        <h3>chatGPTが作成したサンプルWebページ</h3>
+        <h1>デボン紀の秘密</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
     </div>
     <div class="main-content">
         <div class="sidebar">
-            <h2>関連リンク</h2>
+            <p>関連リンク:</p>
             <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Devonian" target="_blank">デボン紀 - Wikipedia</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Dunkleosteus" target="_blank">ダンクルオステウス - Wikipedia</a></li>
+                <li><a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%9C%E3%83%B3%E7%B4%80" target="_blank">デボン紀 - Wikipedia</a></li>
+                <li><a href="https://www.nature.com/subjects/devonian" target="_blank">デボン紀 - Nature</a></li>
             </ul>
         </div>
         <div class="main">
-            <div class="item article">
-                <p>
-                    デボン紀、約4億年前。その当時、海の底は生物の秘密の楽園であり、最大の捕食者であるダンクルオステウスが君臨していました。この魚は体長が10メートルにも及び、頭蓋骨は鋭い歯を持つ強靭なアーマーに覆われていました。しかし、それらの見た目以上に、ダンクルオステウスは当時の海洋生態系における深海の王であり、その強さと生態は我々人間がまだ完全に理解していない謎に包まれています。その存在は、地球の歴史の中で最も長い時間を経てもなお、我々に驚異と感動を与え続けています。
-                </p>
+            <div class="article">
+                <h3>デボン紀の海の覇者、ダンクレオステウス</h3>
+                <p>デボン紀、約4億年前、海は生命の宝庫と化していました。その中でもひときわ存在感を放つのがダンクレオステウスでした。体長9mに達し、その巨大な顎は強力な一撃を放つことができました。彼らの威圧感は、海洋のトッププレデターとして君臨していたことを物語っています。当時の海の風景を思い浮かべると、想像を超えたダイナミズムが広がっていたことでしょう。</p>
             </div>
-            <div class="item image">
-                <img id="displayedImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="image" onclick="expandImage()">
+            <div class="image" onclick="toggleImageSize()">
+                <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="G1">
             </div>
-            <div class="item buttons">
+            <div class="buttons">
                 <div class="button" onclick="previousImage()">＜</div>
                 <div class="button" onclick="nextImage()">＞</div>
             </div>
         </div>
     </div>
     <div class="footer">
-        <h3>このページはMITライセンスで公開されており、ユーザー自己責任で利用してください。</h3>
+        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
     </div>
-
     <script>
         var images = [
             'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
             'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg',
         ];
-        var currentImageIndex = 0;
+        var currentIndex = 0;
+        var isZoomed = false;
 
         function previousImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            document.getElementById('displayedImage').src = images[currentImageIndex];
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
         }
 
         function nextImage() {
-            currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
-            document.getElementById('displayedImage').src = images[currentImageIndex];
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
         }
 
-        function expandImage() {
-            var img = document.getElementById('displayedImage');
-            if (img.style.position === 'absolute') {
-                img.style.position = 'static';
+        function updateImage() {
+            document.getElementById('image').src = images[currentIndex];
+        }
+
+        function toggleImageSize() {
+            var img = document.getElementById('image');
+            if (isZoomed) {
+                img.style.maxWidth = '100%';
                 img.style.maxHeight = '100%';
             } else {
-                img.style.position = 'absolute';
-                img.style.maxHeight = '80vh';
+                img.style.maxWidth = 'none';
+                img.style.maxHeight = '90vh';
             }
+            isZoomed = !isZoomed;
         }
     </script>
 </body>
