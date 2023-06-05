@@ -1,148 +1,195 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Webページのレイアウト</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: Arial, sans-serif;
-    }
-    
-    header {
-      width: 100%;
-      background-color: lightgray;
-      text-align: center;
-      padding: 20px;
-    }
-    
-    aside {
-      float: left;
-      width: 20%;
-      background-color: lightgray;
-      padding: 20px;
-    }
-    
-    main {
-      float: left;
-      width: 80%;
-      padding: 20px;
-    }
-    
-    footer {
-      width: 100%;
-      background-color: lightgray;
-      text-align: center;
-      padding: 20px;
-    }
-    
-    article {
-      width: 100%;
-      height: 30%;
-      background-color: #f2f2f2;
-      border: 1px solid lightgray;
-      padding: 20px;
-      text-align: center;
-    }
-    
-    img {
-      width: 100%;
-      height: 60%;
-      border: 1px solid lightgray;
-      padding: 20px;
-      cursor: pointer;
-    }
-    
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-    }
-    
-    .button {
-      width: 48%;
-      height: 100px;
-      background-color: #f2f2f2;
-      border: 1px solid lightgray;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 20px;
-      cursor: pointer;
-    }
-  </style>
-  <script>
-    var currentImage = 1;
-    
-    function showImage(imageIndex) {
-      var image = document.getElementById('mainImage');
-      var imageLink = document.getElementById('mainImageLink');
-      
-      currentImage = imageIndex;
-      image.src = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(' + currentImage + ').jpg';
-      imageLink.href = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(' + currentImage + ').jpg';
-    }
-    
-    function previousImage() {
-      if (currentImage === 1) {
-        showImage(3);
-      } else {
-        showImage(currentImage - 1);
-      }
-    }
-    
-    function nextImage() {
-      if (currentImage === 3) {
-        showImage(1);
-      } else {
-        showImage(currentImage + 1);
-      }
-    }
-  </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+
+        #sidebar {
+            float: left;
+            width: 20%;
+            background-color: lightgray;
+            padding: 10px;
+            border: 1px solid gray;
+        }
+
+        #main {
+            float: left;
+            width: 80%;
+            padding: 10px;
+            border: 1px solid gray;
+        }
+
+        footer {
+            width: 100%;
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+
+        .content {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #article {
+            width: 100%;
+            height: 30%;
+            background-color: lightgray;
+            border: 1px solid gray;
+            margin-bottom: 10px;
+        }
+
+        #image {
+            width: 100%;
+            height: 60%;
+            background-color: lightgray;
+            border: 1px solid gray;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            width: 48%;
+            display: inline-block;
+            background-color: lightgray;
+            border: 1px solid gray;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        #modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #modal-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>ページのタイトル</h1>
-    <h2>chatGPTが作成したサンプルWebページ</h2>
-  </header>
-  
-  <aside>
-    <h2>サイドバー</h2>
-    <ul>
-      <li><a href="#">関連リンク1</a></li>
-      <li><a href="#">関連リンク2</a></li>
-      <li><a href="#">関連リンク3</a></li>
-    </ul>
-  </aside>
-  
-  <main>
-    <article>
-      <h2>デボン紀の謎の生物</h2>
-      <p>デボン紀（約4億 ~ 3億年前）に地球上で話題となった生物についての驚くべき発見がありました。化石の研究により、巨大な魚類である「ドンクルオステウス」が再評価されました。</p>
-      <p>ドンクルオステウスは、全長10メートル以上にもなる巨大な口と強力な顎を持ち、海中の獲物を襲っていたと考えられています。その外見から、水中の恐竜とも形容されることもあります。</p>
-      <p>しかし、最近の研究では、ドンクルオステウスが水面近くで生活していた可能性が示唆されています。これまでに発見された化石には、陸上生物や小さな魚の化石が内部に含まれていることがあります。これは、ドンクルオステウスが浅い水域で獲物を捕らえていたことを示唆しています。</p>
-      <p>この発見は、デボン紀の生態系と生物多様性に関する理解を深める上で重要なものであり、これまでの知見を覆す可能性があります。今後の研究によって、ドンクルオステウスとその生息環境に関する新たな情報が明らかになることが期待されています。</p>
-    </article>
-    
-    <a id="mainImageLink" href="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
-      <img id="mainImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像" onclick="showImage(currentImage);">
-    </a>
-    
-    <div class="buttons">
-      <div class="button" onclick="previousImage();">
-        <h2>＜</h2>
-      </div>
-      
-      <div class="button" onclick="nextImage();">
-        <h2>＞</h2>
-      </div>
+    <header>
+        <h1>デボン紀の謎</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
+    </header>
+
+    <div id="sidebar">
+        <h2>関連リンク</h2>
+        <ul>
+            <li><a href="#">デボン紀の生物</a></li>
+            <li><a href="#">古代地球の地質</a></li>
+            <li><a href="#">古生代の進化</a></li>
+        </ul>
     </div>
-  </main>
-  
-  <footer>
-    <p>このページはMITライセンスで公開されています。ご利用にあたっては、自己責任でお願いします。</p>
-  </footer>
+
+    <div id="main">
+        <div class="content" id="article">
+            <h3>デボン紀の謎</h3>
+            <p>デボン紀は約4億〜3億年前の地球の時代であり、古代の海洋生物にとって重要な時期でした。この時期には、驚くべき進化が起こりましたが、その一部は未だに謎のままです。</p>
+            <p>例えば、デボン紀には巨大な海洋生物が存在していました。古代の海は、現代の海とは異なる生態系を持っており、恐竜が存在しない代わりに巨大な魚類が繁栄していました。その中でも特に注目すべきは、ドンクルオステウスと呼ばれる巨大な魚です。</p>
+            <p>ドンクルオステウスは全長10メートルにも達し、巨大な頭部と強力な顎を持っていました。この魚の生態や生活環境については、まだ解明されていない部分が多くあります。また、ドンクルオステウスの絶滅の原因も謎とされています。</p>
+            <p>デボン紀の謎はまだ多くの未解明な点がありますが、研究者たちは新たな発見や研究によってその一端を明らかにしようと努力しています。</p>
+        </div>
+        <div class="content" id="image">
+            <h3>画像</h3>
+            <div id="modal">
+                <div id="modal-content">
+                    <img id="modal-image" src="" alt="拡大画像">
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="button" id="prev-button">
+                <h3>＜</h3>
+            </div>
+            <div class="button" id="next-button">
+                <h3>＞</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <footer>
+        <p>このページはMITライセンスで公開されています。ご利用に際しては、自己責任でお願いします。</p>
+    </footer>
+
+    <script>
+        const images = [
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+        ];
+
+        let currentImageIndex = 0;
+        const modal = document.getElementById("modal");
+        const modalImage = document.getElementById("modal-image");
+
+        function showImageModal() {
+            modal.style.display = "block";
+            modalImage.src = images[currentImageIndex];
+        }
+
+        function hideImageModal() {
+            modal.style.display = "none";
+            modalImage.src = "";
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            modalImage.src = images[currentImageIndex];
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            modalImage.src = images[currentImageIndex];
+        }
+
+        document.getElementById("image").addEventListener("click", showImageModal);
+        modal.addEventListener("click", hideImageModal);
+        document.getElementById("prev-button").addEventListener("click", prevImage);
+        document.getElementById("next-button").addEventListener("click", nextImage);
+    </script>
 </body>
+
 </html>
