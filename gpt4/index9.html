@@ -1,91 +1,62 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Website</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
     }
-
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
     }
-
-    header,
-    footer,
-    .sidebar,
-    .main-content {
-      padding: 20px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    header,
-    footer {
-      background-color: #f1f1f1;
-      width: 100%;
-    }
-
     .sidebar {
-      width: 100%;
-      max-width: 300px;
-      order: 1;
-      background-color: #f9f9f9;
+      width: 25%;
+      background-color: #f1f1f1;
+      padding: 10px;
     }
-
     .main-content {
-      width: 100%;
       flex-grow: 1;
-      order: 2;
-      background-color: #fff;
+      padding: 10px;
     }
-
-    .main-content img {
-      max-width: 100%;
-      height: auto;
+    .article-title {
+      font-size: 20px;
+      font-weight: bold;
     }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
+    .article-text {
+      margin-bottom: 10px;
+    }
+    .image {
       margin-top: 10px;
     }
-
     .button {
-      margin: 0 5px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
+      background-color: #333;
       color: #fff;
+      padding: 5px 10px;
       border: none;
+      border-radius: 3px;
+      margin-right: 5px;
       cursor: pointer;
     }
-
-    @media screen and (min-width: 600px) {
+    @media screen and (max-width: 600px) {
       .container {
-        flex-wrap: nowrap;
+        flex-direction: column;
       }
-
-      .sidebar {
-        flex-basis: 25%;
-      }
-
-      .main-content {
-        flex-basis: 75%;
+      .sidebar, .main-content {
+        width: 100%;
       }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>ヘッダー</h1>
@@ -93,14 +64,13 @@
 
   <div class="container">
     <div class="sidebar">
-      <h2>サイドバー</h2>
+      <p>サイドバー</p>
     </div>
-
     <div class="main-content">
-      <h2>記事タイトル</h2>
-      <p>記事の数行...</p>
-      <img src="[画像のURL]" alt="画像">
-      <div class="buttons">
+      <h2 class="article-title">記事タイトル</h2>
+      <p class="article-text">記事の数行...</p>
+      <img src="image.jpg" alt="画像" class="image">
+      <div>
         <button class="button">ボタン1</button>
         <button class="button">ボタン2</button>
       </div>
@@ -108,8 +78,7 @@
   </div>
 
   <footer>
-    <h3>フッター</h3>
+    <h2>フッター</h2>
   </footer>
 </body>
-
 </html>
