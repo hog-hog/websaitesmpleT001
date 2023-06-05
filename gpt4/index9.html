@@ -2,83 +2,179 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デボン紀の驚異：恐竜の祖先「ディミトリノスクス」</title>
+  <title>デボン紀の生物 - 4億年前の驚異の生物たち</title>
   <style>
-    /* CSSスタイルは省略 */
+    /* スタイルの定義 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #sidebar {
+      flex: 1;
+      background-color: #f2f2f2;
+      padding: 10px;
+    }
+
+    #main-content {
+      flex: 3;
+      padding: 10px;
+    }
+
+    #article-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #article-text {
+      margin-top: 10px;
+    }
+
+    #image {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      overflow: auto;
+    }
+
+    .image-modal-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .image-modal img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    @media screen and (max-width: 600px) {
+      #container {
+        flex-direction: column;
+      }
+
+      #sidebar, #main-content {
+        flex: none;
+        width: 100%;
+      }
+    }
   </style>
   <script>
-    var images = [
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-    ];
-    var currentImageIndex = 0;
-
-    function showImage(index) {
-      var modal = document.getElementById("modal");
-      var modalImage = document.getElementById("modal-image");
-      modal.style.display = "block";
-      modalImage.src = images[index];
-      currentImageIndex = index;
+    // 画像モーダルの表示と非表示を切り替える関数
+    function toggleImageModal() {
+      var modal = document.getElementById('image-modal');
+      modal.style.display = (modal.style.display === 'none') ? 'flex' : 'none';
     }
 
-    function closeModal() {
-      var modal = document.getElementById("modal");
-      modal.style.display = "none";
-    }
-
+    // 画像のシフト処理を行う関数
     function shiftImage(direction) {
-      if (direction === "previous") {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-      } else if (direction === "next") {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
+      var image = document.getElementById('image-display');
+      var currentImage = image.getAttribute('src');
+      var g1 = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg';
+      var g2 = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg';
+      var g3 = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg';
+
+      if (direction === 'previous') {
+        if (currentImage === g1)
+          image.setAttribute('src', g3);
+        else if (currentImage === g2)
+          image.setAttribute('src', g1);
+        else if (currentImage === g3)
+          image.setAttribute('src', g2);
+      } else if (direction === 'next') {
+        if (currentImage === g1)
+          image.setAttribute('src', g2);
+        else if (currentImage === g2)
+          image.setAttribute('src', g3);
+        else if (currentImage === g3)
+          image.setAttribute('src', g1);
       }
-      var modalImage = document.getElementById("modal-image");
-      modalImage.src = images[currentImageIndex];
     }
   </script>
 </head>
 <body>
   <header>
-    <h1>デボン紀の驚異：恐竜の祖先「ディミトリノスクス」</h1>
+    <h1>デボン紀の生物</h1>
     <h2>chatGPTが作成したサンプルWebページ</h2>
   </header>
-
-  <div class="container">
-    <div class="sidebar">
-      <h3>関連リンク</h3>
+  
+  <div id="container">
+    <div id="sidebar">
+      <h2>関連リンク</h2>
       <ul>
-        <li><a href="#">デボン紀の生物</a></li>
-        <li><a href="#">ディミトリノスクスの進化</a></li>
-        <li><a href="#">デボン紀の地層</a></li>
+        <li><a href="#">デボン紀について</a></li>
+        <li><a href="#">古代の海洋生物</a></li>
+        <li><a href="#">化石の発見</a></li>
       </ul>
     </div>
-    <div class="main-content">
-      <h2 class="article-title">ディミトリノスクス：驚異のデボン紀生物</h2>
-      <p class="article-text">
-        デボン紀、約4億 ~ 3億年前、地球上には驚異的な生物が存在しました。その中でも特筆すべき存在が、「ディミトリノスクス」と呼ばれる生物です。ディミトリノスクスは、現代の恐竜の祖先とされ、その姿は驚異的です。
+    
+    <div id="main-content">
+      <h2 id="article-title">デボン紀の生物 - 4億年前の驚異の生物たち</h2>
+      <p id="article-text">
+        デボン紀（約4億 ~ 3億年前）は、地球史上の興味深い時代の1つです。この時代には、多くの驚異的な生物が存在しました。特に古代の海洋には、巨大な海生爬虫類や恐竜の祖先、さらには異様な形状の生物が生息していました。
 
-        ディミトリノスクスは、全長約3メートルにも及ぶ巨大な体を持ち、両側に広がる羽毛状の鱗に覆われていました。そして、その最も特徴的な部分は頭部にあります。ディミトリノスクスの頭部は、長い牙と巨大な口を備え、獲物を捕らえるために特化していました。
+        その中でも特に有名な生物の1つは、デンクロオステウス（Dunkleosteus）と呼ばれる巨大な装甲魚です。デンクロオステウスは全長10メートルにも達し、顎の強力な咬合力で獲物を捕らえました。その恐ろしい外見と独特の生態は、多くの研究者や恐竜ファンを魅了しました。
 
-        ディミトリノスクスの生態については、狩りを主な生活の目的としていたと考えられています。その強力な顎と牙は、小型の魚や水生昆虫を狩るのに適していました。また、水中での泳ぎも得意とし、水中の餌場で生活していたとされています。
+        また、デボン紀には他にも多くの生物が存在しました。ウロコギリギリスやトリロバイトなど、現代には存在しない生物も多数見られます。これらの生物の化石は、地球史上の進化と生態系の理解に重要な手がかりとなっています。
 
-        ディミトリノスクスは、デボン紀の生物相において重要な存在であり、恐竜の進化の一端を担っていたと考えられています。その驚異的な姿と独特の生態は、古代の地球における生命の多様性を示しています。
+        デボン紀の生物は、私たちに地球の古代の姿を垣間見せてくれる存在です。その多様性と驚異的な進化は、私たちの知識と好奇心を刺激し続けています。
       </p>
-      <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="ディミトリノスクス" class="image" onclick="showImage(currentImageIndex)">
+      
+      <div id="image">
+        <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像" onclick="toggleImageModal()">
+      </div>
+      
       <div>
         <button class="button" onclick="shiftImage('previous')">＜</button>
         <button class="button" onclick="shiftImage('next')">＞</button>
       </div>
     </div>
   </div>
-
+  
   <footer>
-    <p>このページはMITライセンスで公開されています。ご利用にあたっては自己責任でお願いします。</p>
+    <h3>MITライセンス</h3>
+    <p>このページはMITライセンスで公開されています。自己責任で利用してください。</p>
   </footer>
 
-  <div id="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-    <img id="modal-image" style="max-height: 90vh; max-width: 90vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: pointer;" onclick="closeModal()">
+  <!-- 画像モーダル -->
+  <div class="image-modal" id="image-modal" onclick="toggleImageModal()">
+    <div class="image-modal-content">
+      <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" id="image-display" alt="拡大表示された画像">
+    </div>
   </div>
 </body>
 </html>
