@@ -1,128 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>デボン紀の驚異 - プレヒストリック・アドベンチャー</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デボン紀の探求</title>
     <style>
-        * {
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        header, footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
             box-sizing: border-box;
         }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        #sidebar {
+            align-self: flex-start;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #main-content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .header, .footer {
-            background-color: #f8f9fa;
+        #article, #image-section {
             width: 100%;
-            padding: 20px;
             text-align: center;
-            border-bottom: 1px solid #e9ecef;
         }
-        .sidebar {
-            width: 20%;
-            padding: 20px;
-            border-right: 1px solid #e9ecef;
+        #image-section {
+            position: relative;
         }
-        .main {
-            flex-grow: 1;
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .article, .image-section {
+        #image-section img {
             width: 100%;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid #e9ecef;
+            height: auto;
+            max-height: 60vh;
         }
-        .article {
-            font-size: 1.2em;
-            height: 30vh;
-            overflow-y: auto;
+        #image-section #prev, #image-section #next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0,0,0,0.5);
+            padding: 5px;
         }
-        .image-section {
-            height: 60vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        #image-section #prev {
+            left: 10px;
         }
-        .image-section img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-        .button {
-            width: 45%;
-            padding: 10px;
-            border: 1px solid #e9ecef;
-            text-align: center;
-            cursor: pointer;
+        #image-section #next {
+            right: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀の驚異 - プレヒストリック・アドベンチャー</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
+    <header>
+        <h1>デボン紀の探求</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
+    </header>
+    <div id="sidebar">
+        <p>サイドバー情報</p>
     </div>
-    <div class="sidebar">
-        <p>ここには、サイドバーに必要なリンクや情報を含めてください。</p>
-    </div>
-    <div class="main">
-        <div class="article">
-            <h2>デボン紀：生命の大爆発</h2>
-            <p>デボン紀、それは約4億 ~ 3億年前のこと。この時代は生命の大爆発とも呼ばれ、多様な海洋生物が誕生しました。その中でも特筆すべきは、巨大な海洋捕食者であるダンクルオステウスです。この魚は、その強力な咬みつき力と鎧のような外皮で知られ、海の支配者とも言われていましたquote("デボン紀：生命の大爆発</h2>\n<p>デボン紀、それは約4億 ~", "海の支配者とも言われていました")
+    <div id="main-content">
+        <div id="article">
+            <h3>デボン紀の驚異</h3>
+            <p>デボン紀は、約4億から3億年前の地質時代で、生命の進化と多様化が急速に進行した時期です。特に海洋生物は非常に多様で、中でも巨大な甲冑魚、ダンクルオステウスが存在していました。これらの生物はその強力な顎と鋭い歯で頂点捕食者として海を支配していました。デボン紀の海は、現代の海洋生態系とは大きく異なる、ユニークで興味深い世界でした。</p>
         </div>
-        <div class="image-section">
-            <button id="btn-prev">＜</button>
-            <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image 1">
-            <button id="btn-next">＞</button>
-        </div>
-        <div class="buttons">
-            <div class="button" id="button1">B1</div>
-            <div class="button" id="button2">B2</div>
+        <div id="image-section">
+            <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Dunkleosteus Image">
+            <button id="prev">＜</button```html
+            <button id="next">＞</button>
         </div>
     </div>
-    <div class="footer">
-        <p>このページはMITライセンスで公開されており、ユーザーが自己責任で利用することを明記しています。</p>
-    </div>
-<script>
-    const images = [
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg",
-    ];
-    let currentImageIndex = 0;
+    <footer>
+        <p>このページはMITライセンスで公開されています。ユーザー自身の責任においてご利用ください。</p>
+    </footer>
+    <script>
+        const images = [
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+        ];
+        let currentIndex = 0;
+        const mainImage = document.getElementById("main-image");
 
-    document.getElementById('btn-prev').addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        document.getElementById('main-image').src = images[currentImageIndex];
-    });
-
-    document.getElementById('btn-next').addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        document.getElementById('main-image').src = images[currentImageIndex];
-    });
-
-    document.getElementById('main-image').addEventListener('click', () => {
-        const img = document.getElementById('main-image');
-        if (img.style.height === '100vh') {
-            img.style.height = '60vh';
-            img.style.width = 'auto';
-        } else {
-            img.style.height = '100vh';
-            img.style.width = 'auto';
+        function setImage(index) {
+            mainImage.src = images[index];
         }
-    });
-</script>
+
+        document.getElementById("prev").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            setImage(currentIndex);
+        });
+
+        document.getElementById("next").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            setImage(currentIndex);
+        });
+    </script>
 </body>
 </html>
