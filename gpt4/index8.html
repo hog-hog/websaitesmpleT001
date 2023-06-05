@@ -64,19 +64,6 @@
         }
     </style>
     <title>デボン紀の物語</title>
-    <script>
-        var images = [
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
-        ];
-        var index = 0;
-
-        function changeImage(offset) {
-            index = (index + offset + images.length) % images.length;
-            document.querySelector('.image').style.backgroundImage = 'url(' + images[index] + ')';
-        }
-    </script>
 </head>
 <body onload="changeImage(0);">
     <div class="header">
@@ -101,5 +88,18 @@
     <div class="footer">
         このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。
     </div>
+        <script>
+        var images = [
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
+        ];
+        var index = 0;
+
+        function changeImage(offset) {
+            index = (index + offset + images.length) % images.length;
+            document.querySelector('.image').style.backgroundImage = 'url(' + images[index] + ')';
+        }
+    </script>
 </body>
 </html>
