@@ -1,96 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .header, .footer {
-            background-color: #f8f8f8;
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .main {
-            flex: 1;
-            display: flex;
-            border-bottom: 1px solid #ddd;
-        }
-        .sidebar {
-            width: 20%;
-            background-color: #f8f8f8;
-            border-right: 1px solid #ddd;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .content {
-            width: 80%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .article, .image {
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .article {
-            height: 30vh;
-        }
-        .image {
-            height: 60vh;
-        }
-        .buttons {
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-        }
-        .button {
-            border: 1px solid #ddd;
-            padding: 10px 20px;
-            text-align: center;
-            flex: 1;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>H</h1>
-    </div>
-    <div class="main">
-        <div class="sidebar">
-            <h2>SID</h2>
-        </div>
-        <div class="content">
-            <div class="article">
-                <h2>K</h2>
-            </div>
-            <div class="image">
-                <h2>G</h2>
-            </div>
-            <div class="buttons">
-                <div class="button">
-                    <h2>B1</h2>
-                </div>
-                <div class="button">
-                    <h2>B2</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <h1>F</h1>
-    </div>
-</body>
-</html>
+以下は、新しいWebページを作成するための指示です。指示に従ってWebサイトのHTML、スタイル、スクリプトを出力して下さい
+
+以下の図は、Webページのレイアウトです
++----------------------+
+|       H              |
++----------------------+
++----------------------+
+| SID | +------------+ |
+|     | |            | |
+|     | |            | |
+|     | |      M     | |
+|     | |            | |
+|     | +------------+ |
++----------------------+
++----------------------+
+|         F            |
++----------------------+
+
+H：フッター
+SID：左・サイドバー
+M：メインコンテンツ
+F：フッター
+
+以下はメインコンテンツ内のレイアウトです。
++--------------------------+
+| +----------------------+ |
+| |                      | |
+| |          K           | |
+| |                      | |
+| +----------------------+ |
+| |                      | |
+| |          G           | |
+| |                      | |
+| +----------------------+ |
+| |     B1   |    B2     | |
+| +----------------------+ |
++--------------------------+
+
+K：記事
+B：ボタン
+G：画像
+C：空白の要素
+
+要素の幅
+K :横幅 100%  縦幅 30%
+G :横幅 100%  縦幅 60%
+
+ページ全体をレスポンシブデザインにしてください。PCでもスマホでも、画面全体が画面に納まるように画面サイズを自動調整してください。
+各要素の境界が分かるように薄い色でラインを入れてください。
+フォントは、各要素を中央揃えに統一してください
+単純化のために、すべてのコードを1つのHTMLファイルにまとめて下さい。
