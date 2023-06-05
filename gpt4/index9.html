@@ -1,180 +1,116 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>デボン紀の生物 - 4億年前の驚異の生物たち</title>
-  <style>
-    /* スタイルの定義 */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    <title>デボン紀の驚異 - 生命の爆発</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    header, footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    #container {
-      display: flex;
-      flex-wrap: wrap;
-    }
+        .header, .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+        }
 
-    #sidebar {
-      flex: 1;
-      background-color: #f2f2f2;
-      padding: 10px;
-    }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    #main-content {
-      flex: 3;
-      padding: 10px;
-    }
+        .sidebar {
+            flex: 25%;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
 
-    #article-title {
-      font-size: 24px;
-      font-weight: bold;
-    }
+        .main {
+            flex: 75%;
+            padding: 20px;
+        }
 
-    #article-text {
-      margin-top: 10px;
-    }
+        .image {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
 
-    #image {
-      margin-top: 20px;
-      text-align: center;
-    }
+        .button {
+            display: inline-block;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            margin: 10px 2px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
 
-    .button {
-      display: inline-block;
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      margin-right: 10px;
-      text-decoration: none;
-    }
-
-    .image-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 9999;
-      overflow: auto;
-    }
-
-    .image-modal-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-
-    .image-modal img {
-      max-width: 90%;
-      max-height: 90%;
-    }
-
-    @media screen and (max-width: 600px) {
-      #container {
-        flex-direction: column;
-      }
-
-      #sidebar, #main-content {
-        flex: none;
-        width: 100%;
-      }
-    }
-  </style>
-  <script>
-    // 画像モーダルの表示と非表示を切り替える関数
-    function toggleImageModal() {
-      var modal = document.getElementById('image-modal');
-      modal.style.display = (modal.style.display === 'none') ? 'flex' : 'none';
-    }
-
-    // 画像のシフト処理を行う関数
-    function shiftImage(direction) {
-      var image = document.getElementById('image-display');
-      var currentImage = image.getAttribute('src');
-      var g1 = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg';
-      var g2 = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg';
-      var g3 = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg';
-
-      if (direction === 'previous') {
-        if (currentImage === g1)
-          image.setAttribute('src', g3);
-        else if (currentImage === g2)
-          image.setAttribute('src', g1);
-        else if (currentImage === g3)
-          image.setAttribute('src', g2);
-      } else if (direction === 'next') {
-        if (currentImage === g1)
-          image.setAttribute('src', g2);
-        else if (currentImage === g2)
-          image.setAttribute('src', g3);
-        else if (currentImage === g3)
-          image.setAttribute('src', g1);
-      }
-    }
-  </script>
+        @media screen and (max-width: 600px) {
+            .sidebar, .main {
+                flex: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>デボン紀の生物</h1>
-    <h2>chatGPTが作成したサンプルWebページ</h2>
-  </header>
-  
-  <div id="container">
-    <div id="sidebar">
-      <h2>関連リンク</h2>
-      <ul>
-        <li><a href="#">デボン紀について</a></li>
-        <li><a href="#">古代の海洋生物</a></li>
-        <li><a href="#">化石の発見</a></li>
-      </ul>
+    <div class="header">
+        <h1>デボン紀の驚異 - 生命の爆発</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
     </div>
-    
-    <div id="main-content">
-      <h2 id="article-title">デボン紀の生物 - 4億年前の驚異の生物たち</h2>
-      <p id="article-text">
-        デボン紀（約4億 ~ 3億年前）は、地球史上の興味深い時代の1つです。この時代には、多くの驚異的な生物が存在しました。特に古代の海洋には、巨大な海生爬虫類や恐竜の祖先、さらには異様な形状の生物が生息していました。
 
-        その中でも特に有名な生物の1つは、デンクロオステウス（Dunkleosteus）と呼ばれる巨大な装甲魚です。デンクロオステウスは全長10メートルにも達し、顎の強力な咬合力で獲物を捕らえました。その恐ろしい外見と独特の生態は、多くの研究者や恐竜ファンを魅了しました。
+    <div class="container">
+        <div class="sidebar">
+            <h2>関連リンク</h2>
+            <ul>
+                <li><a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%9C%E3%83%B3%E7%B4%80" target="_blank">デボン紀 (Wikipedia)</a></li>
+                <li><a href="https://www.britannica.com/science/Devonian-Period" target="_blank">デボン紀 (Britannica)</a></li>
+            </ul>
+        </div>
 
-        また、デボン紀には他にも多くの生物が存在しました。ウロコギリギリスやトリロバイトなど、現代には存在しない生物も多数見られます。これらの生物の化石は、地球史上の進化と生態系の理解に重要な手がかりとなっています。
-
-        デボン紀の生物は、私たちに地球の古代の姿を垣間見せてくれる存在です。その多様性と驚異的な進化は、私たちの知識と好奇心を刺激し続けています。
-      </p>
-      
-      <div id="image">
-        <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像" onclick="toggleImageModal()">
-      </div>
-      
-      <div>
-        <button class="button" onclick="shiftImage('previous')">＜</button>
-        <button class="button" onclick="shiftImage('next')">＞</button>
-      </div>
+        <div class="main">
+            <h2>デボン紀 - 生命の爆発</h2>
+            <p>デボン紀、それは生命の爆発とも言える時代。この時代、海はさまざまな生物で溢れ、陸地では初の森林が広がりました。大海の支配者、ダンクルオステウスのような恐るべき魚類が支配していました。その一方で、初めての陸生動物も出現し、生命の多様性が飛躍的に増したのです。</p>
+            <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" class="image">
+            <div>
+                <button id="button1" class="button">＜</button>
+                <button id="button2" class="button">＞</button>
+            </div>
+        </div>
     </div>
-  </div>
-  
-  <footer>
-    <h3>MITライセンス</h3>
-    <p>このページはMITライセンスで公開されています。自己責任で利用してください。</p>
-  </footer>
 
-  <!-- 画像モーダル -->
-  <div class="image-modal" id="image-modal" onclick="toggleImageModal()">
-    <div class="image-modal-content">
-      <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" id="image-display" alt="拡大表示された画像">
+    <div class="footer">
+        <p>このページはMITライセンスで公開されており、ユーザーは自己責任で利用します。</p>
     </div>
-  </div>
+
+    <script>
+        let images = [
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+        ];
+        let imageIndex = 0;
+
+        document.getElementById("image").addEventListener("click", function() {
+            this.classList.toggle("image");
+        });
+
+        document.getElementById("button1").addEventListener("click", function() {
+            imageIndex = (imageIndex + 1) % images.length;
+            document.getElementById("image").src = images[imageIndex];
+        });
+
+        document.getElementById("button2").addEventListener("click", function() {
+            imageIndex = (imageIndex + images.length - 1) % images.length;
+            document.getElementById("image").src = images[imageIndex];
+        });
+    </script>
 </body>
 </html>
