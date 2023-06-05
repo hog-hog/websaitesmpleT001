@@ -1,51 +1,80 @@
-以下は、新しいWebページを作成するための指示です。指示に従ってWebサイトのHTML、スタイル、スクリプトを出力して下さい
-
-以下の図は、Webページのレイアウトです
-+----------------------+
-|       H              |
-+----------------------+
-+----------------------+
-| SID | +------------+ |
-|     | |            | |
-|     | |            | |
-|     | |      M     | |
-|     | |            | |
-|     | +------------+ |
-+----------------------+
-+----------------------+
-|         F            |
-+----------------------+
-
-H：フッター
-SID：左・サイドバー
-M：メインコンテンツ
-F：フッター
-
-以下はメインコンテンツ内のレイアウトです。
-+--------------------------+
-| +----------------------+ |
-| |                      | |
-| |          K           | |
-| |                      | |
-| +----------------------+ |
-| |                      | |
-| |          G           | |
-| |                      | |
-| +----------------------+ |
-| |     B1   |    B2     | |
-| +----------------------+ |
-+--------------------------+
-
-K：記事
-B：ボタン
-G：画像
-C：空白の要素
-
-要素の幅
-K :横幅 100%  縦幅 30%
-G :横幅 100%  縦幅 60%
-
-ページ全体をレスポンシブデザインにしてください。PCでもスマホでも、画面全体が画面に納まるように画面サイズを自動調整してください。
-各要素の境界が分かるように薄い色でラインを入れてください。
-フォントは、各要素を中央揃えに統一してください
-単純化のために、すべてのコードを1つのHTMLファイルにまとめて下さい。
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .header, .footer {
+            background: #EEE;
+            flex: 0 0 auto;
+            padding: 10px;
+            border: 1px solid #DDD;
+        }
+        .main-content {
+            display: flex;
+            flex: 1 1 auto;
+            border: 1px solid #DDD;
+        }
+        .sidebar {
+            background: #EEE;
+            flex: 0 0 20%;
+            border-right: 1px solid #DDD;
+        }
+        .content {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .article, .image {
+            border: 1px solid #DDD;
+            margin: 10px;
+        }
+        .article {
+            flex: 0 0 30%;
+        }
+        .image {
+            flex: 0 0 60%;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+        }
+        .button {
+            flex: 1 1 auto;
+            background: #EEE;
+            border: 1px solid #DDD;
+            margin-right: 5px;
+            padding: 10px;
+        }
+        .button:last-child {
+            margin-right: 0;
+        }
+    </style>
+    <title>Sample Page</title>
+</head>
+<body>
+    <div class="header">H: Header</div>
+    <div class="main-content">
+        <div class="sidebar">SID: Sidebar</div>
+        <div class="content">
+            <div class="article">K: Article</div>
+            <div class="image">G: Image</div>
+            <div class="buttons">
+                <div class="button">B1: Button</div>
+                <div class="button">B2: Button</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">F: Footer</div>
+</body>
+</html>
