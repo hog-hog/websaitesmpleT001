@@ -54,6 +54,7 @@
       height: 60%;
       border: 1px solid lightgray;
       padding: 20px;
+      cursor: pointer;
     }
     
     .buttons {
@@ -69,38 +70,79 @@
       padding: 20px;
       text-align: center;
       margin-bottom: 20px;
+      cursor: pointer;
     }
   </style>
+  <script>
+    var currentImage = 1;
+    
+    function showImage(imageIndex) {
+      var image = document.getElementById('mainImage');
+      var imageLink = document.getElementById('mainImageLink');
+      
+      currentImage = imageIndex;
+      image.src = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(' + currentImage + ').jpg';
+      imageLink.href = 'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(' + currentImage + ').jpg';
+    }
+    
+    function previousImage() {
+      if (currentImage === 1) {
+        showImage(3);
+      } else {
+        showImage(currentImage - 1);
+      }
+    }
+    
+    function nextImage() {
+      if (currentImage === 3) {
+        showImage(1);
+      } else {
+        showImage(currentImage + 1);
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
-    <h1>ヘッダー</h1>
+    <h1>ページのタイトル</h1>
+    <h2>chatGPTが作成したサンプルWebページ</h2>
   </header>
   
   <aside>
     <h2>サイドバー</h2>
+    <ul>
+      <li><a href="#">関連リンク1</a></li>
+      <li><a href="#">関連リンク2</a></li>
+      <li><a href="#">関連リンク3</a></li>
+    </ul>
   </aside>
   
   <main>
     <article>
-      <h2>記事</h2>
+      <h2>デボン紀の謎の生物</h2>
+      <p>デボン紀（約4億 ~ 3億年前）に地球上で話題となった生物についての驚くべき発見がありました。化石の研究により、巨大な魚類である「ドンクルオステウス」が再評価されました。</p>
+      <p>ドンクルオステウスは、全長10メートル以上にもなる巨大な口と強力な顎を持ち、海中の獲物を襲っていたと考えられています。その外見から、水中の恐竜とも形容されることもあります。</p>
+      <p>しかし、最近の研究では、ドンクルオステウスが水面近くで生活していた可能性が示唆されています。これまでに発見された化石には、陸上生物や小さな魚の化石が内部に含まれていることがあります。これは、ドンクルオステウスが浅い水域で獲物を捕らえていたことを示唆しています。</p>
+      <p>この発見は、デボン紀の生態系と生物多様性に関する理解を深める上で重要なものであり、これまでの知見を覆す可能性があります。今後の研究によって、ドンクルオステウスとその生息環境に関する新たな情報が明らかになることが期待されています。</p>
     </article>
     
-    <img src="画像のURL" alt="画像">
+    <a id="mainImageLink" href="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
+      <img id="mainImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像" onclick="showImage(currentImage);">
+    </a>
     
     <div class="buttons">
-      <div class="button">
-        <h2>ボタン1</h2>
+      <div class="button" onclick="previousImage();">
+        <h2>＜</h2>
       </div>
       
-      <div class="button">
-        <h2>ボタン2</h2>
+      <div class="button" onclick="nextImage();">
+        <h2>＞</h2>
       </div>
     </div>
   </main>
   
   <footer>
-    <h2>フッター</h2>
+    <p>このページはMITライセンスで公開されています。ご利用にあたっては、自己責任でお願いします。</p>
   </footer>
 </body>
 </html>
