@@ -1,154 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デボン紀の驚異的な生物</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html,
-    body {
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      border: 1px solid lightgray;
-    }
-
-    header {
-      width: 100%;
-      background-color: lightgray;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .sidebar {
-      width: 20%;
-      background-color: lightgray;
-      padding: 10px;
-    }
-
-    .main-content {
-      width: 80%;
-      padding: 10px;
-    }
-
-    .footer {
-      width: 100%;
-      background-color: lightgray;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .main-content > div {
-      border: 1px solid lightgray;
-      margin-bottom: 10px;
-      padding: 10px;
-    }
-
-    .article {
-      width: 100%;
-      height: 30%;
-      text-align: justify;
-    }
-
-    .image {
-      width: 100%;
-      height: 60%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      overflow: hidden;
-    }
-
-    .image img {
-      max-width: 100%;
-      max-height: 100%;
-      transition: transform 0.3s;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-    }
-  </style>
+    <title>Webページ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            width: 100%;
+            height: 50px;
+            background-color: lightgray;
+            text-align: center;
+        }
+        
+        .sidebar {
+            width: 20%;
+            height: calc(100% - 50px);
+            float: left;
+            background-color: lightgray;
+            border-right: 1px solid gray;
+            text-align: center;
+        }
+        
+        .main-content {
+            width: 80%;
+            height: calc(100% - 50px);
+            float: left;
+            text-align: center;
+        }
+        
+        .footer {
+            width: 100%;
+            height: 50px;
+            background-color: lightgray;
+            clear: both;
+            text-align: center;
+        }
+        
+        .article {
+            width: 100%;
+            height: 30%;
+            background-color: lightyellow;
+            border: 1px solid lightgray;
+            margin-bottom: 5px;
+            text-align: center;
+            padding: 10px;
+            overflow: auto;
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 60%;
+            background-color: lightblue;
+            border: 1px solid lightgray;
+            margin-bottom: 5px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .button-container {
+            width: 100%;
+            height: 10%;
+            background-color: lightgreen;
+            border: 1px solid lightgray;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .button {
+            width: 48%;
+            height: 100%;
+            background-color: lightgray;
+            border: 1px solid gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const images = [
+                'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
+                'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
+                'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
+            ];
+            
+            let currentImageIndex = 0;
+            
+            const imageContainer = document.getElementById('image-container');
+            
+            function updateImage() {
+                const currentImage = images[currentImageIndex];
+                imageContainer.innerHTML = `<img src="${currentImage}" class="image">`;
+            }
+            
+            function shiftImage(direction) {
+                if (direction === 'previous') {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                } else if (direction === 'next') {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                }
+                
+                updateImage();
+            }
+            
+            const previousButton = document.getElementById('previous-button');
+            previousButton.addEventListener('click', () => {
+                shiftImage('previous');
+            });
+            
+            const nextButton = document.getElementById('next-button');
+            nextButton.addEventListener('click', () => {
+                shiftImage('next');
+            });
+            
+            imageContainer.addEventListener('click', () => {
+                imageContainer.classList.toggle('fullscreen');
+            });
+            
+            updateImage();
+        });
+    </script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>デボン紀の驚異的な生物</h1>
-      <h2>chatGPTが作成したサンプルWebページ</h2>
-    </header>
+    <div class="header">
+        <h1>デボン紀の話題</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
+    </div>
     <div class="sidebar">
-      <h2>SIDEBAR</h2>
-      <ul>
-        <li><a href="#">リンク1</a></li>
-        <li><a href="#">リンク2</a></li>
-        <li><a href="#">リンク3</a></li>
-      </ul>
+        <p>関連リンク</p>
+        <ul>
+            <li><a href="#">デボン紀について</a></li>
+            <li><a href="#">化石の発見</a></li>
+            <li><a href="#">古代生物</a></li>
+        </ul>
     </div>
     <div class="main-content">
-      <div>
         <div class="article">
-          <h2>デボン紀の奇妙な生物</h2>
-          <p>
-            デボン紀（約4億 ~ 3億年前）には、地球上に多くの驚異的な生物が存在しました。
-            海洋には、巨大なプレシオサウルスという肉食恐竜が生息していました。
-            この巨大な爬虫類は、全長15メートルにも達し、鋭い歯と強力な顎を持っていました。
-            プレシオサウルスは、他の生物を追いかけ、驚異的なスピードで捕食することで知られていました。
-
-            陸地には、ギガノトサウルスという巨大な肉食恐竜が支配的でした。
-            この恐竜は、全長12メートル以上に成長し、鋭い爪と牙を持っていました。
-            ギガノトサウルスは、他の恐竜を追いかけ、驚異的な力で獲物を捕らえました。
-
-            デボン紀は生物の進化の過程で非常に重要な時期であり、地球上の生物の多様性を増やす役割を果たしました。
-            これらの驚異的な生物は、現代の生物界の発展に大きな影響を与えました。
-          </p>
+            <h3>デボン紀の驚きの生物</h3>
+            <p>
+                デボン紀（約4億 ~ 3億年前）には、地球上で最初の大陸が形成され、多様な生物が進化しました。その中でも特に注目すべきは、巨大な古代魚デンクリオステウス（Dunkleosteus）です。
+            </p>
+            <p>
+                デンクリオステウスは、全長10メートル以上に達することがあり、頑丈な顎と鋭い歯を持っていました。これらの歯は、獲物を一瞬でかみ砕くことができ、強力な捕食者として知られています。デンクリオステウスは、海洋の頂点に君臨し、その存在はデボン紀の海の生態系に大きな影響を与えました。
+            </p>
+            <p>
+                この驚異的な古代魚は、化石記録から再構築された骨格でよく知られており、その姿は科学者や古生物学者の興味を引き続けています。デンクリオステウスの存在は、デボン紀が生物進化の舞台であったことを示し、私たちが現在の生物多様性に至る道筋を示唆しています。
+            </p>
         </div>
-        <div class="image" id="imageContainer">
-          <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="デボン紀の生物">
+        <div id="image-container" class="image-container">
+            <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" class="image">
         </div>
-        <div class="buttons">
-          <button class="button1" onclick="shiftImage(-1)">&lt;</button>
-          <button class="button2" onclick="shiftImage(1)">&gt;</button>
+        <div class="button-container">
+            <div id="previous-button" class="button">&lt;</div>
+            <div id="next-button" class="button">&gt;</div>
         </div>
-      </div>
     </div>
-    <footer class="footer">
-      <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
-    </footer>
-  </div>
-
-  <script>
-    const images = [
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg',
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg'
-    ];
-
-    let currentImageIndex = 0;
-
-    const imageContainer = document.getElementById('imageContainer');
-    const imageElement = imageContainer.querySelector('img');
-
-    function shiftImage(direction) {
-      currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
-      imageElement.src = images[currentImageIndex];
-    }
-
-    imageContainer.addEventListener('click', () => {
-      imageContainer.classList.toggle('expanded');
-    });
-  </script>
+    <div class="footer">
+        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
+    </div>
 </body>
 </html>
