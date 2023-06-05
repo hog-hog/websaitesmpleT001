@@ -1,151 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .header, .footer {
-            background: #f8f9fa;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #dee2e6;
-        }
-
-        .main-content {
-            flex: 1;
-            display: flex;
-            border: 1px solid #dee2e6;
-        }
-
-        .sidebar {
-            flex: 0 0 20%;
-            border-right: 1px solid #dee2e6;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .main {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .article, .image {
-            border: 1px solid #dee2e6;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .article {
-            flex: 0 0 30%;
-        }
-
-        .image {
-            flex: 1;
-            cursor: pointer;
-            max-height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .button {
-            flex: 1;
-            padding: 20px;
-            border: 1px solid #dee2e6;
-            text-align: center;
-            cursor: pointer;
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webページ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .header {
+      background-color: lightgray;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .sidebar {
+      background-color: lightgray;
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .main {
+      background-color: white;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer {
+      background-color: lightgray;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .content-item {
+      border: 1px solid lightgray;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
+    
+    .article {
+      height: 30%;
+      background-color: lightblue;
+    }
+    
+    .image {
+      height: 60%;
+      background-color: lightgreen;
+    }
+    
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .button {
+      border: 1px solid lightgray;
+      padding: 5px 10px;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="header">
-        <h1>デボン紀の秘密</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
-    </div>
-    <div class="main-content">
-        <div class="sidebar">
-            <p>関連リンク:</p>
-            <ul>
-                <li><a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%9C%E3%83%B3%E7%B4%80" target="_blank">デボン紀 - Wikipedia</a></li>
-                <li><a href="https://www.nature.com/subjects/devonian" target="_blank">デボン紀 - Nature</a></li>
-            </ul>
+  <div class="container">
+    <header class="header">
+      <h1>ヘッダー</h1>
+    </header>
+    
+    <div class="content">
+      <div class="sidebar">
+        <h2>サイドバー</h2>
+      </div>
+      
+      <div class="main">
+        <div class="content-item article">
+          <h2>記事</h2>
         </div>
-        <div class="main">
-            <div class="article">
-                <h3>デボン紀の海の覇者、ダンクレオステウス</h3>
-                <p>デボン紀、約4億年前、海は生命の宝庫と化していました。その中でもひときわ存在感を放つのがダンクレオステウスでした。体長9mに達し、その巨大な顎は強力な一撃を放つことができました。彼らの威圧感は、海洋のトッププレデターとして君臨していたことを物語っています。当時の海の風景を思い浮かべると、想像を超えたダイナミズムが広がっていたことでしょう。</p>
-            </div>
-            <div class="image" onclick="toggleImageSize()">
-                <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="G1">
-            </div>
-            <div class="buttons">
-                <div class="button" onclick="previousImage()">＜</div>
-                <div class="button" onclick="nextImage()">＞</div>
-            </div>
+        
+        <div class="content-item image">
+          <h2>画像</h2>
         </div>
+        
+        <div class="content-item buttons">
+          <button class="button">ボタン1</button>
+          <button class="button">ボタン2</button>
+        </div>
+      </div>
     </div>
-    <div class="footer">
-        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
-    </div>
-    <script>
-        var images = [
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg',
-        ];
-        var currentIndex = 0;
-        var isZoomed = false;
-
-        function previousImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateImage();
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateImage();
-        }
-
-        function updateImage() {
-            document.getElementById('image').src = images[currentIndex];
-        }
-
-        function toggleImageSize() {
-            var img = document.getElementById('image');
-            if (isZoomed) {
-                img.style.maxWidth = '100%';
-                img.style.maxHeight = '100%';
-            } else {
-                img.style.maxWidth = 'none';
-                img.style.maxHeight = '90vh';
-            }
-            isZoomed = !isZoomed;
-        }
-    </script>
+    
+    <footer class="footer">
+      <h2>フッター</h2>
+    </footer>
+  </div>
 </body>
+
 </html>
