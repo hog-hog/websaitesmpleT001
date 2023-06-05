@@ -1,69 +1,79 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>デボン紀の驚異</title>
     <style>
-        body, html {
-            height: 100%;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
+            text-align: center;
+        }
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
         }
         .header, .footer {
+            background: #f5f5f5;
             width: 100%;
-            background: #f8f9fa;
-            text-align: center;
-            padding: 20px;
-        }
-        .content {
-            display: flex;
-            flex: 1;
+            height: 10%;
+            border-bottom: 1px solid #ddd;
+            line-height: 10vh;
+            padding: 10px;
         }
         .sidebar {
+            background: #f5f5f5;
             width: 20%;
-            background: #f8f9fa;
-            text-align: center;
+            height: 80%;
+            float: left;
+            border-right: 1px solid #ddd;
             padding: 20px;
         }
-        .main {
+        .main-content {
+            background: #f5f5f5;
             width: 80%;
+            height: 80%;
+            float: right;
+            border-left: 1px solid #ddd;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-        .article, .image {
-            background: #f8f9fa;
-            text-align: center;
-            margin-bottom: 10px;
         }
         .article {
-            height: 30%;
+            width: 100%;
+            height: 20%;
+            border-bottom: 1px solid #ddd;
         }
         .image {
-            height: 60%;
+            width: 100%;
+            height: 40%;
+            position: relative;
+            border-bottom: 1px solid #ddd;
         }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-        .button {
-            width: 49%;
-            padding: 10px;
-            background: #f8f9fa;
-            text-align: center;
-        }
-        img {
+        .image img {
             max-width: 100%;
             max-height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-        @media (max-width: 600px) {
-            .content {
-                flex-direction: column;
-            }
-            .sidebar, .main {
+        .buttons {
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .button {
+            width: 45%;
+            height: 50%;
+            background: #eee;
+            line-height: 10vh;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        @media screen and (max-width: 600px) {
+            .sidebar, .main-content {
+                float: none;
                 width: 100%;
             }
         }
@@ -71,50 +81,48 @@
 </head>
 <body>
     <div class="header">
-        <h1>デボン紀の驚異</h1>
-        <h2>ChatGPTが作成したサンプルWebページ</h2>
+        <h1>デボン紀の海洋生命</h1>
+        <h3>chatGPTが作成したサンプルWebページ</h3>
     </div>
-    <div class="content">
-        <div class="sidebar">
-            <p>関連リンク</p>
-            <a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%9C%E3%83%B3%E7%B4%80">デボン紀 - Wikipedia</a>
-            <a href="https://www.britannica.com/science/Devonian-Period">デボン紀 - Britannica</a>
+    <div class="sidebar">
+        <p>関連リンク</p>
+        <a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%9C%E3%83%B3%E7%B4%80" target="_blank">デボン紀 - Wikipedia</a>
+        <a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%B3%E3%82%AD%E3%83%AD%E3%82%B9%E3%83%86%E3%82%A6%E3%82%B9" target="_blank">デンキロステウス - Wikipedia</a>
+    </div>
+    <div class="main-content">
+        <div class="article">
+            <h2>デボン紀の海洋世界: 未知へのダイブ</h2>
+            <p>デボン紀、約4億年前から3億年前にかけての時代。今から思えば、まさに深海の未踏領域へのダイブとも言えるでしょう。その時代の海洋生命は、その多様性と進化の速さで知られています。特に注目すべきは、巨大な海洋捕食動物であるデンキロステウス。その名の通り、強靭な鎧をまとい、恐るべき牙を武器に海中を支配した存在でした。海洋生物の進化と生態系の複雑さを垣間見せるデボン紀、それはまさに未知の海の世界でした。</p>
         </div>
-        <div class="main">
-            <div class="article">
-                <h3>デボン紀、生命の繁栄</h3>
-                <p>デボン紀、生命の大いなる舞台。海洋生物が多様化し、森林が初めて地球を覆いました。石灰質の殻を持つ有機体が広がり、魚類は甲冑を身にまといました。さらに、初めての四足動物が地球上を這い始め、生物界は大きな変化を迎えました。まさに、この時代が現在の生態系の礎を築いたと言えるでしょう。</p>
-            </div>
-            <div class="image" id="image-container">
-                <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像">
-            </div>
-            <div class="buttons">
-                <div class="button" id="button1">＜</div>
-                <div class="button" id="button2">＞</div>
-            </div>
+        <div class="image" id="imageDiv">
+            <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" id="image">
+        </div>
+        <div class="buttons">
+            <div class="button" onclick="prevImage()">＜</div>
+            <div class="button" onclick="nextImage()">＞</div>
         </div>
     </div>
     <div class="footer">
-        このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。
+        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
     </div>
+
     <script>
-        let images = [
+        var images = [
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
         ];
-        let index = 0;
-        let img = document.getElementById('image');
+        var imageIndex = 0;
 
-        document.getElementById('button1').addEventListener('click', () => {
-            index = (index - 1 + images.length) % images.length;
-            img.src = images[index];
-        });
+        function prevImage() {
+            imageIndex = (imageIndex - 1 + images.length) % images.length;
+            document.getElementById("image").src = images[imageIndex];
+        }
 
-        document.getElementById('button2').addEventListener('click', () => {
-            index = (index + 1) % images.length;
-            img.src = images[index];
-        });
+        function nextImage() {
+            imageIndex = (imageIndex + 1) % images.length;
+            document.getElementById("image").src = images[imageIndex];
+        }
     </script>
 </body>
 </html>
