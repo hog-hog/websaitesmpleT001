@@ -1,102 +1,116 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webページ</title>
-    <style>
-        /* 全体のスタイル */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        /* レイアウトのスタイル */
-        .container {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: auto 1fr auto;
-            min-height: 100vh;
-            border: 1px solid #ccc;
-        }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      border: 1px solid lightgray;
+    }
 
-        header {
-            grid-row: 1;
-            background-color: #f2f2f2;
-        }
+    header, main, footer {
+      width: 100%;
+      padding: 10px;
+    }
 
-        #sidebar {
-            grid-row: 2;
-            background-color: #eaeaea;
-        }
+    header, footer {
+      background-color: lightgray;
+      text-align: center;
+    }
 
-        #main-content {
-            grid-row: 2;
-            background-color: #fff;
-            display: grid;
-            grid-template-rows: 30% 60% auto;
-        }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        footer {
-            grid-row: 3;
-            background-color: #f2f2f2;
-        }
+    .sidebar {
+      width: 100%;
+      border: 1px solid lightgray;
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-        /* メインコンテンツ内のレイアウトのスタイル */
-        #article {
-            grid-row: 1;
-            background-color: #f9f9f9;
-        }
+    .main-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
-        #gallery {
-            grid-row: 2;
-            background-color: #fff;
-        }
+    .article {
+      width: 100%;
+      height: 30%;
+      border: 1px solid lightgray;
+      margin-bottom: 10px;
+    }
 
-        #buttons {
-            grid-row: 3;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: space-between;
-        }
+    .gallery {
+      width: 100%;
+      height: 60%;
+      border: 1px solid lightgray;
+      margin-bottom: 10px;
+    }
 
-        .button {
-            padding: 10px 20px;
-            border: 1px solid #ccc;
-            background-color: #f2f2f2;
-        }
+    .buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid lightgray;
+    }
 
-        /* その他のスタイル */
-        .empty-element {
-            background-color: transparent;
-        }
-    </style>
+    .button {
+      flex-basis: 48%;
+      border: 1px solid lightgray;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>フッター</h1>
-        </header>
-        <div id="sidebar">
-            <h2>左・サイドバー</h2>
-        </div>
-        <div id="main-content">
-            <div id="article">
-                <h2>記事</h2>
-            </div>
-            <div id="gallery">
-                <h2>画像</h2>
-            </div>
-            <div id="buttons">
-                <div class="button">ボタン1</div>
-                <div class="button">ボタン2</div>
-            </div>
-        </div>
-        <footer>
-            <h1>フッター</h1>
-        </footer>
+  <header>
+    <h1>Header</h1>
+  </header>
+
+  <main>
+    <div class="sidebar">
+      <h2>SID</h2>
     </div>
+
+    <div class="main-content">
+      <div class="article">
+        <h2>Article K</h2>
+      </div>
+
+      <div class="gallery">
+        <h2>Image G</h2>
+      </div>
+
+      <div class="buttons">
+        <div class="button">
+          <h3>Button B1</h3>
+        </div>
+        <div class="button">
+          <h3>Button B2</h3>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <h1>Footer</h1>
+  </footer>
 </body>
 </html>
