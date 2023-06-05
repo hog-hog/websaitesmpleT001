@@ -1,123 +1,185 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webページのレイアウト</title>
+  <title>Responsive Web Page</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+    
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
     }
-
+    
     .container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: stretch;
+      flex-direction: column;
       height: 100vh;
-      border: 1px solid #ccc;
     }
-
-    .header,
-    .sidebar,
-    .main-content,
-    .footer {
-      border: 1px solid #ccc;
-    }
-
+    
     .header {
-      flex-basis: 100%;
-      flex-grow: 0;
-      flex-shrink: 0;
-      height: 10vh;
+      background-color: lightgray;
+      padding: 10px;
+      text-align: center;
     }
-
+    
+    .subtitle {
+      font-size: 14px;
+    }
+    
     .sidebar {
-      flex-basis: 30%;
-      flex-grow: 0;
-      flex-shrink: 0;
-      height: 80vh;
+      background-color: lightgray;
+      padding: 10px;
     }
-
-    .main-content {
-      flex-basis: 70%;
-      flex-grow: 1;
-      flex-shrink: 1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-    }
-
+    
     .footer {
-      flex-basis: 100%;
-      flex-grow: 0;
-      flex-shrink: 0;
-      height: 10vh;
+      background-color: lightgray;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
     }
-
-    .article {
-      width: 100%;
-      height: 30%;
-      border: 1px solid #ccc;
-    }
-
-    .image {
-      width: 100%;
-      height: 60%;
-      border: 1px solid #ccc;
-    }
-
-    .buttons {
-      width: 100%;
-      height: 10%;
+    
+    .main-content {
+      flex-grow: 1;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #ccc;
+      flex-direction: column;
     }
-
+    
+    .content-row {
+      display: flex;
+      flex-grow: 1;
+    }
+    
+    .content-column {
+      flex-grow: 1;
+      padding: 10px;
+    }
+    
+    .article {
+      background-color: lightyellow;
+      height: 30%;
+      border: 1px solid lightgray;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
     .button {
-      width: 48%;
+      background-color: lightblue;
       height: 100%;
-      border: 1px solid #ccc;
+      border: 1px solid lightgray;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .image-container {
+      background-color: lightgreen;
+      height: 60%;
+      border: 1px solid lightgray;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      H
+      <h1>Webページのタイトル</h1>
+      <div class="subtitle">chatGPTが作成したサンプルWebページ</div>
     </div>
-    <div class="sidebar">
-      SID
-    </div>
-    <div class="main-content">
-      <div class="article">
-        K
+    <div class="content-row">
+      <div class="sidebar">
+        <h2>サイドバー</h2>
+        <ul>
+          <li><a href="#">リンク1</a></li>
+          <li><a href="#">リンク2</a></li>
+          <li><a href="#">リンク3</a></li>
+        </ul>
       </div>
-      <div class="image">
-        G
-      </div>
-      <div class="buttons">
-        <div class="button">
-          B1
-        </div>
-        <div class="button">
-          B2
+      <div class="main-content">
+        <div class="content-row">
+          <div class="content-column">
+            <div class="article">
+              <h2>デボン紀の驚き</h2>
+              <p>デボン紀（約4億 ~ 3億年前）には、地球上で驚くべき出来事が起こりました。その頃、巨大な生物が海を支配していました。特に注目すべきは、巨大な生物「ドンクルオステウス」でした。ドンクルオステウスは全長10メートルにも達し、巨大な顎を持っていました。この古代の怪物は、他の生物を食べるために巨大な歯を使って獲物を噛み砕きました。デボン紀の海はドンクルオステウスという恐ろしい捕食者に支配されていたのです。</p>
+              <p>ドンクルオステウスの生態は謎に包まれていますが、その巨大な姿と強力な顎のおかげで、海洋の頂点に君臨していたことは間違いありません。研究者たちは、この巨大な生物がどのようにして獲物を捕らえ、生き残っていたのかを解明しようとしています。デボン紀の生物相は、私たちに驚きと興奮を与えるだけでなく、地球の歴史の中で重要な役割を果たしています。</p>
+            </div>
+            <div class="button" id="button1">&lt;</div>
+          </div>
+          <div class="content-column">
+            <div class="image-container" id="imageContainer">
+              <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image">
+            </div>
+            <div class="button" id="button2">&gt;</div>
+          </div>
         </div>
       </div>
     </div>
     <div class="footer">
-      F
+      <p>MIT License</p>
+      <p>このページは chatGPT によって作成されました。</p>
+      <p>利用は自己責任でお願いします。</p>
     </div>
   </div>
+  
+  <script>
+    const images = [
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+    ];
+    
+    let currentImageIndex = 0;
+    const imageContainer = document.getElementById("imageContainer");
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    
+    button1.addEventListener("click", () => {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      setImage();
+    });
+    
+    button2.addEventListener("click", () => {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      setImage();
+    });
+    
+    function setImage() {
+      const image = new Image();
+      image.src = images[currentImageIndex];
+      image.onload = () => {
+        const aspectRatio = image.naturalWidth / image.naturalHeight;
+        const containerWidth = imageContainer.offsetWidth;
+        const containerHeight = containerWidth / aspectRatio;
+        
+        image.style.width = `${containerWidth}px`;
+        image.style.height = `${containerHeight}px`;
+      };
+      
+      imageContainer.innerHTML = "";
+      imageContainer.appendChild(image);
+    }
+    
+    setImage();
+  </script>
 </body>
 </html>
