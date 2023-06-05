@@ -18,10 +18,6 @@
             padding: 20px;
         }
 
-        #header h1, #header h2 {
-            margin: 0;
-        }
-
         #main-content {
             flex: 1;
             display: flex;
@@ -54,9 +50,6 @@
 
         #image {
             height: 60%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
         }
 
         #buttons {
@@ -69,51 +62,22 @@
             padding: 10px;
             flex: 1;
             margin: 0 10px;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div id="header">
-        <h1>Page Title</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
-    </div>
+    <div id="header">H</div>
     <div id="main-content">
-        <div id="sidebar">リンクや情報</div>
+        <div id="sidebar">SID</div>
         <div id="content">
-            <div id="article">記事</div>
-            <div id="image" onclick="toggleImageSize()"></div>
+            <div id="article">K</div>
+            <div id="image">G</div>
             <div id="buttons">
-                <div id="button1" onclick="shiftImage(-1)">＜</div>
-                <div id="button2" onclick="shiftImage(1)">＞</div>
+                <div id="button1">B1</div>
+                <div id="button2">B2</div>
             </div>
         </div>
     </div>
-    <div id="footer">
-        このページはMITライセンスのもとで公開されています。利用は自己責任で行ってください。
-    </div>
-        <script>
-            var images = [
-                'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-                'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-                'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg',
-            ];
-            var imageIndex = 0;
-            var imageElement = document.getElementById('image');
-            imageElement.style.backgroundImage = 'url(' + images[imageIndex] + ')';
-
-            function shiftImage(direction) {
-                imageIndex = (imageIndex + direction + images.length) % images.length;
-                imageElement.style.backgroundImage = 'url(' + images[imageIndex] + ')';
-            }
-
-            function toggleImageSize() {
-                if (imageElement.style.backgroundSize === 'contain') {
-                    imageElement.style.backgroundSize = '100%';
-                } else {
-                    imageElement.style.backgroundSize = 'contain';
-                }
-            }
-        </script>
-    </body>
+    <div id="footer">F</div>
+</body>
 </html>
