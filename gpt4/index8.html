@@ -1,112 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Web Page</title>
+    <title>Responsive Website Layout</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             height: 100vh;
-            font-family: Arial, sans-serif;
+        }
+        .header, .footer {
+            background: #f8f9fa;
             text-align: center;
-        }
-
-        #header, #footer {
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #ddd;
             padding: 20px;
+            border: 1px solid #dee2e6;
         }
-
-        #main-content {
+        .main-content {
             flex: 1;
             display: flex;
-            border-bottom: 1px solid #ddd;
+            flex-direction: row;
         }
-
-        #sidebar {
+        .sidebar {
+            background: #e9ecef;
             width: 20%;
-            border-right: 1px solid #ddd;
-            padding: 20px;
+            text-align: center;
+            border: 1px solid #dee2e6;
         }
-
-        #content {
+        .content {
             width: 80%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
+            align-items: center;
+            justify-content: center;
         }
-
-        #article, #image {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 10px;
+        .article, .image {
+            width: 100%;
+            text-align: center;
+            border: 1px solid #dee2e6;
         }
-
-        #article {
+        .article {
             height: 30%;
         }
-
-        #image {
+        .image {
             height: 60%;
         }
-
-        #buttons {
+        .buttons {
             display: flex;
-            justify-content: space-between;
+            width: 100%;
         }
-
-        #button1, #button2 {
-            border: 1px solid #ddd;
+        .button1, .button2 {
+            width: 50%;
+            text-align: center;
+            border: 1px solid #dee2e6;
             padding: 10px;
-            flex: 1;
-            margin: 0 10px;
+        }
+        @media (max-width: 600px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .sidebar, .content {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="header">
-        <h1>Web Page</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
-   
-        <div id="sidebar">
-            <p>ここにリンクや情報を入れてください。</p>
-        </div>
-        <div id="content">
-            <div id="article">
-                <h2>デボン紀：生命の海から陸への大移動</h2>
-                <p>デボン紀、それは生命が海から陸地へと大いに進出した時代であり、古生代の中でも特に生物多様性が豊かだった時期です。この時代には初めての森が出現し、最初の四足動物も現れました。また、海中では魚類が顕著に進化し、強力な捕食者であるダンクルオステウスのような巨大な生物も生まれました。これらの進化は、地球上の生態系が急速に変化し、新たな生物相が形成されるきっかけとなりました。デボン紀の終わりには、大規模な絶滅イベントが発生し、海洋生物の多くが姿を消しました。しかし、その一方で新たな生物種が台頭し、地球の生命の歴史は新たな章を迎えることとなります。</p>
-            </div>
-            <div id="image">
-                <img id="mainImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image" style="max-width:100%; max-height:100%;">
-            </div>
-            <div id="buttons">
-                <button id="button1">＜</button>
-                <button id="button2">＞</button>
+    <div class="header">H: Header</div>
+    <div class="main-content">
+        <div class="sidebar">SID: Sidebar</div>
+        <div class="content">
+            <div class="article">K: Article</div>
+            <div class="image">G: Image</div>
+            <div class="buttons">
+                <div class="button1">B1: Button</div>
+                <div class="button2">B2: Button</div>
             </div>
         </div>
     </div>
-    <div id="footer">
-        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
-    </div>
+    <div class="footer">F: Footer</div>
 </body>
-<script>
-    var images = [
-        'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-        'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-        'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg',
-    ];
-    var currentImageIndex = 0;
-
-    document.getElementById('button1').addEventListener('click', function() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        document.getElementById('mainImage').src = images[currentImageIndex];
-    });
-
-    document.getElementById('button2').addEventListener('click', function() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        document.getElementById('mainImage').src = images[currentImageIndex];
-    });
-</script>
 </html>
