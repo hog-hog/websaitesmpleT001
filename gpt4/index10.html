@@ -1,78 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webサイトのレイアウト</title>
   <style>
+    /* スタイルを適用するためのCSS */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
     }
-    header {
-      background-color: #f2f2f2;
-      padding: 20px;
+
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
     }
-    footer {
-      background-color: #f2f2f2;
-      padding: 20px;
-    }
+
     .container {
       display: flex;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      margin: 0 auto;
     }
+
     .sidebar {
-      flex-basis: 25%;
-      padding: 20px;
+      width: 25%;
+      background-color: #f2f2f2;
+      padding: 10px;
     }
+
     .content {
-      flex-basis: 75%;
-      padding: 20px;
+      width: 75%;
+      padding: 10px;
     }
+
     .article {
       height: 40%;
-      background-color: #ffffff;
-      margin-bottom: 20px;
-      padding: 20px;
+      background-color: #fff;
+      margin-bottom: 10px;
     }
+
     .image {
       height: 60%;
-      background-color: #ffffff;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .image img {
-      max-width: 100%;
-      max-height: 100%;
+      background-color: #fff;
     }
   </style>
 </head>
 <body>
   <header>
     <!-- ヘッダーのコンテンツ -->
+    <h1>ヘッダー</h1>
   </header>
 
   <div class="container">
     <div class="sidebar">
       <!-- サイドバーのコンテンツ -->
+      <h2>サイドバー</h2>
     </div>
+
     <div class="content">
+      <!-- コンテンツのコンテンツ -->
       <div class="article">
         <!-- 記事のコンテンツ -->
+        <h2>記事</h2>
       </div>
+
       <div class="image">
-        <img src="image.png" alt="画像">
+        <!-- 画像のコンテンツ -->
+        <h2>画像</h2>
+        <img src="image.png" alt="画像" style="max-width: 100%; max-height: 100%;">
       </div>
     </div>
   </div>
 
   <footer>
     <!-- フッターのコンテンツ -->
+    <p>フッター</p>
   </footer>
 </body>
 </html>
