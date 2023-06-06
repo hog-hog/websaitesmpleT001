@@ -1,67 +1,57 @@
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  .header {
-    height: 10%;
-    background-color: lightblue;
-    text-align: center;
-  }
-  .main {
-    height: 80%;
-    display: flex;
-  }
-  .sidebar {
-    width: 20%;
-    background-color: lightgreen;
-    text-align: center;
-  }
-  .content {
-    width: 80%;
-    background-color: lightyellow;
-    display: block; 
-  }
-  .article {
-    width: 40%; /* 追加 */
-    text-align: center; 
-  }
-  .image {
-    width: 60%; /* 追加 */
-    object-fit: cover; 
-  }
-  .footer {
-    height: 10%;
-    background-color: lightpink;
-    text-align: center;
-  }
-</style>
+  <style>
+    .container {
+      display: flex;
+    }
+    .sidebar {
+      width: 25%;
+      background-color: lightgray;
+    }
+    .content {
+      width: 75%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .article {
+      height: 40%;
+      width: 100%;
+      background-color: lightblue;
+    }
+    .image {
+      height: 60%;
+      width: auto;
+      max-width: 100%;
+    }
+    .footer {
+      background-color: lightgray;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <!-- ヘッダーの内容 -->
+  </header>
+
   <div class="container">
-    <div class="header">
-      ヘッダ
+    <div class="sidebar">
+      <!-- サイドバーの内容 -->
     </div>
-    <div class="main">
-      <div class="sidebar">
-        サイドバー
+    <div class="content">
+      <div class="article">
+        <!-- 記事の内容 -->
       </div>
-      <div class="content">
-        <p class="article">記事</p>
-        <img class="image" src="image.png" alt="画像" /> <!-- 変更 -->
+      <div class="image">
+        <img src="image.png" alt="画像">
       </div>
-    </div>
-    <div class="footer">
-      フッタ
     </div>
   </div>
+
+  <footer class="footer">
+    <!-- フッターの内容 -->
+  </footer>
 </body>
 </html>
