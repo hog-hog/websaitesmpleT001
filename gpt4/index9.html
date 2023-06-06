@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>マイウェブサイト</title>
+    <title>デボン紀の探求</title>
     <style>
         body {
             display: flex;
@@ -38,11 +38,36 @@
 
         #content img {
             width: 100%;
-            height: 30%;
+            object-fit: contain;
+            cursor: pointer;
         }
 
         #content button {
             margin-right: 10px;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        #modal-content {
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        #modal-content img {
+            width: 100%;
+            object-fit: contain;
         }
 
         @media screen and (max-width: 600px) {
@@ -58,22 +83,72 @@
     </style>
 </head>
 <body>
-    <div id="header">ヘッダー</div>
+    <div id="header">
+        <h1>デボン紀の探求</h1>
+        <p>chatGPTが作成したサンプルWebページ</p>
+    </div>
 
     <div id="main-content">
-        <div id="sidebar">サイドバー</div>
+        <div id="sidebar">
+            <p>関連リンク:</p>
+            <ul>
+                <li><a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%9C%E3%83%B3%E7%B4%80">デボン紀 - Wikipedia</a></li>
+                <li><a href="https://www.britannica.com/science/Devonian-Period">デボン紀 - Britannica</a></li>
+            </ul>
+        </div>
 
         <div id="content">
-            <h1>記事タイトル</h1>
-            <p>記事の数行...</p>
-            <img src="path_to_your_image.jpg" alt="画像">
-            <div>
-                <button>ボタン1</button>
-                <button>ボタン2</button>
-            </div>
+            <h1>デボン紀: 古代海洋の支配者たち</h1>
+            <p>デボン紀、それは約4億から3億年前のこと。この時代は、海洋生物の多様性が急速に増加し、新たな海洋の支配者が登場した時代でした。特に注目すべきは、大型で恐ろしい肉食動物、ダンクルオステウスです。これらの生物は最大10メートルに達し、その強力な顎は他の海洋生物を恐怖に陥れました。デボン紀の海は、生命の進化の新たなステージを告げる舞台となりました。</p>
+
+            <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="ダンクルオステウス">
+            <br>
+            <button id="prev-button">＜</button>
+            <button id="next-button">＞</button>
         </div>
     </div>
 
-    <div id="footer">フッター</div>
+    <div id="footer">
+        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+            <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="ダンクルオステウス">
+        </div>
+    </div>
+
+    <script>
+        var images = [
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
+            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
+        ];
+        var currentIndex = 0;
+        var mainImage = document.getElementById('main-image');
+        var modal = document.getElementById('modal');
+        var modalImage = document.querySelector('#modal-content img');
+
+        document.getElementById('prev-button').onclick = function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            mainImage.src = images[currentIndex];
+        };
+
+        document.getElementById('next-button').onclick = function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            mainImage.src = images[currentIndex];
+        };
+
+        mainImage.onclick = function() {
+            modal.style.display = 'block';
+            modalImage.src = mainImage.src;
+        };
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>
