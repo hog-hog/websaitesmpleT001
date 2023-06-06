@@ -1,79 +1,76 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <title>Webサイトのレイアウト</title>
   <style>
-    /* 全体をFlexboxで横並びにする */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
     .container {
       display: flex;
-      height: 100vh; /* ビューポートの高さに合わせる */
+      flex-wrap: wrap;
     }
 
-    /* ヘッダーとフッターを固定する */
-    header, footer {
-      position: fixed;
-      width: 100%;
-      background: lightgray;
-    }
-
-    header {
-      top: 0;
-    }
-
-    footer {
-      bottom: 0;
-    }
-
-    /* サイドバーとコンテンツをFlexboxで縦並びにする */
-    .sidebar, .content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* サイドバーは固定幅、コンテンツは残りの幅にする */
     .sidebar {
-      width: 200px;
-      background: lightblue;
+      width: 25%;
+      min-width: 200px;
+      background-color: lightgray;
     }
 
-    .content {
-      flex: 1;
-      background: lightgreen;
-    }
-
-    /* サイドバーとコンテンツの高さをヘッダーとフッターの分だけ減らす */
-    .sidebar, .content {
-      height: calc(100% - 100px); /* ヘッダーとフッターの高さが50pxずつなので、100px減らす */
-      overflow-y: auto; /* 縦方向にスクロールバーを表示する */
-    }
-
-    /* 記事と画像をFlexboxで横並びにする */
-    .article, .image {
+    .main-content {
+      width: 75%;
+      min-width: 300px;
+      background-color: white;
       display: flex;
-      align-items: center; /* 縦方向に中央揃えにする */
-      justify-content: center; /* 横方向に中央揃えにする */
-      padding: 10px;
+      flex-wrap: wrap;
     }
 
-    /* 記事は固定幅、画像は残りの幅にする */
     .article {
-      width: 300px;
-      background: pink;
+      width: 100%;
+      background-color: lightblue;
     }
 
     .image {
-      flex: 1;
-      background: yellow;
+      width: 100%;
+      background-color: lightgreen;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+      }
+
+      .main-content {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>ヘッダ</header>
+  <header>
+    <!-- ヘッダーコンテンツ -->
+  </header>
+  
   <div class="container">
-    <div class="sidebar">サイドバー</div>
-    <div class="content">
-      <div class="article">記事</div>
-      <div class="image">画像</div>
-    </div>
+    <aside class="sidebar">
+      <!-- サイドバーコンテンツ -->
+    </aside>
+    
+    <section class="main-content">
+      <article class="article">
+        <!-- 記事コンテンツ -->
+      </article>
+      
+      <div class="image">
+        <!-- 画像コンテンツ -->
+      </div>
+    </section>
   </div>
-  <footer>フッタ</footer>
+  
+  <footer>
+    <!-- フッターコンテンツ -->
+  </footer>
 </body>
 </html>
