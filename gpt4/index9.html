@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ChatGPT Website</title>
+    <title>My Website</title>
     <style>
         * {
             box-sizing: border-box;
@@ -36,9 +36,8 @@
         }
 
         .image {
-            max-height: 25vh;
             width: auto;
-            display: none;
+            height: 25%;
         }
 
         .button {
@@ -62,27 +61,27 @@
 </head>
 <body>
     <div class="header">
-        <h1>ChatGPT Website</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
+        <h1>ページタイトル</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
     </div>
 
     <div class="container">
         <div class="sidebar">
-            <h2>サイドバー</h2>
-            <p>ここにテキストやリンクを配置します。</p>
+            <h2>リンク</h2>
+            <p>ここにリンクや情報を配置します。</p>
         </div>
 
         <div class="main">
             <h2>記事タイトル</h2>
             <p>記事の数行...</p>
-            <img id="image" class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image">
-            <button id="button1" class="button">＜</button>
-            <button id="button2" class="button">＞</button>
+            <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image" class="image" id="image" onclick="openModal()">
+            <button class="button" onclick="changeImage(-1)">＜</button>
+            <button class="button" onclick="changeImage(1)">＞</button>
         </div>
     </div>
 
     <div class="footer">
-        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
+        <h2>このページはMITライセンスで公開されています。ユーザーは自己責任で利用すること。</h2>
     </div>
 
     <script>
@@ -91,30 +90,17 @@
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
         ];
-        var currentImageIndex = 0;
-        var imageElement = document.getElementById("image");
-        var button1 = document.getElementById("button1");
-        var button2 = document.getElementById("button2");
+        var currentImage = 0;
 
-        imageElement.style.display = "block";
+        function changeImage(direction) {
+            currentImage = (currentImage + direction + images.length) % images.length;
+            document.getElementById('image').src = images[currentImage];
+        }
 
-        button1.onclick = function() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            imageElement.src = images[currentImageIndex];
-        };
-
-        button2.onclick = function() {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            imageElement.src = images[currentImageIndex];
-        };
-
-        imageElement.onclick = function() {
-            if (this.style.maxHeight === "25vh") {
-                this.style.maxHeight = "100vh";
-            } else {
-                this.style.maxHeight = "25vh";
-            }
-        };
+        function openModal() {
+            // TODO: モーダル画面を開くロジック
+            // モーダル画面に大きく画像を表示し、再度クリックするとモーダルを閉じる
+        }
     </script>
 </body>
 </html>
