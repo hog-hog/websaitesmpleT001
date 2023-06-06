@@ -19,12 +19,10 @@
       background-color: lightgreen;
       text-align: center;
       padding: 10px;
-      overflow-y: auto;
     }
     .content {
       display: flex;
       flex-direction: column;
-      overflow-y: auto;
     }
     .article {
       flex: 1;
@@ -54,15 +52,18 @@
     @media (min-width: 600px) {
       .main {
         flex-direction: row;
+        align-items: stretch; /* 追加 */
       }
       .sidebar {
         order: -1;
         width: 20%;
         height: 100%;
+        overflow-y: hidden; /* 変更 */
       }
       .content {
         width: 80%;
         height: 100%;
+        overflow-y: hidden; /* 変更 */
       }
     }
   </style>
