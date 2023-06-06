@@ -1,94 +1,79 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .header {
-            background-color: #f2f2f2;
-            padding: 20px;
-        }
-
-        .sidebar {
-            float: left;
-            width: 30%;
-            padding: 20px;
-            background-color: #e8e8e8;
-        }
-
-        .main-content {
-            float: left;
-            width: 70%;
-            padding: 20px;
-        }
-
-        .article-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .article-text {
-            margin-bottom: 20px;
-        }
-
-        .image {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4caf50;
-            color: #fff;
-            text-decoration: none;
-            margin-right: 10px;
-        }
-
-        .footer {
-            background-color: #f2f2f2;
-            padding: 20px;
-            clear: both;
-        }
-
-        @media screen and (max-width: 600px) {
-            .sidebar, .main-content {
-                float: none;
-                width: 100%;
-            }
-        }
-    </style>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .header {
+    height: 10%;
+    background-color: lightblue;
+    text-align: center;
+  }
+  .main {
+    height: 80%;
+    display: flex;
+  }
+  .sidebar {
+    width: 20%;
+    background-color: lightgreen;
+  }
+  .content {
+    width: 80%;
+    background-color: lightyellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .article {
+    margin-top: 10px;
+    width: 80%;
+    height: 40%;
+    background-color: white;
+    border: 1px solid black;
+  }
+  .image {
+    margin-top: 10px;
+    width: 80%;
+    height: 40%;
+    background-color: white;
+    border: 1px solid black;
+  }
+  .buttons {
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .button {
+    width: 100px;
+    height: 30px;
+    background-color: lightgray;
+    border-radius: 5px;
+  }
+  .footer {
+    height: 10%;
+    background-color: lightpink;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
-    <div class="header">
-        <!-- ヘッダーコンテンツ -->
-    </div>
-
-    <div class="sidebar">
-        <!-- サイドバーコンテンツ -->
-    </div>
-
-    <div class="main-content">
-        <h2 class="article-title">記事タイトル</h2>
-        <p class="article-text">記事の数行...</p>
-        <img class="image" src="path/to/image.jpg" alt="画像">
-        <a class="button" href="#">ボタン1</a>
-        <a class="button" href="#">ボタン2</a>
-    </div>
-
-    <div class="footer">
-        <!-- フッターコンテンツ -->
-    </div>
+<div class="container">
+<div class="header">ヘッダ</div>
+<div class="main">
+<div class="sidebar">サイドバー</div>
+<div class="content">
+<div class="article">記事</div>
+<div class="image">画像</div>
+<div class="buttons">
+<button class="button">ボタン1</button>
+<button class="button">ボタン2</button>
+</div>
+</div>
+</div>
+<div class="footer">フッター</div>
+</div>
 </body>
 </html>
