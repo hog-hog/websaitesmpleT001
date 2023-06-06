@@ -1,154 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>デボン紀の驚異</title>
+    <title>マイウェブサイト</title>
     <style>
-        * {
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #header, #footer {
+            background-color: #f8f9fa;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header, .footer {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .container {
+        #main-content {
             display: flex;
-            flex-wrap: wrap;
-        }
-
-        .sidebar {
-            flex: 25%;
-            background-color: #f8f9fa;
+            flex-direction: row;
+            justify-content: space-between;
             padding: 20px;
+            box-sizing: border-box;
         }
 
-        .main {
-            flex: 75%;
-            padding: 20px;
+        #sidebar {
+            width: 20%;
         }
 
-        .image {
-            width: auto;
-            height: 25%;
-            cursor: pointer;
+        #content {
+            width: 70%;
         }
 
-        .button {
-            display: inline-block;
-            color: white;
-            background-color: #007bff;
-            padding: 10px 20px;
-            margin: 10px 2px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
+        #content img {
+            width: 100%;
+            height: 30%;
+        }
+
+        #content button {
+            margin-right: 10px;
         }
 
         @media screen and (max-width: 600px) {
-            .sidebar, .main {
-                flex: 100%;
+            #main-content {
+                flex-direction: column;
+                align-items: center;
             }
-        }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-
-        .modal-content {
-            position: relative;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-            animation-name: animatetop;
-            animation-duration: 0.4s;
-        }
-
-        @keyframes animatetop {
-            from {top: -300px; opacity: 0}
-            to {top: 0; opacity: 1}
+            #sidebar, #content {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀の驚異</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
-    </div>
+    <div id="header">ヘッダー</div>
 
-    <div class="container">
-        <div class="sidebar">
-            <h2>関連リンク</h2>
-            <ul>
-                <li><a href="https://ja.wikipedia.org/wiki/デボン紀">デボン紀 - Wikipedia</a></liquote("以下は要求に基づいて作成したHTML、CSS、およびJavaScriptです：", "デボン紀 - Wikipedia</a></li")
-                <li><a href="https://www.britannica.com/science/Devonian-Period">デボン紀 - Britannica</a></li>
-                <li><a href="https://www.nature.com/articles/s41586-019-1599-3">デボン紀の生物多様性 - Nature</a></li>
-            </ul>
-        </div>
+    <div id="main-content">
+        <div id="sidebar">サイドバー</div>
 
-        <div class="main">
-            <h2>デボン紀の生命</h2>
-            <p>デボン紀、約4億から3億年前。この時期は、「魚の時代」とも称され、海洋生物が爆発的に多様化し、最初の四肢を持つ生物が進化した時代でもあります。鮮やかな化石記録を通じて、我々はこの壮大な歴史を垣間見ることができます。</p>
-            <img id="image" class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="デボン紀の生命" onclick="openModal();">
-            <div class="buttons">
-                <button class="button" onclick="changeImage(-1)">＜</button>
-                <button class="button" onclick="changeImage(1)">＞</button>
+        <div id="content">
+            <h1>記事タイトル</h1>
+            <p>記事の数行...</p>
+            <img src="path_to_your_image.jpg" alt="画像">
+            <div>
+                <button>ボタン1</button>
+                <button>ボタン2</button>
             </div>
         </div>
     </div>
 
-    <div id="myModal" class="modal">
-        <img class="modal-content" id="modalImage">
-    </div>
-
-    <div class="footer">
-        <p>このページはMITライセンスで公開されています。ご自身の責任でご利用ください。</p>
-    </div>
-
-    <script>
-        var images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-        ];
-        var currentImage = 0;
-
-        function changeImage(direction) {
-            currentImage = (currentImage + direction + images.length) % images.length;
-            document.getElementById('image').src = images[currentImage];
-        }
-
-        var modal = document.getElementById("myModal");
-        var modalImage = document.getElementById("modalImage");
-
-        function openModal() {
-            modal.style.display = "block";
-            modalImage.src = images[currentImage];
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+    <div id="footer">フッター</div>
 </body>
 </html>
