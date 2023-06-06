@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+    <title>ChatGPT Website</title>
     <style>
         * {
             box-sizing: border-box;
         }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
+
         .header, .footer {
             background-color: #f8f9fa;
             text-align: center;
             padding: 20px;
         }
+
         .container {
             display: flex;
             flex-wrap: wrap;
         }
+
         .sidebar {
             flex: 25%;
             background-color: #f8f9fa;
             padding: 20px;
         }
+
         .main {
             flex: 75%;
             padding: 20px;
         }
+
         .image {
-            width: 100%;
-            height: auto;
-            cursor: pointer;
+            max-height: 25vh;
+            width: auto;
+            display: none;
         }
+
         .button {
             display: inline-block;
             color: white;
@@ -45,94 +52,69 @@
             text-align: center;
             text-decoration: none;
         }
+
         @media screen and (max-width: 600px) {
             .sidebar, .main {
                 flex: 100%;
             }
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .modal-content {
-            margin: 15% auto;
-            width: 80%;
-        }
-        .close {
-            color: white;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>ページタイトル</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
+        <h1>ChatGPT Website</h1>
+        <p>chatGPTが作成したサンプルWebページ</p>
     </div>
+
     <div class="container">
         <div class="sidebar">
             <h2>サイドバー</h2>
-            <p>ここに必要なリンクや情報を配置します。</p>
+            <p>ここにテキストやリンクを配置します。</p>
         </div>
+
         <div class="main">
             <h2>記事タイトル</h2>
             <p>記事の数行...</p>
-            <img id="myImg" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image" class="image">
-            <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="img01">
-            </div>
-            <button class="button" id="button1">＜</button>
-            <button class="button" id="button2">＞</button>
+            <img id="image" class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image">
+            <button id="button1" class="button">＜</button>
+            <button id="button2" class="button">＞</button>
         </div>
     </div>
+
     <div class="footer">
-        <h2>フッター</h2>
-        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
+        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
     </div>
 
     <script>
-        var imgIndex = 1;
-        var imgArray = ["https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"];
+        var images = [
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+        ];
+        var currentImageIndex = 0;
+        var imageElement = document.getElementById("image");
+        var button1 = document.getElementById("button1");
+        var button2 = document.getElementById("button2");
 
-        var img = document.getElementById('myImg');
-        var modal = document.getElementById('myModal');
-        var modalImg = document.getElementById('img01');
+        imageElement.style.display = "block";
 
-        img.onclick = function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
-        }
+        button1.onclick = function() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            imageElement.src = images[currentImageIndex];
+        };
 
-        var span = document.getElementsByClassName('close')[0];
-        span.onclick = function() { 
-            modal.style.display = "none";
-        }
+        button2.onclick = function() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            imageElement.src = images[currentImageIndex];
+        };
 
-        document.getElementById('button1').onclick = function() {
-            imgIndex = (imgIndex + 1) % 3;
-            img.src = imgArray[imgIndex];
-        }
-
-        document.getElementById('button2').onclick = function() {
-            imgIndex = (imgIndex + 2) % 3;
-            img.src = imgArray[imgIndex];
-        }
+        imageElement.onclick = function() {
+            if (this.style.maxHeight === "25vh") {
+                this.style.maxHeight = "100vh";
+            } else {
+                this.style.maxHeight = "25vh";
+            }
+        };
     </script>
 </body>
 </html>
