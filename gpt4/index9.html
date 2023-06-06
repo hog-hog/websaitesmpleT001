@@ -1,71 +1,72 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header, footer {
-      height: 60px;
-      background-color: lightgray;
-    }
-    .container {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px;
-    }
-    .sidebar {
-      width: 25%;
-      background-color: lightgray;
-    }
-    .content {
-      width: 75%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .article {
-      height: 40%;
-      width: 100%;
-      background-color: lightblue;
-    }
-    .image {
-      height: 60%;
-      width: auto;
-      max-width: 100%;
-    }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: lightblue;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
+  background-color: lightblue;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar {
+  float: left;
+  width: 20%;
+  background-color: lightgreen;
+  padding: 20px;
+}
+
+.content {
+  float: left;
+  width: 60%;
+  background-color: lightyellow;
+  padding: 20px;
+}
+
+.article {
+  float: left;
+  width: 40%;
+}
+
+.image {
+  float: right;
+  width: 60%;
+}
+</style>
 </head>
 <body>
-  <header>
-    H<!-- ヘッダーの内容 -->
-  </header>
 
-  <div class="container">
-    <div class="sidebar">
-      S<!-- サイドバーの内容 -->
-    </div>
-    <div class="content">
-      <div class="article">
-        K<!-- 記事の内容 -->
-      </div>
-      <div class="image">
-        <img src="image.png" alt="画像">
-      </div>
-    </div>
-  </div>
+<div class="header">
+<h1>ヘッダ</h1>
+</div>
 
-  <footer>
-    F<!-- フッターの内容 -->
-  </footer>
+<div class="sidebar">
+<h2>サイドバー</h2>
+<p>ここにメニューや広告などを入れることができます。</p>
+</div>
+
+<div class="content">
+<h2>コンテンツ</h2>
+<div class="article">
+<h3>記事1</h3>
+<p>ここに記事の内容を書きます。</p>
+<img src="image.png" alt="画像1" class="image" width="1024" height="1024">
+</div>
+</div>
+
+<div class="footer">
+<h2>フッタ</h2>
+<p>ここに連絡先や著作権などを入れることができます。</p>
+</div>
+
 </body>
 </html>
