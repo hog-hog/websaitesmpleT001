@@ -41,10 +41,24 @@
   float: right;
   width: 60%;
 }
+
+/* フッターを下部に固定する方法[^1^][2] [^2^][3] */
+.container {
+  position: relative;
+  padding-bottom: 60px; /* フッターの高さと同じ */
+  box-sizing: border-box;
+  min-height: 100vh; /* body要素の高さが最小でも100vhになるように設定 */
+}
+
+footer {
+  position: absolute;
+  bottom: 0; /* .container の一番下に固定 */
+}
 </style>
 </head>
 <body>
 
+<div class="container">
 <div class="header">
 <h1>ヘッダ</h1>
 </div>
@@ -59,13 +73,14 @@
 <div class="article">
 <h3>記事1</h3>
 <p>ここに記事の内容を書きます。</p>
-<img src="image.png" alt="画像1" class="image" width="1024" height="1024">
+<img src="image.png" alt="画像1" class="image" width="100%"> <!-- 幅は枠の幅に合わせて縮小 -->
 </div>
 </div>
 
 <div class="footer">
 <h2>フッタ</h2>
 <p>ここに連絡先や著作権などを入れることができます。</p>
+</div>
 </div>
 
 </body>
