@@ -1,88 +1,59 @@
 <html>
 <head>
-<style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  .header {
-    height: 10%;
-    background-color: lightblue;
-    text-align: center;
-  }
-  .main {
-    height: 80%;
-    display: flex;
-  }
-  .sidebar {
-    width: 20%;
-    background-color: lightgreen;
-  }
-  .content {
-    width: 80%;
-    background-color: lightyellow;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .article {
-    margin-top: 10px;
-    width: 80%;
-    height: 40%;
-    background-color: white;
-    border: 1px solid black;
-  }
-  .image {
-    margin-top: 10px;
-    width: 80%;
-    height: 40%;
-    background-color: white;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .image img {
-    max-width: 80%;
-    max-height: 80%;
-  }
-  .buttons {
-    margin-top: 10px;
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-  }
-  .button {
-    width: 100px;
-    height: 30px;
-    background-color: lightgray;
-    border-radius: 5px;
-  }
-  .footer {
-    height: 10%;
-    background-color: lightpink;
-    text-align: center;
-  }
-</style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .header {
+      height: 10%;
+      background-color: lightblue;
+      text-align: center;
+    }
+    .main {
+      height: 80%;
+      display: flex;
+    }
+    .sidebar {
+      width: 20%;
+      background-color: lightgreen;
+      text-align: center;
+    }
+    .content {
+      width: 80%;
+      background-color: lightyellow;
+      text-align: center;
+    }
+    .footer {
+      height: 10%;
+      background-color: lightpink;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<div class="header">ヘッダ</div>
-<div class="main">
-<div class="sidebar">サイドバー</div>
-<div class="content">
-<div class="article">記事</div>
-<div class="image">
-<img src="image.png" alt="画像">
-</div>
-<div class="buttons">
-<button class="button">ボタン1</button>
-<button class="button">ボタン2</button>
-</div>
-</div>
-</div>
-<div class="footer">フッター</div>
-</div>
+  <div class="container">
+    <div class="header">
+      ヘッダ
+    </div>
+    <div class="main">
+      <div class="sidebar">
+        サイドバー
+      </div>
+      <div class="content">
+        <p>記事</p>
+        <img src="画像" alt="画像">
+      </div>
+    </div>
+    <div class="footer">
+      フッタ
+    </div>
+  </div>
 </body>
 </html>
