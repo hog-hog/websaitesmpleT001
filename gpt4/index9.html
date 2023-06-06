@@ -2,8 +2,26 @@
 <html>
 <head>
   <style>
-    .container {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
+    }
+    header, footer {
+      height: 60px;
+      background-color: lightgray;
+    }
+    .container {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
     }
     .sidebar {
       width: 25%;
@@ -11,7 +29,6 @@
     }
     .content {
       width: 75%;
-      background-color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -25,9 +42,6 @@
       height: 60%;
       width: auto;
       max-width: 100%;
-    }
-    .footer {
-      background-color: lightgray;
     }
   </style>
 </head>
@@ -50,7 +64,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer>
     <!-- フッターの内容 -->
   </footer>
 </body>
