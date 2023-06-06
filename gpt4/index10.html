@@ -1,78 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Webサイトのレイアウト</title>
-  <style>
-    /* スタイルを適用するためのCSS */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    header, footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-    }
-
-    .container {
-      display: flex;
-    }
-
-    .sidebar {
-      width: 25%;
-      background-color: #f2f2f2;
-      padding: 10px;
-    }
-
-    .content {
-      width: 75%;
-      padding: 10px;
-    }
-
-    .article {
-      height: 40%;
-      background-color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .image {
-      height: 60%;
-      background-color: #fff;
-    }
-  </style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        header, footer {
+            background-color: #eaeaea;
+            padding: 20px;
+        }
+        
+        .container {
+            display: flex;
+        }
+        
+        .sidebar {
+            flex-basis: 30%;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .content {
+            flex-basis: 70%;
+            padding: 20px;
+        }
+        
+        .article {
+            background-color: #fff;
+            height: 30%;
+            margin-bottom: 20px;
+        }
+        
+        .image {
+            background-image: url("image.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 30%;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <!-- ヘッダーのコンテンツ -->
-    <h1>ヘッダー</h1>
-  </header>
-
-  <div class="container">
-    <div class="sidebar">
-      <!-- サイドバーのコンテンツ -->
-      <h2>サイドバー</h2>
+    <header>
+        <!-- ヘッダーのコンテンツをここに記述 -->
+    </header>
+    
+    <div class="container">
+        <div class="sidebar">
+            <!-- サイドバーのコンテンツをここに記述 -->
+        </div>
+        
+        <div class="content">
+            <div class="article">
+                <!-- 記事のコンテンツをここに記述 -->
+            </div>
+            
+            <div class="image">
+                <!-- 画像のコンテンツをここに記述 -->
+            </div>
+        </div>
     </div>
-
-    <div class="content">
-      <!-- コンテンツのコンテンツ -->
-      <div class="article">
-        <!-- 記事のコンテンツ -->
-        <h2>記事</h2>
-      </div>
-
-      <div class="image">
-        <!-- 画像のコンテンツ -->
-        <h2>画像</h2>
-        <img src="image.png" alt="画像" style="max-width: 100%; max-height: 100%;">
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <!-- フッターのコンテンツ -->
-    <p>フッター</p>
-  </footer>
+    
+    <footer>
+        <!-- フッターのコンテンツをここに記述 -->
+    </footer>
 </body>
 </html>
