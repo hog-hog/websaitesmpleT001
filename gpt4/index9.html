@@ -32,17 +32,25 @@
     }
 
     .article {
-      width: 100%;
+      width: 40%;
       background-color: lightblue;
       border: 1px solid black;
       box-sizing: border-box;
     }
 
     .image {
-      width: 100%;
+      width: 60%;
       background-color: lightgreen;
       border: 1px solid black;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image img {
+      max-width: 100%;
+      max-height: 100%;
     }
 
     @media screen and (max-width: 768px) {
@@ -72,7 +80,7 @@
       </article>
       
       <div class="image">
-        <!-- 画像コンテンツ -->
+        <img src="image.png" alt="画像">
       </div>
     </section>
   </div>
