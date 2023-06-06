@@ -1,6 +1,3 @@
-<html>
-<head>
-  <style>
 <style>
   * {
     margin: 0;
@@ -29,8 +26,7 @@
   .content {
     width: 80%;
     background-color: lightyellow;
-    display: flex; 
-    align-items: center; 
+    display: block; /* 変更 */
   }
   .article {
     width: 40%; 
@@ -38,7 +34,7 @@
   }
   .image {
     width: 60%; 
-    object-fit: contain; /* 追加 */
+    object-fit: cover; /* 変更 */
   }
   .footer {
     height: 10%;
@@ -46,26 +42,3 @@
     text-align: center;
   }
 </style>
-
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      ヘッダ
-    </div>
-    <div class="main">
-      <div class="sidebar">
-        サイドバー
-      </div>
-      <div class="content">
-        <p class="article">記事</p>
-        <img class="image" src="image.png" alt="画像" /> <!-- 変更 -->
-      </div>
-    </div>
-    <div class="footer">
-      フッタ
-    </div>
-  </div>
-</body>
-</html>
