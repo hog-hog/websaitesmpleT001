@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>デボン紀の驚異 - 生命の爆発</title>
+    <title>My Website</title>
     <style>
         * {
             box-sizing: border-box;
         }
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-
         .header, .footer {
             background-color: #f8f9fa;
             text-align: center;
             padding: 20px;
         }
-
         .container {
             display: flex;
             flex-wrap: wrap;
         }
-
         .sidebar {
             flex: 25%;
             background-color: #f8f9fa;
             padding: 20px;
         }
-
         .main {
             flex: 75%;
             padding: 20px;
         }
-
         .image {
             width: 100%;
             height: auto;
             cursor: pointer;
         }
-
         .button {
             display: inline-block;
             color: white;
@@ -52,65 +45,94 @@
             text-align: center;
             text-decoration: none;
         }
-
         @media screen and (max-width: 600px) {
             .sidebar, .main {
                 flex: 100%;
             }
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: 15% auto;
+            width: 80%;
+        }
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>デボン紀の驚異 - 生命の爆発</h1>
+        <h1>ページタイトル</h1>
         <h2>chatGPTが作成したサンプルWebページ</h2>
     </div>
-
     <div class="container">
         <div class="sidebar">
-            <h2>関連リンク</h2>
-            <ul>
-                <li><a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%9C%E3%83%B3%E7%B4%80" target="_blank">デボン紀 (Wikipedia)</a></li>
-                <li><a href="https://www.britannica.com/science/Devonian-Period" target="_blank">デボン紀 (Britannica)</a></li>
-            </ul>
+            <h2>サイドバー</h2>
+            <p>ここに必要なリンクや情報を配置します。</p>
         </div>
-
         <div class="main">
-            <h2>デボン紀 - 生命の爆発</h2>
-            <p>デボン紀、それは生命の爆発とも言える時代。この時代、海はさまざまな生物で溢れ、陸地では初の森林が広がりました。大海の支配者、ダンクルオステウスのような恐るべき魚類が支配していました。その一方で、初めての陸生動物も出現し、生命の多様性が飛躍的に増したのです。</p>
-            <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" class="image">
-            <div>
-                <button id="button1" class="button">＜</button>
-                <button id="button2" class="button">＞</button>
+            <h2>記事タイトル</h2>
+            <p>記事の数行...</p>
+            <img id="myImg" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image" class="image">
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
             </div>
+            <button class="button" id="button1">＜</button>
+            <button class="button" id="button2">＞</button>
         </div>
     </div>
-
     <div class="footer">
-        <p>このページはMITライセンスで公開されており、ユーザーは自己責任で利用します。</p>
+        <h2>フッター</h2>
+        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
     </div>
 
     <script>
-        let images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-        ];
-        let imageIndex = 0;
+        var imgIndex = 1;
+        var imgArray = ["https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"];
 
-        document.getElementById("image").addEventListener("click", function() {
-            this.classList.toggle("image");
-        });
+        var img = document.getElementById('myImg');
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById('img01');
 
-        document.getElementById("button1").addEventListener("click", function() {
-            imageIndex = (imageIndex + 1) % images.length;
-            document.getElementById("image").src = images[imageIndex];
-        });
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
 
-        document.getElementById("button2").addEventListener("click", function() {
-            imageIndex = (imageIndex + images.length - 1) % images.length;
-            document.getElementById("image").src = images[imageIndex];
-        });
+        var span = document.getElementsByClassName('close')[0];
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        document.getElementById('button1').onclick = function() {
+            imgIndex = (imgIndex + 1) % 3;
+            img.src = imgArray[imgIndex];
+        }
+
+        document.getElementById('button2').onclick = function() {
+            imgIndex = (imgIndex + 2) % 3;
+            img.src = imgArray[imgIndex];
+        }
     </script>
 </body>
 </html>
