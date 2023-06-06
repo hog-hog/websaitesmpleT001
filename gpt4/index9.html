@@ -1,87 +1,79 @@
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    /* 全体をFlexboxで横並びにする */
+    .container {
+      display: flex;
+      height: 100vh; /* ビューポートの高さに合わせる */
+    }
 
-.header {
-  background-color: lightblue;
-  padding: 20px;
-  text-align: center;
-}
+    /* ヘッダーとフッターを固定する */
+    header, footer {
+      position: fixed;
+      width: 100%;
+      background: lightgray;
+    }
 
-.footer {
-  background-color: lightblue;
-  padding: 20px;
-  text-align: center;
-}
+    header {
+      top: 0;
+    }
 
-.sidebar {
-  float: left;
-  width: 20%;
-  background-color: lightgreen;
-  padding: 20px;
-}
+    footer {
+      bottom: 0;
+    }
 
-.content {
-  float: left;
-  width: 60%;
-  background-color: lightyellow;
-  padding: 20px;
-}
+    /* サイドバーとコンテンツをFlexboxで縦並びにする */
+    .sidebar, .content {
+      display: flex;
+      flex-direction: column;
+    }
 
-.article {
-  float: left;
-  width: 40%;
-}
+    /* サイドバーは固定幅、コンテンツは残りの幅にする */
+    .sidebar {
+      width: 200px;
+      background: lightblue;
+    }
 
-.image {
-  float: right;
-  width: 60%;
-}
+    .content {
+      flex: 1;
+      background: lightgreen;
+    }
 
-/* フッターを下部に固定する方法  */
-.container {
-  position: relative;
-  padding-bottom: 60px; /* フッターの高さと同じ */
-  box-sizing: border-box;
-  min-height: 100vh; /* body要素の高さが最小でも100vhになるように設定 */
-}
+    /* サイドバーとコンテンツの高さをヘッダーとフッターの分だけ減らす */
+    .sidebar, .content {
+      height: calc(100% - 100px); /* ヘッダーとフッターの高さが50pxずつなので、100px減らす */
+      overflow-y: auto; /* 縦方向にスクロールバーを表示する */
+    }
 
-footer {
-  position: absolute;
-  bottom: 0; /* .container の一番下に固定 */
-}
-</style>
+    /* 記事と画像をFlexboxで横並びにする */
+    .article, .image {
+      display: flex;
+      align-items: center; /* 縦方向に中央揃えにする */
+      justify-content: center; /* 横方向に中央揃えにする */
+      padding: 10px;
+    }
+
+    /* 記事は固定幅、画像は残りの幅にする */
+    .article {
+      width: 300px;
+      background: pink;
+    }
+
+    .image {
+      flex: 1;
+      background: yellow;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-<div class="header">
-<h1>ヘッダ</h1>
-</div>
-
-<div class="sidebar">
-<h2>サイドバー</h2>
-<p>ここにメニューや広告などを入れることができます。</p>
-</div>
-
-<div class="content">
-<h2>コンテンツ</h2>
-<div class="article">
-<h3>記事1</h3>
-<p>ここに記事の内容を書きます。</p>
-<img src="image.png" alt="画像1" class="image" width="100%"> <!-- 幅は枠の幅に合わせて縮小 -->
-</div>
-</div>
-
-<div class="footer">
-<h2>フッタ</h2>
-<p>ここに連絡先や著作権などを入れることができます。</p>
-</div>
-</div>
-
+  <header>ヘッダ</header>
+  <div class="container">
+    <div class="sidebar">サイドバー</div>
+    <div class="content">
+      <div class="article">記事</div>
+      <div class="image">画像</div>
+    </div>
+  </div>
+  <footer>フッタ</footer>
 </body>
 </html>
