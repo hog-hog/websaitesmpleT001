@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+    <title>デボン紀の驚異</title>
     <style>
         * {
             box-sizing: border-box;
@@ -38,6 +38,7 @@
         .image {
             width: auto;
             height: 25%;
+            cursor: pointer;
         }
 
         .button {
@@ -57,31 +58,69 @@
                 flex: 100%;
             }
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            animation-name: animatetop;
+            animation-duration: 0.4s;
+        }
+
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>ページタイトル</h1>
+        <h1>デボン紀の驚異</h1>
         <h2>chatGPTが作成したサンプルWebページ</h2>
     </div>
 
     <div class="container">
         <div class="sidebar">
-            <h2>リンク</h2>
-            <p>ここにリンクや情報を配置します。</p>
+            <h2>関連リンク</h2>
+            <ul>
+                <li><a href="https://ja.wikipedia.org/wiki/デボン紀">デボン紀 - Wikipedia</a></liquote("以下は要求に基づいて作成したHTML、CSS、およびJavaScriptです：", "デボン紀 - Wikipedia</a></li")
+                <li><a href="https://www.britannica.com/science/Devonian-Period">デボン紀 - Britannica</a></li>
+                <li><a href="https://www.nature.com/articles/s41586-019-1599-3">デボン紀の生物多様性 - Nature</a></li>
+            </ul>
         </div>
 
         <div class="main">
-            <h2>記事タイトル</h2>
-            <p>記事の数行...</p>
-            <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image" class="image" id="image" onclick="openModal()">
-            <button class="button" onclick="changeImage(-1)">＜</button>
-            <button class="button" onclick="changeImage(1)">＞</button>
+            <h2>デボン紀の生命</h2>
+            <p>デボン紀、約4億から3億年前。この時期は、「魚の時代」とも称され、海洋生物が爆発的に多様化し、最初の四肢を持つ生物が進化した時代でもあります。鮮やかな化石記録を通じて、我々はこの壮大な歴史を垣間見ることができます。</p>
+            <img id="image" class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="デボン紀の生命" onclick="openModal();">
+            <div class="buttons">
+                <button class="button" onclick="changeImage(-1)">＜</button>
+                <button class="button" onclick="changeImage(1)">＞</button>
+            </div>
         </div>
     </div>
 
+    <div id="myModal" class="modal">
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <div class="footer">
-        <h2>このページはMITライセンスで公開されています。ユーザーは自己責任で利用すること。</h2>
+        <p>このページはMITライセンスで公開されています。ご自身の責任でご利用ください。</p>
     </div>
 
     <script>
@@ -97,9 +136,18 @@
             document.getElementById('image').src = images[currentImage];
         }
 
+        var modal = document.getElementById("myModal");
+        var modalImage = document.getElementById("modalImage");
+
         function openModal() {
-            // TODO: モーダル画面を開くロジック
-            // モーダル画面に大きく画像を表示し、再度クリックするとモーダルを閉じる
+            modal.style.display = "block";
+            modalImage.src = images[currentImage];
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
