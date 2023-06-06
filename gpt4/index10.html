@@ -52,19 +52,22 @@
     @media (min-width: 600px) {
       .main {
         flex-direction: row;
-        align-items: stretch; /* 追加 */
+        align-items: stretch; 
       }
       .sidebar {
         order: -1;
         width: 20%;
         height: 100%;
-        overflow-y: hidden; /* 変更 */
+        overflow-y: hidden; 
       }
       .content {
         width: 80%;
         height: 100%;
-        overflow-y: hidden; /* 変更 */
+        overflow-y: hidden; 
       }
+    }
+    img { /* 追加 */
+      object-fit: contain; /* アスペクト比を維持して縮小 */
     }
   </style>
 </head>
