@@ -1,234 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* 共通のスタイル */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* ヘッダー部 */
-    header {
-      width: 100vw;
-      height: 10vh;
-      background-color: darkgray;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    header h1 {
-      color: white;
-      margin-left: 20px;
-    }
-
-    header ul {
-      list-style: none;
-      display: flex;
-      color: blue;
-      margin-right: 20px;
-    }
-
-    header ul li {
-      margin-left: 10px;
-    }
-
-    /* メイン部 */
-    main {
-      width: 100vw;
-      height: 80vh;
-      display: flex;
-    }
-
-    /* サイドバー */
-    aside {
-      width: 20vw;
-      height: 80vh;
-      background-color: lightgray;
-      padding: 10px;
-    }
-
-    aside ul {
-      list-style: none;
-      color: black;
-    }
-
-    aside ul li {
-      margin-bottom: 10px;
-    }
-
-    /* メインコンテンツ */
-    section {
-      width: 80vw;
-      height: 80vh;
-      background-color: white;
-      padding: 10px;
-    }
-
-    /* 記事エリア */
-    article {
-      width: 80vw;
-      height: 30vh;
-    }
-
-    article h2 {
-      color: black;
-      font-size: 24px;
-    }
-
-    article p {
-      color: black;
-      font-size: 16px;
-    }
-
-    /* 画像エリア */
-    figure {
-      width: 50vw;
-      height: 40vh;
-      display: flex;
-      align-items: center;
-      justify-content: center; 
-    }
-
-    figure img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain; 
-    }
-
-    figure figcaption {
-      text-align: center; 
-    }
-
-     /* ボタンエリア */
-     .buttons {
-       width: 50vw; 
-       height: 5vh; 
-       display:flex; 
-       align-items:center; 
-       justify-content:center; 
-     }
-     
-     .buttons button { 
-       width :5vw; 
-       height :5vh; 
-       color :blue; 
-       border:none; 
-       background-color:white; 
-     }
-     
-     .buttons button:hover { 
-       cursor:pointer; 
-     }
-     
-     /* フッター部 */
-     footer { 
-       width :100vw; 
-       height :10vh; 
-       background-color :darkgray; 
-       display:flex; 
-       align-items:center; 
-       justify-content:center; 
-     }
-     
-     footer p { 
-       color:white; 
-       font-size :12px; 
-     }
-     
-     /* メディアクエリ */
-     @media (max-width :768px) { 
-       main { 
-         flex-direction :column; 
-       }
-       
-       aside { 
-         width :100vw; 
-         height :20vh; 
-       }
-       
-       section { 
-         width :100vw; 
-         height :60vh; 
-       }
-       
-       article { 
-         width :100vw; 
-         height :20vh; 
-       }
-       
-       figure { 
-         width :70vw; 
-         height :30vh;  
-       }
-       
-        .buttons {  
-          width :70vw;  
-          height :5vh;  
-        } 
-        
-        .buttons button {  
-          width :7vw;  
-          height :5vh;  
-        } 
-     }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記事</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .header, .footer {
+            background-color: darkgray;
+            color: white;
+            text-align: center;
+        }
+        .sidebar {
+            background-color: lightgray;
+            height: 80vh;
+        }
+        .main-content {
+            background-color: white;
+            height: 80vh;
+        }
+        .article-area, .image-area {
+            text-align: center;
+        }
+        .image-area img {
+            width: 50vw;
+            height: 60vh;
+            object-fit: contain;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+            }
+            .main-content {
+                height: auto;
+            }
+            .image-area img {
+                width: 70vw;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- ヘッダー部 -->
-  <header>
-    <h1>ロゴ</h1>
-    <ul>
-      <li>ホーム</li>
-      <li>検索</li>
-      <li>ニュース</li>
-    </ul>
-  </header>
-
-  <!-- メイン部 -->
-  <main>
-    <!-- サイドバー -->
-    <aside>
-      <ul>
-        <li>テクノロジー</li>
-        <li>ビジネス</li>
-        <li>エンタメ</li>
-      </ul>
-    </aside>
-
-    <!-- メインコンテンツ -->
-    <section>
-      <!-- 記事エリア -->
-      <article>
-        <h2>記事</h2>
-        <p>記事本文</p>
-      </article>
-
-      <!-- 画像エリア -->
-      <figure>
-        <img src="image.png" alt="画像">
-        <figcaption>画像</figcaption>
-      </figure>
-
-      <!-- ボタンエリア -->
-      <div class="buttons">
-        <button>＜</button>
-        <button>＞</button>
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- フッター部 -->
-  <footer>
-    <p>© 2023 記事. All rights reserved.</p>
-  </footer>
-
+    <div class="header w-100 vh-10 d-flex align-items-center justify-content-center">
+        <h1>ロゴ</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar col-lg-2 d-flex flex-column align-items-center justify-content-center">
+                <a href="#">テクノロジー</a>
+                <a href="#">ビジネス</a>
+                <a href="#">エンタメ</a>
+            </div>
+            <div class="main-content col-lg-10">
+                <div class="article-area w-80 h-30">
+                    <h2>記事</h2>
+                    <p>記事本文</p>
+                </div>
+                <div class="image-area d-flex align-items-center justify-content-between">
+                    <button class="btn btn-primary">&lt;</button>
+                    <img src="image.png" alt="画像">
+                    <button class="btn btn-primary">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer w-100 vh-5 d-flex align-items-center justify-content-center">
+        <p>&copy; 2023 記事. All rights reserved.</p>
+    </div>
 </body>
 </html>
-
