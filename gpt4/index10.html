@@ -1,188 +1,158 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サイトレイアウト</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
-    .header {
-      width: 100vw;
+    header {
+      background-color: #000;
+      color: #fff;
       height: 10vh;
-      background-color: darkgray;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
     }
 
-    .logo {
-      color: white;
-      font-size: 2rem;
-      margin-left: 1rem;
-    }
-
-    .menu {
-      color: blue;
-      font-size: 1.5rem;
-      margin-right: 1rem;
-    }
-
-    .main {
-      width: 100vw;
-      height: 80vh;
+    nav {
       display: flex;
+      gap: 20px;
     }
 
-    .sidebar {
+    main {
+      display: flex;
+      height: 80vh;
+    }
+
+    aside {
+      background-color: #ccc;
       width: 20vw;
       height: 80vh;
-      background-color: lightgray;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
     }
 
-    .link {
-      color: black;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
-
-    .content {
+    article {
+      background-color: #fff;
       width: 80vw;
       height: 80vh;
-      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .article {
-      width: 80vw;
-      height: 20vw;
-      background-color: white;
+    footer {
+      background-color: #000;
+      color: #fff;
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .title {
-      color: black;
-      font-size: 3rem;
-      margin-top: 1rem;
-      margin-left: 1rem;
-    }
-
-    .text {
-      color: black;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      margin-left: 1rem;
+    footer small {
+      font-size: 10px;
     }
 
     .image-area {
-      width: 80vw;
-      height: calc(80vh - 20vw);
-      display: flex;
-      align-items: center;
+      width: 50vw;
+      height: 30vw;
+      background-image: url("image.png");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .image-caption {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 5px;
+      font-size: 14px;
     }
 
     .button {
       width: 5vw;
       height: 5vh;
-      color: blue;
-      font-size: 2rem; 
+      background-color: #0000ff;
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
     }
 
-    .image {
-     width :50vw; 
-     height :30vw; 
-     object-fit :contain; 
-     margin :0 auto; 
-   }
-   
-   .caption { 
-     text-align :center; 
-   }
-   
-   .footer { 
-     width :100vw; 
-     height :10vh; 
-     background-color :darkgray; 
-     display :flex; 
-     align-items :center; 
-     justify-content :center; 
-   }
-   
-   .info { 
-     color :white; 
-     font-size :0.8rem; 
-   }
-   
-   @media screen and (max-width :768px) { 
-     .main { 
-       flex-direction :column; 
-     }
-     
-     .sidebar { 
-       width :100vw; 
-       height :20vh; 
-       flex-direction :row; 
-       justify-content :space-around; 
-     }
-     
-     .content { 
-       width :100vw; 
-       height :60vh; 
-     }
-     
-     .article { 
-       width :100vw; 
-       height :15vh; 
-     }
-     
-     .image-area { 
-       width :100vw; 
-       height :45vh; 
-       flex-direction :column-reverse; 
-     }
-     
-     .button { 
-       width :10vw; 
-       height :5vh;  
-     }
-     
-     .image {  
-       width :70vw;  
-       height :30vh;  
-     }  
-   }  
- </style>  
-</head>  
-<body>  
- <div class="header">  
-   <div class="logo">ロゴ</div>  
-   <div class="menu">ホーム 検索 ニュース</div>  
- </div>  
- <div class="main">  
-   <div class="sidebar">  
-     <div class="link">テクノロジー</div>  
-     <div class="link">ビジネス</div>  
-     <div class="link">エンタメ</div>  
-   </div>  
-   <div class="content">  
-     <div class="article">  
-       <div class="title">記事</div>  
-       <div class="text">記事本文</div>  
-     </div>  
-     <div class="image-area">  
-       <div class="button">＜</div>  
-       <div class="image"><img src="image.png" alt="画像"></div>  
-       <div class="button">＞</div>  
-       <div class="caption">画像</div>  
-     </div>  
-   </div>  
- </div>  
- <div class="footer">  
-   <div class="info">© 2023 記事. All rights reserved.</div>  
- </div>  
-</body>  
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100vw;
+      }
+
+      article {
+        width: 100vw;
+      }
+
+      .image-area {
+        width: 70vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">検索</a>
+      <a href="#">ニュース</a>
+    </nav>
+  </header>
+
+  <main>
+    <aside>
+      <a href="#">テクノロジー</a>
+      <a href="#">ビジネス</a>
+      <a href="#">エンタメ</a>
+    </aside>
+
+    <article>
+      <section class="article-area">
+        <h1>記事</h1>
+        <p>記事本文</p>
+      </section>
+
+      <section class="image-area">
+        <div class="image-caption">画像</div>
+      </section>
+
+      <div>
+        <button class="button">&lt;</button>
+        <button class="button">&gt;</button>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <small>© 2023 記事. All rights reserved.</small>
+  </footer>
+</body>
+
 </html>
