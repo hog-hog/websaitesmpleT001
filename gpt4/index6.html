@@ -1,156 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+    <title>デボン紀のミステリー - ChatGPTによるサンプルWebページ</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            display: grid;
-            grid-template-areas: 
-                "header header header"
-                "sidebar main main"
-                "footer footer footer";
-            grid-template-rows: auto 1fr auto;
-            grid-template-columns: 1fr 2fr 2fr;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
         }
-
-        #header {
-            grid-area: header;
-            border: 1px solid lightgray;
-            padding: 20px;
+        .header, .footer {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-        }
-
-        #sidebar {
-            grid-area: sidebar;
-            border: 1px solid lightgray;
-            padding: 20px;
-            text-align: center;
-        }
-
-        #main {
-            grid-area: main;
-            border: 1px solid lightgray;
-            padding: 20px;
-            display: grid;
-            grid-template-areas: 
-                "content1 article content2"
-                "button1 image button2";
-            grid-template-columns: 1fr 2fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            text-align: center;
-        }
-
-        #footer {
-            grid-area: footer;
-            border: 1px solid lightgray;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.8em;
-        }
-
-        #content1, #content2 {
-            border: 1px solid lightgray;
             padding: 20px;
         }
-
-        #article {
-            grid-area: article;
-            border: 1px solid lightgray;
+        .sidebar {
+            background-color: #eee;
             padding: 20px;
-            font-size: 1.2em;
+            height: calc(100vh - 40px);
+            width: 20vw;
+            position: fixed;
         }
-
-        #button1, #button2 {
-            grid-area: button1;
-            border: 1px solid lightgray;
+        .main {
+            margin-left: 20vw;
             padding: 20px;
-            cursor: pointer;
+            width: 80vw;
+            height: calc(100vh - 40px);
         }
-
-        #image {
-            grid-area: image;
-            max-width: 100%;
-            max-height: 100%;
+        .article {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
         }
-
-        .image-container {
+        .imageArea {
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid lightgray;
-            padding: 20px;
+        }
+        .imageArea img {
+            width: 50%;
+            height: auto;
+            max-height: 50vh;
+        }
+        .imageArea button {
+            background-color: #fff;
+            border: none;
+            color: blue;
+            padding: 10px;
+            margin: 0 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
             cursor: pointer;
         }
-
-        .image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .image-container img:active {
-            max-width: 100vw;
-            max-height: 100vh;
-        }
-
-        .image-container img:active:hover {
-            cursor: zoom-out;
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main {
+                margin-left: 0;
+                width: 100%;
+            }
+            .article, .imageArea img {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="header">
-        <h1>デボン紀の生物進化</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
+    <div class="header">
+        <h1>デボン紀のミステリー</h1>
+        <p>ChatGPTによるサンプルWebページ</p>
     </div>
-        <div id="sidebar">
-            <p>便利なリンク：</p>
-            <ul>
-                <li><a href="#">リンク1</a></li>
-                <li><a href="#">リンク2</a></li>
-                <li><a href="#">リンク3</a></li>
-            </ul>
+    <div class="sidebar">
+        <a href="#1">テクノロジー</a><br>
+        <a href="#2">ビジネス</a><br>
+        <a href="#3">エンタメ</a>
+    </div>
+    <div class="main">
+        <div class="article" onclick="speak()">
+            <h2>デボン紀の未解決の謎</h2>
+            <p>デボン紀、それは約4億年前から始まった地球の新たな時代。この時期、海洋生物が急速に進化し、さまざまな種が誕生した。その中でも最も注目すべき生物が、恐竜を先取りする巨大な海洋生物「ダンクルオステウス」だ。この生物は、大きな顎と鋭い歯を持ち、その外見から海の恐怖とも称された。しかし、なぜこの生物が突如として進化したのか、その理由は今もなお科学者たちの間で議論されている。</p>
         </div>
-        <div id="main">
-            <div id="article">
-                <h2>デボン紀 - 地球の古代生物</h2>
-                <p>デボン紀は約4億から3億年前の地質時代で、多様な生物が誕生し発展した時代です。この時代は特に海洋生物の進化が著しかったことで知られています。例えば、硬骨魚類が初めて出現し、今日の魚類の祖先となる種が数多く生まれました。また、この時代は植物が大地を覆い始め、森林が形成され始めた時代でもあります。これらの変化は地球の生態系に大きな影響を及ぼし、その後の生物進化に大きな道しるべとなりました。</p>
-            </div>
-            <div id="button1" onclick="previousImage()">＜</div>
-            <div class="image-container" onclick="toggleZoom()">
-                <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Image">
-            </div>
-            <div id="button2" onclick="nextImage()">＞</div>
+        <div class="imageArea">
+            <button onclick="prevImage()">&lt;</button>
+            <img id="mainImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
+            <button onclick="nextImage()">&gt;</button>
         </div>
-        <div id="footer">
-            <p>このページはMITライセンスで公開されています。利用者自身の責任で利用してください。</p>
-        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 記事. All rights reserved. このページはMITライセンスで公開されており、ユーザー自身の責任で利用してください。</p>
     </div>
     <script>
-        var images = [
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
-        ];
-        var currentIndex = 0;
+        let imgArr = ["https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"];
+        let imgIndex = 0;
 
+        function prevImage() {
+            imgIndex = (imgIndex - 1 + imgArr.length) % imgArr.length;
+            document.getElementById("mainImage").src = imgArr[imgIndex];
+        }
         function nextImage() {
-            currentIndex = (currentIndex + 2) % images.length;
-            document.getElementById('image').src = images[currentIndex];
+            imgIndex = (imgIndex + 1) % imgArr.length;
+            document.getElementById("mainImage").src = imgArr[imgIndex];
         }
 
-        function previousImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            document.getElementById('image').src = images[currentIndex];
-        }
-
-        function toggleZoom() {
-            var img = document.getElementById('image');
-            img.style.transform = img.style.transform == "scale(2)" ? "scale(1)" : "scale(2)";
+        function speak() {
+            let msg = new SpeechSynthesisUtterance();
+            let voices = window.speechSynthesis.getVoices();
+            msg.voice = voices[10];
+            msg.voiceURI = 'native';
+            msg.volume = 1; // 0 to 1
+            msg.rate = 1; // 0.1 to 10
+            msg.pitch = 2; //0 to 2
+            msg.text = document.querySelector('.article p').textContent;
+            msg.lang = 'ja-JP';
+            speechSynthesis.speak(msg);
         }
     </script>
 </body>
 </html>
+
