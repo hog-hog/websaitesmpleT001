@@ -1,88 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>デボン紀のダイナミズム | ChatGPTによるサンプルWebページ</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
-    .header, .footer { background-color: darkgray; color: white; text-align: center; padding: 10px; }
-    .sidebar { background-color: lightgray; height: 80vh; width: 20vw; position: absolute; padding: 10px; }
-    .main { margin-left: 20vw; padding: 10px; height: 80vh; width: 80vw; }
-    .article, .image-display { width: 80vw; height: 30vh; padding: 10px; }
-    .image-display { display: flex; justify-content: center; align-items: center; }
-    .image-display img { max-height: 50vh; max-width: 50vw; }
-    .image-display button { background-color: blue; color: white; margin: 20px; padding: 10px; }
-    .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
-    .modal-content { margin: 15% auto; padding: 20px; width: 80%; }
-    .modal-content img { max-height: 80vh; width: auto; }
-    .footer { position: fixed; bottom: 0; width: 100%; }
-    @media (max-width: 768px) {
-      .sidebar { width: 100vw; height: auto; position: relative; }
-      .main { margin-left: 0; width: 100vw; }
-      .article, .image-display { width: 100vw; }
-      .image-display img { max-width: 70vw; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>デボン紀の記事 - chatGPTが作成したサンプルWebページ</title>
+    <style>
+        /* レイアウトとデザインの指示に従ってCSSを記述 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1 {
+            color: white;
+            margin-right: 20px;
+        }
+
+        .header h2 {
+            color: white;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu li {
+            color: blue;
+            margin-left: 10px;
+        }
+
+        .main {
+            width: 80vw;
+            height: 80vh;
+            background-color: white;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .article {
+            width: 80vw;
+            height: 30vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .article h3 {
+            color: black;
+            font-size: 24px;
+        }
+
+        .article p {
+            color: black;
+            font-size: 16px;
+        }
+
+        .image-area {
+            width: 80vw;
+            height: 50vh;
+            background-color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .button {
+            width: 5vw;
+            height: 5vh;
+            background-color: white;
+            color: blue;
+            font-size: 24px;
+            border-radius: 50%;
+        }
+
+        .image {
+            width: 50vw; 
+            height:auto; 
+             /* アスペクト比を保ち、親要素のサイズに合わせて拡大または縮小して表示 */
+             object-fit : contain; 
+             /* モーダル画面の中央に表示 */
+             position : absolute; 
+             top : 50%; 
+             left : 50%; 
+             transform : translate(-50%, -50%); 
+             /* モーダル画面を閉じる */
+             display : none; 
+             cursor : pointer; 
+             z-index : 10; 
+         }
+        
+         /* モーダル画面を開く */
+         .image:hover { 
+             display : block; 
+         }
+        
+         /* モーダル画面の背景 */
+         .modal { 
+             position : fixed; 
+             top : 0; 
+             left : 0; 
+             width : 100%; 
+             height : 100%; 
+             background-color : rgba(0,0,0,0.5); 
+             z-index : 9; 
+         }
+        
+         /* モーダル画面を閉じる */
+         .modal:hover { 
+             display : none; 
+         }
+        
+         /* ボタン1とボタン2のクリックイベントをJavaScriptで記述 */
+         <script> 
+             // 表示する画像のリンク
+             var images = [ "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg" ]; 
+        
+             // 現在表示している画像のインデックス
+             var index = 0; 
+        
+             // 画像要素とボタン要素を取得
+             var image = document.querySelector(".image"); 
+             var button1 = document.querySelector(".button1"); 
+             var button2 = document.querySelector(".button2"); 
+        
+             // 画像要素のsrc属性に最初の画像のリンクを設定
+             image.src = images[index]; 
+        
+             // ボタン1をクリックしたときの処理
+             button1.addEventListener("click", function() { 
+                 // インデックスを1減らす
+                 index--; 
+                 // インデックスが0未満になったら、最後の画像に戻る
+                 if (index < 0) { 
+                     index = images.length - 1; 
+                 } 
+                 // 画像要素のsrc属性にインデックスに対応する画像のリンクを設定
+                 image.src = images[index]; 
+             }); 
+        
+             // ボタン2をクリックしたときの処理
+             button2.addEventListener("click", function() { 
+                 // インデックスを1増やす
+                 index++; 
+                 // インデックスが画像の数以上になったら、最初の画像に戻る
+                 if (index >= images.length) { 
+                     index = 0; 
+                 } 
+                 // 画像要素のsrc属性にインデックスに対応する画像のリンクを設定
+                 image.src = images[index]; 
+             }); 
+         </script>
+
+        .sidebar {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            width: 100vw;
+            height: 5vh;
+            background-color: darkgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer p {
+            color: white;
+            font-size: 12px;
+        }
+
+        /* メディアクエリでレスポンシブ対応 */
+        @media screen and (max-width: 768px) {
+            .main {
+                width: 100vw;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .article {
+                width: 100vw;
+                height: auto;
+            }
+
+            .image-area {
+                width: 100vw;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .button {
+                width: 10vw;
+                height: 10vh;
+                margin-bottom: 10px;
+            }
+
+            .image {
+                width: 70vw; 
+                height:auto; 
+             }
+            
+            
+
+            .sidebar {
+                width: 100vw;
+                height: auto;
+                order: -1; /* メインコンテンツの下に表示 */
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <h1>デボン紀のダイナミズム</h1>
-    <p>ChatGPTによるサンプルWebページ</p>
-  </div>
-  <div class="sidebar">
-    <h2>関連リンク</h2>
-    <ul>
-      <li><a href="#">テクノロジー</a></li>
-      <li><a href="#">ビジネス</a></li>
-      <li><a href="#">エンタメ</a></li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="article">
-      <h2>タイトル</h2>
-      <p>デボン紀、約4億から3億年前。この時代は、生物の進化が一段と加速した時期で、海洋生物が大きな変化を遂げました。特に、肉食性の魚類であるダンクレオステウスはその代表格です。この魚は体長10メートルを超え、当時としては異例の大きさでした。強靭な顎と鋭い歯で獲物を捕らえ、デボン紀の海を支配していました。この記事では、その生態と進化について詳しく解説します。</p>
+    <div class="header">
+        <h1>デボン紀の記事</h1>
+        <h2>chatGPTが作成したサンプルWebページ</h2>
+        <ul class="menu">
+            <li>ホーム</li>
+            <li>検索</li>
+            <li>ニュース</li>
+        </ul>
     </div>
-    <div class="image-display">
-      <button id="prev">&lt;</button>
-      <img id="display-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像">
-      <button id="next">&gt;</button>
+    <div class="main">
+        <div class="article">
+            <h3>地球史上2回目の大量絶滅、大噴火が原因と結論</h3>
+            <p>地球史上2回目の生物大量絶滅が、大規模火山の噴火で起きたことを突き止めた、と東北大学などの研究グループが発表した。 動植物が陸に進出した古生代「後期デボン紀」の約3億8000万～3億6000万年前に起きたもので、高温でできる有機分子を決め手とする独自の
+              <p>手法を用いた。 同グループは昨秋、3回目の原因も大噴火だったことを同じ手法で示しており、火山が生き物の命運を握る地球の歩みがより鮮明になった。</p>
+            <p>後期デボン紀に起きた大量絶滅の仕組み（海保邦夫・東北大学名誉教授提供） 後期デボン紀の地層には水銀が多く含まれており、大噴火が大量絶滅の原因であるとの見方が強まっていた。 ただ、水銀は噴火以外に陸上植物に由来する可能性もあるため、決め手を欠いていた。</p>
+        </div>
+        <div class="image-area">
+            <button class="button button1"><</button>
+            <img class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Dunkleosteus">
+            <button class="button button2">></button>
+        </div>
     </div>
-  </div>
-  <div class="footer">
-    <p>© 2023 ChatGPT. All rights reserved. This page is released under the MIT License and is for use at your own risk.</p>
-  </div>
-  
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <img id="modal-image" src="" alt="拡大画像">
+    <div class="sidebar">
+        <ul>
+            <li>テクノロジー</li>
+            <li>ビジネス</li>
+            <li>エンタメ</li>
+            <li>スポーツ</li>
+            <li>ライフスタイル</li>
+        </ul>
     </div>
-  </div>
-
-  <script>
-    var images = [
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-    ];
-    var index = 0;
-
-    document.getElementById("display-image").addEventListener("click", function() {
-      document.getElementById("modal-image").src = this.src;
-      document.getElementById("modal").style.display = "block";
-    });
-
-    document.getElementById("modal").addEventListener("click", function() {
-      this.style.display = "none";
-    });
-
-    document.getElementById("prev").addEventListener("click", function() {
-      index = (index - 1 + images.length) % images.length;
-      document.getElementById("display-image").src = images[index];
-    });
-
-    document.getElementById("next").addEventListener("click", function() {
-      index = (index + 1) % images.length;
-      document.getElementById("display-image").src = images[index];
-    });
-  </script>
+    <div class="footer">
+        <p>© 2023 記事. All rights reserved. This page is published under the MIT license and is for educational purposes only. Use at your own risk.</p>
+    </div>
+    <!-- モーダル画面の背景 -->
+    <div class="modal"></div>
 </body>
 </html>
