@@ -71,3 +71,97 @@
           margin-top:auto
           margin-bottom:auto
           text-align:center
+                      }
+        .image-area button{
+          width:5vw
+          height:5vh
+          color:blue
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 5vh;
+            background-color: darkgray;
+        }
+        footer p {
+            color: white;
+            font-size: small;
+        }
+        @media (max-width: 768px) {
+            aside {
+                display: none;
+            }
+            .main-content {
+                width: 100vw;
+            }
+            .main-content h2 {
+                width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>デボン紀の物語</h1>
+        <nav>
+            <ul>
+                <li>ホーム</li>
+                <li>検索</li>
+                <li>ニュース</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <ul>
+                <li>テクノロジー</li>
+                <li>ビジネス</li>
+                <li>エンタメ</li>
+            </ul>
+        </aside>
+        <div class="main-content">
+            <h2>デボン紀の物語</h2>
+            <p>デボン紀には、様々な生物が生息していました。その中でも、ダンクルオステウスは、最も強い捕食者の一つでした。彼らは、巨大な鎧を身に着け、鋭い歯を持っていました。彼らは、海の中で恐れられる存在でした。</p>
+            <div class="image-area">
+              <button id="prev-button">＜</button>
+              <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
+              <button id="next-button">＞</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer><p>© 2023 記事. All rights reserved. | MITライセンスで公開されています。ユーザーが自己責任で利用してください。</p></footer>
+
+    <script>
+
+      const images = [
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+      ];
+      let currentImageIndex = 0;
+
+      const imageElement = document.querySelector("#image");
+      const prevButton = document.querySelector("#prev-button");
+      const nextButton = document.querySelector("#next-button");
+
+      prevButton.addEventListener("click", () => {
+          currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
+          imageElement.src = images[currentImageIndex];
+      });
+
+      nextButton.addEventListener("click", () => {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          imageElement.src = images[currentImageIndex];
+      });
+
+    </script>
+
+</body>
+
+</html>
+
