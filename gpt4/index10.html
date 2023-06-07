@@ -81,7 +81,6 @@
     .image-area {
       width: 80vw;
       height: calc(80vh - 20vw);
-      background-color: white;
       display: flex;
       align-items: center;
     }
@@ -96,15 +95,14 @@
     .image {
      width :50vw; 
      height :30vw; 
-     object-fit :cover; 
-     cursor :pointer; 
-   } 
-
+     object-fit :contain; 
+     margin :0 auto; 
+   }
+   
    .caption { 
      text-align :center; 
-     margin-top :0.5rem; 
-   } 
-
+   }
+   
    .footer { 
      width :100vw; 
      height :10vh; 
@@ -112,79 +110,79 @@
      display :flex; 
      align-items :center; 
      justify-content :center; 
-   } 
-
+   }
+   
    .info { 
      color :white; 
      font-size :0.8rem; 
-   } 
-
+   }
+   
    @media screen and (max-width :768px) { 
      .main { 
        flex-direction :column; 
-     } 
-
+     }
+     
      .sidebar { 
        width :100vw; 
        height :20vh; 
        flex-direction :row; 
        justify-content :space-around; 
-     } 
-
+     }
+     
      .content { 
        width :100vw; 
        height :60vh; 
-     } 
-
+     }
+     
      .article { 
        width :100vw; 
-       height :15vw; 
-     } 
-
+       height :15vh; 
+     }
+     
      .image-area { 
        width :100vw; 
-       height :calc(60vh - 15vw); 
-       justify-content :center; 
-     } 
-
+       height :45vh; 
+       flex-direction :column-reverse; 
+     }
+     
      .button { 
-       display :none; 
-     } 
-
-     .image { 
-       width :70vw; 
-       height :40vw; 
-     } 
-
-   }
- </style>
-</head>
-<body>
- <div class="header">
-   <div class="logo">ロゴ</div>
-   <div class="menu">ホーム 検索 ニュース</div>
- </div>
- <div class="main">
-   <div class="sidebar">
-     <div class="link">テクノロジー</div>
-     <div class="link">ビジネス</div>
-     <div class="link">エンタメ</div>
-   </div>
-   <div class="content">
-     <div class="article">
-       <div class="title">記事</div>
-       <div class="text">記事本文</div>
-     </div>
-     <div class="image-area">
-       <div class="button">＜</div>
-       <img src="image.png" alt="画像" class="image">
-       <div class="button">＞</div>
-     </div>
-     <div class="caption">画像</div>
-   </div>
- </div>
- <div class="footer">
-   <div class="info">© 2023 記事. All rights reserved.</div>
- </div>
-</body>
+       width :10vw; 
+       height :5vh;  
+     }
+     
+     .image {  
+       width :70vw;  
+       height :30vh;  
+     }  
+   }  
+ </style>  
+</head>  
+<body>  
+ <div class="header">  
+   <div class="logo">ロゴ</div>  
+   <div class="menu">ホーム 検索 ニュース</div>  
+ </div>  
+ <div class="main">  
+   <div class="sidebar">  
+     <div class="link">テクノロジー</div>  
+     <div class="link">ビジネス</div>  
+     <div class="link">エンタメ</div>  
+   </div>  
+   <div class="content">  
+     <div class="article">  
+       <div class="title">記事</div>  
+       <div class="text">記事本文</div>  
+     </div>  
+     <div class="image-area">  
+       <div class="button">＜</div>  
+       <div class="image"><img src="image.png" alt="画像"></div>  
+       <div class="button">＞</div>  
+       <div class="caption">画像</div>  
+     </div>  
+   </div>  
+ </div>  
+ <div class="footer">  
+   <div class="info">© 2023 記事. All rights reserved.</div>  
+ </div>  
+</body>  
 </html>
