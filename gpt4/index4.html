@@ -1,207 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>デボン紀の深海怪物</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デボン紀の物語</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
-
-        .header, .footer {
-            background-color: darkgray;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            width: 100vw;
-        }
-
-        .header {
-            height: 15vh;
-        }
-
-        .header h1 {
-            margin: 0;
-        }
-
-        .header .subtitle {
-            font-size: 0.8em;
-        }
-
-        .footer {
-            height: 5vh;
-        }
-
-        .main-content {
+        header {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: white;
-            width: 80vw;
-            height: 80vh;
-            margin: auto;
-            text-align: center;
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
         }
-
-        .sidebar {
-            background-color: lightgray;
+        header h1 {
+            color: white;
+            margin-right: auto;
+            margin-left: 20px;
+        }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            margin-right: 20px;
+        }
+        header nav ul li a {
+            color: blue;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+        }
+        aside {
             width: 20vw;
             height: 80vh;
+            background-color: lightgray;
             padding: 20px;
-            position: absolute;
-            top: 15vh;
-            left: 0;
         }
-
-        .sidebar a {
-            display: block;
-            margin-bottom: 10px;
+        aside ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
-
-        .article {
-            background-color: white;
-            width: 70vw;
-            height: 30vh;
-            margin: auto;
-            text-align: left;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow: auto;
+        aside ul li a {
+            color:black;
+            text-decoration:none
         }
-
-        .article h2 {
-            margin-top: 0;
+        .main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color:white
         }
-
-        .image-area {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            width: 70vw;
-            height: 50vh;
-            margin: auto;
+        .main-content h2{
+          text-align:center
         }
-
-        .image-area img {
-            max-width: 50vw;
-            max-height: 50vh;
-            object-fit: contain;
+        
+        .main-content p{
+          text-align:center
         }
-
-        .button {
-            background-color: blue;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        .button:disabled {
-            background-color: gray;
-        }
-
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                position: relative;
-                width: 100vw;
-                height: auto;
-            }
-
-            .main-content {
-                width: 100vw;
-            }
-
-            .article {
-                width: 100vw;
-            }
-
-            .image-area img {
-                max-width: 70vw;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>デボン紀の深海怪物</h1>
-        <p class="subtitle">chatGPTが作成したサンプルWebページ</p>
-    </div>
-
-    <div class="sidebar">
-        <a href="#">テクノロジー</a>
-        <a href="#">ビジネス</a>
-        <a href="#">エンタメ</a>
-    </div>
-
-    <div class="main-content">
-        <div class="article">
-            <h2>デボン紀の深海怪物</h2>
-            <p>4億年以上前のデボン紀、深海には巨大な生物が生息していました。その名もダンクルオステウス。全長10メートルにも及ぶこの巨大魚は、強靭な顎と鋭い歯を持ち、当時の海を恐怖に陥れていました。しかし、ダンクルオステウスが生きていたデボン紀は、海洋生物の進化と多様性が爆発的に増えた「海の生命の黄金時代」とも言われています。この時期の海は、美しいサンゴ礁に覆われ、様々な種類の魚や無脊椎動物が生息していました。その中でダンクルオステウスは、どのように生き残り、繁栄したのでしょうか。</p>
-        </div>
-
-        <div class="image-area">
-            <button id="button1" class="button">&lt;</button>
-            <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="ダンクルオステウス">
-            <button id="button2" class="button">&gt;</button>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2023 記事. All rights reserved.</p>
-        <p>This page is licensed under the MIT license. Use at your own risk.</p>
-    </div>
-
-    <script>
-        const images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-        ];
-        let currentIndex = 0;
-
-        const imageElement = document.getElementById("image");
-        const button1 = document.getElementById("button1");
-        const button2 = document.getElementById("button2");
-
-        imageElement.addEventListener("click", function() {
-            const modalImage = new Image();
-            modalImage.src = this.src;
-            modalImage.style.maxHeight = "100vh";
-            modalImage.style.maxWidth = "100vw";
-            modalImage.style.objectFit = "contain";
-            modalImage.style.position = "fixed";
-            modalImage.style.top = "50%";
-            modalImage.style.left = "50%";
-            modalImage.style.transform = "translate(-50%, -50%)";
-            modalImage.style.zIndex = "1000";
-            modalImage.style.display = "none";
-            document.body.appendChild(modalImage);
-
-            modalImage.style.display = "block";
-
-            modalImage.addEventListener("click", function() {
-                this.remove();
-            });
-        });
-
-        button1.addEventListener("click", function() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            imageElement.src = images[currentIndex];
-        });
-
-        button2.addEventListener("click", function() {
-            currentIndex = (currentIndex + 1) % images.length;
-            imageElement.src = images[currentIndex];
-        });
-
-        const articleElement = document.getElementById("article");
-        articleElement.addEventListener("click", function() {
-            const utterance = new SpeechSynthesisUtterance(this.innerText);
-            window.speechSynthesis.speak(utterance);
-        });
-    </script>
-</body>
-</html>
+        
+        .article-area{
+          width:70vw
+          height:auto
+          margin:auto
+          text-align:center
