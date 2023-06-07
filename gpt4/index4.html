@@ -1,179 +1,208 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>デボン紀の物語</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>デボン紀の記事</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-.header, .footer {
-    width: 100vw;
-    height: 15vh;
-    background-color: darkgrey;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.main {
-    display: flex;
-    height: 70vh;
-    width: 100vw;
-}
-
-.sidebar {
-    width: 20vw;
-    background-color: lightgrey;
-    padding: 20px;
-}
-
-.sidebar a {
-    color: black;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.content {
-    width: 80vw;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.article, .image-area {
-    width: 70vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.article p {
-    width: 70%;
-}
-
-.button {
-    width: 5vw;
-    height: 5vh;
-    background-color: white;
-    border: 1px solid blue;
-    color: blue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.image {
-    width: 50vw;
-    height: 50vh;
-    object-fit: contain;
-}
-
-@media only screen and (max-width: 768px) {
-    .main {
-        flex-direction: column;
-    }
-
-    .sidebar {
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100vw;
-    }
+        height: 15vh;
+        background-color: darkgray;
+      }
+      header h1 {
+        color: white;
+      }
+      header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      header nav ul li {
+        margin: 0 10px;
+        color: blue;
+      }
+      main {
+        display: flex;
+      }
+      aside {
+        width: 20vw;
+        height: 80vh;
+        background-color: lightgray;
+      }
+      aside ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      aside ul li {
+        margin: 10px 0;
+        color: black;
+      }
+      .main-content {
+        width: 80vw;
+        height: 80vh;
+        background-color: white;
+        display:flex; 
+        flex-direction: column; 
+        align-items:center; 
+      }
+      .article-area {
+        width:70vw; 
+        height:30vh; 
+      }
+      .article-area h2{
+          text-align:center; 
+          margin-top:20px; 
+          font-size:x-large; 
+          font-weight:bold; 
+          color:black; 
+       }
+       .article-area p{
+           text-align:center; 
+           margin-top:20px; 
+           font-size:normal; 
+           color:black; 
+       }
+       .image-area{
+           display:flex; 
+           justify-content:center; 
+           align-items:center; 
+       }
+       .image-area img{
+           width:auto; 
+           height:auto; 
+           max-width:auto; 
+           max-height:auto; 
+       }
+       .image-area button{
+           width:auto; 
+           height:auto; 
+           font-size:x-large; 
+           color:black; 
+       }
+       footer{
+         display:flex; 
+         justify-content:center; 
+         align-items:center; 
+         width:100vw; 
+         height:5vh; 
+         background-color:darkgray
+       }
+       footer p{
+         color:white
+       }
 
-    .content {
-        width: 100vw;
-    }
+       @media screen and (max-width :768px){
+         aside{
+             display:none
+         }
+         .main-content{
+             width :100vw
+         }
+         .article-area{
+             width :100vw
+         }
 
-    .article, .image-area {
-        width: 100vw;
-    }
+       }
 
-    .image {
-        width: 70vw;
-    }
-
-    .article p {
-        width: 100%;
-    }
-}
     </style>
-</head>
-<body>
-    <div class="header">
-        <h1>デボン紀の物語</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
-    </div>
-    <div class="main">
-        <div class="sidebar">
-            <a href="#">テクノロジー</a>
-            <a href="#">ビジネス</a>
-            <a href="#">エンタメ</a>
-        </div>
-        <div class="content">
-            <div class="article" onclick="readAloud()">
-                <h2>デボン紀の物語</h2>
-                <p>
-                    デボン紀、それは古代の海が広がる時代。そこには巨大な魚、ダンクルオステウスが生息していました。
-                    その魚は強力な顎と鋭い歯を持ち、海の頂点に君臨していました。しかし彼の支配も永遠ではありませんでした。
-                    大量絶滅という試練が彼を待ち受けていました。それが# Open the required image URL to get the image dimensions
-open_url("https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg")
-                    デボン紀の終焉でした。この物語は、我々が自然との調和を忘れないようにという教訓を残しています。
-                </p>
-            </div>
-            <div class="image-area">
-                <button class="button" id="button1">＜</button>
-                <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" class="image" id="image" onclick="zoomImage()">
-                <button class="button" id="button2">＞</button>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <p>© 2023 記事. All rights reserved.</p>
-        <p>このページはMITライセンスで公開されており、ユーザーは自己責任で利用することを明記します。</p>
-    </div>
     <script>
-        let images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-        ];
-        let index = 0;
+    let images = [
+    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+    ];
+    let currentImage = 0;
 
-        function changeImage(i) {
-            index = (index + i + images.length) % images.length;
-            document.getElementById('image').src = images[index];
-        }
+    function changeImage(direction) {
+    currentImage += direction;
 
-        document.getElementById('button1').addEventListener('click', function() {
-            changeImage(-1);
-        });
+    if (currentImage < 0) {
+      currentImage = images.length - 1;
+    } else if (currentImage >= images.length) {
+      currentImage = 0;
+    }
 
-        document.getElementById('button2').addEventListener('click', function() {
-            changeImage(1);
-        });
+    document.getElementById("main-image").src = images[currentImage];
+    }
 
-        function zoomImage() {
-            let img = document.getElementById('image');
-            img.style.transform = img.style.transform == "scale(2)" ? "scale(1)" : "scale(2)";
-        }
+    function toggleModal() {
+    let modal = document.getElementById("modal");
+    let mainImage = document.getElementById("main-image");
 
-        function readAloud() {
-            let article = document.querySelector('.article p').innerText;
-            let speech = new SpeechSynthesisUtterance();
-            speech.text = article;
-            speech.lang = "ja-JP";
-            window.speechSynthesis.speak(speech);
-        }
+    if (modal.style.display === "none") {
+      modal.style.display = "flex";
+      modal.getElementsByTagName("img")[0].src = mainImage.src;
+
+    } else {
+      modal.style.display = "none";
+    }
+    }
+
+     function readArticle(){
+     let articleText = document.querySelector(".article-area p").textContent;
+     let msg = new SpeechSynthesisUtterance(articleText);
+     window.speechSynthesis.speak(msg);
+     }
     </script>
-</body>
+  </head>
+  <body>
+    <header>
+      <h1>デボン紀の記事</h1>
+      <nav>
+        <ul>
+          <li>ホーム</li>
+          <li>検索</li>
+          <li>ニュース</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <aside>
+        <ul>
+          <li>テクノロジー</li>
+          <li>ビジネス</li>
+          <li>エンタメ</li>
+        </ul>
+      </aside>
+      <div class="main-content">
+        <div class="article-area">
+          <h2>デボン紀について</h2>
+          <p>デボン紀は、古生代の中ごろ、シルル紀の後、石炭紀の前で、約4億1600万年前から約3億5920万年前までの時期を指します。この時期には、陸上に生命が広がり始め、広大な森林が大陸を覆いました。デボン紀の中ごろには、複数の植物群が葉と真の根を進化させ、期間末には最初の種子植物が現れました。また、魚類はこの時期に多様性を達成し、デボン紀はしばしば「魚類の時代」と呼ばれます。</p>
+        </div>
+
+        <div class="image-area">
+          <button onclick="changeImage(-1)">＜</button>
+
+          <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="toggleModal()">
+
+          <button onclick="changeImage(1)">＞</button>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <footer><p>© 2023 記事. All rights reserved.</p></footer>
+
+    <!-- The Modal -->
+    <div id="modal" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+      <!-- The Close Button -->
+      <span style="color: white; font-size: 40px; font-weight: bold; cursor: pointer;" onclick="toggleModal()">×</span>
+
+      <!-- Modal Content (The Image) -->
+      <img style="margin: auto; display: block; max-width: 100%; max-height: 100%;" src="">
+    </div>
+
+  </body>
 </html>
+
