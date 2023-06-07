@@ -1,162 +1,234 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>レイアウト</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        .header,
-        .footer {
-            width: 100vw;
-            height: 10vh;
-            background-color: darkgray;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .header h1,
-        .footer p {
-            color: white;
-            margin: 0;
-        }
-        .header ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        .header li {
-            color: blue;
-            margin-left: 20px;
-        }
-        .main {
-            display: flex;
-        }
-        .main .sidebar {
-            width: 20vw;
-            height: 80vh;
-            background-color: lightgray;
-            padding: 20px;
-        }
-        .main .sidebar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .main .sidebar li {
-            color:black;
-            margin-bottom: 10px;
-        }
-        .main .content {
-            width: 80vw;
-            height: 80vh;
-            background-color:white ;
-        }
-        .main .content .article {
-            width: 80vw;
-            height: 30vh;
-            background-color:white ;
-        }
-        .main .content h2 {
-          color:black;  
-          font-size:x-large; 
-          margin-top :10px; 
-          margin-left :10px; 
-          margin-bottom :0px; 
-          padding-bottom :0px; 
-          }
-          
-         .main .content p{
-             color:black; 
-             font-size :small; 
-             margin-top :5px; 
-             margin-left :10px; 
-             margin-right :10px; 
-             text-align :justify; 
-             } 
-             
-         .main .content img{
-             width :50vw; 
-             height :40vh; 
-             object-fit :contain; 
-             } 
-             
-         .main .content figcaption{
-             text-align:center; 
-             } 
-             
-         .main .content button{
-             width :5vw; 
-             height :5vh; 
-             font-size:x-large; 
-             color :blue; 
-             } 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 共通のスタイル */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-         @media (max-width:768px) {
-           .main{
-               flex-direction :column-reverse; 
-               } 
-               
-           .main .sidebar{
-               width :100vw; 
-               height :auto; 
-               } 
+    /* ヘッダー部 */
+    header {
+      width: 100vw;
+      height: 10vh;
+      background-color: darkgray;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-           .main .content{
-               width :100vw; 
-               } 
+    header h1 {
+      color: white;
+      margin-left: 20px;
+    }
 
-           .main .content img{
-               width :70vw; 
-               } 
+    header ul {
+      list-style: none;
+      display: flex;
+      color: blue;
+      margin-right: 20px;
+    }
 
-           } 
+    header ul li {
+      margin-left: 10px;
+    }
 
-    </style>
+    /* メイン部 */
+    main {
+      width: 100vw;
+      height: 80vh;
+      display: flex;
+    }
+
+    /* サイドバー */
+    aside {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+      padding: 10px;
+    }
+
+    aside ul {
+      list-style: none;
+      color: black;
+    }
+
+    aside ul li {
+      margin-bottom: 10px;
+    }
+
+    /* メインコンテンツ */
+    section {
+      width: 80vw;
+      height: 80vh;
+      background-color: white;
+      padding: 10px;
+    }
+
+    /* 記事エリア */
+    article {
+      width: 80vw;
+      height: 30vh;
+    }
+
+    article h2 {
+      color: black;
+      font-size: 24px;
+    }
+
+    article p {
+      color: black;
+      font-size: 16px;
+    }
+
+    /* 画像エリア */
+    figure {
+      width: 50vw;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+    }
+
+    figure img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; 
+    }
+
+    figure figcaption {
+      text-align: center; 
+    }
+
+     /* ボタンエリア */
+     .buttons {
+       width: 50vw; 
+       height: 5vh; 
+       display:flex; 
+       align-items:center; 
+       justify-content:center; 
+     }
+     
+     .buttons button { 
+       width :5vw; 
+       height :5vh; 
+       color :blue; 
+       border:none; 
+       background-color:white; 
+     }
+     
+     .buttons button:hover { 
+       cursor:pointer; 
+     }
+     
+     /* フッター部 */
+     footer { 
+       width :100vw; 
+       height :10vh; 
+       background-color :darkgray; 
+       display:flex; 
+       align-items:center; 
+       justify-content:center; 
+     }
+     
+     footer p { 
+       color:white; 
+       font-size :12px; 
+     }
+     
+     /* メディアクエリ */
+     @media (max-width :768px) { 
+       main { 
+         flex-direction :column; 
+       }
+       
+       aside { 
+         width :100vw; 
+         height :20vh; 
+       }
+       
+       section { 
+         width :100vw; 
+         height :60vh; 
+       }
+       
+       article { 
+         width :100vw; 
+         height :20vh; 
+       }
+       
+       figure { 
+         width :70vw; 
+         height :30vh;  
+       }
+       
+        .buttons {  
+          width :70vw;  
+          height :5vh;  
+        } 
+        
+        .buttons button {  
+          width :7vw;  
+          height :5vh;  
+        } 
+     }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>ロゴ</h1>
-        <ul>
-            <li>ホーム</li>
-            <li>検索</li>
-            <li>ニュース</li>
-        </ul>
-    </div>
-    <div class="main">
-        <div class="sidebar">
-          <ul>
-              <li>テクノロジー</li>
-              <li>ビジネス</li>
-              <li>エンタメ</li>
-          </ul>
+  <!-- ヘッダー部 -->
+  <header>
+    <h1>ロゴ</h1>
+    <ul>
+      <li>ホーム</li>
+      <li>検索</li>
+      <li>ニュース</li>
+    </ul>
+  </header>
+
+  <!-- メイン部 -->
+  <main>
+    <!-- サイドバー -->
+    <aside>
+      <ul>
+        <li>テクノロジー</li>
+        <li>ビジネス</li>
+        <li>エンタメ</li>
+      </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <section>
+      <!-- 記事エリア -->
+      <article>
+        <h2>記事</h2>
+        <p>記事本文</p>
+      </article>
+
+      <!-- 画像エリア -->
+      <figure>
+        <img src="image.png" alt="画像">
+        <figcaption>画像</figcaption>
+      </figure>
+
+      <!-- ボタンエリア -->
+      <div class="buttons">
+        <button>＜</button>
+        <button>＞</button>
       </div>
-      <div class="content">
-          <div class="article">
-              <h2>記事</h2>
-              <p>記事本文</p>
-          </div>
-          <figure>
-              <img src="image.png" alt="">
-              <figcaption>画像</figcaption>
-          </figure>
-          <button>＜</button><button>＞</button>
 
-      </div>
+    </section>
 
-    </div>
+  </main>
 
-    <div class="footer">
-      <p>©2023 記事. All rights reserved.</p>
-
-    </div>
+  <!-- フッター部 -->
+  <footer>
+    <p>© 2023 記事. All rights reserved.</p>
+  </footer>
 
 </body>
-
 </html>
 
