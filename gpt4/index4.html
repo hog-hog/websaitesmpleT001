@@ -1,208 +1,229 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>デボン紀の記事</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 15vh;
-        background-color: darkgray;
-      }
-      header h1 {
-        color: white;
-      }
-      header nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-      }
-      header nav ul li {
-        margin: 0 10px;
-        color: blue;
-      }
-      main {
-        display: flex;
-      }
-      aside {
-        width: 20vw;
-        height: 80vh;
-        background-color: lightgray;
-      }
-      aside ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      aside ul li {
-        margin: 10px 0;
-        color: black;
-      }
-      .main-content {
-        width: 80vw;
-        height: 80vh;
-        background-color: white;
-        display:flex; 
-        flex-direction: column; 
-        align-items:center; 
-      }
-      .article-area {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デボン紀の物語</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 15vh;
+      background-color: darkgray;
+    }
+    header h1 {
+      color: white;
+      margin-right: auto;
+    }
+    header nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    header nav ul li {
+      color: blue;
+      margin-right: 20px;
+    }
+    main {
+      display: flex;
+    }
+    aside {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+    }
+    aside ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    aside ul li {
+      color: black;
+      margin-bottom: 10px;
+    }
+    .main-content {
+      width: 80vw;
+      height: 80vh;
+      background-color: white;
+      display:flex; 
+      flex-direction: column; 
+      align-items:center; 
+    }
+    .article-area {
         width:70vw; 
         height:30vh; 
-      }
-      .article-area h2{
-          text-align:center; 
-          margin-top:20px; 
-          font-size:x-large; 
-          font-weight:bold; 
-          color:black; 
-       }
-       .article-area p{
-           text-align:center; 
-           margin-top:20px; 
-           font-size:normal; 
-           color:black; 
-       }
-       .image-area{
-           display:flex; 
-           justify-content:center; 
-           align-items:center; 
-       }
-       .image-area img{
-           width:auto; 
-           height:auto; 
-           max-width:auto; 
-           max-height:auto; 
-       }
-       .image-area button{
-           width:auto; 
-           height:auto; 
-           font-size:x-large; 
-           color:black; 
-       }
-       footer{
-         display:flex; 
-         justify-content:center; 
-         align-items:center; 
-         width:100vw; 
-         height:5vh; 
-         background-color:darkgray
-       }
-       footer p{
-         color:white
-       }
-
-       @media screen and (max-width :768px){
-         aside{
-             display:none
-         }
-         .main-content{
-             width :100vw
-         }
-         .article-area{
-             width :100vw
-         }
-
-       }
-
-    </style>
-    <script>
-    let images = [
-    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-    "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-    ];
-    let currentImage = 0;
-
-    function changeImage(direction) {
-    currentImage += direction;
-
-    if (currentImage < 0) {
-      currentImage = images.length - 1;
-    } else if (currentImage >= images.length) {
-      currentImage = 0;
-    }
-
-    document.getElementById("main-image").src = images[currentImage];
-    }
-
-    function toggleModal() {
-    let modal = document.getElementById("modal");
-    let mainImage = document.getElementById("main-image");
-
-    if (modal.style.display === "none") {
-      modal.style.display = "flex";
-      modal.getElementsByTagName("img")[0].src = mainImage.src;
-
-    } else {
-      modal.style.display = "none";
-    }
-    }
-
-     function readArticle(){
-     let articleText = document.querySelector(".article-area p").textContent;
-     let msg = new SpeechSynthesisUtterance(articleText);
-     window.speechSynthesis.speak(msg);
+        background-color:white; 
+        display:flex; 
+        flex-direction:column; 
+        align-items:center; 
+        justify-content:center; 
      }
-    </script>
-  </head>
-  <body>
-    <header>
-      <h1>デボン紀の記事</h1>
-      <nav>
-        <ul>
-          <li>ホーム</li>
-          <li>検索</li>
-          <li>ニュース</li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <aside>
-        <ul>
-          <li>テクノロジー</li>
-          <li>ビジネス</li>
-          <li>エンタメ</li>
-        </ul>
-      </aside>
-      <div class="main-content">
-        <div class="article-area">
-          <h2>デボン紀について</h2>
-          <p>デボン紀は、古生代の中ごろ、シルル紀の後、石炭紀の前で、約4億1600万年前から約3億5920万年前までの時期を指します。この時期には、陸上に生命が広がり始め、広大な森林が大陸を覆いました。デボン紀の中ごろには、複数の植物群が葉と真の根を進化させ、期間末には最初の種子植物が現れました。また、魚類はこの時期に多様性を達成し、デボン紀はしばしば「魚類の時代」と呼ばれます。</p>
-        </div>
+     .article-area h2{
+         color:black; 
+         margin-bottom:auto; 
+     }
+     .article-area p{
+         color:black; 
+         margin-top:auto; 
+     }
+     .image-area{
+         width:auto; 
+         height:auto; 
+         display:flex; 
+         align-items:center; 
+         justify-content:center; 
+     }
+     .image-area img{
+         width:auto; 
+         max-width:none; 
+         height:auto; 
+         max-height:none; 
+     }
+     .image-area button{
+         width:auto; 
+         height:auto; 
+         color:black; 
+     }
+     footer{
+        display:flex; 
+        justify-content:center; 
+        align-items:center;  
+        width:100vw;  
+        height:5vh;  
+        background-color:darkgray
+     }  
+     footer p{
+        color:white
+     }  
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
 
-        <div class="image-area">
-          <button onclick="changeImage(-1)">＜</button>
+@media screen and (max-width :768px) {
+   aside{
+       order :1
+   }  
+   .main-content{
+       width :100vw
+   }  
+   .article-area{
+       width :100vw
+   }  
+   .image-area img{
+       max-width :70vw
+   }  
+}
+</style>
+</head>
+<body>
+<header>
+<h1>デボン紀の物語<br><span style="font-size:x-small;">chatGPTが作成したサンプルWebページ</span></h1>
+<nav>
+<ul>
+<li>ホーム</li>
+<li>検索</li>
+<li>ニュース</li>
+</ul>
+</nav>
+</header>
 
-          <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="toggleModal()">
+<main>
 
-          <button onclick="changeImage(1)">＞</button>
+<aside>
+<ul>
+<li>テクノロジー</li>
+<li>ビジネス</li>
+<li>エンタメ</li>
+</ul>
+</aside>
 
-        </div>
+<div class="main-content">
+<div class="article-area">
+<h2>デボン紀の物語</h2>
+<p id="article">デボン紀は、地質時代の区分のひとつで、古生代の中ごろ、シルル紀の後、石炭紀の前で、約4億1600万年前から約3億5920万年前までの時期を指します[^1^][1]。この時代は、魚類の種類や進化の豊かさと、出現する化石の量の多さから、「魚の時代」とも呼ばれています。また、デボン紀に植物は、陸上への大規模な進出を開始し、それ自身の浸食と堆積の作用によって、大きな気候の変化をもたらしました[^2^][2]。</p>
+</div>
 
-      </div>
+<div class="image-area">
+<button id="prev">＜</button><img id="current-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg"><button id="next">＞</button></div></div></main><footer><p>©2023 記事. All rights reserved. このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p></footer>
 
-    </main>
+<div id="modal" style="display:none;">
+<div id="modal-content">
+<img id="modal-image" src="">
+<button id="close">閉じる</button></div></div>
 
-    <footer><p>© 2023 記事. All rights reserved.</p></footer>
+<script>
 
-    <!-- The Modal -->
-    <div id="modal" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
-      <!-- The Close Button -->
-      <span style="color: white; font-size: 40px; font-weight: bold; cursor: pointer;" onclick="toggleModal()">×</span>
+const images = [
+"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+];
 
-      <!-- Modal Content (The Image) -->
-      <img style="margin: auto; display: block; max-width: 100%; max-height: 100%;" src="">
-    </div>
+let currentImageIndex = 0;
 
-  </body>
+const currentImage = document.getElementById("current-image");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+
+prevButton.addEventListener("click", () => {
+currentImageIndex = (currentImageIndex + 1) % images.length;
+currentImage.src = images[currentImageIndex];
+});
+
+nextButton.addEventListener("click", () => {
+currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+currentImage.src = images[currentImageIndex];
+});
+
+const modal = document.getElementById("modal");
+const modalContent = document.getElementById("modal-content");
+const modalImage = document.getElementById("modal-image");
+const closeButton = document.getElementById("close");
+
+currentImage.addEventListener("click", () => {
+modal.style.display = "block";
+modalImage.src = currentImage.src;
+});
+
+closeButton.addEventListener("click", () => {
+modal.style.display = "none";
+});
+
+const articleElement = document.getElementById('article');
+articleElement.addEventListener('click', () => {
+    const utterance = new SpeechSynthesisUtterance(articleElement.textContent);
+    speechSynthesis.speak(utterance);
+});
+
+</script>
+
+</body>
 </html>
 
