@@ -1,200 +1,134 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>記事</title>
-  <style>
-    /* 共通のスタイル */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* ヘッダー部分のスタイル */
-    header {
-      background-color: darkgray;
-      height: 10vh;
-      width: 100vw;
-      display: flex;
-      align-items: center;
-    }
+        header, footer {
+            background-color: darkgrey;
+            color: white;
+            height: 10vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
 
-    header h1 {
-      color: white;
-      font-size: 2rem;
-      margin-left: 2rem;
-    }
+        header h1, footer p {
+            margin: 0;
+        }
 
-    header nav {
-      margin-left: auto;
-    }
+        nav ul, aside ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
 
-    header nav ul {
-      display: flex;
-    }
+        nav li {
+            color: blue;
+        }
 
-    header nav ul li {
-      list-style: none;
-    }
+        main {
+            display: flex;
+            height: 80vh;
+        }
 
-    header nav ul li a {
-      color: blue;
-      font-size: 1.2rem;
-      text-decoration: none;
-      margin-right: 2rem;
-    }
+        aside {
+            width: 20vw;
+            background-color: lightgrey;
+            height: 100%;
+        }
 
-    /* メイン部分のスタイル */
-    main {
-      height: 80vh;
-      width: 100vw;
-    }
+        article {
+            width: 80vw;
+            background-color: white;
+            height: 100%;
+        }
 
-    aside {
-      background-color: lightgray;
-      height: 100%;
-      width: 20vw;
-    }
+        #k {
+            width: 80vw;
+            height: 20vw;
+        }
 
-    aside ul {
-      display: flex;
-      flex-direction: column;
-    }
+        #g {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
 
-    aside ul li {
-      list-style: none;
-    }
+        #g img {
+            width: 50vw;
+            height: 30vw;
+        }
 
-    aside ul li a {
-      color: black;
-      font-size: 1.2rem;
-      text-decoration: none;
-      margin-top: 1rem;
-    }
+        button {
+            width: 5vw;
+            height: 5vh;
+            color: blue;
+        }
 
-    article {
-      background-color: white;
-      height: 100%;
-      width: 80vw;
-    }
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
 
-    article h2 {
-      color: black;
-      font-size: 2rem;
-      margin-top: 2rem;
-    }
+            aside, article {
+                width: 100%;
+            }
 
-    article p {
-      color: black;
-      font-size: 1.2rem;
-    }
+            #k {
+                width: 100vw;
+            }
 
-    .image-area {
-      
-    }
-
-.image-area {
-        display:flex; /*画像エリアを横並びにする*/
-        justify-content:center; /*画像エリアを中央寄せにする*/
-        align-items:center; /*画像エリア内の要素を垂直方向に中央揃えにする*/
-        margin-top:2rem; /*画像エリアと記事エリアの間に余白をつける*/
-}
-
-.image-area button {
-        color:blue; /*ボタンの文字色を青にする*/
-        font-size:1.5rem; /*ボタンの文字サイズを大きくする*/
-        background-color:white; /*ボタンの背景色を白にする*/
-        border:none; /*ボタンの枠線を消す*/
-        cursor:pointer; /*ボタンにマウスカーソルが乗ったときにポインターに変える*/
-}
-
-.image-area img {
-        width:50vw; /*画像の幅を50vwにする*/
-        height:auto; /*画像の高さを自動調整する*/
-        object-fit:cover; /*画像のアスペクト比を保ちながら、指定したサイズに収まるようにする*/
-}
-
-/* フッター部分のスタイル */
-footer {
-  background-color: darkgray;
-  height: 10vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-}
-
-footer p {
-  color: white;
-  font-size: 0.8rem;
-  margin-left: auto;
-  margin-right: 2rem;
-}
-
-/* メディアクエリ */
-@media screen and (max-width:768px) {
-    /*ビューポートの幅が768px以下のときに適用するスタイル*/
-    aside {
-        width:100vw; /*サイドバーの幅を100vwにする*/
-        order:1; /*サイドバーをメインコンテンツの下に移動させる*/
-    }
-
-    article {
-        width:100vw; /*記事エリアの幅を100vwにする*/
-    }
-
-    article h2 {
-        font-size:1.5rem; /*記事のタイトルの文字サイズを小さくする*/
-    }
-
-    article p {
-        font-size:1rem; /*記事の本文の文字サイズを小さくする*/
-    }
-
-    .image-area img {
-        width:70vw; /*画像の幅を70vwにする*/
-    }
-}
-  </style>
+            #g img {
+                width: 70vw;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <h1>ロゴ</h1>
-  <nav>
-    <ul>
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#">検索</a></li>
-      <li><a href="#">ニュース</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <aside>
-    <ul>
-      <li><a href="#">テクノロジー</a></li>
-      <li><a href="#">ビジネス</a></li>
-      <li><a href="#">エンタメ</a></li>
-    </ul>
-  </aside>
-
-  <article>
-    <h2>記事</h2>
-    <p>記事本文</p>
-
-    <div class="image-area">
-      <button id="prev">＜</button>
-      <img src="image.png" alt="画像" id="image">
-      <button id="next">＞</button>
-    </div>
-
-  </article>
-
-</main>
-
-<footer>
-  <p>© 2023 記事. All rights reserved.</p>
-</footer>
-
+    <header>
+        <h1>ロゴ</h1>
+        <nav>
+            <ul>
+                <li>ホーム</li>
+                <li>検索</li>
+                <li>ニュース</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <ul>
+                <li>テクノロジー</li>
+                <li>ビジネス</li>
+                <li>エンタメ</li>
+            </ul>
+        </aside>
+        <article>
+            <section id="k">
+                <h2>記事</h2>
+                <p>記事本文</p>
+            </section>
+            <section id="g">
+                <button id="b1">＜</button>
+                <img src="image.png" alt="画像">
+                <button id="b2">＞</button>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>© 2023 記事. All rights reserved.</p>
+    </footer>
 </body>
 </html>
