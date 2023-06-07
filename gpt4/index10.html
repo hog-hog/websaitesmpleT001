@@ -1,193 +1,116 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* ヘッダー部 */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100vw;
-      height: 10vh;
-      background-color: darkgray;
-    }
-
-    header h1 {
-      color: white;
-      margin-left: 10px;
-    }
-
-    header nav {
-      display: flex;
-      color: blue;
-      margin-right: 10px;
-    }
-
-    header nav a {
-      margin: 0 5px;
-    }
-
-    /* メイン部 */
-    main {
-      display: flex;
-      width: 100vw;
-      height: 80vh;
-    }
-
-    /* 左・サイドバー */
-    aside {
-      width: 20vw;
-      height: 80vh;
-      background-color: lightgray;
-    }
-
-    aside ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    aside ul li {
-      margin: 10px 0;
-    }
-
-    /* メインコンテンツ */
-    section {
-      width: 80vw;
-      height: 80vh;
-      background-color: white;
-    }
-
-    /* 記事エリア */
-    article {
-      width: 80vw;
-      height: 20vh;
-      background-color: white;
-    }
-
-    article h2 {
-      margin-left: 10px;
-    }
-
-    article p {
-      margin-left: 10px;
-    }
-
-    /* 画像エリア */
-    div.image-area {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 80vw;
-      height: 30vh;
-    }
-
-    div.image-area img {
-      max-width: 50vw; 
-      max-height: 30vh; 
-      object-fit: contain; 
-    }
-
-    div.image-area button {
-      width: 5vw; 
-      height: 5vh; 
-      color: blue; 
-    }
-
-    /* メディアクエリ */
-    @media (max-width: 768px) {
-      
-      main {
-        flex-direction: column; 
-        height: auto; 
-        overflow-y:auto; 
-        overflow-x:hidden; 
-        scroll-snap-type:y mandatory; 
-        scroll-padding-top :10vh; 
-        scroll-padding-bottom :10vh; 
-        scroll-behavior :smooth; 
-        -webkit-overflow-scrolling :touch; 
-        -ms-overflow-style :none; 
-        scrollbar-width :none; 
-        -ms-scroll-snap-type:y mandatory; 
-        -ms-scroll-snap-points-y:snapInterval(0px,100%); 
-        -ms-overflow-style:none; 
-      }
-
-      aside {
-        width: 100vw; 
-        height: auto; 
-      }
-
-      section {
-        width: 100vw; 
-        height: auto; 
-      }
-
-      article {
-        width: 100vw; 
-        height: auto; 
-      }
-
-      div.image-area {
-        width: 100vw; 
-        height: auto; 
-      }
-
-      div.image-area img {
-        max-width: 70vw; 
-        max-height: 30vh; 
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header, .footer {
+            background-color: darkgray;
+            color: white;
+            width: 100vw;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header .logo, .footer .info {
+            font-size: 2em;
+        }
+        .main {
+            display: flex;
+            width: 100vw;
+            height: 80vh;
+        }
+        .sidebar {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color: white;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .article {
+            width: 80vw;
+            height: 30vh;
+            overflow-y: auto;
+        }
+        .image-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80vw;
+            height: 40vh;
+            overflow-y: auto;
+        }
+        .image-area img {
+            object-fit: cover;
+            width: 50vw;
+            height: 40vh;
+        }
+        .button {
+            background-color: transparent;
+            border: none;
+            font-size: 2em;
+            color: blue;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100vw;
+            }
+            .article {
+                width: 100vw;
+            }
+            .image-area img {
+                width: 70vw;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- ヘッダー部 -->
-  <header>
-    <h1>ロゴ</h1>
-    <nav>
-      <a href="#">ホーム</a>
-      <a href="#">検索</a>
-      <a href="#">ニュース</a>
-    </nav>
-  </header>
-
-  <!-- メイン部 -->
-  <main>
-    <!-- 左・サイドバー -->
-    <aside>
-      <ul>
-        <li><a href="#">テクノロジー</a></li>
-        <li><a href="#">ビジネス</a></li>
-        <li><a href="#">エンタメ</a></li>
-      </ul>
-    </aside>
-
-    <!-- メインコンテンツ -->
-    <section>
-      <!-- 記事エリア -->
-      <article>
-        <h2>記事</h2>
-        <p>記事本文</p>
-      </article>
-
-      <!-- 画像エリア -->
-      <div class="image-area">
-        <button>＜</button>
-        <img src="image.png" alt="画像">
-        <button>＞</button>
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- フッター部 -->
-  <footer>
-    <p>© 2023 記事. All rights reserved.</p>
-  </footer>
-
+    <div class="header">
+        <div class="logo">ロゴ</div>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <ul>
+                <li>テクノロジー</li>
+                <li>ビジネス</li>
+                <li>エンタメ</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="article">
+                <h1>記事</h1>
+                <p>記事本文</p>
+            </div>
+            <div class="image-area">
+                <button class="button">＜</button>
+                <img src="image.png" alt="画像">
+                <button class="button">＞</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="info">© 2023 記事. All rights reserved.</div>
+    </div>
 </body>
 </html>
-
