@@ -1,127 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>デボン紀のミステリー - ChatGPTによるサンプルWebページ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイトル - chatGPTが作成したサンプルWebページ</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
         }
-        .header, .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-        .sidebar {
-            background-color: #eee;
-            padding: 20px;
-            height: calc(100vh - 40px);
-            width: 20vw;
-            position: fixed;
-        }
-        .main {
-            margin-left: 20vw;
-            padding: 20px;
-            width: 80vw;
-            height: calc(100vh - 40px);
-        }
-        .article {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .imageArea {
+        header {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
         }
-        .imageArea img {
-            width: 50%;
-            height: auto;
-            max-height: 50vh;
+        header h1 {
+            color: white;
+            margin: 0;
         }
-        .imageArea button {
-            background-color: #fff;
-            border: none;
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
             color: blue;
-            padding: 10px;
-            margin: 0 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
+            margin-right: 1rem;
         }
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .main {
-                margin-left: 0;
-                width: 100%;
-            }
-            .article, .imageArea img {
-                width: 100%;
-            }
+        main {
+            display: flex;
         }
+        aside {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+        }
+        aside ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        aside ul li {
+            color: black;
+            margin-bottom: 1rem;
+        }
+        .main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color: white;
+            display:flex; 
+            flex-direction: column; 
+            align-items:center; 
+        }
+        .main-content .article-area{
+          width :70vw; 
+          height :30vh; 
+          background-color:white; 
+          display:flex; 
+          flex-direction :column; 
+          align-items:center; 
+          text-align:center; 
+        }
+        
+        .main-content .article-area h2{
+          color:black; 
+          margin-top :1rem; 
+          margin-bottom :1rem; 
+          
+        }
+        
+         .main-content .article-area p{
+          color:black; 
+          margin-top :1rem; 
+          margin-bottom :1rem; 
+          
+        }
+        
+         .main-content .image-area{
+           width :70vw; 
+           height :50vh; 
+           display:flex; 
+           justify-content:center; 
+           align-items:center; 
+
+         }
+         
+         .main-content .image-area img{
+           max-width :50vw; 
+           max-height :50vh; 
+
+         }
+         
+         .main-content .image-area button{
+           width :5vw; 
+           height :5vh; 
+
+         }
+         
+         footer {
+             display:flex; 
+             justify-content:center; 
+             align-items:center; 
+
+             width :100vw; 
+             height :5vh; 
+
+             background-color :darkgray;
+
+         }
+
+         footer p{
+           color:white;
+
+         }
+
+         @media screen and (max-width :768px){
+           aside{
+             order :2;
+
+           }
+
+           .main-content{
+             width :100vw;
+
+           }
+
+           .main-content .article-area{
+             width :100vw;
+
+           }
+
+           .main-content .image-area img{
+             max-width :70vw;
+
+           }
+
+         }
+
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀のミステリー</h1>
-        <p>ChatGPTによるサンプルWebページ</p>
-    </div>
-    <div class="sidebar">
-        <a href="#1">テクノロジー</a><br>
-        <a href="#2">ビジネス</a><br>
-        <a href="#3">エンタメ</a>
-    </div>
-    <div class="main">
-        <div class="article" onclick="speak()">
-            <h2>デボン紀の未解決の謎</h2>
-            <p>デボン紀、それは約4億年前から始まった地球の新たな時代。この時期、海洋生物が急速に進化し、さまざまな種が誕生した。その中でも最も注目すべき生物が、恐竜を先取りする巨大な海洋生物「ダンクルオステウス」だ。この生物は、大きな顎と鋭い歯を持ち、その外見から海の恐怖とも称された。しかし、なぜこの生物が突如として進化したのか、その理由は今もなお科学者たちの間で議論されている。</p>
-        </div>
-        <div class="imageArea">
-            <button onclick="prevImage()">&lt;</button>
-            <img id="mainImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
-            <button onclick="nextImage()">&gt;</button>
-        </div>
-    </div>
-    <div class="footer">
-        <p>&copy; 2023 記事. All rights reserved. このページはMITライセンスで公開されており、ユーザー自身の責任で利用してください。</p>
-    </div>
+    <header>
+      <h1>タイトル</h1>
+      <nav>
+          <ul>
+              <li>ホーム</li>
+              <li>検索</li>
+              <li>ニュース</li>
+          </ul>
+      </nav>
+    </header>
+
+    <main>
+      <aside>
+          <ul>
+              <li>テクノロジー</li>
+              <li>ビジネス</li>
+              <li>エンタメ</li>
+          </ul>
+      </aside>
+
+      <div class="main-content">
+       <div class="article-area">
+         <h2>デボン紀の物語</h2>
+         <p>デボン紀、約4億年前。海の中で、巨大な魚が泳いでいました。その名はダンクルオステウス。彼は、その巨大な体と鋭い歯で、海の支配者でした。しかし、彼にも苦手なものがありました。それは、海の中に突如現れる、巨大な渦です。彼は、その渦に巻き込まれることを恐れていました。ある日、彼は仲間たちと一緒に泳いでいると、突然、巨大な渦が現れました。彼は、仲間たちを守るため、渦の中に飛び込みました。そして、彼はその渦の中で、新しい力を手に入れました。それは、渦を操る力でした。彼は、その力を使って、仲間たちを守り、海の平和を守り続けました。</p>
+       </div>
+
+       <div class="image-area">
+         <button id="prev-button">＜</button>
+         <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
+         <button id="next-button">＞</button>
+       </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2023 記事. All rights reserved. MITライセンスで公開されています。ユーザーが自己責任で利用してください。</p>
+    </footer>
+
     <script>
-        let imgArr = ["https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"];
-        let imgIndex = 0;
+      const images = [
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+      ];
 
-        function prevImage() {
-            imgIndex = (imgIndex - 1 + imgArr.length) % imgArr.length;
-            document.getElementById("mainImage").src = imgArr[imgIndex];
-        }
-        function nextImage() {
-            imgIndex = (imgIndex + 1) % imgArr.length;
-            document.getElementById("mainImage").src = imgArr[imgIndex];
-        }
+      let currentImageIndex = 0;
 
-        function speak() {
-            let msg = new SpeechSynthesisUtterance();
-            let voices = window.speechSynthesis.getVoices();
-            msg.voice = voices[10];
-            msg.voiceURI = 'native';
-            msg.volume = 1; // 0 to 1
-            msg.rate = 1; // 0.1 to 10
-            msg.pitch = 2; //0 to 2
-            msg.text = document.querySelector('.article p').textContent;
-            msg.lang = 'ja-JP';
-            speechSynthesis.speak(msg);
-        }
+      const imageElement = document.querySelector("#image");
+      const prevButton = document.querySelector("#prev-button");
+      const nextButton = document.querySelector("#next-button");
+
+      prevButton.addEventListener("click", () => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        imageElement.src = images[currentImageIndex];
+      });
+
+      nextButton.addEventListener("click", () => {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        imageElement.src = images[currentImageIndex];
+      });
+
+      imageElement.addEventListener("click", () => {
+        const modalElement = document.createElement("div");
+        modalElement.style.position = "fixed";
+        modalElement.style.top = "0";
+        modalElement.style.left = "0";
+        modalElement.style.width = "100vw";
+        modalElement.style.height = "100vh";
+        modalElement.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        modalElement.style.display = "flex";
+        modalElement.style.justifyContent = "center";
+        modalElement.style.alignItems = "center";
+
+        const modalImageElement = document.createElement("img");
+        modalImageElement.src = imageElement.src;
+        modalImageElement.style.maxWidth = "90vw";
+        modalImageElement.style.maxHeight = "90vh";
+
+        modalElement.appendChild(modalImageElement);
+        document.body.appendChild(modalElement);
+
+        modalElement.addEventListener("click", () => {
+          document.body.removeChild(modalElement);
+        });
+      });
+
+      const articleArea=document.querySelector(".article-area"); 
+      
+      articleArea.addEventListener("click",()=>{
+        
+          let msg=new SpeechSynthesisUtterance(); 
+          let voices=window.speechSynthesis.getVoices(); 
+          msg.voice=voices[7]; 
+          msg.text=articleArea.textContent; 
+          
+          speechSynthesis.speak(msg); 
+        
+      }); 
+
     </script>
 </body>
 </html>
-
