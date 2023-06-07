@@ -4,17 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デボン紀の記事</title>
+  <title>古代の生物</title>
   <style>
     body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
     }
 
     header {
       width: 100vw;
       height: 15vh;
-      background-color: darkgrey;
+      background-color: darkgray;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -22,33 +23,40 @@
 
     header h1 {
       color: white;
-      font-size: 24px;
+      font-size: 2rem;
     }
 
     nav {
       color: blue;
-      display: flex;
-      gap: 10px;
+      margin-left: 1rem;
     }
 
     main {
       display: flex;
-      height: 80vh;
-      width: 100vw;
     }
 
     .sidebar {
       width: 20vw;
       height: 80vh;
-      background-color: lightgrey;
+      background-color: lightgray;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+      text-align: center;
     }
 
     .sidebar a {
       color: black;
-      margin: 10px;
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100vw;
+        height: auto;
+      }
     }
 
     .content {
@@ -57,8 +65,9 @@
       background-color: white;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
     .article {
@@ -67,74 +76,114 @@
       background-color: white;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
     }
 
     .article h2 {
       color: black;
-      font-size: 18px;
+      font-size: 1.5rem;
     }
 
     .article p {
       color: black;
-      font-size: 12px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .article {
+        width: 100vw;
+      }
     }
 
     .image {
       width: 50vw;
       height: 50vh;
       display: flex;
-      align-items: center;
+      flex-direction: row;
       justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
     .image img {
       max-width: 100%;
       max-height: 100%;
-      object-fit: contain;
     }
 
-    .button-group {
+    .buttons {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
+      align-items: center;
     }
 
     .button {
       width: 5vw;
       height: 5vh;
-      background-color: lightblue;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+      color: blue;
+      font-size: 1rem;
+      margin: 0 0.5rem;
     }
 
     footer {
       width: 100vw;
       height: 5vh;
-      background-color: darkgrey;
+      background-color: darkgray;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 0.7rem;
+      color: white;
     }
 
-    footer p {
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 80%;
+      max-height: 80vh;
+    }
+
+    .modal-image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0;
+      right: 0;
       color: white;
-      font-size: 10px;
+      font-size: 2rem;
+      padding: 0.5rem;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>デボン紀の記事</h1>
-    <p>chatGPTが作成したサンプルWebページ</p>
+    <h1>古代の生物</h1>
     <nav>
       <a href="#">ホーム</a>
       <a href="#">検索</a>
@@ -148,17 +197,24 @@
       <a href="#">ビジネス</a>
       <a href="#">エンタメ</a>
     </div>
+
     <div class="content">
       <div class="article">
-        <h2>デボン紀のユニークな物語</h2>
-        <p>デボン紀には、驚くべき出来事がたくさんありました。...</p>
+        <h2>デボン紀の生物</h2>
+        <p>
+          デボン紀は約4億年前から3億3千万年前にかけて地球上で進化した時代で、様々な生物が繁栄しました。
+          海洋には恐竜のような巨大な魚類や、甲殻類、軟体動物が生息していました。
+          また、陸上には初めて植物が生まれ、昆虫や爬虫類も出現しました。
+          デボン紀の生物は現在の生物の進化に大きな影響を与えた重要な時代と言えます。
+        </p>
       </div>
+
       <div class="image">
-        <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="G1">
-      </div>
-      <div class="button-group">
-        <div class="button" id="button1">＜</div>
-        <div class="button" id="button2">＞</div>
+        <div class="buttons">
+          <button class="button" onclick="shiftImage(-1)">＜</button>
+          <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="古代の生物の画像" onclick="openModal(this)">
+          <button class="button" onclick="shiftImage(1)">＞</button>
+        </div>
       </div>
     </div>
   </main>
@@ -167,71 +223,54 @@
     <p>© 2023 記事. All rights reserved.</p>
   </footer>
 
+  <div class="modal">
+    <div class="modal-content">
+      <img class="modal-image" src="" alt="モーダル画像">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+    </div>
+  </div>
+
   <script>
-    const modal = document.createElement('div');
-    modal.style.display = 'none';
-    modal.style.position = 'fixed';
-    modal.style.zIndex = '9999';
-    modal.style.top = '0';
-    modal.style.left = '0';
-    modal.style.width = '100%';
-    modal.style.height = '100%';
-    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
-
-    const modalImage = document.createElement('img');
-    modalImage.style.maxWidth = '90%';
-    modalImage.style.maxHeight = '90%';
-    modal.appendChild(modalImage);
-
-    document.body.appendChild(modal);
-
-    const image = document.querySelector('.image img');
-    const button1 = document.getElementById('button1');
-    const button2 = document.getElementById('button2');
-
     const images = [
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
     ];
 
-    let currentImage = 0;
+    let currentImageIndex = 0;
+    const modal = document.querySelector(".modal");
+    const modalImage = document.querySelector(".modal-image");
 
-    image.addEventListener('click', () => {
-      modalImage.src = image.src;
-      modal.style.display = 'flex';
-    });
-
-    modal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-
-    button1.addEventListener('click', () => {
-      currentImage = (currentImage - 1 + images.length) % images.length;
-      image.src = images[currentImage];
-    });
-
-    button2.addEventListener('click', () => {
-      currentImage = (currentImage + 1) % images.length;
-      image.src = images[currentImage];
-    });
-
-    function speak(text) {
-      const speech = new SpeechSynthesisUtterance();
-      speech.text = text;
-      speech.volume = 1;
-      speech.rate = 1;
-      speech.pitch = 1;
-      window.speechSynthesis.speak(speech);
+    function openModal(element) {
+      const imageSrc = element.src;
+      modalImage.src = imageSrc;
+      modal.classList.add("active");
     }
 
-    const article = document.querySelector('.article');
-    article.addEventListener('click', () => {
-      const articleText = 'デボン紀には、驚くべき出来事がたくさんありました。...'; // 記事の内容に置き換える
-      speak(articleText);
+    function closeModal() {
+      modal.classList.remove("active");
+    }
+
+    function shiftImage(direction) {
+      currentImageIndex += direction;
+      if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+      } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+      }
+      const image = document.querySelector(".image img");
+      image.src = images[currentImageIndex];
+    }
+  </script>
+
+  <script>
+    const article = document.querySelector(".article");
+
+    article.addEventListener("click", () => {
+      const text = article.querySelector("p").textContent;
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "ja-JP";
+      speechSynthesis.speak(speech);
     });
   </script>
 </body>
