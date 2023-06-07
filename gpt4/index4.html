@@ -1,147 +1,206 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デボン紀の深海怪物</title>
     <style>
-        /* レイアウト用のCSSを記述 */
-        body, html { margin: 0; padding: 0; }
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
         .header, .footer {
-            width: 100vw;
-            text-align: center;
-            color: white;
             background-color: darkgray;
-        }
-        .header { height: 15vh; }
-        .footer { height: 5vh; }
-        .sidebar {
-            width: 20vw;
-            height: 80vh;
-            background-color: lightgray;
-        }
-        .main-content {
-            width: 80vw;
-            height: 80vh;
-            background-color: white;
+            color: white;
             text-align: center;
+            padding: 20px;
+            width: 100vw;
         }
-        .article {
-            width: 70vw;
-            height: 30vh;
-            background-color: white;
-            margin: auto;
+
+        .header {
+            height: 15vh;
         }
-        .image-area {
-            width: 50vw;
-            height: 50vh;
-            margin: auto;
+
+        .header h1 {
+            margin: 0;
         }
-        .image-area img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+
+        .header .subtitle {
+            font-size: 0.8em;
         }
-        .button {
-            width: 5vw;
+
+        .footer {
             height: 5vh;
         }
 
-        /* メディアクエリでレスポンシブデザインを実装 */
-        @media (max-width: 768px) {
-            .sidebar { width: 100vw; height: 20vh; }
-            .main-content { width: 100vw; height: 60vh; }
-            .article { width: 100vw; }
-            .image-area { width: 70vw; }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            width: 80vw;
+            height: 80vh;
+            margin: auto;
+            text-align: center;
+        }
+
+        .sidebar {
+            background-color: lightgray;
+            width: 20vw;
+            height: 80vh;
+            padding: 20px;
+            position: absolute;
+            top: 15vh;
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .article {
+            background-color: white;
+            width: 70vw;
+            height: 30vh;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+        .article h2 {
+            margin-top: 0;
+        }
+
+        .image-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            width: 70vw;
+            height: 50vh;
+            margin: auto;
+        }
+
+        .image-area img {
+            max-width: 50vw;
+            max-height: 50vh;
+            object-fit: contain;
+        }
+
+        .button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .button:disabled {
+            background-color: gray;
+        }
+
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100vw;
+                height: auto;
+            }
+
+            .main-content {
+                width: 100vw;
+            }
+
+            .article {
+                width: 100vw;
+            }
+
+            .image-area img {
+                max-width: 70vw;
+            }
         }
     </style>
-    <title>デボン紀の生き物たち</title>
 </head>
 <body>
     <div class="header">
-        <h1>デボン紀の生き物たち</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
+        <h1>デボン紀の深海怪物</h1>
+        <p class="subtitle">chatGPTが作成したサンプルWebページ</p>
     </div>
+
     <div class="sidebar">
         <a href="#">テクノロジー</a>
         <a href="#">ビジネス</a>
         <a href="#">エンタメ</a>
     </div>
+
     <div class="main-content">
-        <div class="article" id="article">
-            <h2>デボン紀の巨大な海洋生物：ダンクルオステウス</h2>
-            <p>
-            デボン紀の海は、巨大で恐ろしい生物であるダンクルオステウスに支配されていました。これらの生物は重厚な鎧に覆われ、強力な顎を持っており、海洋の頂点捕食者として君臨していました。その存在は、我々が古代の海洋生物について考えるときの基準を塗り替えました。
-            </p>
+        <div class="article">
+            <h2>デボン紀の深海怪物</h2>
+            <p>4億年以上前のデボン紀、深海には巨大な生物が生息していました。その名もダンクルオステウス。全長10メートルにも及ぶこの巨大魚は、強靭な顎と鋭い歯を持ち、当時の海を恐怖に陥れていました。しかし、ダンクルオステウスが生きていたデボン紀は、海洋生物の進化と多様性が爆発的に増えた「海の生命の黄金時代」とも言われています。この時期の海は、美しいサンゴ礁に覆われ、様々な種類の魚や無脊椎動物が生息していました。その中でダンクルオステウスは、どのように生き残り、繁栄したのでしょうか。</p>
         </div>
+
         <div class="image-area">
-            <button class="button" id="button1">＜</button>
+            <button id="button1" class="button">&lt;</button>
             <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="ダンクルオステウス">
-            <button class="button" id="button2">＞</button>
+            <button id="button2" class="button">&gt;</button>
         </div>
     </div>
+
     <div class="footer">
-        <p>© 2023 記事. All rights reserved.</p>
-        <p>このページはMITライセンスで公開されており、利用は自己責任でお願いします。</p>
+        <p>&copy; 2023 記事. All rights reserved.</p>
+        <p>This page is licensed under the MIT license. Use at your own risk.</p>
     </div>
 
     <script>
-        let images = [
+        const images = [
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
             "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
         ];
-        let currentImageIndex = 0;
-        
-        // スクリプト1：画像をクリックすると、モーダルで表示される機能を実装
-        let image = document.getElementById('image');
-        image.addEventListener('click', function() {
-            let modal = document.createElement('div');
-            modal.style.width = '100vw';
-            modal.style.height = '100vh';
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.background = 'rgba(0,0,0,0.5)';
-            modal.style.display = 'flex';
-            modal.style.justifyContent = 'center';
-            modal.style.alignItems = 'center';
-            modal.style.cursor = 'zoom-out';
+        let currentIndex = 0;
 
-            let modalImage = document.createElement('img');
+        const imageElement = document.getElementById("image");
+        const button1 = document.getElementById("button1");
+        const button2 = document.getElementById("button2");
+
+        imageElement.addEventListener("click", function() {
+            const modalImage = new Image();
             modalImage.src = this.src;
-            modalImage.style.maxWidth = '90%';
-            modalImage.style.maxHeight = '90%';
-            modalImage.style.objectFit = 'contain';
+            modalImage.style.maxHeight = "100vh";
+            modalImage.style.maxWidth = "100vw";
+            modalImage.style.objectFit = "contain";
+            modalImage.style.position = "fixed";
+            modalImage.style.top = "50%";
+            modalImage.style.left = "50%";
+            modalImage.style.transform = "translate(-50%, -50%)";
+            modalImage.style.zIndex = "1000";
+            modalImage.style.display = "none";
+            document.body.appendChild(modalImage);
 
-            modal.appendChild(modalImage);
-            document.body.appendChild(modal);
+            modalImage.style.display = "block";
 
-            modal.addEventListener('click', function() {
+            modalImage.addEventListener("click", function() {
                 this.remove();
             });
         });
-        
-        // スクリプト2：ボタンをクリックすると、画像が切り替わる機能を実装
-        let button1 = document.getElementById('button1');
-        let button2 = document.getElementById('button2');
 
-        button1.addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            image.src = images[currentImageIndex];
+        button1.addEventListener("click", function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            imageElement.src = images[currentIndex];
         });
 
-        button2.addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            image.src = images[currentImageIndex];
+        button2.addEventListener("click", function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
         });
-        
-        // スクリプト3：記事をクリックすると、記事の内容が読み上げられる機能を実装
-        let article = document.getElementById('article');
-        article.addEventListener('click', function() {
-            let speech = new SpeechSynthesisUtterance();
-            speech.lang = "ja-JP";
-            speech.text = this.textContent;
-            speechSynthesis.speak(speech);
+
+        const articleElement = document.getElementById("article");
+        articleElement.addEventListener("click", function() {
+            const utterance = new SpeechSynthesisUtterance(this.innerText);
+            window.speechSynthesis.speak(utterance);
         });
     </script>
 </body>
