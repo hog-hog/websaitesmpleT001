@@ -4,96 +4,190 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
+    /* ヘッダー部 */
+    header {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      height: 100vh;
-    }
-    #header, #footer {
-      background-color: darkgrey;
-      color: white;
       width: 100vw;
       height: 10vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: darkgray;
     }
-    #main {
+
+    header h1 {
+      color: white;
+      margin-left: 10px;
+    }
+
+    header nav {
       display: flex;
-      flex-direction: row;
+      color: blue;
+      margin-right: 10px;
+    }
+
+    header nav a {
+      margin: 0 5px;
+    }
+
+    /* メイン部 */
+    main {
+      display: flex;
       width: 100vw;
       height: 80vh;
     }
-    #sidebar {
-      background-color: lightgrey;
+
+    /* 左・サイドバー */
+    aside {
       width: 20vw;
       height: 80vh;
+      background-color: lightgray;
     }
-    #content {
-      background-color: white;
+
+    aside ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    aside ul li {
+      margin: 10px 0;
+    }
+
+    /* メインコンテンツ */
+    section {
       width: 80vw;
       height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    #article {
       background-color: white;
+    }
+
+    /* 記事エリア */
+    article {
       width: 80vw;
       height: 20vh;
+      background-color: white;
     }
-    #gallery {
+
+    article h2 {
+      margin-left: 10px;
+    }
+
+    article p {
+      margin-left: 10px;
+    }
+
+    /* 画像エリア */
+    div.image-area {
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
       width: 80vw;
       height: 30vh;
     }
-    #image {
-      width: 50vw;
-      height: 30vh;
-      object-fit: cover;
+
+    div.image-area img {
+      max-width: 50vw; 
+      max-height: 30vh; 
+      object-fit: contain; 
     }
-    .button {
-      background-color: blue;
-      color: white;
-      width: 5vw;
-      height: 5vh;
+
+    div.image-area button {
+      width: 5vw; 
+      height: 5vh; 
+      color: blue; 
     }
+
+    /* メディアクエリ */
     @media (max-width: 768px) {
-      #sidebar {
-        width: 100vw;
+      
+      main {
+        flex-direction: column; 
+        height: auto; 
+        overflow-y:auto; 
+        overflow-x:hidden; 
+        scroll-snap-type:y mandatory; 
+        scroll-padding-top :10vh; 
+        scroll-padding-bottom :10vh; 
+        scroll-behavior :smooth; 
+        -webkit-overflow-scrolling :touch; 
+        -ms-overflow-style :none; 
+        scrollbar-width :none; 
+        -ms-scroll-snap-type:y mandatory; 
+        -ms-scroll-snap-points-y:snapInterval(0px,100%); 
+        -ms-overflow-style:none; 
       }
-      #content {
-        width: 100vw;
+
+      aside {
+        width: 100vw; 
+        height: auto; 
       }
-      #article {
-        width: 100vw;
+
+      section {
+        width: 100vw; 
+        height: auto; 
       }
-      #image {
-        width: 70vw;
+
+      article {
+        width: 100vw; 
+        height: auto; 
+      }
+
+      div.image-area {
+        width: 100vw; 
+        height: auto; 
+      }
+
+      div.image-area img {
+        max-width: 70vw; 
+        max-height: 30vh; 
       }
     }
   </style>
-  <title>Website Layout</title>
 </head>
 <body>
-  <header id="header">ロゴ</header>
-  <main id="main">
-    <aside id="sidebar">サイドバー</aside>
-    <section id="content">
-      <article id="article">記事</article>
-      <div id="gallery">
-        <button class="button">＜</button>
-        <img id="image" src="image.png" alt="画像">
-        <button class="button">＞</button>
+  <!-- ヘッダー部 -->
+  <header>
+    <h1>ロゴ</h1>
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">検索</a>
+      <a href="#">ニュース</a>
+    </nav>
+  </header>
+
+  <!-- メイン部 -->
+  <main>
+    <!-- 左・サイドバー -->
+    <aside>
+      <ul>
+        <li><a href="#">テクノロジー</a></li>
+        <li><a href="#">ビジネス</a></li>
+        <li><a href="#">エンタメ</a></li>
+      </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <section>
+      <!-- 記事エリア -->
+      <article>
+        <h2>記事</h2>
+        <p>記事本文</p>
+      </article>
+
+      <!-- 画像エリア -->
+      <div class="image-area">
+        <button>＜</button>
+        <img src="image.png" alt="画像">
+        <button>＞</button>
       </div>
+
     </section>
+
   </main>
-  <footer id="footer">© 2023 記事. All rights reserved.</footer>
+
+  <!-- フッター部 -->
+  <footer>
+    <p>© 2023 記事. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
+
