@@ -3,38 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>デボン紀の物語</title>
+    <title>デボン紀の生物たち - chatGPTが作成したサンプルWebページ</title>
     <style>
         body {
             margin: 0;
             padding: 0;
         }
         header {
-            width: 100vw;
-            height: 15vh;
-            background-color: darkgray;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
         }
         header h1 {
             color: white;
             margin-right: auto;
         }
-        header h2 {
-            color: white;
-            font-size: 1rem;
-        }
         header nav ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
+            margin-left: auto;
         }
         header nav ul li {
-            color: blue;
+            display: inline-block;
             margin-right: 20px;
+            color: blue;
         }
         main {
             display: flex;
@@ -46,99 +40,101 @@
         }
         aside ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
         }
         aside ul li {
-            color:black;
             margin-bottom: 10px;
         }
         .main-content {
             width: 80vw;
             height: 80vh;
-            background-color:white ;
-            display:flex ;
-            flex-direction : column ;
-            align-items:center ;
+            background-color: white;
+            text-align:center
         }
-        .main-content .article{
-          width :70vw ;
-          height :30vh ;
-          background-color:white ;
-          display:flex ;
-          flex-direction : column ;
-          align-items:center ;
-          justify-content:center ;
-          text-align:center ;
+        .main-content .article-area {
+            width: 70vw;
+            height: 30vh;
         }
-        .main-content .article h2{
-          color:black ;
-          margin-bottom :10px ;
+        .main-content .article-area h2 {
+            font-size: 24px;
         }
-        
-         .main-content .article p{
-          color:black ;
+        .main-content .article-area p {
+            font-size: 14px;
+        }
+        .main-content .image-area {
+            width: 50vw;
+            height: 50vh;
+        }
+        .main-content .image-area img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        footer {
+            display:flex; 
+            justify-content:center; 
+            align-items:center; 
+            width:100vw; 
+            height:5vh; 
+            background-color:darkgray
          }
-         
-         .main-content .image-area{
-           width :80vw ;
-           height :50vh ;
-           display:flex ;
-           justify-content:center ;
-           align-items:center ;
-         }
-         
-         .main-content .image-area img{
-           max-width :50vw ;
-           max-height :50vh ;
-           object-fit :contain ;
-         }
-         
-         .main-content .image-area button{
-           width :5vw ;
-           height :5vh ;
-           color :blue ;
-           border:none ;
-           background-color:white
-         }
-         
-         footer {
-             width: 100vw;
-             height: 5vh;
-             background-color: darkgray;
-             display:flex ;
-             justify-content:center ;
-             align-items:center
-         }
-         
          footer p{
-           color:white
+             color:white; 
+             font-size:x-small
          }
 
-         @media screen and (max-width:768px){
+         @media screen and (max-width :768px){
              aside{
                  order :1
              }
-             
              .main-content{
+                 order :2
+             }
+             .main-content .article-area{
                  width :100vw
              }
-             
-             .main-content .article{
-                 width :100vw
+             .main-content .image-area{
+                 width :70vw
              }
-             
-             .main-content .image-area img{
-                 max-width :70vw
-             }
-             
+
          }
 
     </style>
+
+    <script type="text/javascript">
+      let images = [
+          "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+          "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+          "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+      ];
+      let currentImageIndex = 0;
+
+      function changeImage(index) {
+          currentImageIndex = index;
+          document.querySelector(".main-content .image-area img").src = images[index];
+      }
+
+      function shiftImageLeft() {
+          if (currentImageIndex === 0) {
+              changeImage(images.length - 1);
+          } else {
+              changeImage(currentImageIndex - 1);
+          }
+      }
+
+      function shiftImageRight() {
+          if (currentImageIndex === images.length - 1) {
+              changeImage(0);
+          } else {
+              changeImage(currentImageIndex + 1);
+          }
+      }
+
+    </script>
+
 </head>
 <body>
     <header>
-      <h1>デボン紀の物語</h1>
+      <h1>デボン紀の生物たち</h1>
       <h2>chatGPTが作成したサンプルWebページ</h2>
       <nav>
           <ul>
@@ -159,67 +155,23 @@
       </aside>
 
       <div class="main-content">
-          <div class="article">
-              <h2>デボン紀の生物多様性</h2>
-              <p>デボン紀は、地質時代の区分のひとつで、約4億1600万年前から約3億5920万年前までの時期を指します。この時期は、魚類の種類や進化の豊かさと、出現する化石の量の多さから、「魚の時代」とも呼ばれています。デボン紀には、陸上植物が大規模な進出を開始し、それ自身の浸食と堆積の作用によって、大きな気候の変化をもたらしました。[^1^][1]</p>
+          <div class="article-area">
+              <h2>デボン紀の海の王者、ダンクルオステウス</h2>
+              <p>デボン紀（約4億 ~ 3億年前）には、様々な生物が生息していました。その中でも、ダンクルオステウスは、海の王者と呼ばれるほどの強さを誇っていました。この魚類は、全長約10メートルにもなり、その巨大な顎には鋭い歯が並んでいました。彼らは、他の魚類や海生爬虫類を捕食して生きていました。</p>
           </div>
 
           <div class="image-area">
-              <button id="prev">＜</button>
-              <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
-              <button id="next">＞</button>
+              <button onclick="shiftImageLeft()">＜</button>
+              <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
+              <button onclick="shiftImageRight()">＞</button>
           </div>
 
       </div>
 
     </main>
 
-    <footer><p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p></footer>
-    
-    <script>
-        let images = ["https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"];
-        let currentImage = 0;
-        let prevButton = document.querySelector("#prev");
-        let nextButton = document.querySelector("#next");
-        let imageElement = document.querySelector("#image");
-        
-        prevButton.addEventListener("click", () => {
-            currentImage = (currentImage + images.length - 1) % images.length;
-            imageElement.src = images[currentImage];
-        });
-        
-        nextButton.addEventListener("click", () => {
-            currentImage = (currentImage + 1) % images.length;
-            imageElement.src = images[currentImage];
-        });
-        
-        imageElement.addEventListener("click", () => {
-            let modal = document.createElement("div");
-            modal.style.position = "fixed";
-            modal.style.top = "0";
-            modal.style.left = "0";
-            modal.style.width = "100vw";
-            modal.style.height = "100vh";
-            modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-            modal.style.display = "flex";
-            modal.style.justifyContent = "center";
-            modal.style.alignItems = "center";
-            
-            let modalImage = document.createElement("img");
-            modalImage.src = imageElement.src;
-            modalImage.style.maxWidth = "90vw";
-            modalImage.style.maxHeight = "90vh";
-            
-            modal.appendChild(modalImage);
-            
-            document.body.appendChild(modal);
-            
-            modal.addEventListener("click", () => {
-                document.body.removeChild(modal);
-            });
-        });
-    </script>
-</body>
+    <footer><p>© 2023 記事. All rights reserved. MITライセンスで公開されています。ご利用は自己責任でお願いします。</p></footer>
 
+</body>
 </html>
 
