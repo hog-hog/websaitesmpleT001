@@ -1,97 +1,200 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
+  <meta charset="UTF-8">
+  <title>記事</title>
   <style>
+    /* 共通のスタイル */
     * {
       box-sizing: border-box;
-    }
-    .header {
-      background-color: lightblue;
-      text-align: center;
-      padding: 10px;
-      height: 10vh;
-    }
-    .main {
-      display: flex;
-      flex-direction: column;
-      height: 80vh;
-    }
-    .sidebar {
-      background-color: lightgreen;
-      text-align: center;
-      padding: 10px;
-    }
-    .content {
-      display: flex;
-      flex-direction: column;
-    }
-    .article {
-      flex: 1;
-      margin: 10px;
-    }
-    .image {
-      flex: 1;
-      margin: 10px;
-    }
-    .footer {
-      background-color: lightgray;
-      text-align: center;
-      padding: 10px;
-      height: 10vh;
-    }
-    html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
     }
-    body {
+
+    /* ヘッダー部分のスタイル */
+    header {
+      background-color: darkgray;
+      height: 10vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 2rem;
+      margin-left: 2rem;
+    }
+
+    header nav {
+      margin-left: auto;
+    }
+
+    header nav ul {
+      display: flex;
+    }
+
+    header nav ul li {
+      list-style: none;
+    }
+
+    header nav ul li a {
+      color: blue;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin-right: 2rem;
+    }
+
+    /* メイン部分のスタイル */
+    main {
+      height: 80vh;
+      width: 100vw;
+    }
+
+    aside {
+      background-color: lightgray;
+      height: 100%;
+      width: 20vw;
+    }
+
+    aside ul {
       display: flex;
       flex-direction: column;
     }
-    .main {
-      flex: 1;
+
+    aside ul li {
+      list-style: none;
     }
-    @media (min-width: 600px) {
-      .main {
-        flex-direction: row;
-        align-items: stretch; 
-      }
-      .sidebar {
-        order: -1;
-        width: 20%;
-        height: 100%;
-        overflow-y: hidden; 
-      }
-      .content {
-        width: 80%;
-        height: 100%;
-        overflow-y: hidden; 
-      }
+
+    aside ul li a {
+      color: black;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin-top: 1rem;
     }
-    img { /* 追加 */
-      object-fit: contain; /* アスペクト比を維持して縮小 */
+
+    article {
+      background-color: white;
+      height: 100%;
+      width: 80vw;
     }
+
+    article h2 {
+      color: black;
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
+    article p {
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .image-area {
+      
+    }
+
+.image-area {
+        display:flex; /*画像エリアを横並びにする*/
+        justify-content:center; /*画像エリアを中央寄せにする*/
+        align-items:center; /*画像エリア内の要素を垂直方向に中央揃えにする*/
+        margin-top:2rem; /*画像エリアと記事エリアの間に余白をつける*/
+}
+
+.image-area button {
+        color:blue; /*ボタンの文字色を青にする*/
+        font-size:1.5rem; /*ボタンの文字サイズを大きくする*/
+        background-color:white; /*ボタンの背景色を白にする*/
+        border:none; /*ボタンの枠線を消す*/
+        cursor:pointer; /*ボタンにマウスカーソルが乗ったときにポインターに変える*/
+}
+
+.image-area img {
+        width:50vw; /*画像の幅を50vwにする*/
+        height:auto; /*画像の高さを自動調整する*/
+        object-fit:cover; /*画像のアスペクト比を保ちながら、指定したサイズに収まるようにする*/
+}
+
+/* フッター部分のスタイル */
+footer {
+  background-color: darkgray;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+footer p {
+  color: white;
+  font-size: 0.8rem;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+/* メディアクエリ */
+@media screen and (max-width:768px) {
+    /*ビューポートの幅が768px以下のときに適用するスタイル*/
+    aside {
+        width:100vw; /*サイドバーの幅を100vwにする*/
+        order:1; /*サイドバーをメインコンテンツの下に移動させる*/
+    }
+
+    article {
+        width:100vw; /*記事エリアの幅を100vwにする*/
+    }
+
+    article h2 {
+        font-size:1.5rem; /*記事のタイトルの文字サイズを小さくする*/
+    }
+
+    article p {
+        font-size:1rem; /*記事の本文の文字サイズを小さくする*/
+    }
+
+    .image-area img {
+        width:70vw; /*画像の幅を70vwにする*/
+    }
+}
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Webサイトのレイアウト</h1>
-  </div>
-  <div class="main">
-    <div class="sidebar">
-      <h3>サイドバー</h3>
-      <p>サイドバーの内容サイドバーの内容サイドバーの内容サイドバーの内容サイドバーの内容</p>
+<header>
+  <h1>ロゴ</h1>
+  <nav>
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">検索</a></li>
+      <li><a href="#">ニュース</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <aside>
+    <ul>
+      <li><a href="#">テクノロジー</a></li>
+      <li><a href="#">ビジネス</a></li>
+      <li><a href="#">エンタメ</a></li>
+    </ul>
+  </aside>
+
+  <article>
+    <h2>記事</h2>
+    <p>記事本文</p>
+
+    <div class="image-area">
+      <button id="prev">＜</button>
+      <img src="image.png" alt="画像" id="image">
+      <button id="next">＞</button>
     </div>
-    <div class="content">
-      <div class="article">
-        <h2>記事のタイトル</h2>
-        <p>記事の内容記事の内容記事の内容記事の内容記事の内容記事の内容記事の内容記事の内容記事の内容記事の内容</p>
-      </div>
-      <div class="image">
-        <img src="Dunkleosteus(1).jpg" width="100%" height="100%">
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    <p>フッターの内容フッターの内容フッターの内容フッターの内容フッターの内容</p>
-  </div>
+
+  </article>
+
+</main>
+
+<footer>
+  <p>© 2023 記事. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
