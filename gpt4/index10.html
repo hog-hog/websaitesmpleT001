@@ -1,189 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-/* ヘッダー部 */
-header {
-  display: block;
-  width: 100vw;
-  height: 10vh;
-  background-color: darkgray;
-  text-align: center;
-}
-
-header h1 {
-  color: white;
-}
-
-header ul {
-  list-style-type: none;
-}
-
-header li {
-  display: inline-block;
-  color: blue;
-}
-
-/* メイン部 */
-main {
-  display: flex;
-}
-
-/* 左・サイドバー */
-aside {
-  display: block;
-  width: 20vw;
-  height: 80vh;
-  background-color: lightgray;
-}
-
-aside ul {
-  list-style-type: none;
-}
-
-aside li {
-  color: black;
-}
-
-/* メインコンテンツ */
-article {
-  display: grid;
-  width: 80vw;
-  height: 80vh;
-  background-color: white;
-}
-
-/* 記事エリア */
-section {
-  display: block;
-  width: 80vw;
-  height: 30vh;
-}
-
-section h2 {
-  color: black;
-}
-
-section p {
-  color: black;
-}
-
-/* 画像エリア */
-div {
-  display: flex;
-}
-
-/* ボタン */
-button {
-  display: inline-block;
-  width: 5vw;
-  height: 5vh;
-}
-
-button span {
-   color: blue; 
-}
-
-/* イメージ */
-img {
-   display:block; 
-   width :50vw; 
-   height :60vh; 
-   object-fit :contain; 
-}
-
-/* フッター部 */
-footer {
-   display:block; 
-   width :100vw; 
-   height :5vh; 
-   background-color :darkgray; 
-   text-align :center; 
-}
-
-footer p {
-   color:white; 
-   font-size :small; 
-}
-
-/* メディアクエリー */
-@media (max-width :768px) { 
-   main { 
-      flex-direction :column; 
-   } 
-
-   aside { 
-      width :100vw; 
-      height :20vh; 
-   } 
-
-   article { 
-      width :100vw; 
-      height :60vh; 
-   } 
-
-   section { 
-      width :100vw; 
-   } 
-
-   img { 
-      width :70vw; 
-      height :40vh; 
-   } 
-}
-</style>
+  <title>デボン紀のダイナミズム | ChatGPTによるサンプルWebページ</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    .header, .footer { background-color: darkgray; color: white; text-align: center; padding: 10px; }
+    .sidebar { background-color: lightgray; height: 80vh; width: 20vw; position: absolute; padding: 10px; }
+    .main { margin-left: 20vw; padding: 10px; height: 80vh; width: 80vw; }
+    .article, .image-display { width: 80vw; height: 30vh; padding: 10px; }
+    .image-display { display: flex; justify-content: center; align-items: center; }
+    .image-display img { max-height: 50vh; max-width: 50vw; }
+    .image-display button { background-color: blue; color: white; margin: 20px; padding: 10px; }
+    .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+    .modal-content { margin: 15% auto; padding: 20px; width: 80%; }
+    .modal-content img { max-height: 80vh; width: auto; }
+    .footer { position: fixed; bottom: 0; width: 100%; }
+    @media (max-width: 768px) {
+      .sidebar { width: 100vw; height: auto; position: relative; }
+      .main { margin-left: 0; width: 100vw; }
+      .article, .image-display { width: 100vw; }
+      .image-display img { max-width: 70vw; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- ヘッダー部 -->
-<header>
-  <h1>ロゴ</h1>
-  <ul>
-    <li>ホーム</li>
-    <li>検索</li>
-    <li>ニュース</li>
-  </ul>
-</header>
-
-<!-- メイン部 -->
-<main>
-  <!-- 左・サイドバー -->
-  <aside>
+  <div class="header">
+    <h1>デボン紀のダイナミズム</h1>
+    <p>ChatGPTによるサンプルWebページ</p>
+  </div>
+  <div class="sidebar">
+    <h2>関連リンク</h2>
     <ul>
-      <li>テクノロジー</li>
-      <li>ビジネス</li>
-      <li>エンタメ</li>
+      <li><a href="#">テクノロジー</a></li>
+      <li><a href="#">ビジネス</a></li>
+      <li><a href="#">エンタメ</a></li>
     </ul>
-  </aside>
-
-  <!-- メインコンテンツ -->
-  <article>
-    <!-- 記事エリア -->
-    <section>
-      <h2>記事</h2>
-      <p>記事本文</p>
-    </section>
-
-    <!-- 画像エリア -->
-    <div>
-      <!-- ボタン1 -->
-      <button><span><</span></button>
-
-      <!-- 画像 -->
-      <img src="image.png" alt="画像">
-
-      <!-- ボタン2 -->
-      <button><span>></span></button>
+  </div>
+  <div class="main">
+    <div class="article">
+      <h2>タイトル</h2>
+      <p>デボン紀、約4億から3億年前。この時代は、生物の進化が一段と加速した時期で、海洋生物が大きな変化を遂げました。特に、肉食性の魚類であるダンクレオステウスはその代表格です。この魚は体長10メートルを超え、当時としては異例の大きさでした。強靭な顎と鋭い歯で獲物を捕らえ、デボン紀の海を支配していました。この記事では、その生態と進化について詳しく解説します。</p>
     </div>
+    <div class="image-display">
+      <button id="prev">&lt;</button>
+      <img id="display-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像">
+      <button id="next">&gt;</button>
+    </div>
+  </div>
+  <div class="footer">
+    <p>© 2023 ChatGPT. All rights reserved. This page is released under the MIT License and is for use at your own risk.</p>
+  </div>
+  
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <img id="modal-image" src="" alt="拡大画像">
+    </div>
+  </div>
 
-  </article>
+  <script>
+    var images = [
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+      "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+    ];
+    var index = 0;
 
-</main>
+    document.getElementById("display-image").addEventListener("click", function() {
+      document.getElementById("modal-image").src = this.src;
+      document.getElementById("modal").style.display = "block";
+    });
 
-<!-- フッター部 -->
-<footer>
-  <p>© 2023 記事. All rights reserved.</p>
-</footer>
+    document.getElementById("modal").addEventListener("click", function() {
+      this.style.display = "none";
+    });
 
+    document.getElementById("prev").addEventListener("click", function() {
+      index = (index - 1 + images.length) % images.length;
+      document.getElementById("display-image").src = images[index];
+    });
+
+    document.getElementById("next").addEventListener("click", function() {
+      index = (index + 1) % images.length;
+      document.getElementById("display-image").src = images[index];
+    });
+  </script>
 </body>
 </html>
