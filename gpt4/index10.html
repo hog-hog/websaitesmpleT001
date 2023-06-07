@@ -1,134 +1,190 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header, footer {
-            background-color: darkgrey;
-            color: white;
-            height: 10vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 10px;
-        }
+    .header {
+      width: 100vw;
+      height: 10vh;
+      background-color: darkgray;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        header h1, footer p {
-            margin: 0;
-        }
+    .logo {
+      color: white;
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
 
-        nav ul, aside ul {
-            list-style: none;
-            display: flex;
-            gap: 10px;
-            margin: 0;
-            padding: 0;
-        }
+    .menu {
+      color: blue;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
 
-        nav li {
-            color: blue;
-        }
+    .main {
+      width: 100vw;
+      height: 80vh;
+      display: flex;
+    }
 
-        main {
-            display: flex;
-            height: 80vh;
-        }
+    .sidebar {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        aside {
-            width: 20vw;
-            background-color: lightgrey;
-            height: 100%;
-        }
+    .link {
+      color: black;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
 
-        article {
-            width: 80vw;
-            background-color: white;
-            height: 100%;
-        }
+    .content {
+      width: 80vw;
+      height: 80vh;
+      background-color: white;
+    }
 
-        #k {
-            width: 80vw;
-            height: 20vw;
-        }
+    .article {
+      width: 80vw;
+      height: 20vw;
+      background-color: white;
+    }
 
-        #g {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
+    .title {
+      color: black;
+      font-size: 3rem;
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
 
-        #g img {
-            width: 50vw;
-            height: 30vw;
-        }
+    .text {
+      color: black;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
 
-        button {
-            width: 5vw;
-            height: 5vh;
-            color: blue;
-        }
+    .image-area {
+      width: 80vw;
+      height: calc(80vh - 20vw);
+      background-color: white;
+      display: flex;
+      align-items: center;
+    }
 
-        @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-            }
+    .button {
+      width: 5vw;
+      height: 5vh;
+      color: blue;
+      font-size: 2rem; 
+    }
 
-            aside, article {
-                width: 100%;
-            }
+    .image {
+     width :50vw; 
+     height :30vw; 
+     object-fit :cover; 
+     cursor :pointer; 
+   } 
 
-            #k {
-                width: 100vw;
-            }
+   .caption { 
+     text-align :center; 
+     margin-top :0.5rem; 
+   } 
 
-            #g img {
-                width: 70vw;
-            }
-        }
-    </style>
+   .footer { 
+     width :100vw; 
+     height :10vh; 
+     background-color :darkgray; 
+     display :flex; 
+     align-items :center; 
+     justify-content :center; 
+   } 
+
+   .info { 
+     color :white; 
+     font-size :0.8rem; 
+   } 
+
+   @media screen and (max-width :768px) { 
+     .main { 
+       flex-direction :column; 
+     } 
+
+     .sidebar { 
+       width :100vw; 
+       height :20vh; 
+       flex-direction :row; 
+       justify-content :space-around; 
+     } 
+
+     .content { 
+       width :100vw; 
+       height :60vh; 
+     } 
+
+     .article { 
+       width :100vw; 
+       height :15vw; 
+     } 
+
+     .image-area { 
+       width :100vw; 
+       height :calc(60vh - 15vw); 
+       justify-content :center; 
+     } 
+
+     .button { 
+       display :none; 
+     } 
+
+     .image { 
+       width :70vw; 
+       height :40vw; 
+     } 
+
+   }
+ </style>
 </head>
 <body>
-    <header>
-        <h1>ロゴ</h1>
-        <nav>
-            <ul>
-                <li>ホーム</li>
-                <li>検索</li>
-                <li>ニュース</li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <aside>
-            <ul>
-                <li>テクノロジー</li>
-                <li>ビジネス</li>
-                <li>エンタメ</li>
-            </ul>
-        </aside>
-        <article>
-            <section id="k">
-                <h2>記事</h2>
-                <p>記事本文</p>
-            </section>
-            <section id="g">
-                <button id="b1">＜</button>
-                <img src="image.png" alt="画像">
-                <button id="b2">＞</button>
-            </section>
-        </article>
-    </main>
-    <footer>
-        <p>© 2023 記事. All rights reserved.</p>
-    </footer>
+ <div class="header">
+   <div class="logo">ロゴ</div>
+   <div class="menu">ホーム 検索 ニュース</div>
+ </div>
+ <div class="main">
+   <div class="sidebar">
+     <div class="link">テクノロジー</div>
+     <div class="link">ビジネス</div>
+     <div class="link">エンタメ</div>
+   </div>
+   <div class="content">
+     <div class="article">
+       <div class="title">記事</div>
+       <div class="text">記事本文</div>
+     </div>
+     <div class="image-area">
+       <div class="button">＜</div>
+       <img src="image.png" alt="画像" class="image">
+       <div class="button">＞</div>
+     </div>
+     <div class="caption">画像</div>
+   </div>
+ </div>
+ <div class="footer">
+   <div class="info">© 2023 記事. All rights reserved.</div>
+ </div>
 </body>
 </html>
