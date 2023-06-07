@@ -30,7 +30,7 @@
         }
         header nav ul li {
             color: blue;
-            margin-right: 1em;
+            margin-right: 1rem;
         }
         main {
             display: flex;
@@ -47,7 +47,7 @@
         }
         aside ul li {
             color:black;
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
         }
         .main-content {
             width: 80vw;
@@ -55,29 +55,29 @@
             background-color:white ;
             display:flex ;
             flex-direction : column ;
-            align-items : center ;
+            align-items:center ;
         }
         .article-area{
           width :70vw ;
           height :30vh ;
-          background-color :white ;
+          background-color:white ;
           display:flex ;
           flex-direction : column ;
-          align-items : center ;
+          align-items:center ;
           text-align:center ;
         }
         
         .article-area h2{
           color:black ;
-          margin-top :1em ;
-          margin-bottom :1em ;
+          margin-top :1rem ;
+          margin-bottom :1rem ;
           
         }
         
          .article-area p{
           color:black ;
-          margin-top :1em ;
-          margin-bottom :1em ; 
+          margin-top :1rem ;
+          margin-bottom :1rem ; 
          }
          
          .image-area{
@@ -98,47 +98,56 @@
            width :5vw ;
            height :5vh ; 
            color :blue ; 
+           font-size :2rem ; 
          }
          
          footer{
-           display:flex ; 
-           justify-content:center ; 
-           align-items:center ; 
-           width :100vw ; 
-           height :5vh ; 
-           background-color :darkgray ; 
+             display:flex ; 
+             justify-content:center ; 
+             align-items:center ; 
+             width :100vw ; 
+             height :5vh ; 
+             background-color :darkgray ; 
+             
          }
          
          footer p{
-           color:white ; 
-           font-size:x-small ; 
+             color:white ; 
+             font-size :0.8rem ; 
          }
 
 @media screen and (max-width:768px){
+    main{
+      flex-direction :column-reverse;  
+    } 
+    
     aside{
-      width :100vw ; 
-      height:auto ; 
-      order :2 ; 
-    }
-
+      width :100vw ;  
+      height:auto;  
+    } 
+    
     .main-content{
-      width :100vw ; 
-      order :1 ; 
-    }
-
+      width :100vw;  
+      height:auto;  
+    } 
+    
     .article-area{
-      width :100vw ; 
-    }
-
+      width :100vw;  
+      height:auto;  
+    } 
+    
     .image-area{
-      width :100vw ; 
-    }
-
+      width :100vw;  
+      height:auto;  
+    } 
+    
     .image-area img{
-      max-width :70vw ; 
-    }
-
+       max-width :70vw;  
+       max-height:auto;  
+     } 
+    
 }
+        
     </style>
 </head>
 <body>
@@ -151,61 +160,87 @@
                 <li>ニュース</li>
                 <li>お問い合わせ</li>
                 <li>その他</li>
+                
             </ul>
+            
         </nav>
+        
     </header>
+    
     <main>
-        <aside>
-          <ul>
-              <li>テクノロジー</li>
-              <li>ビジネス</li>
-              <li>エンタメ</li>
-              <li>スポーツ</li>
-              <li>ライフスタイル</li>
-              <li>その他</li>
-          </ul>
-
-        </aside>
-
+        
+       <aside>
+           
+           <ul>
+               <li>テクノロジー</li>
+               <li>ビジネス</li>
+               <li>エンタメ</li>
+               <li>スポーツ</li>
+               <li>ライフスタイル</li>
+               
+           </ul>
+           
+       </aside> 
+        
        <div class="main-content">
-       <div class="article-area">
-       <h2>デボン紀の物語</h2>
-
-       <p>デボン紀、約4億年前。海は生命に溢れ、陸地はまだ荒涼としていた。そんな中、海の生物たちは進化を続け、新しい種が次々と誕生していた。その中でも、ダンクルオステウスは特に強く、巨大な体躯と鋭い歯を持つ捕食者として君臨していた。しかし、彼らもまた進化の過程で、新たな競争相手が現れることになる。それが、初期の四足動物である。彼らは陸地に進出し、新たな食料源を手に入れることができた。ダンクルオステウスは、彼らとの共存を模索することになるのだった。</p>
-       </div>
-
-       <div class="image-area">
-       <button id="prev-button">＜</button>
-       <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
-       <button id="next-button">＞</button>
-       </div>
-       </div>
+           
+           <div class="article-area">
+               
+               <h2>デボン紀の生物</h2>
+               <p>デボン紀（約4億 ~ 3億年前）には、様々な生物が存在していました。その中でも、ダンクルオステウスという魚類が話題になっています。この魚類は、全長が約10メートルにもなり、その強靭な顎と鋭い歯で獲物を捕らえていました。ダンクルオステウスは、海の支配者とも言われており、その姿は恐るべきものでした。</p>
+               
+           </div>
+           
+           <div class="image-area">
+               
+               <button id="prev-button">＜</button>
+               <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
+               <button id="next-button">＞</button>
+               
+           </div>
+           
+       </div> 
+        
     </main>
-
+    
     <footer>
-      <p>© 2023 記事. All rights reserved. MITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
+        
+        <p>© 2023 記事. All rights reserved. MITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
+        
     </footer>
-
+    
     <script>
-      const images = [
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-      ];
-      let currentImageIndex = 0;
-      const imageElement = document.getElementById("image");
-      const prevButton = document.getElementById("prev-button");
-      const nextButton = document.getElementById("next-button");
-
-      prevButton.addEventListener("click", () => {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        imageElement.src = images[currentImageIndex];
-      });
-
-      nextButton.addEventListener("click", () => {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        imageElement.src = images[currentImageIndex];
-      });
+        
+        const images = [
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+        ];
+        
+        let currentImageIndex = 0;
+        
+        const imageElement = document.querySelector("#image");
+        const prevButton = document.querySelector("#prev-button");
+        const nextButton = document.querySelector("#next-button");
+        
+        prevButton.addEventListener("click", () => {
+            currentImageIndex--;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            imageElement.src = images[currentImageIndex];
+        });
+        
+        nextButton.addEventListener("click", () => {
+            currentImageIndex++;
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            imageElement.src = images[currentImageIndex];
+        });
+        
     </script>
+    
 </body>
 </html>
+
