@@ -3,115 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>デボン紀のダンクルオステウス</title>
+    <title>デボン紀の物語</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-        #header, #footer {
+        header {
+            width: 100vw;
+            height: 15vh;
             background-color: darkgray;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        #main-content {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        #sidebar {
-            background-color: lightgray;
-            width: 20vw;
-            padding: 10px;
-        }
-        #content {
-            width: 80vw;
-            padding: 10px;
-        }
-        #content article {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 10px;
-        }
-        #content #image-area {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
-        #content #image-area img {
-            max-width: 50vw;
-            max-height: 50vh;
+        header h1 {
+            color: white;
+            margin-right: auto;
         }
-        #content #image-area button {
-            background-color: white;
-            border: none;
-            font-size: 1.5em;
-            margin: 0 10px;
-            cursor: pointer;
+        header h2 {
+            color: white;
+            font-size: 1rem;
         }
-        @media (max-width: 768px) {
-            #sidebar {
-                width: 100vw;
-            }
-            #content {
-                width: 100vw;
-            }
-            #content article {
-                width: 100vw;
-            }
-            #content #image-area img {
-                max-width: 70vw;
-            }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
         }
+        header nav ul li {
+            color: blue;
+            margin-right: 20px;
+        }
+        main {
+            display: flex;
+        }
+        aside {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+        }
+        aside ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        aside ul li {
+            color:black;
+            margin-bottom: 10px;
+        }
+        .main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color:white ;
+            display:flex ;
+            flex-direction : column ;
+            align-items:center ;
+        }
+        .main-content .article{
+          width :70vw ;
+          height :30vh ;
+          background-color:white ;
+          display:flex ;
+          flex-direction : column ;
+          align-items:center ;
+          justify-content:center ;
+          text-align:center ;
+        }
+        .main-content .article h2{
+          color:black ;
+          margin-bottom :10px ;
+        }
+        
+         .main-content .article p{
+          color:black ;
+         }
+         
+         .main-content .image-area{
+           width :80vw ;
+           height :50vh ;
+           display:flex ;
+           justify-content:center ;
+           align-items:center ;
+         }
+         
+         .main-content .image-area img{
+           max-width :50vw ;
+           max-height :50vh ;
+           object-fit :contain ;
+         }
+         
+         .main-content .image-area button{
+           width :5vw ;
+           height :5vh ;
+           color :blue ;
+           border:none ;
+           background-color:white
+         }
+         
+         footer {
+             width: 100vw;
+             height: 5vh;
+             background-color: darkgray;
+             display:flex ;
+             justify-content:center ;
+             align-items:center
+         }
+         
+         footer p{
+           color:white
+         }
+
+         @media screen and (max-width:768px){
+             aside{
+                 order :1
+             }
+             
+             .main-content{
+                 width :100vw
+             }
+             
+             .main-content .article{
+                 width :100vw
+             }
+             
+             .main-content .image-area img{
+                 max-width :70vw
+             }
+             
+         }
+
     </style>
-
-    <script>
-    let images = [
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
-    ];
-    let currentIndex = 0;
-
-    function changeImage(indexChange) {
-      currentIndex = (currentIndex + indexChange + images.length) % images.length;
-      document.getElementById('article-image').src = images[currentIndex];
-    }
-    </script>
 </head>
 <body>
-    <header id="header">
-        <h1>デボン紀のダンクルオステウス</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
+    <header>
+      <h1>デボン紀の物語</h1>
+      <h2>chatGPTが作成したサンプルWebページ</h2>
+      <nav>
+          <ul>
+              <li>ホーム</li>
+              <li>検索</li>
+              <li>ニュース</li>
+          </ul>
+      </nav>
     </header>
 
-    <div id="main-content">
-        <aside id="sidebar">
-            <ul>
-                <li><a href="#">デボン紀</a></li>
-                <li><a href="#">古生物学</a></li>
-                <li><a href="#">ダンクルオステウス</a></li>
-                <!-- More items as needed -->
-            </ul>
-        </aside>
+    <main>
+      <aside>
+          <ul>
+              <li>テクノロジー</li>
+              <li>ビジネス</li>
+              <li>エンタメ</li>
+          </ul>
+      </aside>
 
-        <div id="content">
-            <article>
-                <h2>ダンクルオステウス：恐怖の海の支配者</h2>
-                <p>デボン紀、約4億年前。海洋はダンクルオステウスという名の巨大な生物で溢れていました。この生物は、その巨大な体躯と強力な顎で海洋のトップに君臨し、他の生物を飲み込んでいました。鎧に覆われた体は彼をほとんど無敵にし、当時の海は彼の王国でした。しかし、地球は常に変化しており、やがてダンクルオステウスは絶滅しました。しかし、その存在は我々に多大な影響を与え、今日ではその化石が研究者たちに多くの知識を提供しています。</p>
-            </article>
+      <div class="main-content">
+          <div class="article">
+              <h2>デボン紀の生物多様性</h2>
+              <p>デボン紀は、地質時代の区分のひとつで、約4億1600万年前から約3億5920万年前までの時期を指します。この時期は、魚類の種類や進化の豊かさと、出現する化石の量の多さから、「魚の時代」とも呼ばれています。デボン紀には、陸上植物が大規模な進出を開始し、それ自身の浸食と堆積の作用によって、大きな気候の変化をもたらしました。[^1^][1]</p>
+          </div>
 
-            <div id="image-area">
-                <button id="button1" onclick="changeImage(-1)">＜</button>
-                <img id="article-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="ダンクルオステウス" style="height: 100%; width: 100%;">
-                <button id="button2" onclick="changeImage(1)">＞</button>
-            </div>
-        </div>
-    </div>
+          <div class="image-area">
+              <button id="prev">＜</button>
+              <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
+              <button id="next">＞</button>
+          </div>
 
-    <footer>
-        <p>© 2023 ChatGPT. MITライセンスの下で公開。利用は自己責任とします。</p>
-    </footer>
+      </div>
+
+    </main>
+
+    <footer><p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p></footer>
+    
+    <script>
+        let images = ["https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"];
+        let currentImage = 0;
+        let prevButton = document.querySelector("#prev");
+        let nextButton = document.querySelector("#next");
+        let imageElement = document.querySelector("#image");
+        
+        prevButton.addEventListener("click", () => {
+            currentImage = (currentImage + images.length - 1) % images.length;
+            imageElement.src = images[currentImage];
+        });
+        
+        nextButton.addEventListener("click", () => {
+            currentImage = (currentImage + 1) % images.length;
+            imageElement.src = images[currentImage];
+        });
+        
+        imageElement.addEventListener("click", () => {
+            let modal = document.createElement("div");
+            modal.style.position = "fixed";
+            modal.style.top = "0";
+            modal.style.left = "0";
+            modal.style.width = "100vw";
+            modal.style.height = "100vh";
+            modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            modal.style.display = "flex";
+            modal.style.justifyContent = "center";
+            modal.style.alignItems = "center";
+            
+            let modalImage = document.createElement("img");
+            modalImage.src = imageElement.src;
+            modalImage.style.maxWidth = "90vw";
+            modalImage.style.maxHeight = "90vh";
+            
+            modal.appendChild(modalImage);
+            
+            document.body.appendChild(modal);
+            
+            modal.addEventListener("click", () => {
+                document.body.removeChild(modal);
+            });
+        });
+    </script>
 </body>
+
 </html>
+
