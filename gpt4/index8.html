@@ -1,99 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>Webページ</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        
-        #header {
-            width: 100%;
-            height: 10vh;
-            background-color: lightgray;
-        }
-        
-        #sidebar {
-            width: 20%;
-            height: 80vh;
-            background-color: lightgray;
-            float: left;
-        }
-        
-        #main-content {
-            width: 80%;
-            height: 80vh;
-            background-color: white;
-            float: left;
-        }
-        
-        #footer {
-            width: 100%;
-            height: 10vh;
-            background-color: lightgray;
-            clear: both;
-        }
-        
-        #article {
-            width: 100%;
-            height: 30%;
-            background-color: lightyellow;
-            border: 1px solid lightgray;
-            text-align: center;
-        }
-        
-        #image {
-            width: 100%;
-            height: 60%;
-            background-color: lightblue;
-            border: 1px solid lightgray;
-            text-align: center;
-        }
-        
-        #buttons {
-            width: 100%;
-            height: 10%;
-            background-color: lightgreen;
-            border: 1px solid lightgray;
-            text-align: center;
-        }
-        
-        #button1, #button2 {
-            width: 48%;
-            height: 100%;
-            display: inline-block;
-            background-color: lightgray;
-            border: 1px solid lightgray;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Webサイトのレイアウト</title>
+  <style>
+    /* CSSでスタイルを設定 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* ヘッダー部 */
+    header {
+      width: 100vw;
+      height: 10vh;
+      background-color: darkgray;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* ロゴ */
+    .logo {
+      color: white;
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+    /* メニュー */
+    .menu {
+      color: blue;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    /* メイン部 */
+    main {
+      width: 100vw;
+      height: 80vh;
+      display: flex;
+    }
+    /* 左・サイドバー */
+    aside {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* リンク */
+    .link {
+      color: black;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    /* メインコンテンツ */
+    .main-content {
+      width: 80vw;
+      height: 80vh;
+      background-color: white;
+    }
+    /* 記事エリア */
+    .article-area {
+      width: 80vw;
+      height: 20vw;
+    }
+    /* 記事タイトル */
+    .article-title {
+      color: black;
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+    /* 記事本文 */
+    .article-body {
+      color: black;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+    }
+    /* 画像エリア */
+    .image-area {
+      width: 80vw;
+      height: calc(80vh - 20vw);
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+    }
+    /* Bボタン */
+    .button {
+      width: 25vw; 
+      height: 5vh; 
+      color: blue; 
+      font-size: 2rem; 
+      
+    }
+    
+     /* フッター部 */
+     footer {
+       width: 100vw; 
+       height: 10vh; 
+       background-color: darkgray; 
+       display:flex; 
+       align-items:center; 
+       justify-content:center; 
+     }
+     /* 情報とコピーライト */
+     .info {
+       color: white; 
+       font-size: 1rem; 
+     }
+     /* メディアクエリ */
+     @media screen and (max-width: 768px) {
+       /* メイン部 */
+       main {
+         flex-direction: column;
+       }
+       /* 左・サイドバー */
+       aside {
+         width: 100vw;
+         height: 20vh;
+         flex-direction: row;
+         justify-content: space-around;
+       }
+       /* メインコンテンツ */
+       .main-content {
+         width: 100vw;
+         height: 60vh;
+       }
+       /* 記事エリア */
+       .article-area {
+         width: 100vw;
+         height: 30vh;
+       }
+       /* 画像エリア */
+       .image-area {
+         width: 100vw;
+         height: 30vh;
+       }
+       /* Bボタン */
+       .button {
+         width: 40vw; 
+       }
+     }
+  </style>
 </head>
 <body>
-    <div id="header">
-        <!-- Header content here -->
+  <!-- ヘッダー部 -->
+  <header>
+    <!-- ロゴ -->
+    <div class="logo">ロゴ</div>
+    <!-- メニュー -->
+    <div class="menu">ホーム 検索 ニュース</div>
+  </header>
+  <!-- メイン部 -->
+  <main>
+    <!-- 左・サイドバー -->
+    <aside>
+      <!-- リンク -->
+      <div class="link">テクノロジー</div>
+      <div class="link">ビジネス</div>
+      <div class="link">エンタメ</div>
+    </aside>
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+      <!-- 記事エリア -->
+      <div class="article-area">
+        <!-- 記事タイトル -->
+        <h1 class="article-title">記事</h1>
+        <!-- 記事本文 -->
+        <p class="article-body">記事本文</p>
+      </div>
+      <!-- 画像エリア -->
+      <div class="image-area">
+        <!-- Bボタン1 -->
+        <button class="button"><</button>
+        <!-- 画像 -->
+        <img src="images/firefox-icon.png" alt="画像">
+        <!-- Bボタン2 -->
+        <button class="button">></button>
+      </div>
     </div>
-    <div id="sidebar">
-        <!-- Sidebar content here -->
-    </div>
-    <div id="main-content">
-        <div id="article">
-            <!-- Article content here -->
-        </div>
-        <div id="image">
-            <!-- Image content here -->
-        </div>
-        <div id="buttons">
-            <div id="button1">
-                <!-- Button 1 content here -->
-            </div>
-            <div id="button2">
-                <!-- Button 2 content here -->
-            </div>
-        </div>
-    </div>
-    <div id="footer">
-        <!-- Footer content here -->
-    </div>
+  </main>
+  <!-- フッター部 -->
+  <footer>
+    <!-- 情報とコピーライト -->
+    <div class="info">© 2023 記事. All rights reserved.</div>
+  </footer>
 </body>
 </html>
+
