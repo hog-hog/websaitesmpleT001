@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>デボン紀の生物たち - chatGPTが作成したサンプルWebページ</title>
+    <title>タイトル - chatGPTが作成したサンプルWebページ</title>
     <style>
         body {
             margin: 0;
@@ -13,22 +13,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             width: 100vw;
             height: 15vh;
             background-color: darkgray;
         }
         header h1 {
             color: white;
-            margin-right: auto;
+            margin: 0;
         }
         header nav ul {
             list-style: none;
-            margin-left: auto;
+            margin: 0;
+            padding: 0;
+            display: flex;
         }
         header nav ul li {
-            display: inline-block;
-            margin-right: 20px;
             color: blue;
+            margin-right: 1em;
         }
         main {
             display: flex;
@@ -40,138 +42,170 @@
         }
         aside ul {
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
         aside ul li {
-            margin-bottom: 10px;
+            color:black;
+            margin-bottom: 1em;
         }
         .main-content {
             width: 80vw;
             height: 80vh;
-            background-color: white;
-            text-align:center
+            background-color:white ;
+            display:flex ;
+            flex-direction : column ;
+            align-items : center ;
         }
-        .main-content .article-area {
-            width: 70vw;
-            height: 30vh;
+        .article-area{
+          width :70vw ;
+          height :30vh ;
+          background-color :white ;
+          display:flex ;
+          flex-direction : column ;
+          align-items : center ;
+          text-align:center ;
         }
-        .main-content .article-area h2 {
-            font-size: 24px;
+        
+        .article-area h2{
+          color:black ;
+          margin-top :1em ;
+          margin-bottom :1em ;
+          
         }
-        .main-content .article-area p {
-            font-size: 14px;
-        }
-        .main-content .image-area {
-            width: 50vw;
-            height: 50vh;
-        }
-        .main-content .image-area img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        footer {
-            display:flex; 
-            justify-content:center; 
-            align-items:center; 
-            width:100vw; 
-            height:5vh; 
-            background-color:darkgray
+        
+         .article-area p{
+          color:black ;
+          margin-top :1em ;
+          margin-bottom :1em ; 
          }
+         
+         .image-area{
+           width :70vw ;
+           height :50vh ;
+           display:flex ;
+           justify-content:center ;
+           align-items:center ; 
+         }
+         
+         .image-area img{
+           max-width :50vw ;
+           max-height :50vh ; 
+           object-fit :contain ; 
+         }
+         
+         .image-area button{
+           width :5vw ;
+           height :5vh ; 
+           color :blue ; 
+         }
+         
+         footer{
+           display:flex ; 
+           justify-content:center ; 
+           align-items:center ; 
+           width :100vw ; 
+           height :5vh ; 
+           background-color :darkgray ; 
+         }
+         
          footer p{
-             color:white; 
-             font-size:x-small
+           color:white ; 
+           font-size:x-small ; 
          }
 
-         @media screen and (max-width :768px){
-             aside{
-                 order :1
-             }
-             .main-content{
-                 order :2
-             }
-             .main-content .article-area{
-                 width :100vw
-             }
-             .main-content .image-area{
-                 width :70vw
-             }
+@media screen and (max-width:768px){
+    aside{
+      width :100vw ; 
+      height:auto ; 
+      order :2 ; 
+    }
 
-         }
+    .main-content{
+      width :100vw ; 
+      order :1 ; 
+    }
 
+    .article-area{
+      width :100vw ; 
+    }
+
+    .image-area{
+      width :100vw ; 
+    }
+
+    .image-area img{
+      max-width :70vw ; 
+    }
+
+}
     </style>
-
-    <script type="text/javascript">
-      let images = [
-          "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-          "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-          "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-      ];
-      let currentImageIndex = 0;
-
-      function changeImage(index) {
-          currentImageIndex = index;
-          document.querySelector(".main-content .image-area img").src = images[index];
-      }
-
-      function shiftImageLeft() {
-          if (currentImageIndex === 0) {
-              changeImage(images.length - 1);
-          } else {
-              changeImage(currentImageIndex - 1);
-          }
-      }
-
-      function shiftImageRight() {
-          if (currentImageIndex === images.length - 1) {
-              changeImage(0);
-          } else {
-              changeImage(currentImageIndex + 1);
-          }
-      }
-
-    </script>
-
 </head>
 <body>
     <header>
-      <h1>デボン紀の生物たち</h1>
-      <h2>chatGPTが作成したサンプルWebページ</h2>
-      <nav>
-          <ul>
-              <li>ホーム</li>
-              <li>検索</li>
-              <li>ニュース</li>
-          </ul>
-      </nav>
+        <h1>タイトル</h1>
+        <nav>
+            <ul>
+                <li>ホーム</li>
+                <li>検索</li>
+                <li>ニュース</li>
+                <li>お問い合わせ</li>
+                <li>その他</li>
+            </ul>
+        </nav>
     </header>
-
     <main>
-      <aside>
+        <aside>
           <ul>
               <li>テクノロジー</li>
               <li>ビジネス</li>
               <li>エンタメ</li>
+              <li>スポーツ</li>
+              <li>ライフスタイル</li>
+              <li>その他</li>
           </ul>
-      </aside>
 
-      <div class="main-content">
-          <div class="article-area">
-              <h2>デボン紀の海の王者、ダンクルオステウス</h2>
-              <p>デボン紀（約4億 ~ 3億年前）には、様々な生物が生息していました。その中でも、ダンクルオステウスは、海の王者と呼ばれるほどの強さを誇っていました。この魚類は、全長約10メートルにもなり、その巨大な顎には鋭い歯が並んでいました。彼らは、他の魚類や海生爬虫類を捕食して生きていました。</p>
-          </div>
+        </aside>
 
-          <div class="image-area">
-              <button onclick="shiftImageLeft()">＜</button>
-              <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
-              <button onclick="shiftImageRight()">＞</button>
-          </div>
+       <div class="main-content">
+       <div class="article-area">
+       <h2>デボン紀の物語</h2>
 
-      </div>
+       <p>デボン紀、約4億年前。海は生命に溢れ、陸地はまだ荒涼としていた。そんな中、海の生物たちは進化を続け、新しい種が次々と誕生していた。その中でも、ダンクルオステウスは特に強く、巨大な体躯と鋭い歯を持つ捕食者として君臨していた。しかし、彼らもまた進化の過程で、新たな競争相手が現れることになる。それが、初期の四足動物である。彼らは陸地に進出し、新たな食料源を手に入れることができた。ダンクルオステウスは、彼らとの共存を模索することになるのだった。</p>
+       </div>
 
+       <div class="image-area">
+       <button id="prev-button">＜</button>
+       <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
+       <button id="next-button">＞</button>
+       </div>
+       </div>
     </main>
 
-    <footer><p>© 2023 記事. All rights reserved. MITライセンスで公開されています。ご利用は自己責任でお願いします。</p></footer>
+    <footer>
+      <p>© 2023 記事. All rights reserved. MITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
+    </footer>
 
+    <script>
+      const images = [
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+      ];
+      let currentImageIndex = 0;
+      const imageElement = document.getElementById("image");
+      const prevButton = document.getElementById("prev-button");
+      const nextButton = document.getElementById("next-button");
+
+      prevButton.addEventListener("click", () => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        imageElement.src = images[currentImageIndex];
+      });
+
+      nextButton.addEventListener("click", () => {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        imageElement.src = images[currentImageIndex];
+      });
+    </script>
 </body>
 </html>
-
