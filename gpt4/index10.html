@@ -1,281 +1,216 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>デボン紀の記事 - chatGPTが作成したサンプルWebページ</title>
-    <style>
-        /* レイアウトとデザインの指示に従ってCSSを記述 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デボン紀の謎</title>
+  <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-        }
+      header {
+        background-color: darkgray;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
 
-        .header {
-            width: 100vw;
-            height: 15vh;
-            background-color: darkgray;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
 
-        .header h1 {
-            color: white;
-            margin-right: 20px;
-        }
+      header h2 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: normal;
+      }
 
-        .header h2 {
-            color: white;
-        }
+      nav {
+        margin-top: 10px;
+      }
 
-        .menu {
-            display: flex;
-            list-style: none;
-        }
+      nav a {
+        margin-right: 10px;
+        color: white;
+        text-decoration: none;
+      }
 
-        .menu li {
-            color: blue;
-            margin-left: 10px;
-        }
+      .sidebar {
+        background-color: lightgray;
+        padding: 20px;
+      }
 
-        .main {
-            width: 80vw;
-            height: 80vh;
-            background-color: white;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .sidebar a {
+        display: block;
+        margin-bottom: 10px;
+        color: black;
+        text-decoration: none;
+      }
 
-        .article {
-            width: 80vw;
-            height: 30vh;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .content {
+        background-color: white;
+        padding: 20px;
+      }
 
-        .article h3 {
-            color: black;
-            font-size: 24px;
-        }
+      .article {
+        margin-bottom: 20px;
+      }
 
-        .article p {
-            color: black;
-            font-size: 16px;
-        }
+      .article h1 {
+        font-size: 24px;
+        margin: 0;
+      }
 
-        .image-area {
-            width: 80vw;
-            height: 50vh;
-            background-color: white;
-            display: flex;
-            align-items: center;
-        }
+      .article p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
 
-        .button {
-            width: 5vw;
-            height: 5vh;
-            background-color: white;
-            color: blue;
-            font-size: 24px;
-            border-radius: 50%;
-        }
+      .image-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
 
-        .image {
-            width: 50vw; 
-            height:auto; 
-             /* アスペクト比を保ち、親要素のサイズに合わせて拡大または縮小して表示 */
-             object-fit : contain; 
-             /* モーダル画面の中央に表示 */
-             position : absolute; 
-             top : 50%; 
-             left : 50%; 
-             transform : translate(-50%, -50%); 
-             /* モーダル画面を閉じる */
-             display : none; 
-             cursor : pointer; 
-             z-index : 10; 
-         }
-        
-         /* モーダル画面を開く */
-         .image:hover { 
-             display : block; 
-         }
-        
-         /* モーダル画面の背景 */
-         .modal { 
-             position : fixed; 
-             top : 0; 
-             left : 0; 
-             width : 100%; 
-             height : 100%; 
-             background-color : rgba(0,0,0,0.5); 
-             z-index : 9; 
-         }
-        
-         /* モーダル画面を閉じる */
-         .modal:hover { 
-             display : none; 
-         }
-        
-         /* ボタン1とボタン2のクリックイベントをJavaScriptで記述 */
-         <script> 
-             // 表示する画像のリンク
-             var images = [ "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg" ]; 
-        
-             // 現在表示している画像のインデックス
-             var index = 0; 
-        
-             // 画像要素とボタン要素を取得
-             var image = document.querySelector(".image"); 
-             var button1 = document.querySelector(".button1"); 
-             var button2 = document.querySelector(".button2"); 
-        
-             // 画像要素のsrc属性に最初の画像のリンクを設定
-             image.src = images[index]; 
-        
-             // ボタン1をクリックしたときの処理
-             button1.addEventListener("click", function() { 
-                 // インデックスを1減らす
-                 index--; 
-                 // インデックスが0未満になったら、最後の画像に戻る
-                 if (index < 0) { 
-                     index = images.length - 1; 
-                 } 
-                 // 画像要素のsrc属性にインデックスに対応する画像のリンクを設定
-                 image.src = images[index]; 
-             }); 
-        
-             // ボタン2をクリックしたときの処理
-             button2.addEventListener("click", function() { 
-                 // インデックスを1増やす
-                 index++; 
-                 // インデックスが画像の数以上になったら、最初の画像に戻る
-                 if (index >= images.length) { 
-                     index = 0; 
-                 } 
-                 // 画像要素のsrc属性にインデックスに対応する画像のリンクを設定
-                 image.src = images[index]; 
-             }); 
-         </script>
+      .image {
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+      }
 
-        .sidebar {
-            width: 20vw;
-            height: 80vh;
-            background-color: lightgray;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+        background-color: lightblue;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
 
-        .sidebar ul {
-            list-style: none;
-        }
+      footer {
+        background-color: darkgray;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        font-size: 12px;
+      }
+</style>
 
-        .sidebar li {
-            color: black;
-            margin-bottom: 10px;
-        }
-
-        .footer {
-            width: 100vw;
-            height: 5vh;
-            background-color: darkgray;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer p {
-            color: white;
-            font-size: 12px;
-        }
-
-        /* メディアクエリでレスポンシブ対応 */
-        @media screen and (max-width: 768px) {
-            .main {
-                width: 100vw;
-                height: auto;
-                flex-direction: column;
-            }
-
-            .article {
-                width: 100vw;
-                height: auto;
-            }
-
-            .image-area {
-                width: 100vw;
-                height: auto;
-                flex-direction: column;
-            }
-
-            .button {
-                width: 10vw;
-                height: 10vh;
-                margin-bottom: 10px;
-            }
-
-            .image {
-                width: 70vw; 
-                height:auto; 
-             }
-            
-            
-
-            .sidebar {
-                width: 100vw;
-                height: auto;
-                order: -1; /* メインコンテンツの下に表示 */
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀の記事</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
-        <ul class="menu">
-            <li>ホーム</li>
-            <li>検索</li>
-            <li>ニュース</li>
-        </ul>
-    </div>
-    <div class="main">
-        <div class="article">
-            <h3>地球史上2回目の大量絶滅、大噴火が原因と結論</h3>
-            <p>地球史上2回目の生物大量絶滅が、大規模火山の噴火で起きたことを突き止めた、と東北大学などの研究グループが発表した。 動植物が陸に進出した古生代「後期デボン紀」の約3億8000万～3億6000万年前に起きたもので、高温でできる有機分子を決め手とする独自の
-              <p>手法を用いた。 同グループは昨秋、3回目の原因も大噴火だったことを同じ手法で示しており、火山が生き物の命運を握る地球の歩みがより鮮明になった。</p>
-            <p>後期デボン紀に起きた大量絶滅の仕組み（海保邦夫・東北大学名誉教授提供） 後期デボン紀の地層には水銀が多く含まれており、大噴火が大量絶滅の原因であるとの見方が強まっていた。 ただ、水銀は噴火以外に陸上植物に由来する可能性もあるため、決め手を欠いていた。</p>
-        </div>
-        <div class="image-area">
-            <button class="button button1"><</button>
-            <img class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="Dunkleosteus">
-            <button class="button button2">></button>
-        </div>
-    </div>
+  <header>
+    <h1>デボン紀の謎</h1>
+    <h2>chatGPTが作成したサンプルWebページ</h2>
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">検索</a>
+      <a href="#">ニュース</a>
+    </nav>
+  </header>
+
+  <main>
     <div class="sidebar">
-        <ul>
-            <li>テクノロジー</li>
-            <li>ビジネス</li>
-            <li>エンタメ</li>
-            <li>スポーツ</li>
-            <li>ライフスタイル</li>
-        </ul>
+      <a href="#">テクノロジー</a>
+      <a href="#">ビジネス</a>
+      <a href="#">エンタメ</a>
+      <a href="#">デボン紀について</a>
+      <a href="#">化石の発見</a>
     </div>
-    <div class="footer">
-        <p>© 2023 記事. All rights reserved. This page is published under the MIT license and is for educational purposes only. Use at your own risk.</p>
+
+    <div class="content">
+      <div class="article">
+        <h1>デボン紀の謎に迫る</h1>
+        <p>デボン紀（約4億 ~ 3億年前）は、地球の歴史の中でも謎に包まれた時代です。この時代には驚異的な生物たちが地球上に生息していましたが、その正体や生態についてはまだ解明されていないことが多いのです。</p>
+        <p>デボン紀の海には、巨大な肉食魚ダンクルオステウス（Dunkleosteus）が潜んでいました。ダンクルオステウスは全長10メートル以上にもなる巨大な体を持ち、鋭い歯で獲物を噛み砕くことで知られています。</p>
+        <p>また、デボン紀には他にも多くの生物が存在し、それぞれ独自の進化を遂げていました。化石の発見や研究の進展により、デボン紀の生態系や地球の環境について新たな知見が得られつつあります。</p>
+        <p>デボン紀の謎を解き明かすための研究は今も続いており、私たちの知識を拡げる重要な一章となっています。</p>
+      </div>
+
+      <div class="image-area">
+        <div class="button" id="prev-button">&lt;</div>
+        <div class="image" id="image-1" style="background-image: url('https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg')"></div>
+        <div class="image" id="image-2" style="background-image: url('https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg')"></div>
+        <div class="image" id="image-3" style="background-image: url('https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg')"></div>
+        <div class="button" id="next-button">&gt;</div>
+      </div>
     </div>
-    <!-- モーダル画面の背景 -->
-    <div class="modal"></div>
+  </main>
+
+  <footer>
+    <p>© 2023 記事. All rights reserved. ユーザーの責任において利用してください。</p>
+  </footer>
+
+  <div class="modal" id="modal">
+    <img src="" alt="Modal Image" class="modal-image" id="modal-image">
+  </div>
+
+  <script>
+    // 画像切り替えとモーダル表示の処理
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const images = document.querySelectorAll('.image');
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modal-image');
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((image) => {
+        image.style.display = 'none';
+      });
+
+      images[index].style.display = 'block';
+    }
+
+    function showModal(imageSrc) {
+      modalImage.src = imageSrc;
+      modal.style.display = 'flex';
+    }
+
+    function hideModal() {
+      modal.style.display = 'none';
+    }
+
+    function shiftImage(shift) {
+      currentIndex += shift;
+      if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+      } else if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+
+      showImage(currentIndex);
+    }
+
+    prevButton.addEventListener('click', () => {
+      shiftImage(-1);
+    });
+
+    nextButton.addEventListener('click', () => {
+      shiftImage(1);
+    });
+
+    images.forEach((image) => {
+      image.addEventListener('click', () => {
+        const imageSrc = image.style.backgroundImage.slice(5, -2);
+        showModal(imageSrc);
+      });
+    });
+
+    modal.addEventListener('click', () => {
+      hideModal();
+    });
+  </script>
 </body>
 </html>
