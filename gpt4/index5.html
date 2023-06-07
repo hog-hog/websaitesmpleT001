@@ -1,137 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>デボン紀の物語</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
         body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
         }
-        #header, #footer {
-            background-color: #ccc;
-            padding: 20px;
-            text-align: center;
-        }
-        #main {
-            flex: 1;
+        header {
             display: flex;
-        }
-        #sidebar {
-            width: 200px;
-            background-color: #ddd;
-            padding: 20px;
-        }
-        #content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        #content-top, #content-bottom {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-        #article, #image {
-            flex: 1;
-            margin: 0 20px;
-            text-align: justify;
-            font-size: 18px;
-        }
-        #button-1, #button-2 {
-            background-color: #bbb;
-            padding: 10px;
-            text-align: center;
-            cursor: pointer;
-        }
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        #lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
         }
-        #lightbox img {
-            max-width: 90%;
-            max-height: 90%;
+        header h1 {
+            color: white;
+            margin-right: auto;
+            margin-left: 20px;
         }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            margin-right: 20px;
+        }
+        header nav ul li a {
+            color: blue;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+        }
+        aside {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+            padding: 20px;
+        }
+        aside ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        aside ul li a {
+            color:black;
+            text-decoration:none
+        }
+        .main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color:white
+        }
+        .main-content .article-area {
+            width:70vw; 
+            height:30vh; 
+            background-color:white; 
+            text-align:center
+        }
+        .main-content .article-area h2{
+             color:black
+         }
+         .main-content .article-area p{
+             color:black
+         }
+         .main-content .image-area{
+             display:flex; 
+             justify-content:center; 
+             align-items:center
+         }
+         .main-content .image-area img{
+             width:auto; 
+             max-height:50vh
+         }
+         .main-content .image-area button{
+             width:5vw; 
+             height:5vh; 
+             border:none; 
+             background-color:white; 
+             color:blue; 
+             font-size:x-large
+         }
+         footer{
+             display:flex; 
+             justify-content:center; 
+             align-items:center; 
+             width:100vw; 
+             height:5vh; 
+             background-color:darkgray
+         }
+         footer p{
+             color:white; 
+             font-size:x-small
+         }
+         @media (max-width :768px){
+             aside{
+                 order :1
+             }
+             .main-content{
+                 width :100vw
+             }
+             .main-content .article-area{
+                 width :100vw
+             }
+             .main-content .image-area img{
+                 max-width :70vw
+             }
+         }   
     </style>
 </head>
 <body>
-    <header id="header">
+    <header>
         <h1>デボン紀の物語</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
+        <nav>
+          <ul>
+              <li><a href="#">ホーム</a></li>
+              <li><a href="#">検索</a></li>
+              <li><a href="#">ニュース</a></li>
+          </ul>
+      </nav>
     </header>
-    <div id="main">
-        <aside id="sidebar">
-            <h2>リンク</h2>
-            <!-- ここにリンクを追加 -->
-        </aside>
-        <div id="content">
-            <div id="content-top">
-                <div id="blank-1"></div>
-                <div id="article">
-                    <h2>デボン紀 - 古代の海の巨大生物</h2>
-                    <p>
-                        デボン紀、約4億年前から3億年前の地球。この時代は「魚の時代」とも呼ばれ、古代の海は多種多様な生物で溢れていました。中でも最も恐ろしかったのが、巨大な海洋捕食者、ダンクルオステウスでした。この生物は全長10メートルにも及び、その巨大な顎は強力な噛みつき力を持っていました。ダンクルオステウスは、その強靭な体と鋭い歯で海洋の頂点に君臨していました。しかし、デボン紀の終わりに近づくと、彼らの支配は終わりを迎えました。なぜなら、新たな生物が海洋の頂点を奪ったからです。それが、初めての肺を持つ魚類であり、これが後の四足動物の祖先となったのです。
-                    </p>
-                </div>
-                <div id="blank-2"></div>
-            </div>
-            <div id="content-bottom">
-                <div id="button-1">＜</div>
-                <div id="image">
-                    <img id="current-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg">
-                </div>
-                <div id="button-2">＞</div>
-            </div>
-        </div>
-    </div>
-    <footer id="footer">
-        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
+    <main>
+      <aside>
+          <ul>
+              <li><a href="#">テクノロジー</a></li>
+              <li><a href="#">ビジネス</a></li>
+              <li><a href="#">エンタメ</a></li>
+          </ul>
+      </aside>  
+      <div class="main-content">
+          <div class="article-area" onclick="speak()">
+              <h2>デボン紀の物語</h2>
+              <p>デボン紀は、約4億年前から3億年前にかけての時代です。この時代には、多くの新しい生物が誕生し、地球上で繁栄しました。その中でも、特に注目すべき生物が、ダンクルオステウスです。ダンクルオステウスは、巨大な魚類で、その体長は10メートルを超えるものもいました。彼らは、強靭な顎と鋭い歯を持ち、海の中でも最強の捕食者でした。しかし、彼らは突如として絶滅してしまいました。その理由は、今でも謎に包まれています。</p>
+          </div>
+          <div class="image-area">
+              <button onclick="prevImage()"><</button>
+              <img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" onclick="modalImage()">
+              <button onclick="nextImage()">></button>
+          </div>
+      </div>
+    </main>
+    <footer>
+        <p>© 2023 記事. All rights reserved. | chatGPTが作成したサンプルWebページ | MITライセンスで公開されています。ユーザーが自己責任で利用してください。</p>
     </footer>
-    <div id="lightbox" onclick="hideLightbox()">
-        <img id="lightbox-image">
-    </div>
     <script>
-        var images = [
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-            'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
-        ];
-        var currentIndex = 0;
-
-        document.getElementById('button-1').addEventListener('click', function() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            document.getElementById('current-image').src = images[currentIndex];
-        });
-
-        document.getElementById('button-2').addEventListener('click', function() {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById('current-image').src = images[currentIndex];
-        });
-
-        document.getElementById('current-image').addEventListener('click', function() {
-            document.getElementById('lightbox-image').src = images[currentIndex];
-            document.getElementById('lightbox').style.display = 'flex';
-        });
-
-        function hideLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+        let images = ["https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg", "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"];
+        let currentImage = 0;
+        let modal = false;
+        function nextImage() {
+            currentImage = (currentImage + 1) % images.length;
+            document.getElementById("image").src = images[currentImage];
+        }
+        function prevImage() {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            document.getElementById("image").src = images[currentImage];
+        }
+        function modalImage() {
+            if (!modal) {
+                document.getElementById("image").style.position = "fixed";
+                document.getElementById("image").style.top = "50%";
+                document.getElementById("image").style.left = "50%";
+                document.getElementById("image").style.transform = "translate(-50%, -50%)";
+                modal = true;
+            } else {
+                document.getElementById("image").style.position = "static";
+                document.getElementById("image").style.transform = "none";
+                modal = false;
+            }
+        }
+        function speak() {
+            let text = document.querySelector(".article-area p").textContent;
+            let msg = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(msg);
         }
     </script>
 </body>
