@@ -1,108 +1,99 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>記事</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        .header, .footer {
-            height: 10vh;
-            width: 100vw;
-            background-color: darkgrey;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .main {
-            height: 80vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: row;
-        }
-
-        .sidebar {
-            height: 80vh;
-            width: 20vw;
-            background-color: lightgrey;
-        }
-
-        .content {
-            height: 80vh;
-            width: 80vw;
-            background-color: white;
-        }
-
-        .article {
-            height: 20vh;
-            width: 80vw;
-            background-color: white;
-        }
-
-        .image-area {
-            height: 30vh;
-            width: 50vw;
-        }
-
-        .button {
-            height: 5vh;
-            width: 5vw;
-        }
-
-        @media screen and (max-width: 768px) {
-            .main {
-                flex-direction: column;
-            }
-
-            .sidebar, .content {
-                width: 100vw;
-            }
-
-            .article {
-                width: 100vw;
-            }
-
-            .image-area {
-                width: 70vw;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+    }
+    #header, #footer {
+      background-color: darkgrey;
+      color: white;
+      width: 100vw;
+      height: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #main {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 80vh;
+    }
+    #sidebar {
+      background-color: lightgrey;
+      width: 20vw;
+      height: 80vh;
+    }
+    #content {
+      background-color: white;
+      width: 80vw;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #article {
+      background-color: white;
+      width: 80vw;
+      height: 20vh;
+    }
+    #gallery {
+      display: flex;
+      justify-content: space-between;
+      width: 80vw;
+      height: 30vh;
+    }
+    #image {
+      width: 50vw;
+      height: 30vh;
+      object-fit: cover;
+    }
+    .button {
+      background-color: blue;
+      color: white;
+      width: 5vw;
+      height: 5vh;
+    }
+    @media (max-width: 768px) {
+      #sidebar {
+        width: 100vw;
+      }
+      #content {
+        width: 100vw;
+      }
+      #article {
+        width: 100vw;
+      }
+      #image {
+        width: 70vw;
+      }
+    }
+  </style>
+  <title>Website Layout</title>
 </head>
 <body>
-    <div class="header">
-        ロゴ
-    </div>
-    <div class="main">
-        <div class="sidebar">
-            リンク
-        </div>
-        <div class="content">
-            <div class="article">
-                記事
-            </div>
-            <div class="image-area">
-                画像
-            </div>
-            <div class="button">
-                ＜
-            </div>
-            <div class="button">
-                ＞
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        © 2023 記事. All rights reserved.
-    </div>
+  <header id="header">ロゴ</header>
+  <main id="main">
+    <aside id="sidebar">サイドバー</aside>
+    <section id="content">
+      <article id="article">記事</article>
+      <div id="gallery">
+        <button class="button">＜</button>
+        <img id="image" src="image.png" alt="画像">
+        <button class="button">＞</button>
+      </div>
+    </section>
+  </main>
+  <footer id="footer">© 2023 記事. All rights reserved.</footer>
 </body>
 </html>
