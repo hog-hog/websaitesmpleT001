@@ -1,142 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>デボン紀の不思議な世界</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デボン紀の物語</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 15vh;
+      background-color: darkgray;
+    }
+    header h1 {
+      color: white;
+    }
+    header nav ul {
+      display: flex;
+      list-style: none;
+    }
+    header nav ul li {
+      margin-left: 20px;
+      color: blue;
+    }
+    main {
+      display: flex;
+    }
+    aside {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+    }
+    aside ul {
+      list-style: none;
+    }
+    aside ul li {
+      margin-top: 20px;
+      color: black;
+    }
+    .main-content {
+      width: 80vw;
+      height: 80vh;
+      background-color: white;
+      text-align:center
+    }
+    .article-area {
+      width: 70vw;
+      height: 30vh;
+      background-color:white
+    }
+    .article-area h2{
+        color:black
+    }
+    .article-area p{
+        color:black
+    }
+    
+    .image-area{
+        display:flex
+        justify-content:center
+        align-items:center
+        width:50vw
+        height:50vh
+        background-color:white
+        text-align:center
+     }
+     
+     .image-area img{
+         max-width:100%
+         max-height:100%
+         object-fit:contain
+     }
+     
+     .image-area button{
+         width:5vw
+         height5vh
+         color:black
+     }
+     
+     footer{
+         display:flex
+         justify-content:center
+         align-items:center
+         width100vw
+         height5vh
+         background-colorarkgray
+     }
+     
+     footer p{
+         color:white
+     }
 
-        header, footer {
-            width: 100%;
-            height: 10vh;
-            background-color: #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-            padding: 20px;
-        }
+     @media screen and (max-width :768px){
+       aside{
+           display:none
+       }
+       .main-content{
+           width100vw
+       }
+       .article-area{
+           width100vw
+       }
+       .image-area{
+           width70vw
+       }
+     }
 
-        #content {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            width: 100%;
-            height: 80vh;
-            box-sizing: border-box;
-            padding: 20px;
-        }
-
-        #sidebar {
-            flex: 1;
-            height: 100%;
-            background-color: #eee;
-            box-sizing: border-box;
-            padding: 20px;
-        }
-
-        main {
-            flex: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            box-sizing: border-box;
-            padding: 20px;
-        }
-
-        #article {
-            flex: 1;
-            width: 100%;
-            font-size: 1.2em;
-            text-align: justify;
-        }
-
-        #gallery {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        #mainImage {
-            width: 60%;
-            height: auto;
-            object-fit: contain;
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <header>
-        <h1>デボン紀の不思議な世界</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
-    </header>
-    <div id="content">
-        <div id="sidebar">
-            <a href="#">リンク1</a>
-            <a href="#">リンク2</a>
-            <a href="#">リンク3</a>
-        </div>
-        <main>
-            <div id="article">
-                <h2>デボン紀 - 古代の海の支配者、ダンクルオステウス</h2>
-                <p>デボン紀、約4億から3億年前。この時代、海は一種の古代魚、ダンクルオステウスによって支配されていました。その体長は最大で10メートルにも達し、鋭い歯を持つこの魚は他の海洋生物を圧倒していました。</p>
-                <p>ダンクルオステウスの存在は、私たちに地球の歴史の一端を垣間見せてくれます。しかし、これらの古代の生物が存在したデボン紀の海を、今の私たちは想像するだけです。</p>
-            </div>
-            <div id="gallery">
-                <button id="button1">＜</button>
-                <img id="mainImage" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" />
-                <button id="button2">＞</button>
-            </div>
-        </main>
-    </div>
-    <footer>
-        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
-    </footer>
-    <script>
-        let images = [
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-        ];
-        let currentIndex = 0;
+<header>
+<h1>デボン紀の物語</h1>
+<nav>
+<ul>
+<li>ホーム</li>
+<li>検索</li>
+<li>ニュース</li>
+</ul>
+</nav>
+</header>
 
-        document.getElementById('button1').addEventListener('click', function() {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById('mainImage').src = images[currentIndex];
-        });
+<main>
+<aside>
+<ul>
+<li>テクノロジー</li>
+<li>ビジネス</li>
+<li>エンタメ</li>
+</ul>
+</aside>
 
-        document.getElementById('button2').addEventListener('click', function() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            document.getElementById('mainImage').src = images[currentIndex];
-        });
+<div class="main-content">
+<div class="article-area">
+<h2>デボン紀の物語</h2>
+<p id="article">デボン紀は、4億1千万年前から3億5千9百万年前にかけての地質時代であり、古生代の中でも中期にあたります。この時代には、魚類が大きく進化し、多様な種類が生まれました。また、陸上では最初の植物が出現し、森林が形成されるようになりました。この時代は、生物進化の大きな転換期であり、非常に興味深い時代です。</p>
+<button onclick="readArticle()">読み上げる</button>
+</div>
 
-        document.getElementById('mainImage').addEventListener('click', function() {
-            let img = document.getElementById('mainImage');
-            if (img.style.position === "fixed") {
-                img.style.position = "static";
-                img.style.zIndex = "1";
-                img.style.width = "60%";
-            } else {
-                img.style.position = "fixed";
-                img.style.zIndex = "100";
-                img.style.top = "50%";
-                img.style.left = "50%";
-                img.style.transform = "translate(-50%, -50%)";
-                img.style.maxHeight = "90%";
-                img.style.width = "auto";
-            }
-        });
-    </script>
+<div class="image-area">
+<button onclick="prevImage()"><</button>
+<img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
+<button onclick="nextImage()">></button>
+
+<div id="modal" style="display:none;position:absolute;top0;left0;width100%;height100%;background-color:rgba(0,0,0,0.5)">
+<img id="modal-image" src="" alt="" style="max-width:100%;max-height:100%;object-fit:contain;position:absolute;top50%;left50%;transform:translate(-50%,-50%)">
+</div>
+</div>
+</div>
+</main>
+
+<footer>
+<p>© 2023 記事. All rights reserved.</p>
+</footer>
+
+<script>
+const images = [
+"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+];
+let currentImageIndex = 0;
+
+const imageElement = document.getElementById("image");
+const modalElement = document.getElementById("modal");
+const modalImageElement = document.getElementById("modal-image");
+
+imageElement.addEventListener("click", () => {
+modalImageElement.src = images[currentImageIndex];
+modalElement.style.display = "block";
+});
+
+modalElement.addEventListener("click", () => {
+modalElement.style.display = "none";
+});
+
+function nextImage() {
+currentImageIndex++;
+if (currentImageIndex >= images.length) {
+currentImageIndex = 0;
+}
+imageElement.src = images[currentImageIndex];
+}
+
+function prevImage() {
+currentImageIndex--;
+if (currentImageIndex < 0) {
+currentImageIndex = images.length - 1;
+}
+imageElement.src = images[currentImageIndex];
+}
+
+function readArticle() {
+const articleText = document.getElementById("article").textContent;
+const utterance = new SpeechSynthesisUtterance(articleText);
+speechSynthesis.speak(utterance);
+}
+</script>
 </body>
 </html>
