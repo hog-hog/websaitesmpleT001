@@ -1,150 +1,73 @@
-        .image-area{
-          width:70vw
-          height:auto
-          margin:auto
-          text-align:center
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デボン紀の物語</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
         }
-        
-        .image-area img{
-          width:50vw;
-          height:50vh;
-          object-fit:contain;
-        }
-        
-        .image-area button{
-          width:5vw;
-          height:5vh;
-        }
-        
-        footer {
+        header {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100vw;
-            height: 5vh;
+            height: 15vh;
             background-color: darkgray;
         }
-        footer p {
-            color:white;
-            font-size:smaller
+        header h1 {
+            color: white;
+        }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            margin-left: 20px;
+            color: blue;
+        }
+        main {
+            display: flex;
+        }
+        aside {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+        }
+        aside ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        aside ul li {
+            margin-top: 20px;
+            color:black
+        }
+        .main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color:white
+        }
+        .main-content h2 {
+            text-align:center
+        }
+        .main-content p {
+            text-align:center
+        }
+        .main-content img {
+            display:block
         }
         
-        @media screen and (max-width: 768px) {
-            main {
-                flex-direction: column;
-            }
-            aside {
-                width: 100vw;
-                height: auto;
-                order: 2;
-            }
-            .main-content {
-                width: 100vw;
-                height: auto;
-                order: 1;
-            }
-            
-            .article-area{
-              width:100vw
-            }
-            
-            .image-area img{
-              width:70vw
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>デボン紀の物語</h1>
-        <nav>
-            <ul>
-                <li><a href="#">ホーム</a></li>
-                <li><a href="#">検索</a></li>
-                <li><a href="#">ニュース</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <aside>
-            <ul>
-                <li><a href="#">テクノロジー</a></li>
-                <li><a href="#">ビジネス</a></li>
-                <li><a href="#">エンタメ</a></li>
-            </ul>
-        </aside>
-        <div class="main-content">
-          <div class="article-area">
-              <h2>デボン紀の物語</h2>
-              <p>デボン紀は、4億1千万年前から3億5千9百万年前にかけての地質時代で、古生代の中でも中期にあたります。この時代には、海洋生物が大進化を遂げ、魚類が爆発的に増加しました。また、陸上にも植物が進出し、初期の森林が形成されました。この時代は、生物進化の歴史の中でも非常に重要な時期でした。</p>
-          </div>
-          <div class="image-area">
-              <button id="prev-button">＜</button>
-              <img id="main-image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
-              <button id="next-button">＞</button>
-          </div>  
-        </div>  
-    </main>
-    <footer>
-      <p>© 2023 記事. All rights reserved. | chatGPTが作成したサンプルWebページ | MITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>  
-    </footer>
-
-    <script>
-
-      const images = [
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-        "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-      ];
-      
-      let currentImageIndex = 0;
-
-      const mainImage = document.getElementById("main-image");
-      const prevButton = document.getElementById("prev-button");
-      const nextButton = document.getElementById("next-button");
-
-      prevButton.addEventListener("click", () => {
-        currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
-        mainImage.src = images[currentImageIndex];
-      });
-
-      nextButton.addEventListener("click", () => {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        mainImage.src = images[currentImageIndex];
-      });
-
-      mainImage.addEventListener("click", () => {
-        const modal = document.createElement("div");
-        modal.style.position = "fixed";
-        modal.style.top = 0;
-        modal.style.left = 0;
-        modal.style.width = "100vw";
-        modal.style.height = "100vh";
-        modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-        modal.style.display = "flex";
-        modal.style.justifyContent = "center";
-        modal.style.alignItems = "center";
-
-        const modalImage = document.createElement("img");
-        modalImage.src = mainImage.src;
-        modalImage.style.maxHeight = "90vh";
-        modalImage.style.objectFit = "contain";
-
-        modal.appendChild(modalImage);
-        document.body.appendChild(modal);
-
-        modal.addEventListener("click", () => {
-          document.body.removeChild(modal);
-        });
-      });
-      
-      const articleArea = document.querySelector(".article-area");
-      const synth = window.speechSynthesis;
-      
-      articleArea.addEventListener("click", () => {
-          const utterance = new SpeechSynthesisUtterance(articleArea.textContent);
-          synth.speak(utterance);
-      });
-    </script>
-</body>
-</html>
+        .image-area{
+          display:flex
+          justify-content:center
+          align-items:center
+          width:100%
+          height:auto
+          margin-top:auto
+          margin-bottom:auto
+          text-align:center
