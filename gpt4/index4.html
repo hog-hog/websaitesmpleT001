@@ -1,204 +1,239 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デボン紀の物語</title>
+  <title>デボン紀の記事</title>
   <style>
     body {
       margin: 0;
       padding: 0;
     }
+
     header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100vw;
       height: 15vh;
-      background-color: darkgray;
+      background-color: darkgrey;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     header h1 {
       color: white;
+      font-size: 24px;
     }
-    header nav ul {
-      display: flex;
-      list-style: none;
-    }
-    header nav ul li {
-      margin-left: 20px;
+
+    nav {
       color: blue;
+      display: flex;
+      gap: 10px;
     }
+
     main {
       display: flex;
+      height: 80vh;
+      width: 100vw;
     }
-    aside {
+
+    .sidebar {
       width: 20vw;
       height: 80vh;
-      background-color: lightgray;
+      background-color: lightgrey;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    aside ul {
-      list-style: none;
-    }
-    aside ul li {
-      margin-top: 20px;
+
+    .sidebar a {
       color: black;
+      margin: 10px;
     }
-    .main-content {
+
+    .content {
       width: 80vw;
       height: 80vh;
       background-color: white;
-      text-align:center
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    .article-area {
+
+    .article {
       width: 70vw;
       height: 30vh;
-      background-color:white
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
-    .article-area h2{
-        color:black
-    }
-    .article-area p{
-        color:black
-    }
-    
-    .image-area{
-        display:flex
-        justify-content:center
-        align-items:center
-        width:50vw
-        height:50vh
-        background-color:white
-        text-align:center
-     }
-     
-     .image-area img{
-         max-width:100%
-         max-height:100%
-         object-fit:contain
-     }
-     
-     .image-area button{
-         width:5vw
-         height5vh
-         color:black
-     }
-     
-     footer{
-         display:flex
-         justify-content:center
-         align-items:center
-         width100vw
-         height5vh
-         background-colorarkgray
-     }
-     
-     footer p{
-         color:white
-     }
 
-     @media screen and (max-width :768px){
-       aside{
-           display:none
-       }
-       .main-content{
-           width100vw
-       }
-       .article-area{
-           width100vw
-       }
-       .image-area{
-           width70vw
-       }
-     }
+    .article h2 {
+      color: black;
+      font-size: 18px;
+    }
 
+    .article p {
+      color: black;
+      font-size: 12px;
+    }
+
+    .image {
+      width: 50vw;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .button-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .button {
+      width: 5vw;
+      height: 5vh;
+      background-color: lightblue;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    footer {
+      width: 100vw;
+      height: 5vh;
+      background-color: darkgrey;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer p {
+      color: white;
+      font-size: 10px;
+    }
   </style>
 </head>
+
 <body>
-<header>
-<h1>デボン紀の物語</h1>
-<nav>
-<ul>
-<li>ホーム</li>
-<li>検索</li>
-<li>ニュース</li>
-</ul>
-</nav>
-</header>
+  <header>
+    <h1>デボン紀の記事</h1>
+    <p>chatGPTが作成したサンプルWebページ</p>
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">検索</a>
+      <a href="#">ニュース</a>
+    </nav>
+  </header>
 
-<main>
-<aside>
-<ul>
-<li>テクノロジー</li>
-<li>ビジネス</li>
-<li>エンタメ</li>
-</ul>
-</aside>
+  <main>
+    <div class="sidebar">
+      <a href="#">テクノロジー</a>
+      <a href="#">ビジネス</a>
+      <a href="#">エンタメ</a>
+    </div>
+    <div class="content">
+      <div class="article">
+        <h2>デボン紀のユニークな物語</h2>
+        <p>デボン紀には、驚くべき出来事がたくさんありました。...</p>
+      </div>
+      <div class="image">
+        <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="G1">
+      </div>
+      <div class="button-group">
+        <div class="button" id="button1">＜</div>
+        <div class="button" id="button2">＞</div>
+      </div>
+    </div>
+  </main>
 
-<div class="main-content">
-<div class="article-area">
-<h2>デボン紀の物語</h2>
-<p id="article">デボン紀は、4億1千万年前から3億5千9百万年前にかけての地質時代であり、古生代の中でも中期にあたります。この時代には、魚類が大きく進化し、多様な種類が生まれました。また、陸上では最初の植物が出現し、森林が形成されるようになりました。この時代は、生物進化の大きな転換期であり、非常に興味深い時代です。</p>
-<button onclick="readArticle()">読み上げる</button>
-</div>
+  <footer>
+    <p>© 2023 記事. All rights reserved.</p>
+  </footer>
 
-<div class="image-area">
-<button onclick="prevImage()"><</button>
-<img id="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="">
-<button onclick="nextImage()">></button>
+  <script>
+    const modal = document.createElement('div');
+    modal.style.display = 'none';
+    modal.style.position = 'fixed';
+    modal.style.zIndex = '9999';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
 
-<div id="modal" style="display:none;position:absolute;top0;left0;width100%;height100%;background-color:rgba(0,0,0,0.5)">
-<img id="modal-image" src="" alt="" style="max-width:100%;max-height:100%;object-fit:contain;position:absolute;top50%;left50%;transform:translate(-50%,-50%)">
-</div>
-</div>
-</div>
-</main>
+    const modalImage = document.createElement('img');
+    modalImage.style.maxWidth = '90%';
+    modalImage.style.maxHeight = '90%';
+    modal.appendChild(modalImage);
 
-<footer>
-<p>© 2023 記事. All rights reserved.</p>
-</footer>
+    document.body.appendChild(modal);
 
-<script>
-const images = [
-"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
-"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
-"https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
-];
-let currentImageIndex = 0;
+    const image = document.querySelector('.image img');
+    const button1 = document.getElementById('button1');
+    const button2 = document.getElementById('button2');
 
-const imageElement = document.getElementById("image");
-const modalElement = document.getElementById("modal");
-const modalImageElement = document.getElementById("modal-image");
+    const images = [
+      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
+      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
+      'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
+    ];
 
-imageElement.addEventListener("click", () => {
-modalImageElement.src = images[currentImageIndex];
-modalElement.style.display = "block";
-});
+    let currentImage = 0;
 
-modalElement.addEventListener("click", () => {
-modalElement.style.display = "none";
-});
+    image.addEventListener('click', () => {
+      modalImage.src = image.src;
+      modal.style.display = 'flex';
+    });
 
-function nextImage() {
-currentImageIndex++;
-if (currentImageIndex >= images.length) {
-currentImageIndex = 0;
-}
-imageElement.src = images[currentImageIndex];
-}
+    modal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
 
-function prevImage() {
-currentImageIndex--;
-if (currentImageIndex < 0) {
-currentImageIndex = images.length - 1;
-}
-imageElement.src = images[currentImageIndex];
-}
+    button1.addEventListener('click', () => {
+      currentImage = (currentImage - 1 + images.length) % images.length;
+      image.src = images[currentImage];
+    });
 
-function readArticle() {
-const articleText = document.getElementById("article").textContent;
-const utterance = new SpeechSynthesisUtterance(articleText);
-speechSynthesis.speak(utterance);
-}
-</script>
+    button2.addEventListener('click', () => {
+      currentImage = (currentImage + 1) % images.length;
+      image.src = images[currentImage];
+    });
+
+    function speak(text) {
+      const speech = new SpeechSynthesisUtterance();
+      speech.text = text;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 1;
+      window.speechSynthesis.speak(speech);
+    }
+
+    const article = document.querySelector('.article');
+    article.addEventListener('click', () => {
+      const articleText = 'デボン紀には、驚くべき出来事がたくさんありました。...'; // 記事の内容に置き換える
+      speak(articleText);
+    });
+  </script>
 </body>
+
 </html>
