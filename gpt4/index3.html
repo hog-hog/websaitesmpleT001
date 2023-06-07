@@ -1,118 +1,266 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>古代デボン紀の興奮</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    #header, #footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-    }
-    #main {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: white;
-    }
-    #sidebar {
-      background-color: #eee;
-      width: 20vw;
-      padding: 20px;
-    }
-    #content {
-      width: 80vw;
-      padding: 20px;
-    }
-    #article, #image-area {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .image-button {
-      font-size: 1.5em;
-      margin: 0 10px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgb(0,0,0);
-      background-color: rgba(0,0,0,0.9);
-    }
-    .modal-content {
-      margin: 15% auto;
-      display: block;
-      width: 80%;
-      max-width: 700px;
-    }
-    @media (max-width: 768px) {
-      #main {
-        flex-direction: column;
-      }
-      #sidebar, #content {
-        width: 100%;
-      }
-    }
-  </style>
+    <title>デボン紀の記事</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100vw;
+            height: 15vh;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        nav {
+            color: #007bff;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        main {
+            display: flex;
+            height: 80vh;
+        }
+
+        aside {
+            width: 20vw;
+            height: 80vh;
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        aside a {
+            color: #000;
+            margin: 5px;
+        }
+
+        .sidebar-below {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100vw;
+                height: auto;
+            }
+
+            .sidebar-below {
+                display: block;
+            }
+        }
+
+        .content {
+            width: 80vw;
+            height: 80vh;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .article-area {
+            width: 70vw;
+            height: 30vh;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .article-title {
+            font-size: 24px;
+            color: #000;
+        }
+
+        .article-content {
+            font-size: 14px;
+            color: #000;
+            text-align: center;
+        }
+
+        .image-area {
+            width: 50vw;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .button-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            width: 5vw;
+            height: 5vh;
+            color: #007bff;
+            font-size: 24px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            width: 100vw;
+            height: 5vh;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer p {
+            color: #fff;
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        // スクリプト1: 画像のモーダル表示
+        function showModal(image) {
+            const modal = document.getElementById("modal");
+            const modalImage = document.getElementById("modal-image");
+            modalImage.src = image.src;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("modal");
+            modal.style.display = "none";
+        }
+
+        // スクリプト2: 画像の切り替え
+        const images = [
+            "Dunkleosteus(1).jpg",
+            "Dunkleosteus(2).jpg",
+            "Dunkleosteus(3).jpg"
+        ];
+
+        let currentIndex = 0;
+
+        function shiftImage(forward) {
+            if (forward) {
+                currentIndex = (currentIndex + 1) % images.length;
+            } else {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            }
+            const image = document.getElementById("display-image");
+            image.src = images[currentIndex];
+        }
+
+        // スクリプト3: 記事の読み上げ
+        function speakArticle() {
+            const articleTitle = document.getElementById("article-title").textContent;
+            const articleContent = document.getElementById("article-content").textContent;
+            const utterance = new SpeechSynthesisUtterance(articleTitle + ". " + articleContent);
+            speechSynthesis.speak(utterance);
+        }
+    </script>
 </head>
 <body>
-  <div id="header">
-    <h1>古代デボン紀の興奮</h1>
-    <p>chatGPTが作成したサンプルWebページ</p>
-  </div>
-  <div id="main">
-    <div id="sidebar">
-      <a href="#">テクノロジー</a><br>
-      <a href="#">ビジネス</a><br>
-      <a href="#">エンタメ</a>
+<header>
+    <h1>デボン紀の記事<small>chatGPTが作成したサンプルWebページ</small></h1>
+    <nav>
+        <a href="#">ホーム</a>
+        <a href="#">検索</a>
+        <a href="#">ニュース</a>
+    </nav>
+</header>
+<main>
+    <aside>
+        <a href="#">テクノロジー</a>
+        <a href="#">ビジネス</a>
+        <a href="#">エンタメ</a>
+        <div class="sidebar-below">
+            <a href="#">テクノロジー</a>
+            <a href="#">ビジネス</a>
+            <a href="#">エンタメ</a>
+        </div>
+    </aside>
+    <div class="content">
+        <div class="article-area">
+            <h2 class="article-title" id="article-title">デボン紀の記事</h2>
+            <p class="article-content" id="article-content">
+                デボン紀（約4億3600万年前から3億5800万年前）は、古生代中期に当たる地質時代です。
+                この時代には、地球上には多くの生物が存在しており、特に海洋生物の進化が著しく進みました。
+                デボン紀では、デボン紀魚類と呼ばれる多様な魚類が繁栄しました。
+                デボン紀魚類の中でも有名な種類には、ドンクルオステウス（Dunkleosteus）がいます。
+                ドンクルオステウスは、巨大な頭部と強力な顎を持ち、その姿は現代のサメにも似ていました。
+                本記事では、デボン紀の海洋生物やドンクルオステウスについて詳しく紹介します。
+            </p>
+        </div>
+        <div class="image-area">
+            <div class="image-container">
+                <button class="button" onclick="shiftImage(false)">&lt;</button>
+                <img class="image" id="display-image" src="Dunkleosteus(1).jpg" onclick="showModal(this)">
+                <button class="button" onclick="shiftImage(true)">&gt;</button>
+            </div>
+        </div>
+        <div class="button-area">
+            <button class="button" onclick="shiftImage(false)">&lt;</button>
+            <button class="button" onclick="shiftImage(true)">&gt;</button>
+        </div>
     </div>
-    <div id="content">
-      <div id="article" onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(this.innerText))">
-        <h2>デボン紀の海洋生物の驚き</h2>
-        <p>デボン紀は地球の生物多様性が急激に増加した時代です。特に海洋生物は、この時代に爆発的に進化しました。Dunkleosteusという名の古代魚が登場した時代でもあります。...</p>
-      </div>
-      <div id="image-area">
-        <button class="image-button" onclick="changeImage(-1)">&lt;</button>
-        <img id="main-image" src="Dunkleosteus(1).jpg" alt="Dunkleosteus" onclick="openModal()">
-        <button class="image-button" onclick="changeImage(1)">&gt;</button>
-      </div>
+</main>
+<footer>
+    <p>© 2023 記事. All rights reserved. ユーザーの自己責任で利用してください。</p>
+</footer>
+<!-- モーダル表示 -->
+<div id="modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px;">
+        <img id="modal-image" style="max-width: 100%; max-height: 100%;" onclick="closeModal()">
     </div>
-  </div>
-  <div id="footer">
-    <p>© 2023 記事. All rights reserved.</p>
-    <p>このページはMITライセンスのもと公開されており、利用者自身の責任で使用してください。</p>
-  </div>
-  <div id="myModal" class="modal">
-    <img class="modal-content" id="img01">
-  </div>
-  <script>
-    var images = ['Dunkleosteus(1).jpg', 'Dunkleosteus(2).jpg', 'Dunkleosteus(3).jpg'];
-    var index = 0;
-
-    function changeImage(delta) {
-      index = (index + delta + images.length) % images.length;
-      document.getElementById('main-image').src = images[index];
+</div>
+<script>
+    const imageElements = document.getElementsByClassName("image");
+    for (let i = 0; i < imageElements.length; i++) {
+        imageElements[i].addEventListener("click", function () {
+            showModal(this);
+        });
     }
 
-    function openModal() {
-      document.getElementById('myModal').style.display = "block";
-      document.getElementById('img01').src = images[index];
-    }
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeModal();
+        }
+    });
 
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('myModal')) {
-        document.getElementById('myModal').style.display = "none";
-      }
-    }
-  </script>
+    document.getElementById("article-area").addEventListener("click", function () {
+        speakArticle();
+    });
+</script>
 </body>
 </html>
