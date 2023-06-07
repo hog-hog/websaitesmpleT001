@@ -1,185 +1,179 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>デボン紀：植物が陸上へ進出</title>
+<html>
+<head>
+    <title>デボン紀の物語</title>
     <style>
-      /* レイアウト */
-      body {
-        display: flex;
+        * {
+            box-sizing: border-box;
+        }
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header, .footer {
+    width: 100vw;
+    height: 15vh;
+    background-color: darkgrey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+}
+
+.sidebar {
+    width: 20vw;
+    background-color: lightgrey;
+    padding: 20px;
+}
+
+.sidebar a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.content {
+    width: 80vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.article, .image-area {
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.article p {
+    width: 70%;
+}
+
+.button {
+    width: 5vw;
+    height: 5vh;
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.image {
+    width: 50vw;
+    height: 50vh;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 768px) {
+    .main {
         flex-direction: column;
-        min-height: 100vh;
-      }
-      header,
-      footer {
-        flex: 0 0 auto;
-      }
-      main {
-        flex: 1 1 auto;
-        display: flex;
-      }
-      aside {
-        flex: 0 0 200px;
-      }
-      article {
-        flex: 1 1 auto;
-      }
+    }
 
-      /* モーダル */
-      .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
+    .sidebar {
+        width: 100vw;
+    }
+
+    .content {
+        width: 100vw;
+    }
+
+    .article, .image-area {
+        width: 100vw;
+    }
+
+    .image {
+        width: 70vw;
+    }
+
+    .article p {
         width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-      }
-      .modal.show {
-        display: flex;
-      }
-      .modal-image {
-        max-height: 80%;
-        object-fit: contain;
-      }
+    }
+}
     </style>
-  </head>
-  <body>
-    <!-- ヘッダー -->
-    <header>
-      <h1>デボン紀：植物が陸上へ進出</h1>
-      <p>chatGPTが作成したサンプルWebページ</p>
-      <nav>
-        <ul>
-          <li><a href="#">テクノロジー</a></li>
-          <li><a href="#">ビジネス</a></li>
-          <li><a href="#">エンタメ</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- メイン -->
-    <main>
-      <!-- 左・サイドバー -->
-      <aside>
-        <ul>
-          <li><a href="#">テクノロジー</a></li>
-          <li><a href="#">ビジネス</a></li>
-          <li><a href="#">エンタメ</a></li>
-        </ul>
-      </aside>
-
-      <!-- メインコンテンツ -->
-      <article class="article">
-        <h2>デボン紀：植物が陸上へ進出</h2>
-        <p>デボン紀は、地質時代の区分のひとつで、古生代の中ごろに位置します。この時期に植物は、陸上への大規模な進出を開始しました。それ自身の浸食と堆積の作用によって、大きな気候の変化をもたらしました。陸上植物は、おそらく5億1000万年前ごろに、緑藻類から進化したとされています。</p>
-
-        <!-- 画像 -->
-        <img class="image" src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" alt="画像1" />
-
-        <!-- ボタン -->
-        <button class="button1">ボタン1</button>
-        <button class="button2">ボタン2</button>
-
-        <!-- モーダル -->
-        <div class="modal">
-          <img class="modal-image" src="" alt="" />
+</head>
+<body>
+    <div class="header">
+        <h1>デボン紀の物語</h1>
+        <p>chatGPTが作成したサンプルWebページ</p>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <a href="#">テクノロジー</a>
+            <a href="#">ビジネス</a>
+            <a href="#">エンタメ</a>
         </div>
-      </article>
-    </main>
-
-    <!-- フッター -->
-    <footer>
-      <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
-    </footer>
-
-    <!-- JavaScript -->
+        <div class="content">
+            <div class="article" onclick="readAloud()">
+                <h2>デボン紀の物語</h2>
+                <p>
+                    デボン紀、それは古代の海が広がる時代。そこには巨大な魚、ダンクルオステウスが生息していました。
+                    その魚は強力な顎と鋭い歯を持ち、海の頂点に君臨していました。しかし彼の支配も永遠ではありませんでした。
+                    大量絶滅という試練が彼を待ち受けていました。それが# Open the required image URL to get the image dimensions
+open_url("https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg")
+                    デボン紀の終焉でした。この物語は、我々が自然との調和を忘れないようにという教訓を残しています。
+                </p>
+            </div>
+            <div class="image-area">
+                <button class="button" id="button1">＜</button>
+                <img src="https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg" class="image" id="image" onclick="zoomImage()">
+                <button class="button" id="button2">＞</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2023 記事. All rights reserved.</p>
+        <p>このページはMITライセンスで公開されており、ユーザーは自己責任で利用することを明記します。</p>
+    </div>
     <script>
-      // スクリプト１
-      // モーダル要素の取得
-      const modal = document.querySelector('.modal');
-      const modalImage = document.querySelector('.modal-image');
+        let images = [
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg",
+            "https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg"
+        ];
+        let index = 0;
 
-      // 画像要素の取得
-      const images = document.querySelectorAll('.image');
-
-      // 画像をクリック時の処理
-      images.forEach(image => {
-        image.addEventListener('click', () => {
-          // モーダル表示
-          modal.classList.add('show');
-          // クリックした画像のsrc属性を取得し、モーダル画像のsrc属性に設定
-          const src = image.getAttribute('src');
-          modalImage.setAttribute('src', src);
-        });
-      });
-
-      // モーダルをクリック時の処理
-      modal.addEventListener('click', () => {
-        // モーダル非表示
-        modal.classList.remove('show');
-      });
-
-      // スクリプト２
-      // 画像要素の取得
-      const image = document.querySelector('.image');
-
-      // ボタン要素の取得
-      const button1 = document.querySelector('.button1');
-      const button2 = document.querySelector('.button2');
-
-      // 画像の配列
-      const images = [
-        'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(1).jpg',
-        'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(2).jpg',
-        'https://meek-cactus-94d5bb.netlify.app/Dunkleosteus(3).jpg'
-      ];
-
-      // 現在表示している画像のインデックス
-      let currentIndex = 0;
-
-      // ボタン1をクリック時の処理
-      button1.addEventListener('click', () => {
-        // 現在表示している画像のインデックスを更新
-        currentIndex--;
-        if (currentIndex < 0) {
-          currentIndex = images.length - 1;
+        function changeImage(i) {
+            index = (index + i + images.length) % images.length;
+            document.getElementById('image').src = images[index];
         }
-        // 表示する画像を更新
-        image.setAttribute('src', images[currentIndex]);
-      });
 
-      // ボタン2をクリック時の処理
-      button2.addEventListener('click', () => {
-        // 現在表示している画像のインデックスを更新
-        currentIndex++;
-        if (currentIndex > images.length - 1) {
-          currentIndex = 0;
-        }
-        // 表示する画像を更新
-        image.setAttribute('src', images[currentIndex]);
-      });
-
-      // スクリプト３
-      // 記事要素の取得
-      const article = document.querySelector('.article');
-
-      // Web Speech APIが利用可能かチェック
-      if ('speechSynthesis' in window) {
-        // 記事をクリック時の処理
-        article.addEventListener('click', () => {
-          // 記事のテキストを取得
-          const text = article.textContent;
-          // 発話オブジェクトを作成
-          const utterance = new SpeechSynthesisUtterance(text);
-          // 言語を設定（日本語）
-          utterance.lang = 'ja-JP';
-          // 発話
-          speechSynthesis.speak(utterance);
+        document.getElementById('button1').addEventListener('click', function() {
+            changeImage(-1);
         });
-      }
+
+        document.getElementById('button2').addEventListener('click', function() {
+            changeImage(1);
+        });
+
+        function zoomImage() {
+            let img = document.getElementById('image');
+            img.style.transform = img.style.transform == "scale(2)" ? "scale(1)" : "scale(2)";
+        }
+
+        function readAloud() {
+            let article = document.querySelector('.article p').innerText;
+            let speech = new SpeechSynthesisUtterance();
+            speech.text = article;
+            speech.lang = "ja-JP";
+            window.speechSynthesis.speak(speech);
+        }
     </script>
-  </body>
+</body>
 </html>
