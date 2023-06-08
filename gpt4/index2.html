@@ -1,161 +1,179 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="ja">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>記事</title>
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100vw;
-        height: 15vh;
-        background-color: darkgray;
-      }
-      header h1 {
-        color: white;
-        margin: 0;
-      }
-      header h2 {
-        color: black;
-        margin: 0;
-      }
-      header nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-      }
-      header nav ul li {
-        color: blue;
-        margin-right: 10px;
-      }
-      main {
-        display: flex;
-      }
-      aside {
-        width: 20vw;
-        height: 80vh;
-        background-color: lightgray;
-      }
-      aside ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      aside ul li {
-        color:black;
-        margin-bottom: 10px;
-      }
-      .main-content {
-        width: 80vw;
-        height: 80vh;
-        background-color:white; 
-      }
-      .main-content .article-area {
-          width:70vw; 
-          height:30vh; 
-          background-color:white; 
-          text-align:center; 
-          display:flex; 
-          flex-direction:column; 
-          justify-content:center; 
-          align-items:center; 
-       }
-       .main-content .article-area h3{
-           color:black; 
-           margin-bottom:10px; 
-       }
-       .main-content .article-area p{
-           color:black; 
-       }
-       .main-content .image-area{
-           display:flex; 
-           justify-content:center; 
-           align-items:center; 
-       }
-       .main-content .image-area img{
-           width:50vw; 
-           height:auto; 
-           object-fit:contain; 
-       }
-       .main-content .image-area button{
-           width:5vw; 
-           height:auto; 
-           color:white; 
-           background-color:#0000FF; 
-           border:none; 
-       }
-       
-       footer{
-         display:flex; 
-         justify-content:center; 
-         align-items:center; 
-         width:100vw; 
-         height:auto; 
-         background-color:#A9A9A9
-       }
-       
-       footer p{
-         color:white
-       }
-
-@media screen and (max-width :768px){
-    main{
-    flex-direction :column
-    }
-
-    aside{
-    width :100vw
-    }
-
-    .main-content{
-    width :100vw
-    }
-
-    .main-content .article-area{
-    width :100vw
-    }
-
-    .main-content .image-area img{
-    width :70vw
-    }
-
-}
-</style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .header, .footer {
+            width: 100vw;
+            text-align: center;
+            background-color: darkgrey;
+            color: white;
+        }
+        .header {
+            height: 15vh;
+        }
+        .main {
+            display: flex;
+            width: 100vw;
+            height: 80vh;
+        }
+        .sidebar {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgrey;
+        }
+        .content {
+            width: 80vw;
+            height: 80vh;
+            background-color: white;
+        }
+        .footer {
+            height: 5vh;
+        }
+        .article {
+            width: 70vw;
+            height: 30vh;
+            margin: auto;
+            background-color: white;
+            cursor: pointer;
+        }
+        .image-area {
+            display: flex;
+            width: 70vw;
+            height: 50vh;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-area img {
+            width: 50vw;
+            height: 50vh;
+            object-fit: contain;
+            cursor: zoom-in;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .button {
+            width: 5vw;
+            height: 5vh;
+            background-color: blue;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+            .sidebar, .content {
+                width: 100vw;
+            }
+            .article {
+                width: 100vw;
+            }
+            .image-area img {
+                width: 70vw;
+            }
+        }
+    </style>
+    <title>デボン紀の海洋生物について</title>
 </head>
 <body>
-<header>
-<h1>ヘッダータイトル</h1>
-<h2>サブタイトル</h2>
-<nav>
-<ul>
-<li>ホーム</li>
-<li>検索</li>
-<li>ニュース</li>
-</ul>
-</nav>
-</header>
+    <div class="header">
+        <h1>デボン紀の海洋生物について</h1>
+        <p>chatGPTが作成したWebページ</p>
+        <nav>
+            <a href="#">ホーム</a>
+            <a href="#">検索</a>
+            <a href="#">ニュース</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <a href="#">テクノロジー</a>
+            <a href="#">ビジネス</a>
+            <a href="#">エンタメ</a>
+        </div>
+        <div class="content">
+            <div class="article">
+                <h2>デボン紀の海洋生物</h2>
+                <p>デボン紀は古生代の一時代であり、「魚類の時代」とも呼ばれる時代です。その中でも注目すべき生物はダンクレオステウスで、体長約10メートルという巨大な海洋生物でした。重厚な甲冑に覆われたその姿は、現代の魚類とは異なり、一種の恐竜のようにも見えます。</p>
+            </div>
+            <div class="image-area">
+                <button class="button" id="prevButton">＜</button>
+                <img src="Dunkleosteus(1).jpg" alt="Dunkleosteus(1).jpg">
+                <button class="button" id="nextButton">＞</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2023 記事. All rights reserved. This page is published under the MIT license and users are responsible for their use.</p>
+    </div>
 
-<main>
+    <div id="myModal" class="modal">
+        <img class="modal-content" id="img01">
+    </div>
 
-<aside>
-<ul>
-<li>テクノロジー</li>
-<li>ビジネス</li>
-<li>エンタメ</li>
-</ul>
-</aside>
+    <script>
+        const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
+        let index = 0;
+        const imgElement = document.querySelector('.image-area img');
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("img01");
 
-<div class="main-content">
-<div class="article-area">
-<h3>デボン紀の海の王者、ダンクルオステウス</h3>
-<p id="article">デボン紀（約4億年前）に生息していたダンクルオステウスは、全長約10メートルにもなる巨大な魚類でした。その強靭な顎と鋭い歯は、他の海洋生物を襲うのに十分な武器でした。ダンクルオステウスは、デボン紀の海の頂点捕食者とされています。</p></div><div class="image-area"><button id="prev">
-    </button><img id="image" src="Dunkleosteus(1).jpg" alt=""><button id="next">
-    </button></div></div></main><footer><p>©2023 記事. All rights reserved.</p></footer><script>const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];let currentImage = 0;document.getElementById("prev").addEventListener("click", () => {currentImage--;if (currentImage < 0) {currentImage = images.length - 1;}document.getElementById("image").src = images[currentImage];});document.getElementById("next").addEventListener("click", () => {currentImage++;if (currentImage > images.length - 1) {currentImage = 0;}document.getElementById("image").src = images[currentImage];});const article = document.getElementById("article");const synth = window.speechSynthesis;article.addEventListener("click", () => {const utterance = new SpeechSynthesisUtterance(article.textContent);synth.speak(utterance);});</script></body></html>
+        // ボタン1
+        document.getElementById('prevButton').addEventListener('click', function() {
+            index = (index + 1) % images.length;
+            imgElement.src = images[index];
+        });
+
+        // ボタン2
+        document.getElementById('nextButton').addEventListener('click', function() {
+            index = (index - 1 + images.length) % images.length;
+            imgElement.src = images[index];
+        });
+
+        // 画像のモーダル表示
+        imgElement.addEventListener('click', function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        });
+
+        // モーダルを閉じる
+        modal.addEventListener('click', function(){
+            modal.style.display = "none";
+        });
+
+        // Web Speech API
+        const article = document.querySelector('.article');
+        const utterance = new SpeechSynthesisUtterance();
+        utterance.lang = 'ja-JP';
+        article.addEventListener('click', function(){
+            utterance.text = this.textContent;
+            speechSynthesis.speak(utterance);
+        });
+    </script>
+</body>
+</html>
