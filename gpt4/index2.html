@@ -1,156 +1,132 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-    }
+    <title>ChatGPTが作成したWebページ</title>
+    <style>
+      * {
+          box-sizing: border-box;
+          text-align: center;
+      }
 
-    #header, #footer {
-      width: 100vw;
-      height: 15vh;
-      background: darkgrey;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-    }
+      body {
+          margin: 0;
+          padding: 0;
+      }
 
-    #main {
-      display: flex;
-      width: 100vw;
-      height: 80vh;
-      background: lightgrey;
-    }
+      #header {
+          width: 100vw;
+          height: 15vh;
+          background-color: darkgray;
+          color: white;
+      }
 
-    #sidebar {
-      width: 20vw;
-      height: 100%;
-      background: lightgrey;
-      padding: 1rem;
-    }
+      #header h2 {
+          color: black;
+      }
 
-    #content {
-      width: 80vw;
-      height: 100%;
-      background: white;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+      #sidebar {
+          width: 20vw;
+          height: 80vh;
+          background-color: lightgray;
+          float: left;
+      }
 
-    #article {
-      width: 70vw;
-      height: 30vh;
-      background: white;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      overflow: auto;
-    }
-
-    #image-area {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 70vw;
-      height: 50vh;
-    }
-
-    #image-area img {
-      width: 50vw;
-      height: 50vh;
-      object-fit: contain;
-    }
-
-    .button {
-      background: blue;
-      color: white;
-      padding: 1rem;
-      margin: 0 1rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
       #main {
-        flex-direction: column;
+          width: 80vw;
+          height: 80vh;
+          float: right;
+          background-color: white;
       }
-      #sidebar, #content {
-        width: 100vw;
+
+      #footer {
+          width: 100vw;
+          height: 5vh;
+          background-color: darkgray;
+          color: white;
+          clear: both;
       }
-      #article, #image-area {
-        width: 100vw;
+
+      #article {
+          width: 70vw;
+          height: 30vh;
+          margin: 0 auto;
+          background-color: white;
       }
-      #image-area img {
-        width: 70vw;
+
+      #image {
+          width: 70vw;
+          height: 50vh;
+          margin: 0 auto;
       }
-    }
-  </style>
+
+      #image img {
+          width: 50vw;
+          height: 50vh;
+          object-fit: contain;
+      }
+
+      #image button {
+          width: 5vw;
+          height: 5vh;
+      }
+
+      /* メディアクエリ */
+      @media screen and (max-width: 768px) {
+          #sidebar {
+              width: 100vw;
+              float: none;
+          }
+
+          #main {
+              width: 100vw;
+              float: none;
+          }
+
+          #article, #image {
+              width: 100vw;
+          }
+
+          #image img {
+              width: 70vw;
+          }
+      }
+    </style>
 </head>
 <body>
-  <div id="header">
-    <h1>デボン紀の生物</h1>
-    <p>ChatGPTが作成したWebページ</p>
-  </div>
-  <div id="main">
-    <div id="sidebar">
-      <ul>
-        <li><a href="#">テクノロジー</a></li>
-        <li><a href="#">ビジネス</a></li>
-        <li><a href="#">エンタメ</a></li>
-      </ul>
-    </div>
-    <div id="content">
-      <div id="article" onclick="speak()">
-        <h2>デボン紀に生息していた生物</h2>
-        <p>ダミーテキスト：デボン紀は、古生代の時代の一つで、4億1900万年前から3億5900万年前までの約6000万年間を指します。この時代は、魚類が急速に進化・多様化したことで知られています。</p>
-      </div>
-      <div id="image-area">
-        <div class="button" onclick="previousImage()">&lt;</div>
-        <img id="main-image" src="Dunkleosteus(1).jpg" onclick="openModal()">
-        <div class="button" onclick="nextImage()">&gt;</div>
-      </div>
-    </div>
-  </div>
-  <div id="footer">
-    <p>© 2023 記事. All rights reserved.</p>
-    <p>This page is released under the MIT license. Use at your own risk.</p>
-  </div>
+    <header id="header">
+        <h1>タイトル</h1>
+        <h2>chatGPTが作成したWebページ</h2>
+        <nav>
+            <a href="#">ホーム</a>
+            <a href="#">検索</a>
+            <a href="#">ニュース</a>
+        </nav>
+    </header>
 
-  <script>
-    const images = ['Dunkleosteus(1).jpg', 'Dunkleosteus(2).jpg', 'Dunkleosteus(3).jpg'];
-    let currentImageIndex = 0;
+    <aside id="sidebar">
+        <a href="#">テクノロジー</a>
+        <a href="#">ビジネス</a>
+        <a href="#">エンタメ</a>
+    </aside>
 
-    function nextImage() {
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-      document.getElementById('main-image').src = images[currentImageIndex];
-    }
+    <main id="main">
+        <section id="article">
+            <h3>記事</h3>
+            <p>記事本文</p>
+        </section>
+        <section id="image">
+            <button id="button1">＜</button>
+            <img id="img" src="image(1).jpg" alt="画像">
+            <button id="button2">＞</button>
+        </section>
+    </main>
 
-    function previousImage() {
-      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-      document.getElementById('main-image').src = images[currentImageIndex];
-    }
+    <footer id="footer">
+        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
+    </footer>
 
-    function openModal() {
-      // TODO: Implement modal image viewer
-    }
-
-    function speak() {
-      const utterance = new SpeechSynthesisUtterance(document.getElementById('article').textContent);
-      window.speechSynthesis.speak(utterance);
-    }
-  </script>
+    <script>
+    // ここにJavaScriptを書く
+    </script>
 </body>
 </html>
