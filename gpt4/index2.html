@@ -1,209 +1,105 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デボン紀の海の生物</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      width: 100vw;
-      height: 15vh;
-      background-color: darkgray;
-    }
-    header h1 {
-      color: white;
-      margin: 0;
-    }
-    header h2 {
-      color: black;
-      margin: 0;
-    }
-    header nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    header nav ul li {
-      color: blue;
-      margin-right: 10px;
-    }
-    main {
-      display: flex;
-    }
-    aside {
-      width: 20vw;
-      height: 80vh;
-      background-color: lightgray;
-    }
-    aside ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    aside ul li {
-      color:black
-    }
-    .main-content {
-      width: 80vw;
-      height: 80vh;
-      background-color:white
-    }
-    .main-content .article-area {
-        width:70vw; 
-        height:30vh; 
-        background-color:white; 
-        text-align:center
-     }
-     .main-content .article-area h3{
-         color:black
-     }
-     .main-content .article-area p{
-         color:black
-     }
-     .main-content .image-area{
-         display:flex; 
-         justify-content:center; 
-         align-items:center
-     }
-     .main-content .image-area img{
-         width:auto; 
-         height:auto; 
-         max-width:50vw; 
-         max-height:50vh
-     }
-     .main-content .image-area button{
-         width:auto; 
-         height:auto; 
-         max-width:5vw; 
-         max-height:5vh; 
-         color:white; 
-         background-color:#0000FF
-     }
-     footer{
-        display:flex; 
-        justify-content:center; 
-        align-items:center; 
-        width:100vw; 
-        height:5vh; 
-        background-color:#A9A9A9
-     }
-     footer p{
-        color:white
-     }
-
-     @media screen and (max-width :768px){
-       aside{
-           display:none
-       }
-       .main-content{
-           width :100vw
-       }
-       .main-content .article-area{
-           width :100vw
-       }
-       .main-content .image-area img{
-           max-width :70vw
-       }
-
-     }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webサイトのサンプル</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header, .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2%;
+        }
+        .header-subtitle {
+            color: black;
+            font-size: 12px;
+        }
+        .menu {
+            color: blue;
+            font-size: 14px;
+        }
+        .sidebar, .main-content {
+            height: 80vh;
+        }
+        .sidebar {
+            background: lightgray;
+            width: 20vw;
+            padding: 2%;
+        }
+        .main-content {
+            background: white;
+            width: 80vw;
+            padding: 2%;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2%;
+        }
+        @media screen and (max-width: 768px) {
+            .sidebar, .main-content {
+                width: 100vw;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1>デボン紀の海の生物</h1>
-<h2>chatGPTが作成したサンプルWebページ</h2>
-<nav>
-<ul>
-<li>ホーム</li>
-<li>検索</li>
-<li>ニュース</li>
-</ul>
-</nav>
-</header>
+    <div class="header">
+        <h1>デボン紀の海洋生物について</h1>
+        <p class="header-subtitle">ChatGPTによるサンプルWebページ</p>
+        <p class="menu">ホーム | 検索 | ニュース</p>
+    </div>
+    <div class="sidebar">
+        <p>リンク: テクノロジー | ビジネス | エンタメ</p>
+    </div>
+    <div class="main-content">
+        <div class="article">
+            <h2>デボン紀の海洋生物: Dunkleosteus</h2>
+            <p id="article">ここにデボン紀に生息していた海洋生物に関する記事の本文が表示されます。</p>
+        </div>
+        <div class="image-area">
+            <button id="prev">＜</button>
+            <img id="image" src="image1.jpg" alt="画像1">
+            <button id="next">＞</button>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2023 Article. All rights reserved.</p>
+    </div>
+    <script>
+        const article = document.querySelector("#article");
+        const prevBtn = document.querySelector("#prev");
+        const nextBtn = document.querySelector("#next");
+        const img = document.querySelector("#image");
+        const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+        let imgIndex = 0;
 
-<main>
-<aside>
-<ul>
-<li>テクノロジー</li>
-<li>ビジネス</li>
-<li>エンタメ</li>
-</ul>
-</aside>
+        article.addEventListener("click", () => {
+            const speech = new SpeechSynthesisUtterance(article.textContent);
+            window.speechSynthesis.speak(speech);
+        });
 
-<div class="main-content">
-<div class="article-area">
-<h3>デボン紀の海の生物</h3>
-<p>デボン紀は、4億1千万年前から3億5千8百万年前にかけての地質時代で、古生代に属します。この時代は、魚類が爆発的に進化し、多様化したことから「魚類の時代」とも呼ばれます。デボン紀の海には、さまざまな種類の魚類が生息しており、その中でも最も強大だったのが、プラコデルム類と呼ばれる魚類です。プラコデルム類は、頭部と胸部が骨質の甲殻で覆われており、その中でもダンクルオステウスは最大級の大型種でした。</p>
-</div>
+        prevBtn.addEventListener("click", () => {
+            imgIndex--;
+            if (imgIndex < 0) imgIndex = images.length - 1;
+            img.src = images[imgIndex];
+        });
 
-<div class="image-area">
-<button id="prevBtn">＜</button>
-
-<img id="img" src="Dunkleosteus(1).jpg" alt="">
-
-<button id="nextBtn">＞</button>
-
-<div id="modal" style="display:none;">
-<img id="modalImg" src="" alt="">
-</div>
-
-</div>
-
-<script>
-
-const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
-let currentImage = 0;
-
-const img = document.querySelector("#img");
-const modal = document.querySelector("#modal");
-const modalImg = document.querySelector("#modalImg");
-
-img.addEventListener("click", () => {
-  modalImg.src = img.src;
-  modal.style.display = "block";
-});
-
-modal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-const prevBtn = document.querySelector("#prevBtn");
-const nextBtn = document.querySelector("#nextBtn");
-
-prevBtn.addEventListener("click", () => {
-  currentImage--;
-  if (currentImage < 0) {
-    currentImage = images.length - 1;
-  }
-  img.src = images[currentImage];
-});
-
-nextBtn.addEventListener("click", () => {
-  currentImage++;
-  if (currentImage > images.length - 1) {
-    currentImage = 0;
-  }
-  img.src = images[currentImage];
-});
-
-</script>
-
-</div>
-</main>
-
-<footer>
-<p>© 2023 記事. All rights reserved.</p>
-</footer>
-
+        nextBtn.addEventListener("click", () => {
+            imgIndex++;
+            if (imgIndex >= images.length) imgIndex = 0;
+            img.src = images[imgIndex];
+        });
+    </script>
 </body>
 </html>
