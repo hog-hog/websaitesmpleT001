@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デボン紀のニュース</title>
+  <title>記事</title>
   <style>
     body {
       margin: 0;
@@ -57,68 +57,69 @@
       height: 80vh;
       background-color:white
     }
-    #main-content article {
+    #main-content #article-area {
         width:70vw; 
         height:30vh; 
-        background-color:white
+        background-color:white; 
+        text-align:center
      }
-     #main-content article h3{
-         color:black
+     #main-content #article-area h3{
+        color:black
      }
-     #main-content article p{
-         color:black
+     #main-content #article-area p{
+        color:black
      }
-     #main-content figure{
-         display:flex; 
-         align-items:center
+     #main-content #image-area{
+        display:flex; 
+        justify-content:center; 
+        align-items:center
      }
-     #main-content figure img{
-         width:50vw; 
-         height:auto
+     #main-content #image-area img{
+        width:50vw; 
+        height:auto
      }
-     #main-content figure button{
-         width:5vw; 
-         height:auto; 
-         color:white; 
-         background-color:#0000FF
+     #main-content #image-area button{
+        width:5vw; 
+        height:auto; 
+        color:white; 
+        background-color:#0000FF
      }
      footer{
-         display:flex; 
-         justify-content:center; 
-         align-items:center; 
-         width:100vw; 
-         height:5vh; 
-         background-color:#A9A9A9
+       display:flex; 
+       justify-content:center; 
+       align-items:center; 
+       width:100vw; 
+       height:5vh; 
+       background-color:#A9A9A9
      }
      footer p{
-         color:white; 
-         font-size:x-small
+       color:white; 
+       font-size:x-small
      }
 
-     @media screen and (max-width :768px){
-        main{
-            flex-direction :column
-        }
-        #sidebar{
-            width :100vw
-        }
-        #main-content{
-            width :100vw
-        }
-        #main-content article{
-            width :100vw
-        }
-        #main-content figure img{
-            width :70vw
-        }
+@media screen and (max-width :768px){
+   main{
+       flex-direction :column
+   }
+   #sidebar{
+       width :100vw
+   }
+   #main-content{
+       width :100vw
+   }
+   #main-content #article-area{
+       width :100vw
+   }
+   #main-content #image-area img{
+       width :70vw
+   }
 
-     }
-
-  </style>
+}
+</style>
 </head>
 <body>
 <header>
-<h1>デボン紀のニュース</h1>
+<h1>記事</h1>
 <h2>chatGPTが作成したサンプルWebページ</h2>
 <nav>
 <ul>
@@ -130,36 +131,32 @@
 </header>
 
 <main>
-
-<aside id="sidebar">
+<div id="sidebar">
 <ul>
 <li>テクノロジー</li>
 <li>ビジネス</li>
 <li>エンタメ</li>
 </ul>
+</div>
 
-</aside>
-
-<section id="main-content">
-
-<article>
+<div id="main-content">
+<div id="article-area">
 <h3>デボン紀のニュース</h3>
-<p>デボン紀には、様々な生物が生息していました。その中でも、ダンクルオステウスは、最も強い捕食者の1つでした。この魚は、体長が10メートル近くあり、鋭い歯を持っていました。ダンクルオステウスは、海洋生物を捕食することができるだけでなく、陸上生物も捕食することができました。</p>
+<p>デボン紀には、様々な生物が生息していました。その中でも、ダンクルオステウスは、最も強い捕食者の一つでした。この魚は、体長が10メートルを超え、鋭い歯を持っていました。デボン紀の海は、まさにサバイバルゲームでした。</p>
+</div>
 
-</article>
+<div id="image-area">
+<button id="prev-button">＜</button>
 
-<figure>
+<img src="Dunkleosteus(1).jpg" alt="Dunkleosteus" id="current-image">
 
-<button id="prev">＜</button>
+<button id="next-button">＞</button>
 
-<img src="Dunkleosteus(1).jpg" alt="Dunkleosteus" id="gallery">
-
-<button id="next">＞</button>
-
-</figure>
-
-</section>
-
+<div id="modal" style="display:none;">
+<img src="" alt="" id="modal-image" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); max-height:100%;">
+</div>
+</div>
+</div>
 </main>
 
 <footer>
@@ -168,58 +165,37 @@
 
 <script>
 const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
-let currentImage = 0;
+let currentImageIndex = 0;
 
-document.getElementById("gallery").addEventListener("click", () => {
-  const modal = document.createElement("div");
-  modal.style.position = "fixed";
-  modal.style.top = "0";
-  modal.style.left = "0";
-  modal.style.width = "100vw";
-  modal.style.height = "100vh";
-  modal.style.backgroundColor = "rgba(0,0,0,0.5)";
-  modal.style.display = "flex";
-  modal.style.justifyContent = "center";
-  modal.style.alignItems = "center";
+document.getElementById("current-image").src = images[currentImageIndex];
 
-  const image = document.createElement("img");
-  image.src = images[currentImage];
-  image.style.maxHeight = "100vh";
-  image.style.objectFit = "contain";
-
-  modal.appendChild(image);
-  document.body.appendChild(modal);
-
-  modal.addEventListener("click", () => {
-    document.body.removeChild(modal);
-  });
+document.getElementById("prev-button").addEventListener("click", () => {
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  document.getElementById("current-image").src = images[currentImageIndex];
 });
 
-document.getElementById("prev").addEventListener("click", () => {
-  currentImage--;
-  if (currentImage < 0) {
-    currentImage = images.length - 1;
-  }
-  document.getElementById("gallery").src = images[currentImage];
+document.getElementById("next-button").addEventListener("click", () => {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  document.getElementById("current-image").src = images[currentImageIndex];
 });
 
-document.getElementById("next").addEventListener("click", () => {
-  currentImage++;
-  if (currentImage >= images.length) {
-    currentImage = 0;
-  }
-  document.getElementById("gallery").src = images[currentImage];
+document.getElementById("current-image").addEventListener("click", () => {
+  document.getElementById("modal-image").src = images[currentImageIndex];
+  document.getElementById("modal").style.display = "block";
 });
 
+document.getElementById("modal").addEventListener("click", () => {
+  document.getElementById("modal").style.display = "none";
+});
+
+const articleText = document.querySelector("#article-area p").textContent;
 const synth = window.speechSynthesis;
-const articleText = document.querySelector('article p').textContent;
+const utterance = new SpeechSynthesisUtterance(articleText);
+utterance.lang = "ja-JP";
 
-document.querySelector('article').addEventListener('click', () => {
-    const utterThis = new SpeechSynthesisUtterance(articleText);
-    synth.speak(utterThis);
+document.querySelector("#article-area p").addEventListener("click", () => {
+  synth.speak(utterance);
 });
-
 </script>
-
 </body>
 </html>
