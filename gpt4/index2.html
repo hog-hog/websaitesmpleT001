@@ -1,230 +1,191 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debonian Chronicle | ChatGPT制作サンプルWebページ</title>
-    <style>
-        /* Basic layout */
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header */
-        #header {
-            width: 100vw;
-            height: 15vh;
-            background-color: darkgrey;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        /* Main section */
-        #main {
-            width: 100vw;
-            height: 80vh;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Sidebar */
-        #sidebar {
-            width: 20vw;
-            height: 80vh;
-            background-color: lightgrey;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Content */
-        #content {
-            width: 80vw;
-            height: 80vh;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Article */
-        #article {
-            width: 70vw;
-            height: 30vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        /* Image gallery */
-        #image-gallery {
-            width: 70vw;
-            height: 50vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Gallery buttons */
-        .gallery-btn {
-            width: 5vw;
-            height: 5vh;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        /* Image */
-        #gallery-image {
-            width: 50vw;
-            height: 50vh;
-            cursor: pointer;
-        }
-
-        /* Footer */
-        #footer {
-            width: 100vw;
-            height: 5vh;
-            background-color: darkgrey;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-
-        /* Responsive layout */
-        @media (max-width: 768px) {
-            /* Main section */
-            #main {
-                flex-direction: column;
-            }
-
-            /* Sidebar */
-            #sidebar {
-                width: 100vw;
-                height: 20vh;
-            }
-
-            /* Content */
-            #content {
-                width: 100vw;
-                height: 60vh;
-            }
-
-            /* Article */
-            #article {
-                width: 100vw;
-            }
-
-            /* Image gallery */
-            #image-gallery {
-                width: 100vw;
-            }
-
-            /* Gallery buttons */
-            .gallery-btn {
-                width: 10vw;
-            }
-
-            /* Image */
-            #gallery-image {
-                width: 70vw;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サンプルWebページ</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      height: 15vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 24px;
+    }
+    
+    header p {
+      font-size: 14px;
+    }
+    
+    nav {
+      margin-top: 10px;
+    }
+    
+    nav a {
+      color: blue;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    
+    main {
+      display: flex;
+      height: 80vh;
+    }
+    
+    aside {
+      background-color: #eee;
+      width: 20vw;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    aside a {
+      color: black;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+    
+    article {
+      background-color: #fff;
+      width: 80vw;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    article h2 {
+      font-size: 24px;
+    }
+    
+    article p {
+      font-size: 14px;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      height: 5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    footer p {
+      font-size: 12px;
+    }
+    
+    .image-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .image-group img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      max-width: 50vw;
+      max-height: 50vh;
+    }
+    
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .buttons button {
+      width: 5vw;
+      height: 5vh;
+      background-color: #fff;
+      border: none;
+      color: blue;
+      font-size: 24px;
+      margin: 0 5px;
+    }
+  </style>
 </head>
 <body>
-    <header id="header">
-        <h1>デボン紀クロニクル<small> - ChatGPT制作のサンプルWebページ</small></h1>
-    </header>
-
-    <main id="main">
-        <aside id="sidebar">
-            <a href="#">テクノロジー</a>
-            <a href="#">ビジネス</a>
-            <a href="#">エンタメ</a>
-        </aside>
-
-        <section id="content">
-            <div id="article">
-                <h2>デボン紀の驚異 - ダンクルオステウス</h2>
-                <p>デボン紀の海は、恐ろしい肉食魚ダンクルオステウスで溢れていた。この魚は長さ10mにも達し、その強力な顎は甲殻類や小型魚を一瞬で砕くことができた。我々人類が地球上に出現する数億年も前のことだ。</p>
-            </div>
-
-            <div id="image-gallery">
-                <div id="prev-btn" class="gallery-btn">&lt;</div>
-                <img id="gallery-image" src="Dunkleosteus(1).jpg" alt="Dunkleosteus image">
-                <div id="next-btn" class="gallery-btn">&gt;</div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="footer">
-        <small>© 2023 記事. All rights reserved. This page is under MIT license. Use at your own risk.</small>
-    </footer>
-
-    <script>
-        // Image gallery control
-        const images = [
-            "Dunkleosteus(1).jpg",
-            "Dunkleosteus(2).jpg",
-            "Dunkleosteus(3).jpg"
-        ];
-        let currentIndex = 0;
-        const galleryImage = document.querySelector('#gallery-image');
-        document.querySelector('#prev-btn').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            galleryImage.src = images[currentIndex];
-        });
-        document.querySelector('#next-btn').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            galleryImage.src = images[currentIndex];
-        });
-
-        // Image modal view
-        galleryImage.addEventListener('click', () => {
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.width = '100vw';
-            modal.style.height = '100vh';
-            modal.style.display = 'flex';
-            modal.style.justifyContent = 'center';
-            modal.style.alignItems = 'center';
-            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-            const modalImage = document.createElement('img');
-            modalImage.src = galleryImage.src;
-            modalImage.style.maxWidth = '90%';
-            modalImage.style.maxHeight = '90%';
-            modal.appendChild(modalImage);
-            modal.addEventListener('click', () => {
-                document.body.removeChild(modal);
-            });
-            document.body.appendChild(modal);
-        });
-
-        // Article reading
-        const article = document.querySelector('#article');
-        article.addEventListener('click', () => {
-            const utterance = new SpeechSynthesisUtterance(article.textContent);
-            window.speechSynthesis.speak(utterance);
-        });
-    </script>
+  <header>
+    <h1>古代の生物が話題に！</h1>
+    <p>chatGPTが作成したサンプルWebページ</p>
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">検索</a>
+      <a href="#">ニュース</a>
+    </nav>
+  </header>
+  <main>
+    <aside>
+      <a href="#">テクノロジー</a>
+      <a href="#">ビジネス</a>
+      <a href="#">エンタメ</a>
+    </aside>
+    <article>
+      <div>
+        <h2>デボン紀の生物「ダンクルオステウス」</h2>
+        <p>デボン紀は約4億年前に存在した古代の時代です。この時代には、さまざまな興味深い生物が生息していましたが、その中でも「ダンクルオステウス」は特に注目を集めました。</p>
+        <p>ダンクルオステウスは、全長10メートル以上にもなる巨大な魚類であり、強力な顎と鋭い歯を持っていました。その姿は、現代のサメにも似ていると言われています。</p>
+        <p>この生物は、古代の海において頂点に君臨し、その存在感は圧倒的でした。獲物を容赦なく捕食し、その巨大な体を活かして強力な捕食者としての地位を築きました。</p>
+        <p>ダンクルオステウスの化石は、世界各地で発見されており、その姿は研究者たちに多くの知見をもたらしています。この古代の生物の存在は、私たちに古代の地球の姿を垣間見る機会を与えてくれます。</p>
+      </div>
+      <div class="image-group">
+        <img src="G1.jpg" alt="ダンクルオステウスの画像">
+      </div>
+      <div class="buttons">
+        <button id="button1">＜</button>
+        <button id="button2">＞</button>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>© 2023 記事. All rights reserved.</p>
+  </footer>
+  <script>
+    const images = ["G1.jpg", "G2.jpg", "G3.jpg"];
+    let currentIndex = 0;
+    const imgElement = document.querySelector("img");
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    
+    imgElement.addEventListener("click", () => {
+      imgElement.classList.toggle("modal");
+    });
+    
+    button1.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      imgElement.src = images[currentIndex];
+    });
+    
+    button2.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      imgElement.src = images[currentIndex];
+    });
+  </script>
 </body>
 </html>
