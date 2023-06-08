@@ -1,3 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ビューポートの設定 -->
+  <style>
+    /* 共通のスタイル */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ヘッダー部のスタイル */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw; /* 幅はビューポートの100% */
+      height: 15vh; /* 高さはビューポートの15% */
+      background-color: darkgray; /* 背景色は濃いグレー */
+    }
+
+    header h1 {
+      color: white; /* ロゴは白色 */
+      font-size: 3rem; /* フォントサイズは3rem */
+    }
+
+    header nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 50%; /* 幅は50% */
+    }
+
+    header nav a {
+      color: blue; /* メニューは青色 */
+      font-size: 1.5rem; /* フォントサイズは1.5rem */
+      text-decoration: none; /* 下線を消す */
+    }
+
+    /* メイン部のスタイル */
+    main {
+      display: flex; /* 横並びにする */
+      width: 100vw; /* 幅はビューポートの100% */
+      height: 80vh; /* 高さはビューポートの80% */
+    }
+
+    /* 左・サイドバー部のスタイル */
+    aside {
+      width: 20vw; /* 幅はビューポートの20% */
+      height: 80vh; /* 高さはビューポートの80% */
+      background-color: lightgray; /* 背景色は薄いグレー */
+      position: fixed; /* 固定位置にする */
+    }
+
+    aside ul {
+      list-style-type: none; /* リストマーカーを消す */
+    }
+
+    aside ul li a {
+      display: block;
+      color: black; /* リンクは黒色 */
+      font-size: 1.2rem; /* フォントサイズは1.2rem */
+      text-decoration: none; /* 下線を消す */
+      padding: 10px; /* 内側の余白を10pxにする */
+    }
+
+    aside ul li a:hover {
+      background-color: gray; /* ホバー時に背景色をグレーにする */
+    }
+
+    aside ul li h3 {
+      color: black; /* カテゴリー名は黒色 */
+      font-size: 1.5rem; /* フォントサイズは1.5rem */
+      text-align: center; /* 中央揃え */
+      margin-top: 20px; /* 上側の余白を20pxにする */
+    }
+
+    /* メインコンテンツ部のスタイル */
+    section {
+      width: 80vw; /* 幅はビューポートの80% */
+      height: 80vh; /* 高さはビューポートの80% */
+      background-color: white; /* 背景色は白 */
+      margin-left: 20vw; /* 左側の余白を20vwにする（サイドバーと重ならないようにする）*/
+    }
+
+    section h2 {
+      color: black; /* タイトルは黒色 */
+      font-size: 2.5rem; /* フォントサイズは2.5rem */
+      text-align: center; /* 中央揃え */
+      margin-top: 20px; /* 上側の余白を20pxにする */
+    }
+
+    section p {
+      color: black; /* 本文は黒色 */
+      font-size: 1.2rem; /* フォントサイズは1.2rem */
+      text-align: justify; /* 両端揃え */
+      margin: 20px; /* 余白を20pxにする */
+    }
+
+    section .image-area {
+      display: flex; /* 横並びにする */
+      align-items: center;
+      justify-content: center;
+      width: 100%; /* 幅は100% */
+      height: 50vh; /* 高さはビューポートの50% */
+    }
+
+    section .image-area img {
+      max-width: 50vw; /* 最大幅はビューポートの50% */
+      height: auto; /* 高さは自動 */
+    }
+
+    section .image-area button {
+      width: 5vw; /* 幅はビューポートの5% */
+      height: 5vh; <!-- 高さはビューポートの5% -->
+      height: 5vh; /* 高さはビューポートの5% */
+      color: blue; /* ボタンは青色 */
+      font-size: 2rem; /* フォントサイズは2rem */
+      border: none; /* 枠線を消す */
+      background-color: transparent; /* 背景色を透明にする */
+    }
+
+    section .image-area button:hover {
+      cursor: pointer; /* ホバー時にカーソルをポインターにする */
+    }
+
+    /* フッター部のスタイル */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw; /* 幅はビューポートの100% */
+      height: 5vh; /* 高さはビューポートの5% */
+      background-color: darkgray; /* 背景色は濃いグレー */
+    }
+
+    footer p {
+      color: white; /* 情報とコピーライトは白色 */
+      font-size: 0.8rem; /* フォントサイズは0.8rem */
+    }
+
+    @media (max-width: 768px) { /* ビューポートの幅が768px以下になったら */
+
+      main {
+        flex-direction: column-reverse; /* 縦並びにして逆順にする（メインコンテンツが上、サイドバーが下）*/
+        height: auto; /* 高さを自動にする */
+        overflow-x: hidden; /* 横方向のスクロールバーを消す */
+      }
+
+      aside {
+        width: 100vw; /* 幅はビューポートの100%にする（横幅いっぱい）*/
+        height: auto; /* 高さを自動にする（リンクの数に合わせる）*/
+        overflow-x: hidden; /* 横方向のスクロールバーを消す */
+        overflow-y: auto; /* 縦方向のスクロールバーを必要なときだけ表示する */
+        padding-bottom: 10px; /* 下側の余白を10pxにする（フッターと離す）*/
+        position: relative; /* 固定位置でなくする */
+        margin-left: 0; <!-- 左側の余白を0にする -->
+      }
+
+      section {
+        width: 100vw; <!-- 幅はビューポートの100%にする（横幅いっぱい）-->
+        height: auto; <!-- 高さを自動にする（内容に合わせる）-->
+        overflow-x: hidden; <!-- 横方向のスクロールバーを消す -->
+        padding-top: 10px; <!-- 上側の余白を10pxにする（ヘッダーと離す）-->
+        padding-bottom: 10px;
         padding-bottom: 10px; /* 下側の余白を10pxにする（フッターと離す）*/
       }
 
