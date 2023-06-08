@@ -1,115 +1,178 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>デボン紀の驚異 - Dunkleosteus</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-        }
-        .header, .footer {
-            background-color: darkgrey;
-            color: white;
-            text-align: center;
-            padding: 2em 0;
-        }
-        .header {
-            height: 15vh;
-        }
-        .footer {
-            height: 5vh;
-        }
-        .main {
-            display: flex;
-            flex-grow: 1;
-        }
-        .sidebar {
-            width: 20vw;
-            background-color: lightgrey;
-            padding: 1em;
-        }
-        .content {
-            width: 80vw;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1em;
-        }
-        .image-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .image-button {
-            font-size: 2em;
-            margin: 1em;
-        }
-        @media (max-width: 768px) {
-            .main {
-                flex-direction: column;
-            }
-            .sidebar, .content {
-                width: 100vw;
-            }
-        }
-    </style>
-    <script>
-        let images = ['Dunkleosteus(1).jpg', 'Dunkleosteus(2).jpg', 'Dunkleosteus(3).jpg'];
-        let currentIndex = 0;
-        function changeImage(index) {
-            currentIndex = index;
-            document.getElementById('main-image').src = images[currentIndex];
-        }
-        function nextImage() {
-            let nextIndex = (currentIndex + 1) % images.length;
-            changeImage(nextIndex);
-        }
-        function prevImage() {
-            let prevIndex = (currentIndex - 1 + images.length) % images.length;
-            changeImage(prevIndex);
-        }
-        function readArticle() {
-            let articleText = document.getElementById('article').innerText;
-            let speech = new SpeechSynthesisUtterance(articleText);
-            window.speechSynthesis.speak(speech);
-        }
-    </script>
+        padding-bottom: 10px; /* 下側の余白を10pxにする（フッターと離す）*/
+      }
+
+      section h2 {
+        font-size: 2rem; /* フォントサイズは2remにする */
+      }
+
+      section p {
+        font-size: 1rem; /* フォントサイズは1remにする */
+      }
+
+      section .image-area {
+        height: auto; /* 高さを自動にする */
+      }
+
+      section .image-area img {
+        max-width: 70vw; /* 最大幅はビューポートの70%にする */
+      }
+
+      section .image-area button {
+        width: 10vw; /* 幅はビューポートの10%にする */
+        height: 10vh; /* 高さはビューポートの10%にする */
+        font-size: 3rem; /* フォントサイズは3remにする */
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀の驚異 - Dunkleosteus</h1>
-        <p>chatGPTが作成したサンプルWebページ</p>
-    </div>
-    <div class="main">
-        <div class="sidebar">
-            <p><a href="#">テクノロジー</a></p>
-            <p><a href="#">ビジネス</a></p>
-            <p><a href="#">エンタメ</a></p>
+  <!-- ヘッダー部 -->
+  <header>
+    <h1>ロゴ</h1>
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">検索</a>
+      <a href="#">ニュース</a>
+    </nav>
+  </header>
+
+  <!-- メイン部 -->
+  <main>
+    <!-- 左・サイドバー部 -->
+    <aside>
+      <ul>
+        <!-- カテゴリーとリンクの設定 -->
+        <li><h3>テクノロジー</h3></li>
+        <li><a href="T1.html">デボン紀の生き物たち</a></li>
+        <li><a href="T2.html">人工知能の最新動向</a></li>
+        <li><a href="T3.html">宇宙旅行の可能性と課題</a></li>
+
+        <li><h3>ビジネス</h3></li>
+        <li><a href="B1.html">コロナ禍で変わる経済環境</a></li>
+        <li><a href="B2.html">グローバル化のメリットとデメリット</a></li>
+        <li><a href="B3.html">起業家精神とは何か</a></li>
+
+        <li><h3>エンタメ</h3></li>
+        <li><a href="E1.html">映画『ジュラシック・ワールド』の感想</a></li>
+        <li><a href="E2.html">音楽『ハミルトン』の魅力と影響</a></li>
+        <li><a href="E3.html">漫画『進撃の巨人』の考察と解説</a></li>
+      </ul>
+    </aside>
+
+    <!-- メインコンテンツ部 -->
+    <section>
+      <!-- 記事エリア -->
+      <h2>記事</h2>
+      <p>記事本文</p>
+
+      <!-- 画像エリア -->
+      <div class="image-area">
+        <!-- ボタン1 -->
+        <button id="prev">＜</button>
+
+        <!-- 画像 -->
+        <img id="image" src="G1.jpg" alt="画像">
+
+        <!-- ボタン2 -->
+        <button id="next">＞</button>
+      </div>
+
+      <!-- モーダル表示用の要素（最初は非表示）-->
+      <div id="modal" style="display: none;">
+        <!-- モーダルの背景 -->
+        <div id="modal-bg"></div>
+
+        <!-- モーダルの内容 -->
+        <div id="modal-content">
+          <!-- モーダルの画像 -->
+          <img id="modal-image" src="" alt="">
+
+          <!-- モーダルを閉じるボタン -->
+          <span id="close">×<span>
         </div>
-        <div class="content">
-            <div id="article" onclick="readArticle()">
-                <h2>デボン紀の恐竜 - Dunkleosteus</h2>
-                <p>
-                    デボン紀、海の覇者Dunkleosteusの存在をご存知でしょうか。その巨体と恐ろしい顎は、海の中で絶対的な存在でした。
-                    その姿は、まさに鎧をまとった戦士のよう。今日、我々はその化石を手にすることで、古代の海の生態系を垣間見ることができます。
-                    Dunkleosteusは、まさにデボン紀の海を支配した恐怖の化身でした。
-                </p>
-            </div>
-            <div class="image-section">
-                <button class="image-button" onclick="prevImage()">&lt;</button>
-                <img id="main-image" src="Dunkleosteus(1).jpg" style="width: 70vw; height: 50vh; object-fit: contain;" onclick="this.classList.toggle('expanded')">
-                <button class="image-button" onclick="nextImage()">&gt;</button>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <p>© 2023 記事. All rights reserved. This page is released under the MIT License and is to be used at the user's own risk.</p>
-    </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- フッター部 -->
+  <footer>
+    <p>© 2023 記事. All rights reserved.</p>
+  </footer>
+
+  <!-- スクリプト1とスクリプト2を実装するJavaScriptコード -->
+  <script>
+    // スクリプト1：画像をクリックしたときにモーダル表示で拡大する機能
+
+    // モーダル表示用の要素を取得
+    var modal = document.getElementById("modal");
+    var modalBg = document.getElementById("modal-bg");
+    var modalContent = document.getElementById("modal-content");
+    var modalImage = document.getElementById("modal-image");
+    var close = document.getElementById("close");
+
+    // 画像エリアの要素を取得
+    var image = document.getElementById("image");
+
+    // 画像をクリックしたときの処理
+    image.onclick = function() {
+      // モーダル表示用の要素を表示する
+      modal.style.display = "block";
+
+      // クリックした画像と同じ画像をモーダルの画像に設定する
+      modalImage.src = this.src;
+
+      // モーダルの画像の高さを画面の高さに合わせて調整する
+      modalImage.style.height = window.innerHeight + "px";
+    }
+
+    // モーダルを閉じるボタンをクリックしたときの処理
+    close.onclick = function() {
+      // モーダル表示用の要素を非表示にする
+      modal.style.display = "none";
+    }
+
+    // モーダルの背景をクリックしたときの処理
+    modalBg.onclick = function() {
+      // モーダル表示用の要素を非表示にする
+      modal.style.display = "none";
+    }
+
+    // スクリプト2：ボタンをクリックしたときに画像を切り替える機能
+
+    // 画像エリアの要素を取得
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+
+    // 画像ファイルの配列を作成
+    var images = ["G1.jpg", "G2.jpg", "G3.jpg"];
+
+    // 現在表示している画像のインデックスを保持する変数（最初は0）
+    var index = 0;
+
+    // ボタン1をクリックしたときの処理
+    prev.onclick = function() {
+      // インデックスを1減らす（最小値は0）
+      index--;
+      if (index < 0) {
+        index = images.length - 1;
+      }
+
+      // インデックスに対応する画像ファイルを画像エリアに設定する
+      image.src = images[index];
+    }
+
+    // ボタン2をクリックしたときの処理
+    next.onclick = function() {
+      // インデックスを1増やす（最大値は配列の長さ-1）
+      index++;
+      if (index > images.length - 1) {
+        index = 0;
+      }
+
+      // インデックスに対応する画像ファイルを画像エリアに設定する
+      image.src = images[index];
+    }
+  </script>
 </body>
 </html>
