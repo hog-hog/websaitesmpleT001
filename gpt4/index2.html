@@ -1,174 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>デボン紀の巨大肉食魚、ダンクルオステウスの驚異</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    #header {
-      width: 100vw;
-      height: 15vh;
-      background-color: darkgray;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-    }
-
-    #sidebar {
-      position: fixed;
-      width: 20vw;
-      height: 80vh;
-      background-color: lightgray;
-    }
-
-    #main-content {
-      width: 80vw;
-      height: 80vh;
-      background-color: white;
-      margin-left: 20vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #footer {
-      width: 100vw;
-      height: 5vh;
-      background-color: darkgray;
-      position: fixed;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
-
-    #article {
-      width: 70vw;
-      height: 30vh;
-      background-color: white;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    #image-container {
-      width: 50vw;
-      height: 50vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #image {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    @media only screen and (max-width: 768px) {
-      #sidebar {
-        position: static;
-        width: 100vw;
-      }
-
-      #main-content {
-        width: 100vw;
-        margin-left: 0;
-      }
-
-      #article {
-        width: 100vw;
-      }
-
-      #image-container {
-        width: 70vw;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デボン紀の大量絶滅</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+        }
+        header h1, header h2 {
+            margin: 0;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 16px;
+        }
+        main {
+            display: flex;
+        }
+        #sidebar {
+            background-color: #f4f4f4;
+            width: 25vw;
+            height: calc(100vh - 60px);
+            padding: 16px;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #sidebar li a {
+            color: black;
+            text-decoration: none;
+        }
+        #main-content {
+            width: 75vw;
+            padding: 16px;
+        }
+        #main-content article {
+            width: 60vw;
+        }
+        #main-content figure {
+            width: 60vw;
+            display:flex; 
+            justify-content:center; 
+            align-items:center
+        }
+        #main-content figure img{
+          max-width:100%;
+          height:auto
+        }
+        
+        footer{
+          background-color:#333; 
+          color:white; 
+          text-align:center; 
+          padding-top:12px; 
+          padding-bottom:12px
+        }
+        
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 100vw;
+                order: 1;
+            }
+            #main-content {
+                width: 100vw;
+            }
+            #main-content article {
+                width: 100vw;
+            }
+            #main-content figure {
+                width: 70vw;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div id="header">
-    <h1>デボン紀の巨大肉食魚、ダンクルオステウスの驚異</h1>
-    <p>chatGPTが作成したWebページ</p>
-  </div>
+    <header>
+        <h1>デボン紀の大量絶滅</h1>
+        <h2>chatGPTが作成したWebページ</h2>
+        <nav>
+            <a href="#">ホーム</a>
+            <a href="#">検索</a>
+            <a href="#">ニュース</a>
+        </nav>
+    </header>
+    <main>
+        <aside id="sidebar">
+            <ul>
+                <li><a href="#">テクノロジー</a></li>
+                <li><a href="#">ビジネス</a></li>
+                <li><a href="#">エンタメ</a></li>
+                <li><a href="#">スポーツ</a></li>
+                <li><a href="#">健康</a></li>
+                <li><a href="#">科学</a></li>
+                <li><a href="#">歴史</a></li>
+                <li><a href="#">旅行</a></li>
+                <li><a href="#">料理</a></li>
+                <li><a href="#">ファッション</a></li>
+                <li><a href="#">美容</a></li>
+                <li><a href="#">ペット</a></li>
+                <li><a href="#">趣味</a></li>
+                <li><a href="#">その他</a></li>                
+             </ul>   
+         </aside>   
+         <div id="main-content">
+             <article>   
+                 <h3>デボン紀の大量絶滅とその原因について</h3>   
+                 <p>地球史上2回目の生物大量絶滅が、大規模火山の噴火で起きたことを突き止めた、と東北大学などの研究グループが発表した。動植物が陸に進出した古生代「後期デボン紀」の約3億8000万～3億6000万年前に起きたもので、高温でできる有機分子を決め手とする独自の手法を用いた。[^1^][1]</p>
+             </article>   
+             <figure>   
+                 <button id="prev-button">＜</button>   
+                 <img src="Dunkleosteus(1).jpg" alt="Dunkleosteus">   
+                 <button id="next-button">＞</button>   
+             </figure>   
+         </div>   
+     </main>   
+     <footer><p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p></footer>
+    <script>
+      const synth = window.speechSynthesis;
+      const article = document.querySelector('article');
+      article.addEventListener('click', () => {
+          const utterance = new SpeechSynthesisUtterance(article.textContent);
+          synth.speak(utterance);
+      });
 
-  <div id="sidebar">
-    <ul>
-      <li>テクノロジー</li>
-      <li>ビジネス</li>
-      <li>エンタメ</li>
-    </ul>
-  </div>
+      const images = ['Dunkleosteus(1).jpg', 'Dunkleosteus(2).jpg', 'Dunkleosteus(3).jpg'];
+      let currentImageIndex = 0;
+      const imageElement = document.querySelector('img');
+      const prevButton = document.querySelector('#prev-button');
+      const nextButton = document.querySelector('#next-button');
 
-  <div id="main-content">
-    <div id="article">
-      <h2>デボン紀の海の支配者、ダンクルオステウス</h2>
-      <p>約3億6千万年前のデボン紀、地球上の海洋は巨大な肉食魚ダンクルオステウスによって支配されていました。体長約10メートルにも及ぶこの魚は、その強力な顎と鋭い歯で他の海洋生物を捕食し、彼の時代の海の頂点に君臨していました。ダンクルオステウスは頭部がほとんど骨質化しており、その頭部の形状からはその凶暴さが窺えます。</p>
-    </div>
+      prevButton.addEventListener('click', () => {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          imageElement.src = images[currentImageIndex];
+      });
 
-    <div id="image-container">
-      <button id="prev-button">＜</button>
-      <img id="image" src="Dunkleosteus(1).jpg" alt="Dunkleosteus image 1">
-      <button id="next-button">＞</button>
-    </div>
-  </div>
+      nextButton.addEventListener('click', () => {
+          currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
+          imageElement.src = images[currentImageIndex];
+      });
 
-  <div id="footer">
-    <p>このページはMITライセンスで公開されており、利用は自己責任です。</p>
-  </div>
+      imageElement.addEventListener('click', () => {
+          const modalElement = document.createElement('div');
+          modalElement.style.position = 'fixed';
+          modalElement.style.top = '0';
+          modalElement.style.left = '0';
+          modalElement.style.width = '100vw';
+          modalElement.style.height = '100vh';
+          modalElement.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+          modalElement.style.display = 'flex';
+          modalElement.style.justifyContent = 'center';
+          modalElement.style.alignItems = 'center';
 
-  <script>
-    const article = document.getElementById('article');
-    const image = document.getElementById('image');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-    const images = ['Dunkleosteus(1).jpg', 'Dunkleosteus(2).jpg', 'Dunkleosteus(3).jpg'];
-    let imageIndex = 0;
+          const modalImageElement = document.createElement('img');
+          modalImageElement.src = imageElement.src;
+          modalImageElement.style.maxWidth = '90%';
+          modalImageElement.style.maxHeight = '90%';
+          modalImageElement.style.objectFit = 'contain';
 
-    article.addEventListener('click', () => {
-      const utterance = new SpeechSynthesisUtterance(article.textContent);
-      window.speechSynthesis.speak(utterance);
-    });
+          modalElement.appendChild(modalImageElement);
+          document.body.appendChild(modalElement);
 
-    image.addEventListener('click', () => {
-      const modalImage = new Image();
-      modalImage.src = image.src;
-      modalImage.style.maxHeight = '100vh';
-      modalImage.style.objectFit = 'contain';
-      const modal = document.createElement('div');
-      modal.style.position = 'fixed';
-      modal.style.zIndex = '9999';
-      modal.style.left = '0';
-      modal.style.top = '0';
-      modal.style.width = '100vw';
-      modal.style.height = '100vh';
-      modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-      modal.style.display = 'flex';
-      modal.style.justifyContent = 'center';
-      modal.style.alignItems = 'center';
-      modal.appendChild(modalImage);
-      document.body.appendChild(modal);
-      modal.addEventListener('click', () => document.body.removeChild(modal));
-    });
-
-    prevButton.addEventListener('click', () => {
-      imageIndex = (imageIndex - 1 + images.length) % images.length;
-      image.src = images[imageIndex];
-    });
-
-    nextButton.addEventListener('click', () => {
-      imageIndex = (imageIndex + 1) % images.length;
-      image.src = images[imageIndex];
-    });
-  </script>
+          modalElement.addEventListener('click', () => {
+              document.body.removeChild(modalElement);
+          });
+      });
+    </script>
 </body>
 </html>
