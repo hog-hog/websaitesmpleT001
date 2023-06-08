@@ -1,345 +1,242 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ビューポートの設定 -->
-  <style>
-    /* 共通のスタイル */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* ヘッダー部のスタイル */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100vw; /* 幅はビューポートの100% */
-      height: 15vh; /* 高さはビューポートの15% */
-      background-color: darkgray; /* 背景色は濃いグレー */
-    }
-
-    header h1 {
-      color: white; /* ロゴは白色 */
-      font-size: 3rem; /* フォントサイズは3rem */
-    }
-
-    header nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      width: 50%; /* 幅は50% */
-    }
-
-    header nav a {
-      color: blue; /* メニューは青色 */
-      font-size: 1.5rem; /* フォントサイズは1.5rem */
-      text-decoration: none; /* 下線を消す */
-    }
-
-    /* メイン部のスタイル */
-    main {
-      display: flex; /* 横並びにする */
-      width: 100vw; /* 幅はビューポートの100% */
-      height: 80vh; /* 高さはビューポートの80% */
-    }
-
-    /* 左・サイドバー部のスタイル */
-    aside {
-      width: 20vw; /* 幅はビューポートの20% */
-      height: 80vh; /* 高さはビューポートの80% */
-      background-color: lightgray; /* 背景色は薄いグレー */
-      position: fixed; /* 固定位置にする */
-    }
-
-    aside ul {
-      list-style-type: none; /* リストマーカーを消す */
-    }
-
-    aside ul li a {
-      display: block;
-      color: black; /* リンクは黒色 */
-      font-size: 1.2rem; /* フォントサイズは1.2rem */
-      text-decoration: none; /* 下線を消す */
-      padding: 10px; /* 内側の余白を10pxにする */
-    }
-
-    aside ul li a:hover {
-      background-color: gray; /* ホバー時に背景色をグレーにする */
-    }
-
-    aside ul li h3 {
-      color: black; /* カテゴリー名は黒色 */
-      font-size: 1.5rem; /* フォントサイズは1.5rem */
-      text-align: center; /* 中央揃え */
-      margin-top: 20px; /* 上側の余白を20pxにする */
-    }
-
-    /* メインコンテンツ部のスタイル */
-    section {
-      width: 80vw; /* 幅はビューポートの80% */
-      height: 80vh; /* 高さはビューポートの80% */
-      background-color: white; /* 背景色は白 */
-      margin-left: 20vw; /* 左側の余白を20vwにする（サイドバーと重ならないようにする）*/
-    }
-
-    section h2 {
-      color: black; /* タイトルは黒色 */
-      font-size: 2.5rem; /* フォントサイズは2.5rem */
-      text-align: center; /* 中央揃え */
-      margin-top: 20px; /* 上側の余白を20pxにする */
-    }
-
-    section p {
-      color: black; /* 本文は黒色 */
-      font-size: 1.2rem; /* フォントサイズは1.2rem */
-      text-align: justify; /* 両端揃え */
-      margin: 20px; /* 余白を20pxにする */
-    }
-
-    section .image-area {
-      display: flex; /* 横並びにする */
-      align-items: center;
-      justify-content: center;
-      width: 100%; /* 幅は100% */
-      height: 50vh; /* 高さはビューポートの50% */
-    }
-
-    section .image-area img {
-      max-width: 50vw; /* 最大幅はビューポートの50% */
-      height: auto; /* 高さは自動 */
-    }
-
-    section .image-area button {
-      width: 5vw; /* 幅はビューポートの5% */
-      height: 5vh; <!-- 高さはビューポートの5% -->
-      height: 5vh; /* 高さはビューポートの5% */
-      color: blue; /* ボタンは青色 */
-      font-size: 2rem; /* フォントサイズは2rem */
-      border: none; /* 枠線を消す */
-      background-color: transparent; /* 背景色を透明にする */
-    }
-
-    section .image-area button:hover {
-      cursor: pointer; /* ホバー時にカーソルをポインターにする */
-    }
-
-    /* フッター部のスタイル */
-    footer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100vw; /* 幅はビューポートの100% */
-      height: 5vh; /* 高さはビューポートの5% */
-      background-color: darkgray; /* 背景色は濃いグレー */
-    }
-
-    footer p {
-      color: white; /* 情報とコピーライトは白色 */
-      font-size: 0.8rem; /* フォントサイズは0.8rem */
-    }
-
-    @media (max-width: 768px) { /* ビューポートの幅が768px以下になったら */
-
-      main {
-        flex-direction: column-reverse; /* 縦並びにして逆順にする（メインコンテンツが上、サイドバーが下）*/
-        height: auto; /* 高さを自動にする */
-        overflow-x: hidden; /* 横方向のスクロールバーを消す */
-      }
-
-      aside {
-        width: 100vw; /* 幅はビューポートの100%にする（横幅いっぱい）*/
-        height: auto; /* 高さを自動にする（リンクの数に合わせる）*/
-        overflow-x: hidden; /* 横方向のスクロールバーを消す */
-        overflow-y: auto; /* 縦方向のスクロールバーを必要なときだけ表示する */
-        padding-bottom: 10px; /* 下側の余白を10pxにする（フッターと離す）*/
-        position: relative; /* 固定位置でなくする */
-        margin-left: 0; <!-- 左側の余白を0にする -->
-      }
-
-      section {
-        width: 100vw; <!-- 幅はビューポートの100%にする（横幅いっぱい）-->
-        height: auto; <!-- 高さを自動にする（内容に合わせる）-->
-        overflow-x: hidden; <!-- 横方向のスクロールバーを消す -->
-        padding-top: 10px; <!-- 上側の余白を10pxにする（ヘッダーと離す）-->
-        padding-bottom: 10px;
-        padding-bottom: 10px; /* 下側の余白を10pxにする（フッターと離す）*/
-      }
-
-      section h2 {
-        font-size: 2rem; /* フォントサイズは2remにする */
-      }
-
-      section p {
-        font-size: 1rem; /* フォントサイズは1remにする */
-      }
-
-      section .image-area {
-        height: auto; /* 高さを自動にする */
-      }
-
-      section .image-area img {
-        max-width: 70vw; /* 最大幅はビューポートの70%にする */
-      }
-
-      section .image-area button {
-        width: 10vw; /* 幅はビューポートの10%にする */
-        height: 10vh; /* 高さはビューポートの10%にする */
-        font-size: 3rem; /* フォントサイズは3remにする */
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webページ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
+        }
+        header h1 {
+            color: white;
+            margin-right: auto;
+            margin-left: 20px;
+        }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            margin-right: 20px;
+        }
+        header nav ul li a {
+            color: blue;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+        }
+        aside {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+        }
+        aside ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        aside ul li a {
+            color:black;
+            text-decoration:none;
+        }
+        .main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color:white; 
+        }
+        .main-content h2{
+          text-align:center; 
+          margin-top:20px; 
+          font-size:24px; 
+          color:black; 
+        }
+        .main-content p{
+          text-align:center; 
+          margin-top:20px; 
+          font-size:16px; 
+          color:black; 
+          width:70vw; 
+          margin-left:auto; 
+          margin-right:auto; 
+        }
+        
+        .image-area{
+          display:flex; 
+          justify-content:center; 
+          align-items:center; 
+          margin-top:auto; 
+          margin-bottom:auto;
+                  }
+        .image-area img{
+          width:50vw; 
+          height:50vh; 
+          object-fit:contain; 
+        }
+        .image-area button{
+          width:5vw; 
+          height:5vh; 
+          font-size:24px; 
+          color:blue; 
+          background-color:white; 
+          border:none;
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 5vh;
+            background-color: darkgray;
+        }
+        footer p {
+            color: white;
+            font-size: 12px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content img{
+          width:100%; 
+          height:auto; 
+          object-fit:contain; 
+        }
+        .close {
+            color:white; 
+            position:absolute; 
+            top:-20px; 
+            right:-20px; 
+            font-size:28px; 
+        }
+        
+        @media screen and (max-width:768px){
+          aside{
+              display:none; 
+          }
+          .main-content{
+              width:100vw; 
+          }
+          .main-content p{
+              width:100vw; 
+          }
+          .image-area img{
+              width:70vw; 
+          }
+          
+        }
+    </style>
 </head>
 <body>
-  <!-- ヘッダー部 -->
-  <header>
-    <h1>ロゴ</h1>
-    <nav>
-      <a href="#">ホーム</a>
-      <a href="#">検索</a>
-      <a href="#">ニュース</a>
-    </nav>
-  </header>
-
-  <!-- メイン部 -->
-  <main>
-    <!-- 左・サイドバー部 -->
-    <aside>
-      <ul>
-        <!-- カテゴリーとリンクの設定 -->
-        <li><h3>テクノロジー</h3></li>
-        <li><a href="T1.html">デボン紀の生き物たち</a></li>
-        <li><a href="T2.html">人工知能の最新動向</a></li>
-        <li><a href="T3.html">宇宙旅行の可能性と課題</a></li>
-
-        <li><h3>ビジネス</h3></li>
-        <li><a href="B1.html">コロナ禍で変わる経済環境</a></li>
-        <li><a href="B2.html">グローバル化のメリットとデメリット</a></li>
-        <li><a href="B3.html">起業家精神とは何か</a></li>
-
-        <li><h3>エンタメ</h3></li>
-        <li><a href="E1.html">映画『ジュラシック・ワールド』の感想</a></li>
-        <li><a href="E2.html">音楽『ハミルトン』の魅力と影響</a></li>
-        <li><a href="E3.html">漫画『進撃の巨人』の考察と解説</a></li>
-      </ul>
-    </aside>
-
-    <!-- メインコンテンツ部 -->
-    <section>
-      <!-- 記事エリア -->
-      <h2>記事</h2>
-      <p>記事本文</p>
-
-      <!-- 画像エリア -->
-      <div class="image-area">
-        <!-- ボタン1 -->
-        <button id="prev">＜</button>
-
-        <!-- 画像 -->
-        <img id="image" src="G1.jpg" alt="画像">
-
-        <!-- ボタン2 -->
-        <button id="next">＞</button>
+    <header>
+        <h1>ロゴ</h1>
+        <nav>
+            <ul>
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">検索</a></li>
+                <li><a href="#">ニュース</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">その他</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside>
+           <ul>
+               <li><a href="#">テクノロジー</a></li>
+               <li><a href="#">ビジネス</a></li>
+               <li><a href="#">エンタメ</a></li>
+               <li><a href="#">スポーツ</a></li>
+               <li><a href="#">ライフスタイル</a></li>
+           </ul>  
+       </aside>  
+       <div class="main-content">
+           <h2>記事</h2>  
+           <p>記事本文</p>  
+           <div class="image-area">
+               <button id="prevBtn">＜</button>  
+               <img src="Dunkleosteus(1).jpg" alt="画像" id="currentImg">  
+               <button id="nextBtn">＞</button>  
+           </div>  
+       </div>  
+    </main>  
+    <footer>
+       <p>© 2023 記事. All rights reserved.</p>  
+    </footer>  
+    
+    <!-- モーダル -->
+    <div id="myModal" class="modal">
+      <!-- モーダルコンテンツ -->
+      <div class="modal-content">
+         <span class="close">×</span>  
+         <img src="" alt="" id="modalImg">  
       </div>
 
-      <!-- モーダル表示用の要素（最初は非表示）-->
-      <div id="modal" style="display: none;">
-        <!-- モーダルの背景 -->
-        <div id="modal-bg"></div>
+    </div>
 
-        <!-- モーダルの内容 -->
-        <div id="modal-content">
-          <!-- モーダルの画像 -->
-          <img id="modal-image" src="" alt="">
+    <!-- スクリプト -->
+    <script>
 
-          <!-- モーダルを閉じるボタン -->
-          <span id="close">×<span>
-        </div>
-      </div>
-
-    </section>
-  </main>
-
-  <!-- フッター部 -->
-  <footer>
-    <p>© 2023 記事. All rights reserved.</p>
-  </footer>
-
-  <!-- スクリプト1とスクリプト2を実装するJavaScriptコード -->
-  <script>
-    // スクリプト1：画像をクリックしたときにモーダル表示で拡大する機能
-
-    // モーダル表示用の要素を取得
-    var modal = document.getElementById("modal");
-    var modalBg = document.getElementById("modal-bg");
-    var modalContent = document.getElementById("modal-content");
-    var modalImage = document.getElementById("modal-image");
-    var close = document.getElementById("close");
-
-    // 画像エリアの要素を取得
-    var image = document.getElementById("image");
-
-    // 画像をクリックしたときの処理
-    image.onclick = function() {
-      // モーダル表示用の要素を表示する
-      modal.style.display = "block";
-
-      // クリックした画像と同じ画像をモーダルの画像に設定する
-      modalImage.src = this.src;
-
-      // モーダルの画像の高さを画面の高さに合わせて調整する
-      modalImage.style.height = window.innerHeight + "px";
-    }
-
-    // モーダルを閉じるボタンをクリックしたときの処理
-    close.onclick = function() {
-      // モーダル表示用の要素を非表示にする
-      modal.style.display = "none";
-    }
-
-    // モーダルの背景をクリックしたときの処理
-    modalBg.onclick = function() {
-      // モーダル表示用の要素を非表示にする
-      modal.style.display = "none";
-    }
-
-    // スクリプト2：ボタンをクリックしたときに画像を切り替える機能
-
-    // 画像エリアの要素を取得
-    var prev = document.getElementById("prev");
-    var next = document.getElementById("next");
-
-    // 画像ファイルの配列を作成
-    var images = ["G1.jpg", "G2.jpg", "G3.jpg"];
-
-    // 現在表示している画像のインデックスを保持する変数（最初は0）
-    var index = 0;
-
-    // ボタン1をクリックしたときの処理
-    prev.onclick = function() {
-      // インデックスを1減らす（最小値は0）
-      index--;
-      if (index < 0) {
-        index = images.length - 1;
+      // モーダル
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("modalImg");
+      var currentImg = document.getElementById("currentImg");
+      currentImg.onclick = function(){
+         modal.style.display = "block";
+         modalImg.src = this.src;
       }
 
-      // インデックスに対応する画像ファイルを画像エリアに設定する
-      image.src = images[index];
-    }
-
-    // ボタン2をクリックしたときの処理
-    next.onclick = function() {
-      // インデックスを1増やす（最大値は配列の長さ-1）
-      index++;
-      if (index > images.length - 1) {
-        index = 0;
+      var span = document.getElementsByClassName("close")[0];
+      span.onclick = function() { 
+         modal.style.display = "none";
       }
 
-      // インデックスに対応する画像ファイルを画像エリアに設定する
-      image.src = images[index];
-    }
-  </script>
+      // スライドショー
+      var images = ["Dunkleosteus(1).jpg","Dunkleosteus(2).jpg","Dunkleosteus(3).jpg"];
+      var currentImgIndex = 0;
+      var prevBtn = document.getElementById("prevBtn");
+      var nextBtn = document.getElementById("nextBtn");
+      prevBtn.onclick = function(){
+         currentImgIndex--;
+         if(currentImgIndex < 0){
+            currentImgIndex = images.length - 1;
+         }
+         currentImg.src = images[currentImgIndex];
+      }
+      nextBtn.onclick = function(){
+         currentImgIndex++;
+         if(currentImgIndex > images.length - 1){
+            currentImgIndex = 0;
+         }
+         currentImg.src = images[currentImgIndex];
+      }
+
+    </script>
 </body>
 </html>
