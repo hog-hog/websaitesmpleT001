@@ -1,105 +1,220 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Webサイトのサンプル</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        .header, .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2%;
-        }
-        .header-subtitle {
-            color: black;
-            font-size: 12px;
-        }
-        .menu {
-            color: blue;
-            font-size: 14px;
-        }
-        .sidebar, .main-content {
-            height: 80vh;
-        }
-        .sidebar {
-            background: lightgray;
-            width: 20vw;
-            padding: 2%;
-        }
-        .main-content {
-            background: white;
-            width: 80vw;
-            padding: 2%;
-        }
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2%;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar, .main-content {
-                width: 100vw;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デボン紀のニュース</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 15vh;
+      background-color: darkgray;
+    }
+    header h1 {
+      color: white;
+      margin: 0;
+    }
+    header h2 {
+      color: black;
+      margin: 0;
+    }
+    header nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    header nav ul li {
+      color: blue;
+      margin-right: 10px;
+    }
+    main {
+      display: flex;
+    }
+    #sidebar {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+    }
+    #sidebar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #sidebar ul li {
+      color:black
+    }
+    #main-content {
+      width: 80vw;
+      height: 80vh;
+      background-color:white
+    }
+    #main-content article {
+        width:70vw; 
+        height:30vh; 
+        background-color:white; 
+        text-align:center
+     }
+     #main-content article h3{
+         color:black
+     }
+     #main-content article p{
+         color:black
+     }
+     #main-content .image-area{
+         display:flex; 
+         justify-content:center; 
+         align-items:center
+     }
+     #main-content .image-area img{
+         width:50vw; 
+         height:auto
+     }
+     #main-content .image-area button{
+         width:5vw; 
+         height:auto; 
+         color:white; 
+         background-color:#0000FF
+     }
+     
+     footer{
+        display:flex; 
+        justify-content:center; 
+        align-items:center; 
+        width:100vw; 
+        height:5vh; 
+        background-color:#A9A9A9
+     }
+     
+     footer p{
+         color:white
+     }
+
+     
+     @media screen and (max-width :768px){
+       main{
+           flex-direction :column
+       }  
+       #sidebar{
+           width :100vw
+       }  
+       #main-content{
+           width :100vw
+       }  
+       #main-content article{
+           width :100vw
+       }  
+       #main-content .image-area img{
+           width :70vw
+       }  
+
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀の海洋生物について</h1>
-        <p class="header-subtitle">ChatGPTによるサンプルWebページ</p>
-        <p class="menu">ホーム | 検索 | ニュース</p>
-    </div>
-    <div class="sidebar">
-        <p>リンク: テクノロジー | ビジネス | エンタメ</p>
-    </div>
-    <div class="main-content">
-        <div class="article">
-            <h2>デボン紀の海洋生物: Dunkleosteus</h2>
-            <p id="article">ここにデボン紀に生息していた海洋生物に関する記事の本文が表示されます。</p>
-        </div>
-        <div class="image-area">
-            <button id="prev">＜</button>
-            <img id="image" src="image1.jpg" alt="画像1">
-            <button id="next">＞</button>
-        </div>
-    </div>
-    <div class="footer">
-        <p>© 2023 Article. All rights reserved.</p>
-    </div>
-    <script>
-        const article = document.querySelector("#article");
-        const prevBtn = document.querySelector("#prev");
-        const nextBtn = document.querySelector("#next");
-        const img = document.querySelector("#image");
-        const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
-        let imgIndex = 0;
+<header>
+<h1>デボン紀のニュース</h1>
+<h2>chatGPTが作成したサンプルWebページ</h2>
+<nav>
+<ul>
+<li>ホーム</li>
+<li>検索</li>
+<li>ニュース</li>
+</ul>
+</nav>
+</header>
 
-        article.addEventListener("click", () => {
-            const speech = new SpeechSynthesisUtterance(article.textContent);
-            window.speechSynthesis.speak(speech);
-        });
+<main>
 
-        prevBtn.addEventListener("click", () => {
-            imgIndex--;
-            if (imgIndex < 0) imgIndex = images.length - 1;
-            img.src = images[imgIndex];
-        });
+<div id="sidebar">
+<ul>
+<li>テクノロジー</li>
+<li>ビジネス</li>
+<li>エンタメ</li>
+</ul>
 
-        nextBtn.addEventListener("click", () => {
-            imgIndex++;
-            if (imgIndex >= images.length) imgIndex = 0;
-            img.src = images[imgIndex];
-        });
-    </script>
+</div>
+
+<div id="main-content">
+<article>
+<h3>デボン紀のニュース</h3>
+<p>デボン紀には、様々な生物が存在していました。その中でも、ダンクルオステウスは、最も強い捕食者の一つでした。この魚は、体長が10メートルを超え、鋭い歯を持っていました。その強さから、他の生物にとって脅威でした。</p>
+</article>
+
+<div class="image-area">
+<button id="prev-button">＜</button>
+<img src="Dunkleosteus(1).jpg" alt="Dunkleosteus">
+<button id="next-button">＞</button>
+</div>
+
+</div>
+
+</main>
+
+<footer>
+<p>© 2023 記事. All rights reserved.</p>
+</footer>
+
+<script>
+let images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
+let currentImageIndex = 0;
+let imageElement = document.querySelector("#main-content .image-area img");
+let prevButton = document.querySelector("#prev-button");
+let nextButton = document.querySelector("#next-button");
+
+prevButton.addEventListener("click", () => {
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.length - 1;
+  }
+  imageElement.src = images[currentImageIndex];
+});
+
+nextButton.addEventListener("click", () => {
+  currentImageIndex++;
+  if (currentImageIndex >= images.length) {
+    currentImageIndex = 0;
+  }
+  imageElement.src = images[currentImageIndex];
+});
+
+imageElement.addEventListener("click", () => {
+  let modalElement = document.createElement("div");
+  modalElement.style.position = "fixed";
+  modalElement.style.top = "0";
+  modalElement.style.left = "0";
+  modalElement.style.width = "100vw";
+  modalElement.style.height = "100vh";
+  modalElement.style.backgroundColor = "rgba(0,0,0,0.5)";
+  modalElement.style.display = "flex";
+  modalElement.style.justifyContent = "center";
+  modalElement.style.alignItems = "center";
+
+  let modalImageElement = document.createElement("img");
+  modalImageElement.src = imageElement.src;
+  modalImageElement.style.maxHeight = "80vh";
+
+modalElement.appendChild(modalImageElement);
+document.body.appendChild(modalElement);
+
+modalElement.addEventListener("click", () => {
+document.body.removeChild(modalElement);
+});
+});
+
+let articleText=document.querySelector("#main-content article p").textContent
+document.querySelector("#main-content article").addEventListener("click",()=>{
+let msg=new SpeechSynthesisUtterance(articleText)
+window.speechSynthesis.speak(msg)
+})
+
+</script>
 </body>
 </html>
