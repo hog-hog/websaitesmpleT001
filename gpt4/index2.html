@@ -1,124 +1,229 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>Devonian Times - chatGPTが作成したサンプルWebページ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debonian Chronicle | ChatGPT制作サンプルWebページ</title>
     <style>
+        /* Basic layout */
         body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
+            padding: 0;
         }
-        header, footer {
-            background-color: darkgrey;
-            color: white;
-            height: 15vh;
+
+        /* Header */
+        #header {
             width: 100vw;
+            height: 15vh;
+            background-color: darkgrey;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Main section */
+        #main {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
-            flex-shrink: 0;
-            text-align: center;
         }
-        footer {
-            height: 5vh;
-        }
-        main {
-            display: flex;
-            background-color: white;
-            width: 80vw;
-            height: 70vh;
-            justify-content: center;
-        }
-        aside {
-            background-color: lightgrey;
+
+        /* Sidebar */
+        #sidebar {
             width: 20vw;
-            height: 70vh;
-            padding: 2vh;
-            box-sizing: border-box;
-        }
-        .content {
+            height: 80vh;
+            background-color: lightgrey;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
-        img {
-            max-width: 50vw;
-            max-height: 50vh;
-            object-fit: contain;
+
+        /* Content */
+        #content {
+            width: 80vw;
+            height: 80vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* Article */
+        #article {
+            width: 70vw;
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* Image gallery */
+        #image-gallery {
+            width: 70vw;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Gallery buttons */
+        .gallery-btn {
+            width: 5vw;
+            height: 5vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* Image */
+        #gallery-image {
+            width: 50vw;
+            height: 50vh;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        #footer {
+            width: 100vw;
+            height: 5vh;
+            background-color: darkgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* Responsive layout */
         @media (max-width: 768px) {
-            main {
+            /* Main section */
+            #main {
                 flex-direction: column;
-                align-items: center;
             }
-            aside {
+
+            /* Sidebar */
+            #sidebar {
                 width: 100vw;
-                height: auto;
+                height: 20vh;
             }
-            img {
-                max-width: 70vw;
+
+            /* Content */
+            #content {
+                width: 100vw;
+                height: 60vh;
+            }
+
+            /* Article */
+            #article {
+                width: 100vw;
+            }
+
+            /* Image gallery */
+            #image-gallery {
+                width: 100vw;
+            }
+
+            /* Gallery buttons */
+            .gallery-btn {
+                width: 10vw;
+            }
+
+            /* Image */
+            #gallery-image {
+                width: 70vw;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Devonian Times</h1>
-        <h2>chatGPTが作成したサンプルWebページ</h2>
+    <header id="header">
+        <h1>デボン紀クロニクル<small> - ChatGPT制作のサンプルWebページ</small></h1>
     </header>
 
-    <aside>
-        <ul>
-            <li><a href="#technology">テクノロジー</a></li>
-            <li><a href="#business">ビジネス</a></li>
-            <li><a href="#entertainment">エンタメ</a></li>
-        </ul>
-    </aside>
+    <main id="main">
+        <aside id="sidebar">
+            <a href="#">テクノロジー</a>
+            <a href="#">ビジネス</a>
+            <a href="#">エンタメ</a>
+        </aside>
 
-    <main>
-        <div class="content">
+        <section id="content">
             <div id="article">
-                <h3>Devonian Times: Dunkleosteusの話</h3>
-                <p>デボン紀、約3億6500万年前。当時の海は、驚異的な生物たちで溢れていました。その中でも一際異彩を放っていたのが、Dunkleosteusという名前の魚類でした。</p>
+                <h2>デボン紀の驚異 - ダンクルオステウス</h2>
+                <p>デボン紀の海は、恐ろしい肉食魚ダンクルオステウスで溢れていた。この魚は長さ10mにも達し、その強力な顎は甲殻類や小型魚を一瞬で砕くことができた。我々人類が地球上に出現する数億年も前のことだ。</p>
             </div>
 
-            <div class="imageArea">
-                <button id="prevButton">&lt;</button>
-                <img id="mainImage" src="Dunkleosteus(1).jpg">
-                <button id="nextButton">&gt;</button>
+            <div id="image-gallery">
+                <div id="prev-btn" class="gallery-btn">&lt;</div>
+                <img id="gallery-image" src="Dunkleosteus(1).jpg" alt="Dunkleosteus image">
+                <div id="next-btn" class="gallery-btn">&gt;</div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2023 記事. All rights reserved. MITライセンス. 自己責任でご利用ください.</p>
+    <footer id="footer">
+        <small>© 2023 記事. All rights reserved. This page is under MIT license. Use at your own risk.</small>
     </footer>
 
     <script>
-        let images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
-        let currentImageIndex = 0;
-
-        document.getElementById('mainImage').addEventListener('click', function() {
-            // Modal image logic goes here.
+        // Image gallery control
+        const images = [
+            "Dunkleosteus(1).jpg",
+            "Dunkleosteus(2).jpg",
+            "Dunkleosteus(3).jpg"
+        ];
+        let currentIndex = 0;
+        const galleryImage = document.querySelector('#gallery-image');
+        document.querySelector('#prev-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            galleryImage.src = images[currentIndex];
+        });
+        document.querySelector('#next-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            galleryImage.src = images[currentIndex];
         });
 
-        document.getElementById('prevButton').addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            document.getElementById('mainImage').src = images[currentImageIndex];
+        // Image modal view
+        galleryImage.addEventListener('click', () => {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100vw';
+            modal.style.height = '100vh';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            const modalImage = document.createElement('img');
+            modalImage.src = galleryImage.src;
+            modalImage.style.maxWidth = '90%';
+            modalImage.style.maxHeight = '90%';
+            modal.appendChild(modalImage);
+            modal.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            document.body.appendChild(modal);
         });
 
-        document.getElementById('nextButton').addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            document.getElementById('mainImage').src = images[currentImageIndex];
-        });
-
-        document.getElementById('article').addEventListener('click', function() {
-            // Web Speech API logic goes here.
+        // Article reading
+        const article = document.querySelector('#article');
+        article.addEventListener('click', () => {
+            const utterance = new SpeechSynthesisUtterance(article.textContent);
+            window.speechSynthesis.speak(utterance);
         });
     </script>
 </body>
