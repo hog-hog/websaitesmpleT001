@@ -1,178 +1,78 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        .header, .footer {
-            width: 100vw;
-            text-align: center;
-            background-color: darkgrey;
-            color: white;
-        }
-        .header {
-            height: 15vh;
-        }
-        .main {
-            display: flex;
-            width: 100vw;
-            height: 80vh;
-        }
-        .sidebar {
-            width: 20vw;
-            height: 80vh;
-            background-color: lightgrey;
-        }
-        .content {
-            width: 80vw;
-            height: 80vh;
-            background-color: white;
-        }
-        .footer {
-            height: 5vh;
-        }
-        .article {
-            width: 70vw;
-            height: 30vh;
-            margin: auto;
-            background-color: white;
-            cursor: pointer;
-        }
-        .image-area {
-            display: flex;
-            width: 70vw;
-            height: 50vh;
-            margin: auto;
-            justify-content: center;
-            align-items: center;
-        }
-        .image-area img {
-            width: 50vw;
-            height: 50vh;
-            object-fit: contain;
-            cursor: zoom-in;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-        .button {
-            width: 5vw;
-            height: 5vh;
-            background-color: blue;
-            color: white;
-        }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
+        #header, #footer { background-color: darkgray; text-align: center; color: white; padding: 1em; }
+        #header h1 { color: white; }
+        #header h2 { color: black; }
+        #main { display: flex; }
+        #sidebar { background-color: lightgray; width: 20vw; height: 80vh; padding: 1em; overflow: auto; }
+        #content { background-color: white; width: 80vw; height: 80vh; padding: 1em; overflow: auto; }
+        #article { width: 70vw; height: 30vh; text-align: center; }
+        #imageArea { width: 50vw; height: 50vh; display: flex; align-items: center; justify-content: center; }
+        #imageArea img { max-width: 100%; max-height: 100%; }
+
         @media (max-width: 768px) {
-            .main {
-                flex-direction: column;
-            }
-            .sidebar, .content {
-                width: 100vw;
-            }
-            .article {
-                width: 100vw;
-            }
-            .image-area img {
-                width: 70vw;
-            }
+            #main { flex-direction: column; }
+            #sidebar, #content { width: 100vw; }
+            #article { width: 100vw; }
+            #imageArea { width: 70vw; }
         }
     </style>
-    <title>デボン紀の海洋生物について</title>
 </head>
 <body>
-    <div class="header">
-        <h1>デボン紀の海洋生物について</h1>
-        <p>chatGPTが作成したWebページ</p>
-        <nav>
-            <a href="#">ホーム</a>
-            <a href="#">検索</a>
-            <a href="#">ニュース</a>
-        </nav>
-    </div>
-    <div class="main">
-        <div class="sidebar">
-            <a href="#">テクノロジー</a>
-            <a href="#">ビジネス</a>
-            <a href="#">エンタメ</a>
-        </div>
-        <div class="content">
-            <div class="article">
-                <h2>デボン紀の海洋生物</h2>
-                <p>デボン紀は古生代の一時代であり、「魚類の時代」とも呼ばれる時代です。その中でも注目すべき生物はダンクレオステウスで、体長約10メートルという巨大な海洋生物でした。重厚な甲冑に覆われたその姿は、現代の魚類とは異なり、一種の恐竜のようにも見えます。</p>
-            </div>
-            <div class="image-area">
-                <button class="button" id="prevButton">＜</button>
-                <img src="Dunkleosteus(1).jpg" alt="Dunkleosteus(1).jpg">
-                <button class="button" id="nextButton">＞</button>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <p>© 2023 記事. All rights reserved. This page is published under the MIT license and users are responsible for their use.</p>
+    <div id="header">
+        <h1>デボン紀の驚異、ダンクルオステウス</h1>
+        <h2>ChatGPTが作成したWebページ</h2>
     </div>
 
-    <div id="myModal" class="modal">
-        <img class="modal-content" id="img01">
+    <div id="main">
+        <div id="sidebar">
+            <h3>Links</h3>
+            <ul>
+                <li>Technology</li>
+                <li>Business</li>
+                <li>Entertainment</li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="article">
+                <h3>デボン紀の海を支配した恐怖の魚、ダンクルオステウス</h3>
+                <p>デボン紀の海を支配した、巨大魚ダンクルオステウスは...</p>
+            </div>
+            <div id="imageArea">
+                <button id="prevBtn"><</button>
+                <img id="mainImage" src="Dunkleosteus(1).jpg">
+                <button id="nextBtn">></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>© 2023 ChatGPT. All rights reserved.</p>
+        <p>This page is released under the MIT License. Use at your own risk.</p>
     </div>
 
     <script>
-        const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
-        let index = 0;
-        const imgElement = document.querySelector('.image-area img');
-        const modal = document.getElementById("myModal");
-        const modalImg = document.getElementById("img01");
+        var images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
+        var currentImageIndex = 0;
 
-        // ボタン1
-        document.getElementById('prevButton').addEventListener('click', function() {
-            index = (index + 1) % images.length;
-            imgElement.src = images[index];
+        function updateImage() {
+            document.getElementById("mainImage").src = images[currentImageIndex];
+        }
+
+        document.getElementById("prevBtn").addEventListener("click", function() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateImage();
         });
 
-        // ボタン2
-        document.getElementById('nextButton').addEventListener('click', function() {
-            index = (index - 1 + images.length) % images.length;
-            imgElement.src = images[index];
-        });
-
-        // 画像のモーダル表示
-        imgElement.addEventListener('click', function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
-        });
-
-        // モーダルを閉じる
-        modal.addEventListener('click', function(){
-            modal.style.display = "none";
-        });
-
-        // Web Speech API
-        const article = document.querySelector('.article');
-        const utterance = new SpeechSynthesisUtterance();
-        utterance.lang = 'ja-JP';
-        article.addEventListener('click', function(){
-            utterance.text = this.textContent;
-            speechSynthesis.speak(utterance);
+        document.getElementById("nextBtn").addEventListener("click", function() {
+            currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
+            updateImage();
         });
     </script>
 </body>
