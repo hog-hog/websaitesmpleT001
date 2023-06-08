@@ -1,130 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デボン紀のニュース</title>
   <style>
-    /* CSS content here */
-
-    /* The Modal (background) */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-      position: relative;
-      background-color: #fefefe;
-      margin: auto;
+    body {
+      margin: 0;
       padding: 0;
-      border: 1px solid #888;
-      width: 80%;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-      animation-name: animatetop;
-      animation-duration: 0.4s;
     }
-
-    /* Modal Header */
-    .modal-header {
-      padding: 2px 16px;
-      background-color: #5cb85c;
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 15vh;
+      background-color: darkgray;
+    }
+    header h1 {
       color: white;
+      margin: 0;
     }
-
-    /* Modal Body */
-    .modal-body { padding: 2px 16px; }
-
-    /* Modal Footer */
-    .modal-footer {
-      padding: 2px 16px;
-      background-color: #5cb85c;
-      color: white;
-    }
-
-    /* The Close Button */
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover, .close:focus {
+    header h2 {
       color: black;
-      text-decoration: none;
-      cursor: pointer;
+      margin: 0;
     }
+    header nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    header nav ul li {
+      color: blue;
+      margin-right: 10px;
+    }
+    main {
+      display: flex;
+    }
+    #sidebar {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+    }
+    #sidebar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #sidebar ul li {
+      color:black
+    }
+    #main-content {
+      width: 80vw;
+      height: 80vh;
+      background-color:white
+    }
+    #main-content article {
+        width:70vw; 
+        height:30vh; 
+        background-color:white
+     }
+     #main-content article h3{
+         color:black
+     }
+     #main-content article p{
+         color:black
+     }
+     #main-content figure{
+         display:flex; 
+         align-items:center
+     }
+     #main-content figure img{
+         width:50vw; 
+         height:auto
+     }
+     #main-content figure button{
+         width:5vw; 
+         height:auto; 
+         color:white; 
+         background-color:#0000FF
+     }
+     footer{
+         display:flex; 
+         justify-content:center; 
+         align-items:center; 
+         width:100vw; 
+         height:5vh; 
+         background-color:#A9A9A9
+     }
+     footer p{
+         color:white; 
+         font-size:x-small
+     }
 
-    /* Add Animation */
-    @keyframes animatetop {
-      from { top: -300px; opacity: 0 }
-      to { top: 0; opacity: 1 }
-    }
+     @media screen and (max-width :768px){
+        main{
+            flex-direction :column
+        }
+        #sidebar{
+            width :100vw
+        }
+        #main-content{
+            width :100vw
+        }
+        #main-content article{
+            width :100vw
+        }
+        #main-content figure img{
+            width :70vw
+        }
+
+     }
+
   </style>
 </head>
 <body>
+<header>
+<h1>デボン紀のニュース</h1>
+<h2>chatGPTが作成したサンプルWebページ</h2>
+<nav>
+<ul>
+<li>ホーム</li>
+<li>検索</li>
+<li>ニュース</li>
+</ul>
+</nav>
+</header>
 
-  <!-- HTML content here -->
+<main>
 
-  <!-- Trigger/Open The Modal -->
-  <button id="myBtn">Open Modal</button>
+<aside id="sidebar">
+<ul>
+<li>テクノロジー</li>
+<li>ビジネス</li>
+<li>エンタメ</li>
+</ul>
 
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
+</aside>
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2>Modal Header</h2>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the Modal Body</p>
-        <p>Some other text...</p>
-      </div>
-      <div class="modal-footer">
-        <h3>Modal Footer</h3>
-      </div>
-    </div>
+<section id="main-content">
 
-  </div>
+<article>
+<h3>デボン紀のニュース</h3>
+<p>デボン紀には、様々な生物が生息していました。その中でも、ダンクルオステウスは、最も強い捕食者の1つでした。この魚は、体長が10メートル近くあり、鋭い歯を持っていました。ダンクルオステウスは、海洋生物を捕食することができるだけでなく、陸上生物も捕食することができました。</p>
 
-  <script>
-    // JavaScript content here
+</article>
 
-    // Get the modal
-    var modal = document.getElementById("myModal");
+<figure>
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+<button id="prev">＜</button>
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+<img src="Dunkleosteus(1).jpg" alt="Dunkleosteus" id="gallery">
 
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
+<button id="next">＞</button>
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
+</figure>
 
-quote("When the user clicks anywhere outside of the modal, close it", "modal.style.display = \"none\";")
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
+</section>
+
+</main>
+
+<footer>
+<p>© 2023 記事. All rights reserved.</p>
+</footer>
+
+<script>
+const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
+let currentImage = 0;
+
+document.getElementById("gallery").addEventListener("click", () => {
+  const modal = document.createElement("div");
+  modal.style.position = "fixed";
+  modal.style.top = "0";
+  modal.style.left = "0";
+  modal.style.width = "100vw";
+  modal.style.height = "100vh";
+  modal.style.backgroundColor = "rgba(0,0,0,0.5)";
+  modal.style.display = "flex";
+  modal.style.justifyContent = "center";
+  modal.style.alignItems = "center";
+
+  const image = document.createElement("img");
+  image.src = images[currentImage];
+  image.style.maxHeight = "100vh";
+  image.style.objectFit = "contain";
+
+  modal.appendChild(image);
+  document.body.appendChild(modal);
+
+  modal.addEventListener("click", () => {
+    document.body.removeChild(modal);
+  });
+});
+
+document.getElementById("prev").addEventListener("click", () => {
+  currentImage--;
+  if (currentImage < 0) {
+    currentImage = images.length - 1;
+  }
+  document.getElementById("gallery").src = images[currentImage];
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  currentImage++;
+  if (currentImage >= images.length) {
+    currentImage = 0;
+  }
+  document.getElementById("gallery").src = images[currentImage];
+});
+
+const synth = window.speechSynthesis;
+const articleText = document.querySelector('article p').textContent;
+
+document.querySelector('article').addEventListener('click', () => {
+    const utterThis = new SpeechSynthesisUtterance(articleText);
+    synth.speak(utterThis);
+});
+
+</script>
 
 </body>
 </html>
