@@ -1,132 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ChatGPTが作成したWebページ</title>
-    <style>
-      * {
-          box-sizing: border-box;
-          text-align: center;
-      }
+  <meta charset="UTF-8">
+  <title>ChatGPTが作成したWebページ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-      body {
-          margin: 0;
-          padding: 0;
-      }
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-      #header {
-          width: 100vw;
-          height: 15vh;
-          background-color: darkgray;
-          color: white;
-      }
+    #header {
+      width: 100vw;
+      height: 15vh;
+      background-color: darkgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
 
-      #header h2 {
-          color: black;
-      }
+    #sidebar {
+      position: fixed;
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+    }
 
+    #main-content {
+      width: 80vw;
+      height: 80vh;
+      background-color: white;
+      margin-left: 20vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #footer {
+      width: 100vw;
+      height: 5vh;
+      background-color: darkgray;
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    #article {
+      width: 70vw;
+      height: 30vh;
+      background-color: white;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    #image-container {
+      width: 50vw;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    @media only screen and (max-width: 768px) {
       #sidebar {
-          width: 20vw;
-          height: 80vh;
-          background-color: lightgray;
-          float: left;
+        position: static;
+        width: 100vw;
       }
 
-      #main {
-          width: 80vw;
-          height: 80vh;
-          float: right;
-          background-color: white;
-      }
-
-      #footer {
-          width: 100vw;
-          height: 5vh;
-          background-color: darkgray;
-          color: white;
-          clear: both;
+      #main-content {
+        width: 100vw;
+        margin-left: 0;
       }
 
       #article {
-          width: 70vw;
-          height: 30vh;
-          margin: 0 auto;
-          background-color: white;
+        width: 100vw;
       }
 
-      #image {
-          width: 70vw;
-          height: 50vh;
-          margin: 0 auto;
+      #image-container {
+        width: 70vw;
       }
-
-      #image img {
-          width: 50vw;
-          height: 50vh;
-          object-fit: contain;
-      }
-
-      #image button {
-          width: 5vw;
-          height: 5vh;
-      }
-
-      /* メディアクエリ */
-      @media screen and (max-width: 768px) {
-          #sidebar {
-              width: 100vw;
-              float: none;
-          }
-
-          #main {
-              width: 100vw;
-              float: none;
-          }
-
-          #article, #image {
-              width: 100vw;
-          }
-
-          #image img {
-              width: 70vw;
-          }
-      }
-    </style>
+    }
+  </style>
 </head>
 <body>
-    <header id="header">
-        <h1>タイトル</h1>
-        <h2>chatGPTが作成したWebページ</h2>
-        <nav>
-            <a href="#">ホーム</a>
-            <a href="#">検索</a>
-            <a href="#">ニュース</a>
-        </nav>
-    </header>
+  <div id="header">
+    <h1>タイトル</h1>
+    <p>chatGPTが作成したWebページ</p>
+  </div>
 
-    <aside id="sidebar">
-        <a href="#">テクノロジー</a>
-        <a href="#">ビジネス</a>
-        <a href="#">エンタメ</a>
-    </aside>
+  <div id="sidebar">
+    <ul>
+      <li>テクノロジー</li>
+      <li>ビジネス</li>
+      <li>エンタメ</li>
+    </ul>
+  </div>
 
-    <main id="main">
-        <section id="article">
-            <h3>記事</h3>
-            <p>記事本文</p>
-        </section>
-        <section id="image">
-            <button id="button1">＜</button>
-            <img id="img" src="image(1).jpg" alt="画像">
-            <button id="button2">＞</button>
-        </section>
-    </main>
+  <div id="main-content">
+    <div id="article">
+      <h2>記事</h2>
+      <p>記事本文</p>
+    </div>
 
-    <footer id="footer">
-        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
-    </footer>
+    <div id="image-container">
+      <button id="prev-button">＜</button>
+      <img id="image" src="image(1).jpg">
+      <button id="next-button">＞</button>
+    </div>
+  </div>
 
-    <script>
-    // ここにJavaScriptを書く
-    </script>
+  <div id="footer">
+    <p>このページはMITライセンスで公開されており、利用は自己責任です。</p>
+  </div>
+
+  <script>
+    const article = document.getElementById('article');
+    const image = document.getElementById('image');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const images = ['image(1).jpg', 'image(2).jpg', 'image(3).jpg'];
+    let imageIndex = 0;
+
+    article.addEventListener('click', () => {
+      const utterance = new SpeechSynthesisUtterance(article.textContent);
+      window.speechSynthesis.speak(utterance);
+    });
+
+    image.addEventListener('click', () => {
+      const modalImage = new Image();
+      modalImage.src = image.src;
+      modalImage.style.maxHeight = '100vh';
+      modalImage.style.objectFit = 'contain';
+      const modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.zIndex = '9999';
+      modal.style.left = '0';
+      modal.style.top = '0';
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+      modal.style.display = 'flex';
+      modal.style.justifyContent = 'center';
+      modal.style.alignItems = 'center';
+      modal.appendChild(modalImage);
+      document.body.appendChild(modal);
+      modal.addEventListener('click', () => document.body.removeChild(modal));
+    });
+
+    prevButton.addEventListener('click', () => {
+      imageIndex = (imageIndex - 1 + images.length) % images.length;
+      image.src = images[imageIndex];
+    });
+
+    nextButton.addEventListener('click', () => {
+      imageIndex = (imageIndex + 1) % images.length;
+      image.src = images[imageIndex];
+    });
+  </script>
 </body>
 </html>
