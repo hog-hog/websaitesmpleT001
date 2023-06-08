@@ -1,242 +1,172 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>デボン紀の記事</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デボン紀の記事</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            background-color: #333;
-            height: 15vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    body {
+      font-family: Arial, sans-serif;
+    }
 
-        header h1 {
-            color: #fff;
-            font-size: 24px;
-        }
+    header {
+      width: 100vw;
+      height: 15vh;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
+    header h1 {
+      font-size: 24px;
+    }
 
-        nav a {
-            color: blue;
-            margin: 0 10px;
-            text-decoration: none;
-        }
+    main {
+      display: flex;
+      width: 100vw;
+      height: 80vh;
+    }
 
-        main {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 30px;
-            padding: 0 10%;
-        }
+    aside {
+      width: 20vw;
+      height: 80vh;
+      background-color: #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .sidebar {
-            width: 20vw;
-            height: 80vh;
-            background-color: #eee;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+    aside a {
+      color: #000;
+      text-decoration: none;
+      margin: 8px 0;
+    }
 
-        .sidebar a {
-            color: black;
-            margin: 10px 0;
-            text-decoration: none;
-        }
+    section {
+      width: 80vw;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+    }
 
-        .content {
-            width: 80vw;
-            height: 80vh;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+    section .article {
+      width: 70vw;
+      height: 30vh;
+      background-color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .article {
-            width: 70vw;
-            height: 30vh;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+    section .article h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
 
-        .article h2 {
-            font-size: 24px;
-            color: #000;
-        }
+    section .article p {
+      font-size: 14px;
+    }
 
-        .article p {
-            font-size: 14px;
-            color: #000;
-        }
+    section .image {
+      width: 50vw;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .image {
-            width: 50vw;
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: url('Dunkleosteus(1).jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
+    section .image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      cursor: pointer;
+    }
 
-        .buttons {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-        }
+    section .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+    }
 
-        .button {
-            width: 5vw;
-            height: 5vh;
-            color: blue;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+    section .buttons button {
+      width: 5vw;
+      height: 5vh;
+      font-size: 14px;
+      margin: 0 4px;
+      cursor: pointer;
+    }
 
-        footer {
-            background-color: #333;
-            height: 5vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 12px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-    </style>
+    footer {
+      width: 100vw;
+      height: 5vh;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <h1>デボン紀の記事<br><span style="font-size: 12px;">chatGPTが作成したサンプルWebページ</span></h1>
-        <nav>
-            <a href="#">ホーム</a>
-            <a href="#">検索</a>
-            <a href="#">ニュース</a>
-        </nav>
-    </header>
-    <main>
-        <div class="sidebar">
-            <a href="#">テクノロジー</a>
-            <a href="#">ビジネス</a>
-            <a href="#">エンタメ</a>
+  <header>
+    <h1>デボン紀の記事</h1>
+  </header>
+  <main>
+    <aside>
+      <a href="#">テクノロジー</a>
+      <a href="#">ビジネス</a>
+      <a href="#">エンタメ</a>
+    </aside>
+    <section>
+      <div class="article">
+        <h2>デボン紀の話題</h2>
+        <p>デボン紀は約4億年前の地球の時代で、多様な生物が繁栄していました。...</p>
+      </div>
+      <div class="image">
+        <img src="Dunkleosteus(1).jpg" alt="Dunkleosteusの画像">
+        <div class="buttons">
+          <button onclick="changeImage(-1)">&lt;</button>
+          <button onclick="changeImage(1)">&gt;</button>
         </div>
-        <div class="content">
-            <div class="article">
-                <h2>デボン紀の驚異的な生物たち</h2>
-                <p>デボン紀（約4億年前）には、地球上で最初に大陸が形成され、多様な生物が進化しました。</p>
-                <p>この時代の海には、巨大なハイギョや怪魚、デンキウナギなどが生息していました。</p>
-                <p>デボン紀の驚異的な生物たちの姿について、詳しく見ていきましょう。</p>
-            </div>
-            <div class="image">
-                <div class="modal">
-                    <img src="" alt="拡大画像">
-                </div>
-            </div>
-            <div class="buttons">
-                <div class="button" onclick="changeImage(-1)">&lt;</div>
-                <div class="button" onclick="changeImage(1)">&gt;</div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        &copy; 2023 記事. All rights reserved.
-    </footer>
-    <script>
-        const modal = document.querySelector('.modal');
-        const imageContainer = document.querySelector('.image');
-        const image = imageContainer.style.backgroundImage;
-        const buttons = document.querySelectorAll('.button');
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2023 記事. All rights reserved.</p>
+  </footer>
 
-        imageContainer.addEventListener('click', () => {
-            modal.style.display = 'flex';
-            modal.children[0].src = image.slice(5, -2);
-        });
+  <script>
+    const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
+    let currentImageIndex = 0;
+    const imageElement = document.querySelector("section .image img");
 
-        modal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        let currentImageIndex = 1;
-        const imagePaths = [
-            'Dunkleosteus(1).jpg',
-            'Dunkleosteus(2).jpg',
-            'Dunkleosteus(3).jpg'
-        ];
-
-        function changeImage(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex < 0)
-                currentImageIndex = imagePaths.length - 1;
-            else if (currentImageIndex >= imagePaths.length)
-                currentImageIndex = 0;
-
-            imageContainer.style.backgroundImage = `url('${imagePaths[currentImageIndex]}')`;
-            modal.children[0].src = imagePaths[currentImageIndex];
-        }
-    </script>
-    <script>
-        const article = document.querySelector('.article');
-        const articleContent = `デボン紀は約4億年前の古代時代です。この時代は地球上で初めて大陸が形成され、生命の進化が進みました。デボン紀の海には、驚異的な生物が生息していました。
-
-デボン紀に生息していた生物の中でも特に有名なのは、デンキウナギです。デンキウナギは電撃を放つことができる魚で、獲物を麻痺させることができます。また、巨大なハイギョもデボン紀に生息していました。ハイギョは全長数メートルにもなり、恐ろしい姿をしていました。
-
-デボン紀の生物たちは、今から想像すると驚くべき存在です。その姿や生態を解明することは、古代の地球の謎に迫る一助となるでしょう。`;
-
-        article.addEventListener('click', () => {
-            readArticle();
-        });
-
-        function readArticle() {
-            const utterance = new SpeechSynthesisUtterance(articleContent);
-            speechSynthesis.speak(utterance);
-        }
-    </script>
+    function changeImage(direction) {
+      currentImageIndex += direction;
+      if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+      } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+      }
+      const imageName = images[currentImageIndex];
+      imageElement.src = imageName;
+    }
+  </script>
 </body>
-
 </html>
