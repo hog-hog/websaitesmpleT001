@@ -1,127 +1,224 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-#header {
-  width: 100vw;
-  height: 15vh;
-  background-color: darkgray;
-  text-align: center;
-  color: white;
-}
-#sidebar {
-  width: 20vw;
-  height: 80vh;
-  background-color: lightgray;
-  float: left;
-}
-#main {
-  width: 80vw;
-  height: 80vh;
-  background-color: white;
-  float: right;
-  text-align: center;
-}
-#footer {
-  width: 100vw;
-  height: 5vh;
-  background-color: darkgray;
-  text-align: center;
-  color: white;
-  clear: both;
-}
-@media (max-width: 768px) {
-  #sidebar {
-    width: 100vw;
-    float: none;
-  }
-  #main {
-    width: 100vw;
-    float: none;
-  }
-}
-#article {
-  width: 70vw;
-  height: 30vh;
-  background-color: white;
-  margin: auto;
-  padding: 20px;
-  text-align: center;
-}
-#img-div {
-  width: 50vw;
-  height: 50vh;
-  margin: auto;
-  position: relative;
-}
-#img-div img {
-  max-width: 100%;
-  max-height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-#button1, #button2 {
-  position: absolute;
-  width: 5vw;
-  height: 5vh;
-  background-color: white;
-  color: blue;
-  border: none;
-}
-#button1 {
-  left: -5vw;
-}
-#button2 {
-  right: -5vw;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>タイトル</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+        header h2 {
+            color: black;
+            margin: 0;
+            font-size: small;
+        }
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            color: blue;
+            margin-right: 10px;
+        }
+        main {
+            display: flex;
+        }
+        #sidebar {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        #sidebar ul li {
+            color:black
+        }
+        #main-content {
+            width: 80vw;
+            height: 80vh;
+            background-color:white
+        }
+        #main-content article{
+          width :70vw ;
+          height :30vh ;
+          background-color:white ;
+          text-align:center ;
+          margin:auto
+        }
+        #main-content article h1{
+          color:black ;
+          font-size :large
+        }
+        #main-content article p{
+          color:black ;
+          font-size :small
+        }
+
+         #main-content figure{
+           display:flex ;
+           align-items:center ;
+           justify-content:center
+         }
+         #main-content figure img{
+           width :50vw ;
+           height :50vh ;
+           object-fit :contain
+         }
+         #main-content figure button{
+           width :5vw ;
+           height :5vh ;
+           font-size :large ;
+           color :blue
+         }
+
+         footer {
+             width: 100vw;
+             height: 5vh;
+             background-color: darkgray;
+             display:flex ;
+             justify-content:center ;
+             align-items:center
+         }
+
+         footer p{
+             color:white ;
+             font-size:x-small
+         }
+
+         @media screen and (max-width :768px){
+             #sidebar{
+                 order :2
+             }
+
+             #main-content{
+                 order :1 ;
+                 width :100vw
+             }
+
+             #main-content article{
+                 width :100vw
+             }
+
+             #main-content figure img{
+                 width :70vw
+             }
+
+         }
+
+    </style>
 </head>
 <body>
-<div id="header">タイトル</div>
-<div id="sidebar">テクノロジー</div>
-<div id="main">
-  <div id="article">記事本文</div>
-  <div id="img-div">
-    <button id="button1"><</button>
-    <img id="img" src="image1.png">
-    <button id="button2">></button>
-  </div>
-</div>
-<div id="footer">© 2023 MIT License</div>
+    <header>
+      <h1>タイトル</h1>
+      <h2>chatGPTが作成したWebページ</h2>
+      <nav>
+          <ul>
+              <li>ホーム</li>
+              <li>検索</li>
+              <li>ニュース</li>
+          </ul>
+      </nav>
+    </header>
 
-<script>
-let img = document.getElementById('img');
-let imgArray = ['image1.png', 'image2.png', 'image3.png'];
-let index = 0;
+    <main>
+      <aside id="sidebar">
+          <ul>
+              <li>テクノロジー</li>
+              <li>ビジネス</li>
+              <li>エンタメ</li>
+          </ul>
+      </aside>
 
-document.getElementById('button1').addEventListener('click', function() {
-  index = (index + 1) % imgArray.length;
-  img.src = imgArray[index];
-});
+      <section id="main-content">
+          <article id="article">
+              <h1>記事</h1>
+              <p>記事本文</p>
+          </article>
 
-document.getElementById('button2').addEventListener('click', function() {
-  index = (index - 1 + imgArray.length) % imgArray.length;
-  img.src = imgArray[index];
-});
+          <figure id="image-area">
+              <button id="prev-button">＜</button>
 
-document.getElementById('article').addEventListener('click', function() {
-  var msg = new SpeechSynthesisUtterance();
-  msg.text = this.textContent;
-  window.speechSynthesis.speak(msg);
-});
-</script>
+              <img src="image (1).png" alt="image">
 
+              <button id="next-button">＞</button>
+
+          </figure>
+
+      </section>
+
+    </main>
+
+    <footer><p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p></footer>
+
+    <script>
+
+       const images = ["image (1).png", "image (2).png", "image (3).png"];
+       let currentImageIndex = 0;
+
+       const prevButton = document.querySelector("#prev-button");
+       const nextButton = document.querySelector("#next-button");
+       const imageElement = document.querySelector("#image-area img");
+
+       prevButton.addEventListener("click", () => {
+           currentImageIndex = (currentImageIndex + 1) % images.length;
+           imageElement.src = images[currentImageIndex];
+       });
+
+       nextButton.addEventListener("click", () => {
+           currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+           imageElement.src = images[currentImageIndex];
+       });
+
+       imageElement.addEventListener("click", () => {
+           const modal = document.createElement("div");
+           modal.style.position = "fixed";
+           modal.style.top = "0";
+           modal.style.left = "0";
+           modal.style.width = "100vw";
+           modal.style.height = "100vh";
+           modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+           modal.style.display = "flex";
+           modal.style.justifyContent = "center";
+           modal.style.alignItems = "center";
+
+           const modalImage = document.createElement("img");
+           modalImage.src = imageElement.src;
+           modalImage.style.maxHeight = "90vh";
+           modalImage.style.objectFit = "contain";
+
+           modal.appendChild(modalImage);
+           document.body.appendChild(modal);
+
+           modal.addEventListener("click", () => {
+               document.body.removeChild(modal);
+           });
+       });
+
+       const articleElement = document.querySelector("#article");
+       articleElement.addEventListener("click", () => {
+         const textToSpeech = new SpeechSynthesisUtterance(articleElement.textContent);
+         window.speechSynthesis.speak(textToSpeech);
+       });
+
+    </script>
 </body>
 </html>
