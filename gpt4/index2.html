@@ -116,6 +116,13 @@ document.getElementById('button2').addEventListener('click', function() {
   index = (index - 1 + imgArray.length) % imgArray.length;
   img.src = imgArray[index];
 });
+
+document.getElementById('article').addEventListener('click', function() {
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = this.textContent;
+  window.speechSynthesis.speak(msg);
+});
+</script>
 </script>
 
 </body>
