@@ -9,6 +9,9 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
         #header, #footer {
             background-color: darkgray;
@@ -16,22 +19,24 @@
             text-align: center;
             padding: 2rem;
         }
-        #header #subtitle {
-            color: black;
+        #header {
+            height: 15vh;
         }
         #sidebar {
             background-color: lightgray;
             height: 80vh;
             padding: 1rem;
-            float: left;
             width: 20%;
         }
         #main {
             background-color: white;
             height: 80vh;
             padding: 1rem;
-            float: right;
             width: 80%;
+        }
+        #content {
+            flex: 1;
+            display: flex;
         }
         #article, #image_area {
             margin: 1rem 0;
@@ -59,6 +64,9 @@
             color: white;
             cursor: pointer;
         }
+        #footer {
+            height: 5vh;
+        }
         @media (max-width: 768px) {
             #sidebar {
                 width: 100%;
@@ -71,6 +79,9 @@
             #article, #image {
                 width: 100%;
             }
+            #content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -80,28 +91,30 @@
         <p id="subtitle">chatGPTが作成したWebページ</p>
         <p>ホーム | 検索 | ニュース</p>
     </div>
-    <div id="sidebar">
-        <p>テクノロジー</p>
-        <p>ビジネス</p>
-        <p>エンタメ</p>
-    </div>
-    <div id="main">
-        <div id="article">
-            <h2>記事</h2>
-            <p>記事本文</p>
+    <div id="content">
+        <div id="sidebar">
+            <p>テクノロジー</p>
+            <p>ビジネス</p>
+            <p>エンタメ</p>
         </div>
-        <div id="image_area">
-            <div id="button_area">
-                <div id="button1" class="button">＜</div>
-                <img id="image" src="image(1).png">
-                <div id="button2" class="button">＞</div>
+        <div id="main">
+            <div id="article">
+                <h2>記事</h2>
+                <p>記事本文</p>
+            </div>
+            <div id="image_area">
+                <div id="button_area">
+                    <div id="button1" class="button">＜</div>
+                    <img id="image" src="image(1).png">
+                    <div id="button2" class="button">＞</div>
+                </div>
             </div>
         </div>
     </div>
     <div id="footer">
         <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
     </div>
-    
+
     <script>
         const article = document.querySelector("#article");
         article.addEventListener("click", () => {
@@ -147,4 +160,3 @@
     </script>
 </body>
 </html>
-
