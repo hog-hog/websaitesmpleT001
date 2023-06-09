@@ -1,131 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+
 <head>
-<style>
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-#header {
-  width: 100vw;
-  height: 15vh;
-  background-color: darkgray;
-  text-align: center;
-  color: white;
-}
-#content {
-  display: flex;
-  flex-wrap: wrap;
-}
-#sidebar {
-  flex: 1;
-  max-width: 20vw;
-  height: 80vh;
-  background-color: lightgray;
-}
-#main {
-  flex: 4;
-  max-width: 80vw;
-  height: 80vh;
-  background-color: white;
-  text-align: center;
-}
-#footer {
-  width: 100vw;
-  height: 5vh;
-  background-color: darkgray;
-  text-align: center;
-  color: white;
-  clear: both;
-}
-@media (max-width: 768px) {
-  #content {
-    flex-direction: column;
-  }
-}
-#article {
-  width: 70vw;
-  height: 30vh;
-  background-color: white;
-  margin: auto;
-  padding: 20px;
-  text-align: center;
-}
-#img-div {
-  width: 50vw;
-  height: 50vh;
-  margin: auto;
-  position: relative;
-}
-#img-div img {
-  max-width: 100%;
-  max-height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-#button1, #button2 {
-  position: absolute;
-  width: 5vw;
-  height: 5vh;
-  background-color: white;
-  color: blue;
-  border: none;
-}
-#button1 {
-  left: -5vw;
-}
-#button2 {
-  right: -5vw;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイトル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #444;
+            width: 100vw;
+            height: 15vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        header p {
+            font-size: 12px;
+        }
+
+        nav {
+            color: blue;
+            margin-top: 10px;
+        }
+
+        main {
+            display: flex;
+            height: 80vh;
+            background-color: #fff;
+        }
+
+        aside {
+            background-color: #eee;
+            width: 20vw;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        section {
+            width: 80vw;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        article {
+            width: 70vw;
+            height: 30vh;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        article h2 {
+            font-size: 20px;
+            color: #000;
+        }
+
+        article p {
+            font-size: 14px;
+            color: #000;
+        }
+
+        img {
+            width: 50vw;
+            height: 50vh;
+            object-fit: contain;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .button {
+            width: 5vw;
+            height: 5vh;
+            color: blue;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        footer {
+            background-color: #444;
+            width: 100vw;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 12px;
+        }
+    </style>
 </head>
+
 <body>
-<div id="header">デボン紀の海洋生物：ダンクルオステウス</div>
-<div id="content">
-  <div id="sidebar">テクノロジー</div>
-  <div id="main">
-    <div id="article">
-      <h1>デボン紀の恐怖、ダンクルオステウスの発見</h1>
-      <p>デボン紀時代、海洋のトッププレデターであったダンクルオステウス。その名前は"暗黒の骨"という意味で、その巨大な体躯と強力な顎により、海洋生物の中でも特に恐れられていました。最新の研究により、このダンクルオステウスが独特の繁殖行動を持っていたことが明らかになりました。それは巣作り行動で、これは魚類の中では珍しい行動であると言えます。デボン紀の海洋を支配していたというだけでなく、このような繁殖戦略を持っていたことで、その成功を裏付けています。</p>
-    </div>
-    <div id="img-div">
-      <img id="img" src="Dunkleosteus(1).jpg" alt="Dunkleosteus">
-      <button id="button1">＜</button>
-      <button id="button2">＞</button>
-    </div>
-  </div>
-</div>
-<div id="footer">このページはMITライセンスで公開されています。利用は自己責任でお願いします。</div>
+    <header>
+        <h1>タイトル</h1>
+        <p>chatGPTが作成したWebページ</p>
+        <nav>
+            <a href="#">ホーム</a> |
+            <a href="#">検索</a> |
+            <a href="#">ニュース</a>
+        </nav>
+    </header>
 
-<script>
-let img = document.getElementById('img');
-let imgArray = ['image1.png', 'image2.png', 'image3.png'];
-let index = 0;
+    <main>
+        <aside>
+            <nav>
+                <a href="#">テクノロジー</a><br>
+                <a href="#">ビジネス</a><br>
+                <a href="#">エンタメ</a>
+            </nav>
+        </aside>
 
-document.getElementById('button1').addEventListener('click', function() {
-  index = (index + 1) % imgArray.length;
-  img.src = imgArray[index];
-});
+        <section>
+            <article>
+                <h2>記事</h2>
+                <p>記事本文</p>
+            </article>
 
-document.getElementById('button2').addEventListener('click', function() {
-  index = (index - 1 + imgArray.length) % imgArray.length;
-  img.src = imgArray[index];
-});
+            <div class="button-container">
+                <div class="button" id="button1">＜</div>
+                <div class="button" id="button2">＞</div>
+            </div>
 
-document.getElementById('article').addEventListener('click', function() {
-  var msg = new SpeechSynthesisUtterance();
-  msg.text = this.textContent;
-  window.speechSynthesis.speak(msg);
-});
-</script>
+            <div id="image-container">
+                <img src="image (1).png" alt="画像">
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <p>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</p>
+    </footer>
+
+    <script>
+        // スクリプト1
+        const article = document.querySelector('article');
+        article.addEventListener('click', () => {
+            const speech = new SpeechSynthesisUtterance(article.innerText);
+            speechSynthesis.speak(speech);
+        });
+
+        // スクリプト2
+        const imageContainer = document.getElementById('image-container');
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        imageContainer.addEventListener('click', (event) => {
+            modal.innerHTML = `
+                <img src="${event.target.src}" alt="拡大画像">
+            `;
+            document.body.appendChild(modal);
+            modal.style.display = 'flex';
+        });
+
+        modal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modal.innerHTML = '';
+        });
+
+        // スクリプト3
+        const button1 = document.getElementById('button1');
+        const button2 = document.getElementById('button2');
+        const images = [
+            'image (1).png',
+            'image (2).png',
+            'image (3).png'
+        ];
+        let currentImageIndex = 0;
+
+        button1.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            imageContainer.innerHTML = `
+                <img src="${images[currentImageIndex]}" alt="画像">
+            `;
+        });
+
+        button2.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            imageContainer.innerHTML = `
+                <img src="${images[currentImageIndex]}" alt="画像">
+            `;
+        });
+    </script>
 </body>
+
 </html>
