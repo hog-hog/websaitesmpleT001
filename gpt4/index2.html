@@ -88,19 +88,22 @@ body {
 </style>
 </head>
 <body>
-<div id="header">タイトル</div>
+<div id="header">デボン紀の海洋生物：ダンクルオステウス</div>
 <div id="content">
   <div id="sidebar">テクノロジー</div>
   <div id="main">
-    <div id="article">記事本文</div>
+    <div id="article">
+      <h1>デボン紀の恐怖、ダンクルオステウスの発見</h1>
+      <p>デボン紀時代、海洋のトッププレデターであったダンクルオステウス。その名前は"暗黒の骨"という意味で、その巨大な体躯と強力な顎により、海洋生物の中でも特に恐れられていました。最新の研究により、このダンクルオステウスが独特の繁殖行動を持っていたことが明らかになりました。それは巣作り行動で、これは魚類の中では珍しい行動であると言えます。デボン紀の海洋を支配していたというだけでなく、このような繁殖戦略を持っていたことで、その成功を裏付けています。</p>
+    </div>
     <div id="img-div">
-      <button id="button1"><</button>
-      <img id="img" src="image1.png">
-      <button id="button2">></button>
+      <img id="img" src="Dunkleosteus(1).jpg" alt="Dunkleosteus">
+      <button id="button1">＜</button>
+      <button id="button2">＞</button>
     </div>
   </div>
 </div>
-<div id="footer">© 2023 MIT License</div>
+<div id="footer">このページはMITライセンスで公開されています。利用は自己責任でお願いします。</div>
 
 <script>
 let img = document.getElementById('img');
@@ -122,7 +125,6 @@ document.getElementById('article').addEventListener('click', function() {
   msg.text = this.textContent;
   window.speechSynthesis.speak(msg);
 });
-</script>
 </script>
 
 </body>
