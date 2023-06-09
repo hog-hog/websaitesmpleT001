@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>タイトル</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .header, .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      width: 100vw;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .header {
+      height: 15vh;
+    }
+    .footer {
+      height: 5vh;
+    }
+    .main {
+      display: flex;
+      height: 80vh;
+    }
+    .sidebar {
+      background-color: #ccc;
+      height: 100%;
+      width: 20vw;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .content {
+      background-color: #fff;
+      width: 80vw;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+    .article {
+      width: 70%;
+      margin: auto;
+      height: 30vh;
+      text-align: center;
+      overflow: auto;
+    }
+    .image-container {
+      width: 70%;
+      height: 40vh;
+      margin: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .image-container img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .image-btn {
+      background: none;
+      border: none;
+      color: blue;
+      font-size: 2em;
+    }
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+      .sidebar, .content {
+        width: 100vw;
+      }
+      .article, .image-container {
+        width: 100%;
+      }
+      .image-container img {
+        width: 70%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>タイトル</h1>
+    <p>chatGPTが作成したWebページ</p>
+    <nav>
+      <a href="#">ホーム</a> | 
+      <a href="#">検索</a> | 
+      <a href="#">ニュース</a>
+    </nav>
+  </div>
+  <div class="main">
+    <div class="sidebar">
+      <a href="#">テクノロジー</a><br>
+      <a href="#">ビジネス</a><br>
+      <a href="#">エンタメ</a>
+    </div>
+    <div class="content">
+      <div class="article" onclick="readAloud()">
+        <h2>記事</h2>
+        <p>記事本文</p>
+      </div>
+      <div class="image-container">
+        <button class="image-btn" onclick="changeImage(-1)">&lt;</button>
+        <img src="image1.png" id="main-image">
+        <button class="image-btn" onclick="changeImage(1)">&gt;</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>このページはMITライセンスで公開されており、ユーザーが自己責任で利用することを明記します。</p>
+  </div>
+
+  <script>
+    const images = ["image1.png", "image2.png", "image3.png"];
+    let currentIndex = 0;
+
+    function readAloud() {
+      const article = document.querySelector(".article").textContent;
+      const utterance = new SpeechSynthesisUtterance(article);
+      speechSynthesis.speak(utterance);
+    }
+
+    function changeImage(direction) {
+      currentIndex = (currentIndex + direction + images.length) % images.length;
+      document.querySelector("#main-image").src = images[currentIndex];
+    }
+  </script>
+</body>
+</html>
 
