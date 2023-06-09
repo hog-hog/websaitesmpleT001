@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.header {
+  width: 100vw;
+  height: 15vh;
+  background-color: darkgray;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.header h1 {
+  color: white;
+}
+.header h2 {
+  color: black;
+}
+.sidebar {
+  width: 20vw;
+  height: 80vh;
+  background-color: lightgray;
+  float: left;
+}
+.main {
+  width: 80vw;
+  height: 80vh;
+  background-color: white;
+  float: left;
+  text-align: center;
+}
+.footer {
+  width: 100vw;
+  height: 5vh;
+  background-color: darkgray;
+  color: white;
+  text-align: center;
+  clear: both;
+  padding: 10px;
+}
+.article, .image-area {
+  width: 70vw;
+  margin: auto;
+  text-align: center;
+}
+.image-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 50vw;
+  height: 50vh;
+  object-fit: contain;
+}
+@media only screen and (max-width: 768px) {
+  .sidebar, .main {
+    width: 100%;
+    height: auto;
+  }
+  .article, img {
+    width: 100vw;
+  }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>タイトル</h1>
+  <h2>chatGPTが作成したWebページ</h2>
+  <p>ホーム | 検索 | ニュース</p>
+</div>
+<div class="sidebar">
+  <p>テクノロジー</p>
+  <p>ビジネス</p>
+  <p>エンタメ</p>
+</div>
+<div class="main">
+  <div class="article" onclick="readAloud()">
+    <h2>記事</h2>
+    <p>記事本文</p>
+  </div>
+  <div class="image-area">
+    <button onclick="changeImage(-1)">＜</button>
+    <img id
+    ="image" src="image(1).png" onclick="expandImage()" />
+    <button onclick="changeImage(1)">＞</button>
+  </div>
+</div>
+<div class="footer">
+  <p>このページはMITライセンスで公開されています。ユーザー自身の責任でご利用ください。</p>
+</div>
+
+<script>
+var images = ["image(1).png", "image(2).png", "image(3).png"];
+var currentImage = 0;
+var synth = window.speechSynthesis;
+
+function readAloud() {
+  var utterThis = new SpeechSynthesisUtterance(document.querySelector(".article").textContent);
+  synth.speak(utterThis);
+}
+
+function changeImage(direction) {
+  currentImage = (currentImage + direction + images.length) % images.length;
+  document.getElementById("image").src = images[currentImage];
+}
+
+function expandImage() {
+  var img = document.getElementById("image");
+  var overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100vw";
+  overlay.style.height = "100vh";
+  overlay.style.background = "rgba(0, 0, 0, 0.5)";
+  overlay.style.display = "flex";
+  overlay.style.justifyContent = "center";
+  overlay.style.alignItems = "center";
+  overlay.onclick = function() {
+    document.body.removeChild(overlay);
+  }
+
+  var clone = img.cloneNode();
+  clone.style.maxWidth = "90vw";
+  clone.style.maxHeight = "90vh";
+
+  overlay.appendChild(clone);
+  document.body.appendChild(overlay);
+}
+</script>
+
+</body>
+</html>
 
