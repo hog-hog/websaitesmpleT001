@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #header, #footer {
+      background-color: darkgray;
+      color: white;
+      width: 100vw;
+      text-align: center;
+      padding: 1em;
+    }
+
+    #header {
+      height: 15vh;
+    }
+
+    #footer {
+      height: 5vh;
+    }
+
+    #main {
+      display: flex;
+      height: 80vh;
+    }
+
+    #sidebar {
+      width: 20vw;
+      height: 80vh;
+      background-color: lightgray;
+      padding: 1em;
+    }
+
+    #content {
+      width: 80vw;
+      height: 80vh;
+      background-color: white;
+      padding: 1em;
+    }
+
+    @media screen and (max-width: 768px) {
+      #main {
+        flex-direction: column;
+      }
+
+      #sidebar, #content {
+        width: 100vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>タイトル</h1>
+    <h2 style="color: black;">chatGPTが作成したWebページ</h2>
+    <p style="color: blue;">ホーム 検索 ニュース</p>
+  </div>
+
+  <div id="main">
+    <div id="sidebar">
+      <a href="#" style="color: black;">テクノロジー</a>
+      <a href="#" style="color: black;">ビジネス</a>
+      <a href="#" style="color: black;">エンタメ</a>
+    </div>
+
+    <div id="content">
+      <div id="article" style="width: 70vw; height: 30vh; background-color: white; text-align: center;">
+        <h3 style="color: black;">記事</h3>
+        <p style="color: black;">記事本文</p>
+      </div>
+
+      <div id="imageArea" style="display: flex; justify-content: center; align-items: center;">
+        <button id="prevBtn" style="width: 5vw; height: 5vh;">＜</button>
+        <img id="image" src="https://via.placeholder.com/150" style="width: 50vw; height: 50vh; object-fit: contain;">
+        <button id="nextBtn" style="width: 5vw; height: 5vh;">＞</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <p>このページはMITライセンスで公開されています。ご利用は自己責任でお願いします。</p>
+  </div>
+
+  <script>
+    // Web Speech APIを使った読み上げ
+document.getElementById("article").addEventListener("click", function() {
+  var msg = new SpeechSynthesisUtterance(this.innerText);
+  window.speechSynthesis.speak(msg);
+});
+
+// 画像の切り替え
+var images = ['https://via.placeholder.com/150', 'https://via.placeholder.com/250', 'https://via.placeholder.com/350'];
+var currentIndex = 0;
+
+document.getElementById("nextBtn").addEventListener("click", function() {
+  currentIndex = (currentIndex + 1) % images.length;
+  document.getElementById("image").src = images[currentIndex];
+});
+
+document.getElementById("prevBtn").addEventListener("click", function() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  document.getElementById("image").src = images[currentIndex];
+});
+
+// 画像のモーダル表示
+document.getElementById("image").addEventListener("click", function() {
+  var modal = document.createElement("div");
+  modal.style.position = "fixed";
+  modal.style.top = "0";
+  modal.style.left = "0";
+  modal.style.width = "100vw";
+  modal.style.height = "100vh";
+  modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  modal.style.display = "flex";
+  modal.style.justifyContent = "center";
+  modal.style.alignItems = "center";
+
+  var modalImg = document.createElement("img");
+  modalImg.src = this.src;
+  modalImg.style.maxHeight = "80vh";
+  modalImg.style.maxWidth = "80vw";
+  modalImg.style.objectFit = "contain";
+  modal.appendChild(modalImg);
+
+  modal.addEventListener("click", function() {
+    document.body.removeChild(modal);
+  });
+
+  document.body.appendChild(modal);
+});
+
+  </script>
+</body>
+</html>
 
