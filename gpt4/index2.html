@@ -1,183 +1,218 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>デボン紀の大量絶滅</title>
+    <title>タイトル</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
         }
         header {
-            background-color: #333;
-            color: white;
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgray;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 0 16px;
+            flex-direction: column;
         }
-        header h1, header h2 {
+        header h1 {
+            color: white;
             margin: 0;
         }
-        header nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 16px;
+        header h2 {
+            color: black;
+            margin: 0;
+            font-size: small;
+        }
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            color: blue;
+            margin-right: 10px;
         }
         main {
             display: flex;
         }
         #sidebar {
-            background-color: #f4f4f4;
-            width: 25vw;
-            height: calc(100vh - 60px);
-            padding: 16px;
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgray;
         }
         #sidebar ul {
-            list-style: none;
-            padding: 0;
+            list-style-type: none;
             margin: 0;
+            padding: 0;
         }
-        #sidebar li a {
-            color: black;
-            text-decoration: none;
+        #sidebar ul li {
+            color:black
         }
         #main-content {
-            width: 75vw;
-            padding: 16px;
+            width: 80vw;
+            height: 80vh;
+            background-color:white
         }
-        #main-content article {
-            width: 60vw;
+        #main-content article{
+          width :70vw ;
+          height :30vh ;
+          background-color:white ;
+          text-align:center ;
+          margin:auto
         }
-        #main-content figure {
-            width: 60vw;
-            display:flex; 
-            justify-content:center; 
-            align-items:center
+        #main-content article h1{
+          color:black ;
+          font-size :large
         }
-        #main-content figure img{
-          max-width:100%;
-          height:auto
-        }
-        
-        footer{
-          background-color:#333; 
-          color:white; 
-          text-align:center; 
-          padding-top:12px; 
-          padding-bottom:12px
+        #main-content article p{
+          color:black ;
+          font-size :small
         }
         
-        @media (max-width: 768px) {
-            #sidebar {
-                width: 100vw;
-                order: 1;
-            }
-            #main-content {
-                width: 100vw;
-            }
-            #main-content article {
-                width: 100vw;
-            }
-            #main-content figure {
-                width: 70vw;
-            }
-        }
+         #main-content figure{
+           display:flex ;
+           align-items:center ;
+           justify-content:center
+         }
+         #main-content figure img{
+           width :50vw ;
+           height :50vh ;
+           object-fit :contain
+         }
+         #main-content figure button{
+           width :5vw ;
+           height :5vh ;
+           font-size :large ;
+           color :blue
+         }
+
+         footer {
+             width: 100vw;
+             height: 5vh;
+             background-color: darkgray;
+             display:flex ;
+             justify-content:center ;
+             align-items:center
+         }
+
+         footer p{
+             color:white ;
+             font-size:x-small
+         }
+
+         @media screen and (max-width :768px){
+             #sidebar{
+                 order :2
+             }
+
+             #main-content{
+                 order :1 ;
+                 width :100vw
+             }
+
+             #main-content article{
+                 width :100vw
+             }
+
+             #main-content figure img{
+                 width :70vw
+             }
+
+         }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>デボン紀の大量絶滅</h1>
-        <h2>chatGPTが作成したWebページ</h2>
-        <nav>
-            <a href="#">ホーム</a>
-            <a href="#">検索</a>
-            <a href="#">ニュース</a>
-        </nav>
+      <h1>タイトル</h1>
+      <h2>chatGPTが作成したWebページ</h2>
+      <nav>
+          <ul>
+              <li>ホーム</li>
+              <li>検索</li>
+              <li>ニュース</li>
+          </ul>
+      </nav>
     </header>
+
     <main>
-        <aside id="sidebar">
-            <ul>
-                <li><a href="#">テクノロジー</a></li>
-                <li><a href="#">ビジネス</a></li>
-                <li><a href="#">エンタメ</a></li>
-                <li><a href="#">スポーツ</a></li>
-                <li><a href="#">健康</a></li>
-                <li><a href="#">科学</a></li>
-                <li><a href="#">歴史</a></li>
-                <li><a href="#">旅行</a></li>
-                <li><a href="#">料理</a></li>
-                <li><a href="#">ファッション</a></li>
-                <li><a href="#">美容</a></li>
-                <li><a href="#">ペット</a></li>
-                <li><a href="#">趣味</a></li>
-                <li><a href="#">その他</a></li>                
-             </ul>   
-         </aside>   
-         <div id="main-content">
-             <article>   
-                 <h3>デボン紀の大量絶滅とその原因について</h3>   
-                 <p>地球史上2回目の生物大量絶滅が、大規模火山の噴火で起きたことを突き止めた、と東北大学などの研究グループが発表した。動植物が陸に進出した古生代「後期デボン紀」の約3億8000万～3億6000万年前に起きたもので、高温でできる有機分子を決め手とする独自の手法を用いた。[^1^][1]</p>
-             </article>   
-             <figure>   
-                 <button id="prev-button">＜</button>   
-                 <img src="Dunkleosteus(1).jpg" alt="Dunkleosteus">   
-                 <button id="next-button">＞</button>   
-             </figure>   
-         </div>   
-     </main>   
-     <footer><p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p></footer>
+      <aside id="sidebar">
+          <ul>
+              <li>テクノロジー</li>
+              <li>ビジネス</li>
+              <li>エンタメ</li>
+          </ul>
+      </aside>
+
+      <section id="main-content">
+          <article>
+              <h1>記事</h1>
+              <p>記事本文</p>
+          </article>
+
+          <figure id="image-area">
+              <button id="prev-button">＜</button>
+
+              <img src="image (1).png" alt="image">
+
+              <button id="next-button">＞</button>
+
+          </figure>
+
+      </section>
+
+    </main>
+
+    <footer><p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p></footer>
+
     <script>
-      const synth = window.speechSynthesis;
-      const article = document.querySelector('article');
-      article.addEventListener('click', () => {
-          const utterance = new SpeechSynthesisUtterance(article.textContent);
-          synth.speak(utterance);
-      });
 
-      const images = ['Dunkleosteus(1).jpg', 'Dunkleosteus(2).jpg', 'Dunkleosteus(3).jpg'];
-      let currentImageIndex = 0;
-      const imageElement = document.querySelector('img');
-      const prevButton = document.querySelector('#prev-button');
-      const nextButton = document.querySelector('#next-button');
+       const images = ["image (1).png", "image (2).png", "image (3).png"];
+       let currentImageIndex = 0;
 
-      prevButton.addEventListener('click', () => {
-          currentImageIndex = (currentImageIndex + 1) % images.length;
-          imageElement.src = images[currentImageIndex];
-      });
+       const prevButton = document.querySelector("#prev-button");
+       const nextButton = document.querySelector("#next-button");
+       const imageElement = document.querySelector("#image-area img");
 
-      nextButton.addEventListener('click', () => {
-          currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
-          imageElement.src = images[currentImageIndex];
-      });
+       prevButton.addEventListener("click", () => {
+           currentImageIndex = (currentImageIndex + 1) % images.length;
+           imageElement.src = images[currentImageIndex];
+       });
 
-      imageElement.addEventListener('click', () => {
-          const modalElement = document.createElement('div');
-          modalElement.style.position = 'fixed';
-          modalElement.style.top = '0';
-          modalElement.style.left = '0';
-          modalElement.style.width = '100vw';
-          modalElement.style.height = '100vh';
-          modalElement.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-          modalElement.style.display = 'flex';
-          modalElement.style.justifyContent = 'center';
-          modalElement.style.alignItems = 'center';
+       nextButton.addEventListener("click", () => {
+           currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+           imageElement.src = images[currentImageIndex];
+       });
 
-          const modalImageElement = document.createElement('img');
-          modalImageElement.src = imageElement.src;
-          modalImageElement.style.maxWidth = '90%';
-          modalImageElement.style.maxHeight = '90%';
-          modalImageElement.style.objectFit = 'contain';
+       imageElement.addEventListener("click", () => {
+           const modal = document.createElement("div");
+           modal.style.position = "fixed";
+           modal.style.top = "0";
+           modal.style.left = "0";
+           modal.style.width = "100vw";
+           modal.style.height = "100vh";
+           modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+           modal.style.display = "flex";
+           modal.style.justifyContent = "center";
+           modal.style.alignItems = "center";
 
-          modalElement.appendChild(modalImageElement);
-          document.body.appendChild(modalElement);
+           const modalImage = document.createElement("img");
+           modalImage.src = imageElement.src;
+           modalImage.style.maxHeight = "90vh";
+           modalImage.style.objectFit = "contain";
 
-          modalElement.addEventListener('click', () => {
-              document.body.removeChild(modalElement);
-          });
-      });
+           modal.appendChild(modalImage);
+           document.body.appendChild(modal);
+
+           modal.addEventListener("click", () => {
+               document.body.removeChild(modal);
+           });
+       });
+
     </script>
 </body>
 </html>
