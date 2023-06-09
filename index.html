@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>タイトル</title>
+  <title>デボン紀の驚異：ダンクルオステウス</title>
   <style>
     body {
       margin: 0;
@@ -82,11 +82,31 @@
         width: 70%;
       }
     }
+
+    /* 追加したモーダル用のスタイル */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+    }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>タイトル</h1>
+    <h1>デボン紀の驚異：ダンクルオステウス</h1>
     <p>chatGPTが作成したWebページ</p>
     <nav>
       <a href="#">ホーム</a> | 
@@ -102,22 +122,29 @@
     </div>
     <div class="content">
       <div class="article" onclick="readAloud()">
-        <h2>記事</h2>
-        <p>記事本文</p>
+        <h2>デボン紀の驚異：ダンクルオステウス</h2>
+        <p>デボン紀時代、海洋の支配者として君臨していたダンクルオステウス。この魚は大きな顎と鋭い歯で知られ、最大で約9メートルに達したとされています。この時代の海洋生態系の頂点に君臨し、他の海洋生物を食べて生活していました。ダンクルオステウスの存在は、古代生物学者にとって重要な発見で、デボン紀の海洋生態系に大きな影響を与えた生物の一つです。</p>
       </div>
       <div class="image-container">
         <button class="image-btn" onclick="changeImage(-1)">&lt;</button>
-        <img src="image(1).png" id="main-image">
+        <img src="Dunkleosteus(1).jpg" id="main-image" onclick="openModal()">
         <button class="image-btn" onclick="changeImage(1)">&gt;</button>
       </div>
     </div>
   </div>
   <div class="footer">
-    <p>このページはMITライセンスで公開されており、ユーザーが自己責任で利用することを明記します。</p>
+    <p>このページはMITライセンスのもとで公開されており、利用者自身の責任において利用してください。</p>
+  </div>
+
+  <!-- 追加したモーダル -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <img id="modal-image">
+    </div>
   </div>
 
   <script>
-    const images = ["image(1).png", "image(2).png", "image(3).png"];
+    const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
     let currentIndex = 0;
 
     function readAloud() {
@@ -130,7 +157,21 @@
       currentIndex = (currentIndex + direction + images.length) % images.length;
       document.querySelector("#main-image").src = images[currentIndex];
     }
+
+    // 追加したモーダルの機能
+    const modal = document.getElementById("myModal");
+    const modalImage = document.getElementById("modal-image");
+
+    function openModal() {
+      modal.style.display = "block";
+      modalImage.src = document.getElementById("main-image").src;
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
 </body>
 </html>
-
