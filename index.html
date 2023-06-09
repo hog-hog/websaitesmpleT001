@@ -1,253 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>サンプルページ</title>
+    <title>ChatGPTが作成したWebページ</title>
     <style>
         body {
             margin: 0;
             padding: 0;
         }
-
-        .header, .footer {
-            background-color: #333;
-            color: white;
+        #header, #footer {
+            background-color: darkgray;
             text-align: center;
+            color: white;
             width: 100vw;
+            position: sticky;
         }
-
-        .header {
+        #header {
+            top: 0;
             height: 15vh;
         }
-
-        .footer {
+        #footer {
+            bottom: 0;
             height: 5vh;
         }
-
-        .main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-            width: 80vw;
-            margin: 0 auto;
-            background-color: white;
-        }
-
-        .sidebar {
-            background-color: #ccc;
-            height: 80vh;
+        #sidebar {
+            background-color: lightgray;
             width: 20vw;
+            height: 80vh;
             float: left;
+            overflow: auto;
         }
-
-        .article {
-            height: 30vh;
-            width: 70vw;
+        #main {
             background-color: white;
-            margin: 0 auto;
+            width: 80vw;
+            height: 80vh;
+            margin-left: 20vw;
             text-align: center;
+            overflow: auto;
         }
-
-        .img-area {
+        @media (max-width: 768px) {
+            #sidebar, #main {
+                float: none;
+                width: 100%;
+            }
+        }
+        #article {
+            background-color: white;
+            width: 70vw;
+            height: 30vh;
+            margin: auto;
+        }
+        #img-wrapper {
+            position: relative;
             width: 50vw;
             height: 50vh;
-            margin: 0 auto;
-            text-align: center;
+            margin: auto;
         }
-
+        #img-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
         .button {
-            width: 5vw;
-            height: 5vh;
-            color: blue;
-            cursor: pointer;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .main {
-                width: 100vw;
-            }
-
-            .sidebar {
-                width: 100vw;
-                float: none;
-            }
-
-            .article {
-                width: 100vw;
-            }
-
-            .img-area {
-                width: 70vw;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="header">タイトル<br>chatGPTが作成したWebページ</div>
-    <div class="sidebar">テクノロジー<br>ビジネス<br>エンタメ</div>
-    <div class="main">
-        <div class="article">サンプル記事<br>記事本文</div>
-        <div class="img-area">
-            <div class="button" id="button1">&lt;</div>
-            <img src="image.png" id="img" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-            <div class="button" id="button2">&gt;</div>
-        </div>
-    </div>
-    <div class="footer">© 2023 OpenAI. This page is released under the MIT license. Use at your own risk.</div>
-
-    <script>
-        // スクリプト1
-        document.querySelector('.article').addEventListener('click', function() {
-            const speech = new SpeechSynthesisUtterance();
-            speech.text = this.innerText;
-            speechSynthesis.speak(speech);
-        });
-
-        // スクリプト2
-        document.getElementById('img').addEventListener('click', function() {
-            // モーダル表示のロジックを記述（詳細は実装依存）
-        });
-
-        // スクリプト3
-        const images = ['image (1).png', 'image (2).png', 'image (3).png'];
-        let currentImageIndex = 0;
-
-        document.getElementById('button1').addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            document.getElementById('img').src = images[currentImageIndex];
-        });
-
-        document.getElementById('button2').addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
-            document.getElementById('img').src = images[currentImageIndex];
-        });
-    </script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>サンプルページ</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .header, .footer {
-            background-color: #333;
+            background-color: blue;
             color: white;
-            text-align: center;
-            width: 100vw;
-        }
-
-        .header {
-            height: 15vh;
-        }
-
-        .footer {
-            height: 5vh;
-        }
-
-        .main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-            width: 80vw;
-            margin: 0 auto;
-            background-color: white;
-        }
-
-        .sidebar {
-            background-color: #ccc;
-            height: 80vh;
-            width: 20vw;
-            float: left;
-        }
-
-        .article {
-            height: 30vh;
-            width: 70vw;
-            background-color: white;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .img-area {
-            width: 50vw;
-            height: 50vh;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .button {
             width: 5vw;
             height: 5vh;
-            color: blue;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
             cursor: pointer;
         }
-
-        @media only screen and (max-width: 768px) {
-            .main {
-                width: 100vw;
-            }
-
-            .sidebar {
-                width: 100vw;
-                float: none;
-            }
-
-            .article {
-                width: 100vw;
-            }
-
-            .img-area {
-                width: 70vw;
-            }
+        #button1 {
+            left: -5vw;
+        }
+        #button2 {
+            right: -5vw;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var imgArray = ['image (1).png', 'image (2).png', 'image (3).png'];
+            var imgIndex = 0;
+
+            $('#button1').click(function() {
+                imgIndex = (imgIndex + 1) % imgArray.length;
+                $('#img').attr('src', imgArray[imgIndex]);
+            });
+
+            $('#button2').click(function() {
+                imgIndex = (imgIndex - 1 + imgArray.length) % imgArray.length;
+                $('#img').attr('src', imgArray[imgIndex]);
+            });
+
+            $('#img').click(function() {
+                $(this).toggleClass('zoom');
+            });
+        });
+
+        window.SpeechSynthesisUtterance = window.SpeechSynthesisUtterance || window.webkitSpeechSynthesisUtterance;
+        var synth = window.speechSynthesis;
+
+        function readArticle() {
+            var utterThis = new SpeechSynthesisUtterance(document.getElementById("article").innerText);
+            synth.speak(utterThis);
+        }
+    </script>
 </head>
 <body>
-    <div class="header">タイトル<br>chatGPTが作成したWebページ</div>
-    <div class="sidebar">テクノロジー<br>ビジネス<br>エンタメ</div>
-    <div class="main">
-        <div class="article">サンプル記事<br>記事本文</div>
-        <div class="img-area">
-            <div class="button" id="button1">&lt;</div>
-            <img src="image.png" id="img" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-            <div class="button" id="button2">&gt;</div>
+    <div id="header">
+        <h1>タイトル</h1>
+        <h3>ChatGPTが作成したWebページ</h3>
+        <nav>
+            <a href="#">ホーム</a> | <a href="#">検索</a> | <a href="#">ニュース</a>
+        </nav>
+    </div>
+    <div id="sidebar">
+        <a href="#">テクノロジー</a><br/>
+        <a href="#">ビジネス</a><br/>
+        <a href="#">エンタメ</a>
+    </div>
+    <div id="main">
+        <div id="article" onClick="readArticle()">
+            <h2>記事</h2>
+            <p>記事本文</p>
+        </div>
+        <div id="img-wrapper">
+            <div id="button1" class="button">&lt;</div>
+            <img id="img" src="image (1).png">
+            <div id="button2" class="button">&gt;</div>
         </div>
     </div>
-    <div class="footer">© 2023 OpenAI. This page is released under the MIT license. Use at your own risk.</div>
-
-    <script>
-        // スクリプト1
-        document.querySelector('.article').addEventListener('click', function() {
-            const speech = new SpeechSynthesisUtterance();
-            speech.text = this.innerText;
-            speechSynthesis.speak(speech);
-        });
-
-        // スクリプト2
-        document.getElementById('img').addEventListener('click', function() {
-            // モーダル表示のロジックを記述（詳細は実装依存）
-        });
-
-        // スクリプト3
-        const images = ['image (1).png', 'image (2).png', 'image (3).png'];
-        let currentImageIndex = 0;
-
-        document.getElementById('button1').addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            document.getElementById('img').src = images[currentImageIndex];
-        });
-
-        document.getElementById('button2').addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
-            document.getElementById('img').src = images[currentImageIndex];
-        });
-    </script>
+    <div id="footer">
+        <small>このページはMITライセンスで公開されています。利用は自己責任でお願いします。</small>
+    </div>
 </body>
 </html>
