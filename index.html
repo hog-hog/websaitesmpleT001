@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webページ</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .header, .footer {
+      background-color: darkgrey;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .sidebar {
+      flex: 1;
+      background-color: lightgrey;
+      padding: 20px;
+    }
+    .content {
+      flex: 3;
+      background-color: white;
+      padding: 20px;
+    }
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+      .sidebar, .content {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>タイトル</h1>
+    <p>chatGPTが作成したWebページ</p>
+    <nav>
+      <a href="#">ホーム</a> |
+      <a href="#">検索</a> |
+      <a href="#">ニュース</a>
+    </nav>
+  </div>
+  <div class="main">
+    <div class="sidebar">
+      <ul>
+        <li><a href="#">テクノロジー</a></li>
+        <li><a href="#">ビジネス</a></li>
+        <li><a href="#">エンタメ</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="article">
+        <h2>記事</h2>
+        <p>記事本文</p>
+      </div>
+      <div class="image-gallery">
+        <button class="prev">＜</button>
+        <img src="image.png" alt="画像">
+        <button class="next">＞</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>このページはMITライセンスで公開されています。ユーザーが自己責任で利用します。</p>
+  </div>
+  <script>
+    const article = document.querySelector('.article');
+    const img = document.querySelector('.image-gallery img');
+    const images = ['image(1).png', 'image(2).png', 'image(3).png'];
+    let imageIndex = 0;
+
+    article.addEventListener('click', () => {
+      const utterance = new SpeechSynthesisUtterance(article.textContent);
+      window.speechSynthesis.speak(utterance);
+    });
+
+    img.addEventListener('click', () => {
+      const modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = '0';
+      modal.style.left = '0';
+      modal.style.width = '100%';
+      modal.style.height = '100%';
+      modal.style.background = `rgba(0,0,0,0.8) url(${img.src}) center / contain no-repeat`;
+      modal.addEventListener('click', () => {
+        document.body.removeChild(modal);
+      });
+      document.body.appendChild(modal);
+    });
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      imageIndex = (imageIndex + images.length - 1) % images.length;
+      img.src = images[imageIndex];
+    });
+
+    document.querySelector('.next').addEventListener('click', () => {
+      imageIndex = (imageIndex + 1) % images.length;
+      img.src = images[imageIndex];
+    });
+  </script>
+</body>
+</html>
 
