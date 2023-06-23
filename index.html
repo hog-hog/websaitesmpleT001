@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webページ</title>
+  <title>デボン紀の海底巨獣：ダンクレオステウスの覇者</title>
   <style>
     body {
       margin: 0;
@@ -74,8 +74,8 @@
 </head>
 <body>
   <div class="header">
-    <h1>タイトル</h1>
-    <p>chatGPTが作成したWebページ</p>
+    <h1>デボン紀の海底巨獣：ダンクレオステウスの覇者</h1>
+    <p>古代の海の支配者、ダンクレオステウスについて</p>
     <nav>
       <a href="#">ホーム</a> |
       <a href="#">検索</a> |
@@ -85,61 +85,25 @@
   <div class="main">
     <div class="sidebar">
       <ul>
-        <li><a href="#">テクノロジー</a></li>
-        <li><a href="#">ビジネス</a></li>
-        <li><a href="#">エンタメ</a></li>
+        <li><a href="#">デボン紀</a></li>
+        <li><a href="#">古生物</a></li>
+        <li><a href="#">ダンクレオステウス</a></li>
       </ul>
     </div>
     <div class="content">
       <div class="article">
-        <h2>記事</h2>
-        <p>記事本文</p>
+        <h2>デボン紀の海底巨獣、ダンクレオステウスの覇者</h2>
+        <p>デボン紀、約3.6億年前。地球上は魚類が主役の時代。その中でもダンクレオステウスは一際目立つ存在でした。その全長は最大で6m以上と推定され、鋭い顎と硬い外皮を持つこの生物は、海底の覇者として他の生物たちを圧倒していました。しかし、彼らの成功は長く続かず、その短い繁栄期を過ぎると一族は絶滅しました。その原因は今もなお、科学者たちが解き明かそうとしている謎の一つです。</p>
       </div>
       <div class="image-gallery">
-        <button class="prev">＜</button>
-        <img src="image.png" alt="画像">
-        <button class="next">＞</button>
+        <img src="Dunkleosteus(1).jpg" alt="Dunkleosteus Image 1">
+        <img src="Dunkleosteus(2).jpg" alt="Dunkleosteus Image 2">
+        <img src="Dunkleosteus(3).jpg" alt="Dunkleosteus Image 3">
       </div>
     </div>
   </div>
   <div class="footer">
-    <p>このページはMITライセンスで公開されています。ご自身の責任でご利用ください。</p>
+    <p>Copyright &copy; 2023 Dunkleosteus Knowledge</p>
   </div>
-  <script>
-    const article = document.querySelector('.article');
-    const img = document.querySelector('.image-gallery img');
-    const images = ['image(1).png', 'image(2).png', 'image(3).png'];
-    let imageIndex = 0;
-
-    article.addEventListener('click', () => {
-      const utterance = new SpeechSynthesisUtterance(article.textContent);
-      window.speechSynthesis.speak(utterance);
-    });
-
-    img.addEventListener('click', () => {
-      const modal = document.createElement('div');
-      modal.style.position = 'fixed';
-      modal.style.top = '0';
-      modal.style.left = '0';
-      modal.style.width = '100vw';
-      modal.style.height = '100vh';
-      modal.style.background = `rgba(0,0,0,0.8) url(${img.src}) center / contain no-repeat`;
-      modal.style.backgroundSize = 'contain';
-      modal.addEventListener('click', () => {
-        document.body.removeChild(modal);
-      });
-      document.body.appendChild(modal);
-    });
-
-    document.querySelector('.prev').addEventListener('click', () => {
-      imageIndex = (imageIndex + images.length - 1) % images.length;
-      img.src = images[imageIndex];
-    });
-
-    document.querySelector('.next').addEventListener('click', () => {
-      imageIndex = (imageIndex + 1) % images.length;
-      img.src = images[imageIndex];
-    });
-  </script>
 </body>
 </html>
