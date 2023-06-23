@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .header-title {
+            color: white;
+            font-size: 2em;
+        }
+
+        .header-subtitle {
+            color: black;
+            font-size: 1em;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100vw;
+        }
+
+        .sidebar {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgrey;
+            padding: 1em;
+        }
+
+        .content {
+            width: 80vw;
+            height: 80vh;
+            background-color: white;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .article {
+            width: 70vw;
+            height: 30vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container {
+            width: 50vw;
+            height: 40vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-button {
+            width: 5vw;
+            height: 5vh;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            width: 100vw;
+            height: 5vh;
+            background-color: darkgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100vw;
+            }
+
+            .content {
+                width: 100vw;
+            }
+
+            .article {
+                width: 100vw;
+            }
+
+            img {
+                width: 70vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">タイトル</h1>
+        <h2 class="header-subtitle">chatGPTが作成したWebページ</h2>
+        <!-- メニューはサンプルのためリンク先は指定していません -->
+        <nav>
+            <a href="#" style="color: blue;">ホーム</a> |
+            <a href="#" style="color: blue;">検索</a> |
+            <a href="#" style="color: blue;">ニュース</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <!-- リンクはサンプルのためリンク先は指定していません -->
+            <a href="#" style="color: black;">テクノロジー</a><br/>
+            <a href="#" style="color: black;">ビジネス</a><br/>
+            <a href="#" style="color: black;">エンタメ</a><br/>
+        </div>
+
+        <div class="content">
+            <div class="article" id="article" onclick="speak()">
+                <h2 style="color: black;">記事</h2>
+                <p style="color: black;">記事本文</p>
+            </div>
+
+            <div class="image-container">
+                <div class="image-button" onclick="prevImage()">&lt;</div>
+                <img id="main-image" src="image(1).png">
+                <div class="image-button" onclick="nextImage()">&gt;</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        このページはMITライセンスで公開されており、利用は自己責任でお願いします。
+    </footer>
+
+    <script>
+        let images = ["image(1).png", "image(2).png", "image(3).png"];
+        let currentImage = 0;
+
+        function nextImage() {
+            currentImage = (currentImage + 1) % images.length;
+            document.getElementById("main-image").src = images[currentImage];
+        }
+
+        function prevImage() {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            document.getElementById("main-image").src = images[currentImage];
+        }
+
+        function speak() {
+            let msg = new SpeechSynthesisUtterance();
+            let text = document.getElementById("article").textContent;
+            msg.text = text;
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+</body>
+</html>
 
