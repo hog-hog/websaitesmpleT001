@@ -10,57 +10,58 @@
       padding: 0;
       font-family: Arial, sans-serif;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       height: 100vh;
       width: 100vw;
-      align-items: center;
-      justify-content: center;
-    }
-    .header, .footer {
-      background-color: #333;
-      color: white;
-      width: 100vw;
-      text-align: center;
-      padding: 1em;
     }
     .sidebar {
       background-color: #ddd;
       width: 20vw;
-      height: 80vh;
+      height: 100vh;
       padding: 1em;
       overflow: auto;
     }
-    .content {
+    .main-content {
       background-color: white;
       width: 80vw;
-      height: 80vh;
-      padding: 1em;
-      overflow: auto;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     .article {
-      width: 70vw;
-      height: 30vh;
+      width: 80vw;
+      height: 50vh;
       padding: 1em;
       overflow: auto;
     }
-    .image-gallery {
-      width: 50vw;
-      height: 40vh;
+    .image-area {
+      width: 80vw;
+      height: 50vh;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
+      position: relative;
     }
-    .image-gallery img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
+    .image-area img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .image-area button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .image-area #prev-button {
+      left: 0;
+    }
+    .image-area #next-button {
+      right: 0;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>デボン紀の海底巨獣：ダンクレオステウスの覇者</h1>
-  </div>
   <div class="sidebar">
     <h2>サイドバー</h2>
     <ul>
@@ -69,19 +70,16 @@
       <li>エンタメ</li>
     </ul>
   </div>
-  <div class="content">
+  <div class="main-content">
     <div class="article">
       <h2>デボン紀の海底巨獣：ダンクレオステウス</h2>
-      <p>デボン紀、地球史上最も生物の多様性が躍進した時代の一つです。その中でもダンクレオステウスは一際目立つ存在でした。その全長は最大で6m以上と推定され、鋭い顎と硬い外皮を持つこの生物は、海底の覇者として他の生物たちを圧倒していました。しかし、彼らの成功は長く続かず、その短い繁栄期を過ぎると一族は絶滅しました。その原因は今もなお、科学者たちが解明しようと奮闘している問いです。</p>
+      <p>デボン紀、地球史上最も生物の多様性が躍進した時代の一つで、海洋ではダンクレオステウスという名の巨大な魚が繁栄していました。彼らは強靱な顎と鋭い歯を持ち、最大で10m近くにも達したと言われています。当時の海洋生態系の頂点に君臨していたダンクレオステウスは、鎧をまとったような硬い外皮で身を包み、強力な噛みつき力で獲物を捕食していたと推測されています。今から数億年前の海底で彼らが如何にして生き抜いたのか、その生態は未だに多くの謎に包まれています。</p>
     </div>
-    <div class="image-gallery">
+    <div class="image-area">
       <img id="image-display" src="Dunkleosteus(1).jpg" alt="Dunkleosteus Image">
-      <button id="prev-button">Previous</button>
-      <button id="next-button">Next</button>
+      <button id="prev-button">前へ</button>
+      <button id="next-button">次へ</button>
     </div>
-  </div>
-  <div class="footer">
-    <p>© 2023 全ての権利を保持。</p>
   </div>
   <script>
     const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
