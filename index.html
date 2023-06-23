@@ -8,102 +8,94 @@
     body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       height: 100vh;
+      width: 100vw;
+      align-items: center;
+      justify-content: center;
     }
     .header, .footer {
-      background-color: darkgrey;
+      background-color: #333;
       color: white;
+      width: 100vw;
       text-align: center;
-      padding: 20px;
-    }
-    .header {
-      height: 15vh;
-    }
-    .footer {
-      height: 5vh;
-    }
-    .main {
-      display: flex;
-      flex-grow: 1;
+      padding: 1em;
     }
     .sidebar {
+      background-color: #ddd;
       width: 20vw;
-      background-color: lightgrey;
-      padding: 20px;
+      height: 80vh;
+      padding: 1em;
+      overflow: auto;
     }
     .content {
-      width: 80vw;
       background-color: white;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      width: 80vw;
+      height: 80vh;
+      padding: 1em;
+      overflow: auto;
     }
     .article {
       width: 70vw;
       height: 30vh;
+      padding: 1em;
+      overflow: auto;
     }
     .image-gallery {
       width: 50vw;
       height: 40vh;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
     }
     .image-gallery img {
-      max-width: 40vw;
-      max-height: 40vh;
-      object-fit: contain;
-    }
-    @media (max-width: 768px) {
-      .sidebar, .content {
-        width: 100vw;
-      }
-      .article {
-        width: 100vw;
-      }
-      .image-gallery {
-        width: 70vw;
-      }
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
   <div class="header">
     <h1>デボン紀の海底巨獣：ダンクレオステウスの覇者</h1>
-    <p>古代の海の支配者、ダンクレオステウスについて</p>
-    <nav>
-      <a href="#">ホーム</a> |
-      <a href="#">検索</a> |
-      <a href="#">ニュース</a>
-    </nav>
   </div>
-  <div class="main">
-    <div class="sidebar">
-      <ul>
-        <li><a href="#">デボン紀</a></li>
-        <li><a href="#">古生物</a></li>
-        <li><a href="#">ダンクレオステウス</a></li>
-      </ul>
+  <div class="sidebar">
+    <h2>サイドバー</h2>
+    <ul>
+      <li>テクノロジー</li>
+      <li>ビジネス</li>
+      <li>エンタメ</li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="article">
+      <h2>デボン紀の海底巨獣：ダンクレオステウス</h2>
+      <p>デボン紀、地球史上最も生物の多様性が躍進した時代の一つです。その中でもダンクレオステウスは一際目立つ存在でした。その全長は最大で6m以上と推定され、鋭い顎と硬い外皮を持つこの生物は、海底の覇者として他の生物たちを圧倒していました。しかし、彼らの成功は長く続かず、その短い繁栄期を過ぎると一族は絶滅しました。その原因は今もなお、科学者たちが解明しようと奮闘している問いです。</p>
     </div>
-    <div class="content">
-      <div class="article">
-        <h2>デボン紀の海底巨獣、ダンクレオステウスの覇者</h2>
-        <p>デボン紀、約3.6億年前。地球上は魚類が主役の時代。その中でもダンクレオステウスは一際目立つ存在でした。その全長は最大で6m以上と推定され、鋭い顎と硬い外皮を持つこの生物は、海底の覇者として他の生物たちを圧倒していました。しかし、彼らの成功は長く続かず、その短い繁栄期を過ぎると一族は絶滅しました。その原因は今もなお、科学者たちが解き明かそうとしている謎の一つです。</p>
-      </div>
-      <div class="image-gallery">
-        <img src="Dunkleosteus(1).jpg" alt="Dunkleosteus Image 1">
-        <img src="Dunkleosteus(2).jpg" alt="Dunkleosteus Image 2">
-        <img src="Dunkleosteus(3).jpg" alt="Dunkleosteus Image 3">
-      </div>
+    <div class="image-gallery">
+      <img id="image-display" src="Dunkleosteus(1).jpg" alt="Dunkleosteus Image">
+      <button id="prev-button">Previous</button>
+      <button id="next-button">Next</button>
     </div>
   </div>
   <div class="footer">
-    <p>Copyright &copy; 2023 Dunkleosteus Knowledge</p>
+    <p>© 2023 全ての権利を保持。</p>
   </div>
+  <script>
+    const images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
+    let currentIndex = 0;
+
+    document.getElementById("prev-button").addEventListener("click", function() {
+      currentIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+      document.getElementById("image-display").src = images[currentIndex];
+    });
+
+    document.getElementById("next-button").addEventListener("click", function() {
+      currentIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+      document.getElementById("image-display").src = images[currentIndex];
+    });
+  </script>
 </body>
 </html>
