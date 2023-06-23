@@ -163,18 +163,26 @@
     </footer>
 
     <script>
-        let images = ["image(1).png", "image(2).png", "image(3).png"];
-        let currentImage = 0;
-
-        function nextImage() {
-            currentImage = (currentImage + 1) % images.length;
-            document.getElementById("main-image").src = images[currentImage];
-        }
-
-        function prevImage() {
-            currentImage = (currentImage - 1 + images.length) % images.length;
-            document.getElementById("main-image").src = images[currentImage];
-        }
+      let currentImageIndex = 0;
+      const images = ['Dunkleosteus(1).jpg', 'Dunkleosteus(2).jpg', 'Dunkleosteus(3).jpg'];
+      const imageElement = document.getElementById('image');
+    
+      function updateImage() {
+        imageElement.src = images[currentImageIndex];
+      }
+    
+      document.getElementById('button1').addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage();
+      });
+    
+      document.getElementById('button2').addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        updateImage();
+      });
+    
+      // 初期画像を設定
+      updateImage();
 
         function speak() {
             let msg = new SpeechSynthesisUtterance();
