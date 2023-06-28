@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Page</title>
+    <title>ダンクレオステウスの時代 - デボン紀の海の支配者</title>
     <style>
         body, html {
             margin: 0;
@@ -59,7 +59,7 @@
     </style>
 </head>
 <body>
-    <div class="header">タイトル</div>
+    <div class="header">ダンクレオステウスの時代 - デボン紀の海の支配者</div>
     <div class="main">
         <div class="sidebar">
             <ul>
@@ -70,25 +70,27 @@
         </div>
         <div class="content">
             <div class="article" onclick="readAloud(this);">
-                <h1>記事タイトル</h1>
-                <p>記事本文</p>
-            </div>
-            <div class="image-area">
-                <button onclick="prevImage();">＜</button>
-                <img id="myImage" src="image(1).png" onclick="showImage(this);">
-                <button onclick="nextImage();">＞</button>
+                <h1>ダンクレオステウス、デボン紀の海を支配</h1>
+                <p>デボン紀、およそ4億年前。海洋の生態系は、鋭い歯を持つ恐怖の支配者、ダンクレオステウスによって統制されていました。彼らは鎧に覆われた巨大な体を持ち、他の海洋生物に対して絶大な優位性を誇りました。特にダンクレオステウスの顎の強さは他の追随を許さず、獲物を捕らえる際にはその力を遺憾なく発揮しました。遥か昔、この地球上で生きていた彼らの存在を思い描くと、その壮大さに感動せざるを得ません。</p>
+                <div class="image-area">
+                    <img id="myImage" src="Dunkleosteus(1).jpg" onclick="showImage(this);" />
+                    <button onclick="prevImage();">Previous</button>
+                    <button onclick="nextImage();">Next</button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="footer">フッター</div>
+    <div class="footer">Copyright 2023</div>
+    
     <script>
-        var imageIndex = 1;
-        var images = ["image(1).png", "image(2).png", "image(3).png"];
+        var images = ["Dunkleosteus(1).jpg", "Dunkleosteus(2).jpg", "Dunkleosteus(3).jpg"];
+        var imageIndex = 0;
 
         function readAloud(element) {
             var text = element.textContent;
-            var utterance = new SpeechSynthesisUtterance(text);
-            window.speechSynthesis.speak(utterance);
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+            window.speechSynthesis.speak(msg);
         }
 
         function showImage(element) {
@@ -128,4 +130,3 @@
     </script>
 </body>
 </html>
-
