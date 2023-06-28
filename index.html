@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+}
+
+.header, .footer {
+    width: 100vw;
+    background-color: darkgray;
+    text-align: center;
+    color: white;
+}
+
+.header {
+    height: 15vh;
+}
+
+.header h1 {
+    color: white;
+}
+
+.header h2 {
+    color: black;
+}
+
+.sidebar {
+    position: fixed;
+    height: 80vh;
+    width: 20vw;
+    background-color: lightgray;
+}
+
+.main-content {
+    margin-left: 20vw;
+    height: 80vh;
+    width: 80vw;
+    background-color: white;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 5vh;
+    color: white;
+}
+
+.article-area {
+    width: 70vw;
+    height: 30vh;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+}
+
+.article-area h1 {
+    color: black;
+}
+
+.article-area p {
+    color: black;
+}
+
+.image-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 40vh;
+    margin: auto;
+}
+
+.image-area img {
+    width: 50vw;
+    height: 40vh;
+    object-fit: contain;
+}
+
+.button {
+    width: 5vw;
+    height: 5vh;
+    background-color: white;
+    color: blue;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100vw;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100vw;
+    }
+
+    .article-area {
+        width: 100vw;
+    }
+
+    .image-area img {
+        width: 70vw;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>タイトル</h1>
+  <h2>ChatGPTが作成したWebページ</h2>
+  <nav>
+    <a href="#" style="color: blue;">ホーム</a> |
+    <a href="#" style="color: blue;">検索</a> |
+    <a href="#" style="color: blue;">ニュース</a>
+  </nav>
+</div>
+
+<div class="sidebar">
+  <ul>
+    <li><a href="#" style="color: black;">テクノロジー</a></li>
+    <li><a href="#" style="color: black;">ビジネス</a></li>
+    <li><a href="#" style="color: black;">エンタメ</a></li>
+  </ul>
+</div>
+
+<div class="main-content">
+  <div class="article-area" id="article-area" onclick="readText()">
+    <h1>記事</h1>
+    <p>記事本文</p>
+  </div>
+
+  <div class="image-area">
+    <button class="button" id="button1" onclick="changeImage(-1)">＜</button>
+    <img id="image-display" onclick="expandImage()" src="image(1).png">
+    <button class="button" id="button2" onclick="changeImage(1)">＞</button>
+  </div>
+</div>
+
+<div class="footer">
+  <p>このページはMITライセンスで公開されています。ユーザー自己責任で利用してください。</p>
+</div>
+
+<script>
+var images = ['image(1).png', 'image(2).png', 'image(3).png'];
+var imageIndex = 0;
+
+function changeImage(direction) {
+    imageIndex += direction;
+
+    if (imageIndex < 0) {
+        imageIndex = images.length - 1;
+    } else if (imageIndex >= images.length) {
+        imageIndex = 0;
+    }
+
+    document.getElementById('image-display').src = images[imageIndex];
+}
+
+function expandImage() {
+    var img = document.getElementById('image-display');
+    var modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.background = 'rgba(0, 0, 0, 0.7)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = 1000;
+    var modalImg = document.createElement('img');
+    modalImg.src = img.src;
+    modalImg.style.maxWidth = '90%';
+    modalImg.style.maxHeight = '90%';
+    modalImg.style.objectFit = 'contain';
+    modal.appendChild(modalImg);
+    document.body.appendChild(modal);
+    modal.addEventListener('click', function() {
+        document.body.removeChild(modal);
+    });
+}
+
+function readText() {
+    var text = document.getElementById('article-area').textContent;
+    var msg = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(msg);
+}
+</script>
+
+</body>
+</html>
 
