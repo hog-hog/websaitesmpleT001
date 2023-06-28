@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            width: 100vw;
+            height: 15vh;
+            background-color: darkgrey;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        #main {
+            width: 80vw;
+            height: 80vh;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+        }
+        #sidebar {
+            width: 20vw;
+            height: 80vh;
+            background-color: lightgrey;
+        }
+        #footer {
+            width: 100vw;
+            height: 5vh;
+            background-color: darkgrey;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .button {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+        }
+        @media only screen and (max-width: 768px) {
+            #main {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>タイトル</h1>
+        <h3>chatGPTが作成したWebページ</h3>
+        <p>ホーム | 検索 | ニュース</p>
+    </div>
+
+    <div id="main">
+        <div id="sidebar">
+            <p>テクノロジー</p>
+            <p>ビジネス</p>
+            <p>エンタメ</p>
+        </div>
+
+        <div id="content">
+            <div id="article" onclick="speak()">
+                <h2>記事</h2>
+                <p>記事本文</p>
+            </div>
+
+            <div id="imageArea">
+                <button class="button" onclick="previousImage()">＜</button>
+                <img id="image" src="image(1).png" onclick="openModal()" style="width: 50vw; height: 40vh;">
+                <button class="button" onclick="nextImage()">＞</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>このページはMITライセンスで公開されています。ユーザーは自己責任で利用してください。</p>
+    </div>
+
+    <script>
+        var images = ["image(1).png", "image(2).png", "image(3).png"];
+        var currentIndex = 0;
+
+        function speak() {
+            var article = document.getElementById('article').innerText;
+            var speech = new SpeechSynthesisUtterance(article);
+            window.speechSynthesis.speak(speech);
+        }
+
+        function openModal() {
+            var image = document.getElementById('image');
+            image.style.position = 'fixed';
+            image.style.zIndex = 999;
+            image.style.maxHeight = '90vh';
+        }
+
+        function closeModal() {
+            var image = document.getElementById('image');
+            image.style.position = '';
+            image.style.zIndex = '';
+            image.style.maxHeight = '';
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById('image').src = images[currentIndex];
+        }
+
+        function previousImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById('image').src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>
 
